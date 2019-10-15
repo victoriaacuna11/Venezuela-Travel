@@ -9,17 +9,18 @@
 .imgs-wrapper{
     height: 100%;
     width: 50%;
-    background-color: #E3DED5;
+    background-color: #1DA9BC;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2%;
-    
+
 }
 
 #img-main{
     height: 96%;
     width: 80%;
+    background-color: #1DA9BC;
     position: relative;
 }
 
@@ -57,7 +58,7 @@
 }
 
 .background-clr{
-    background-color: #1DA9BC;
+    background-color: #E3DED5;
     position: absolute;
     top: 0%;
     left: 0%;
@@ -94,8 +95,9 @@
 .text-wrapper{
     height: 100%;
     width: 50%;
-    background-color: #E3DED5;
+    background-color: #1DA9BC;
     padding: 2%;
+    
 }
 
 .what-we-offer-title{
@@ -105,8 +107,7 @@
     justify-content: center;
     height: 40%;
     width: 100%;
-    margin-bottom: 15px solid #1DA9BC;
-    color: #1DA9BC;
+    color: #E3DED5;
     font-family: Impact;
     font-size: 30px;
     
@@ -120,7 +121,7 @@
     width: 100%;
     font-size: 22px;
     font-family: Helvetica;
-    color: #1DA9BC;
+    color: #E3DED5;
     div{
         height: 100%;
         width: 85%;
