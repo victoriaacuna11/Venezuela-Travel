@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-banner-home-page',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./banner-home-page.component.scss']
 })
 export class BannerHomePageComponent implements OnInit {
+
+  @Input() img: string;
+  @Input() gif: string;
 
   constructor() { }
 
