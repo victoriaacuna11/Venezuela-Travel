@@ -1,41 +1,33 @@
 
-
-#banner{
+.banner{
     height: 100vh;
     width: 100vw;
+    position: relative;
+}
+#banner-img{
     background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#banner-gif{
-    height:30vh;
-    width: 45vw;
-    background-size: cover;
-}
-#gif-wrapper{
-    height:50vh;
-    width: 45vw; 
-      
-}
-
-
-.separador{
-    height: 5vh;
-    width: 100vw;
-    background-color: #E3DED5;
 }
 
 .title-wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 30vh;
     width: 45vw;
     color: white;
-    font-family: 'Neucha', cursive;
+    font-family: 'Staatliches', cursive;
+    font-size: 40px;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 40px;
+
 }
 
+#banner-background{
+    background-color: black;
+    opacity: 0.3;
+}
 
 
