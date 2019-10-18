@@ -1,15 +1,25 @@
 .container{
     width: 100vw;
-    height: 45vh;
+    height: 50vh;
     display: flex;
+    // background-size: cover;
+    // position: relative;
 
+}
+.background-clr{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #E3DED5;
 }
 
 
 .imgs-wrapper{
     height: 100%;
     width: 50%;
-    background-color: #1DA9BC;
+    background-color:#1da9bc;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +30,7 @@
 #img-main{
     height: 96%;
     width: 80%;
-    background-color: #1DA9BC;
+    // background-color:#558cc5;
     position: relative;
 }
 
@@ -78,24 +88,20 @@
     height: 85%;
     width: 85%;
 }
-// #img1{
-//     left: 7%;
-//     background-image: url(../../../../../img/img1-1-hp.jpg);
-// }
-// #img2{
-//     background-image: url(../../../../../img/img2-1-hp.jpg);
-// }
-// #img3{
-//     background-image: url(../../../../../img/img3-1-hp.jpg);
-// }
-// #img4{
-//     background-image: url(../../../../../img/img2-1-hp.jpg);
+// .background-color{
+//     background-color: black;
+//     opacity: 0.3;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     width: 100vw;
+//     height: 100vh;
 // }
 
 .text-wrapper{
     height: 100%;
     width: 50%;
-    background-color: #1DA9BC;
+    background-color: #1da9bc;
     padding: 2%;
     
 }
@@ -130,4 +136,10 @@
         align-items: center;
         justify-content: center;
     }
+}
+
+.img-footer{
+    
+    height: 20vh;
+    width: 100vw;
 }

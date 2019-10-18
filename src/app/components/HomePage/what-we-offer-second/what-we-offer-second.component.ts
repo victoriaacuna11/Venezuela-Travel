@@ -13,6 +13,7 @@ export class WhatWeOfferSecondComponent implements OnInit {
   @Input() img4 : string; 
   @Input() title: string;
   @Input() text: string;
+  @Input() imgf: string;
 
   constructor() { }
 
