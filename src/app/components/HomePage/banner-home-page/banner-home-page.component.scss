@@ -1,3 +1,5 @@
+
+
 #banner{
     height: 100vh;
     width: 100vw;
@@ -17,13 +19,6 @@
       
 }
 
-#img-gif:hover{
-    opacity: 0;
-}
-#img-gif{
-    width: 45vw;
-    height: 30vh;
-}
 
 .separador{
     height: 5vh;
@@ -31,14 +26,15 @@
     background-color: #E3DED5;
 }
 
-.img-title{
-    width: 45vw;
-    height: 10vh;
-
-}
 .title-wrapper{
+    height: 30vh;
     width: 45vw;
-    height: 10vh;
+    color: white;
+    font-family: 'Neucha', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
 }
 
 
