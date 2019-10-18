@@ -7,12 +7,22 @@
     justify-content: center;
 }
 #banner-gif{
-    
-    height: 30vh;
+    height:30vh;
     width: 45vw;
-    background-color: black;
     background-size: cover;
-    
+}
+#gif-wrapper{
+    height:50vh;
+    width: 45vw; 
+      
+}
+
+#img-gif:hover{
+    opacity: 0;
+}
+#img-gif{
+    width: 45vw;
+    height: 30vh;
 }
 
 .separador{
@@ -20,4 +30,16 @@
     width: 100vw;
     background-color: #E3DED5;
 }
+
+.img-title{
+    width: 45vw;
+    height: 10vh;
+
+}
+.title-wrapper{
+    width: 45vw;
+    height: 10vh;
+}
+
+
 

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-banner-home-page',
@@ -9,10 +10,13 @@ export class BannerHomePageComponent implements OnInit {
 
   @Input() img: string;
   @Input() gif: string;
+  @Input() VenezuelaTitle: string;
+  @Input() TravelTitle: string;
 
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }
