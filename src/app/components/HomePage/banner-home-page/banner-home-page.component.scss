@@ -1,46 +1,45 @@
-#banner{
-    height: 100vh;
+#main-banner{
     width: 100vw;
+    height: 100vh;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
-#banner-gif{
-    height:30vh;
+#header-wrapper{
     width: 45vw;
-    background-size: cover;
-}
-#gif-wrapper{
-    height:50vh;
-    width: 45vw; 
-      
+    height: 50vh;
 }
 
-// #img-gif:hover{
-//     opacity: 0;
-// }
-// #img-gif{
-//     width: 45vw;
-//     height: 30vh;
-//     background-size: cover;
-// }
-
-.separador{
-    height: 5vh;
-    width: 100vw;
-    background-color: #E3DED5;
-}
-
-.img-title{
-    width: 45vw;
-    height: 10vh;
-
-}
 .title-wrapper{
     width: 45vw;
     height: 10vh;
+    font-family: 'Staatliches', cursive;
+    color: white;
+    font-size: 5vh;
+    
 }
+
+#gif-wrapper{
+    width: 45vw;
+    height: 30vh;
+}
+#ven-title{
+    text-align: left;
+}
+#travel-title{
+    text-align: right;
+}
+
+
+// .separador{
+//     height: 5vh;
+//     width: 100vw;
+//     background-color: #E3DED5;
+// }
+
+
 
 
 
