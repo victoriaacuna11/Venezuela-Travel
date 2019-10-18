@@ -12,6 +12,7 @@ export class BannerHomePageComponent implements OnInit {
   @Input() gif: string;
   @Input() VenezuelaTitle: string;
   @Input() TravelTitle: string;
+  @Input() imgdefault: string;
 
   constructor() { }
 
