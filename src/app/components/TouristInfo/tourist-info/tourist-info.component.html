@@ -1,7 +1,9 @@
 <div id="banner-tourist-info" 
     [ngStyle]="{'background-image': 'url('+ imgbanner +')'}">
-    <div id="banner-title">  
+    <div class="mask" id="banner-mask">
+        <div id="banner-title">  
             <h1>{{titlebanner}}</h1>
+        </div>
     </div>
 </div>
 
@@ -9,85 +11,23 @@
     <div class="imgs-wrapper">
 
         <div class="info-wrapper" id="gastronomy">
-            <div class="title-wrapper"> 
-                <h2>Gastronomía</h2> 
-            </div>
-            <div class="text-wrapper">
-            <p>Hoooooooooooolaaaa csashabjsahsdbjasda
-                                    abhbhasbdajsda
-                                    absbahbsdhabdhasjdbas
-                                    bshdjahsdbjahdjashda
-                                    hahah ansjasnaks
-            </p>
-            </div>
-        </div>
-
-        <div class="info-wrapper" id="recreative-acts">
-            <div class="title-wrapper"> 
-                <h2>Actividades<br>recreativas</h2> 
-            </div>
-            <div class="text-wrapper">
-                <p>Hoooooooooooolaaaa csashabjsahsdbjasda
-                    abhbhasbdajsda
-                    absbahbsdhabdhasjdbas
-                    bshdjahsdbjahdjashda
-                    hahah ansjasnaks
-                </p>
-            </div>
-        </div>
-
-        <div class="info-wrapper" id="hotels-inf-estate">
-            <div class="title-wrapper"> 
-                <h2>Hoteles</h2> 
-            </div>
-            <div class="text-wrapper">
-                <p>Hoooooooooooolaaaa csashabjsahsdbjasda
-                            abhbhasbdajsda
-                            absbahbsdhabdhasjdbas
-                            bshdjahsdbjahdjashda
-                            hahah ansjasnaks
-                </p>
-            </div>
-        </div>
-
-        <div class="info-wrapper" id="culture">
-            <div class="title-wrapper"> 
-                <h2>Cultura</h2> 
-            </div>
-            <div class="text-wrapper">
-                <p>Hoooooooooooolaaaa csashabjsahsdbjasda
-                    abhbhasbdajsda
-                    absbahbsdhabdhasjdbas
-                    bshdjahsdbjahdjashda
-                    hahah ansjasnaks
-                </p>
-            </div>
-        </div>
-
-    </div>
-</div>
-<!-- 
-<div class="imgs-wrapper">
-    <div class="img-wrapper">
-        <div class="left-wrapper">
-            <div class="info-wrapper" id="gastronomy">
+            <div class="mask-img">
                 <div class="title-wrapper"> 
                     <h2>Gastronomía</h2> 
                 </div>
                 <div class="text-wrapper">
-                    <p>Hoooooooooooolaaaa csashabjsahsdbjasda
-                                abhbhasbdajsda
-                                absbahbsdhabdhasjdbas
-                                bshdjahsdbjahdjashda
-                                hahah ansjasnaks
-                    </p>
+                <p>Hoooooooooooolaaaa csashabjsahsdbjasda
+                    abhbhasbdajsda
+                    absbahbsdhabdhasjdbas
+                    bshdjahsdbjahdjashda
+                    hahah ansjasnaks
+                </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="img-wrapper">
-        <div class="right-wrapper">
-            <div class="info-wrapper" id="recreative-acts">
+
+        <div class="info-wrapper" id="recreative-acts">
+            <div class="mask-img">
                 <div class="title-wrapper"> 
                     <h2>Actividades<br>recreativas</h2> 
                 </div>
@@ -101,32 +41,11 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="imgs-wrapper">
-        <div class="img-wrapper">
-            <div class="left-wrapper">
-                <div class="info-wrapper" id="hotels-inf-estate">
-                    <div class="title-wrapper"> 
+        <div class="info-wrapper" id="hotels-inf-estate">
+            <div class="mask-img">
+                <div class="title-wrapper"> 
                         <h2>Hoteles</h2> 
-                    </div>
-                    <div class="text-wrapper">
-                        <p>Hoooooooooooolaaaa csashabjsahsdbjasda
-                                    abhbhasbdajsda
-                                    absbahbsdhabdhasjdbas
-                                    bshdjahsdbjahdjashda
-                                    hahah ansjasnaks
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="img-wrapper">
-            <div class="right-wrapper">
-                <div class="info-wrapper" id="culture">
-                    <div class="title-wrapper"> 
-                        <h2>Cultura</h2> 
                     </div>
                     <div class="text-wrapper">
                         <p>Hoooooooooooolaaaa csashabjsahsdbjasda
@@ -136,7 +55,56 @@
                             hahah ansjasnaks
                         </p>
                     </div>
+            </div>
+        </div>    
+
+        <div class="info-wrapper" id="culture">
+            <div class="mask-img">
+                <div class="title-wrapper"> 
+                    <h2>Cultura</h2> 
+                </div>
+                <div class="text-wrapper">
+                    <p>Hoooooooooooolaaaa csashabjsahsdbjasda
+                        abhbhasbdajsda
+                        absbahbsdhabdhasjdbas
+                        bshdjahsdbjahdjashda
+                        hahah ansjasnaks
+                    </p>
                 </div>
             </div>
+
         </div>
-    </div> -->
+
+    </div>
+</div>
+<div>
+    <div class="title-imgs">
+        <h2>Galería de fotos</h2>
+    </div>
+    <div class="slider-wrapper">
+        <div class="slider">
+                <carousel>
+                    <slide>
+                        <img src="http://elestimulo.com/wp-content/uploads/2014/10/salto-angel-1100x618.jpg" 
+                        style="display: block; width: 80vw; height: 60vh;">
+                    </slide>
+                    <slide>
+                        <img src="http://www.panorama.com.ve/__export/1495456921565/sites/panorama/img/pitoquito/2017/05/22/dsc04979.jpg" 
+                        style="display: block; width: 80vw; height: 60vh;">
+                    </slide>
+                    <slide>
+                        <img src="https://tvenlacalle.com/wp-content/uploads/2018/06/parque-nacional-canaima-1.jpg" 
+                        style="display: block; width: 80vw; height: 60vh;">
+                    </slide>
+                    <slide>
+                        <img src="https://viajespereira.com/wp-content/uploads/2016/01/04.jpg" 
+                        style="display: block; width: 80vw; height: 60vh;">
+                    </slide>
+                    <slide>
+                        <img src="http://elestimulo.com/wp-content/uploads/2016/01/kukenan-1-2.jpg" 
+                        style="display: block; width: 80vw; height: 60vh;">
+                    </slide>
+                </carousel>
+        </div>
+    </div>
+</div>
