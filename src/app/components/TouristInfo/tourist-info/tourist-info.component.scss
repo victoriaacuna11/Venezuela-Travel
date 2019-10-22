@@ -19,56 +19,64 @@
     color: white;
     font-family: 'Staatliches', cursive;
     font-size: 8vh;
+    
 }
+
 
 .wrapper{
     height: 80vh;
     width: 100vw;
-    background-color: yellow;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #ddd4c7;
 }
 
 .imgs-wrapper{
     position: relative;
     background-color: #ddd4c7;
-    height: 70vh;
-    width: 100vw;
-    display: flex;
+    height: 60vh;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
 }
 
-.img-wrapper{
-    height: 70vh;
-    width: 50vw;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: 'Staatliches', cursive;
-}
+// .img-wrapper{
+//     height: 70vh;
+//     width: 50vw;
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     color: white;
+//     font-family: 'Staatliches', cursive;
+// }
 
-.right-wrapper{
-    height: 50vh;
-    width: 30vw;
+// .right-wrapper{
+//     height: 50vh;
+//     width: 30vw;
     
-}
-.left-wrapper{
-    height: 50vh;
-    width: 30vw;
-}
+// }
+// .left-wrapper{
+//     height: 50vh;
+//     width: 30vw;
+// }
 
 .info-wrapper{
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     background-size: cover;
+    font-family: 'Staatliches', cursive;
+    color: white;
         .text-wrapper{
         display: none;
-        width: 30vw;
-        height: 35vh;
+        // width: 30vw;
+        
     }
     .title-wrapper{
-        width: 30vw;
-        height: 50vh;
+        // width: 30vw;
+        height: 60vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -79,13 +87,14 @@
 
 .info-wrapper:hover{
     .title-wrapper{
-        width: 30vw;
-        height: 15vh;
+        // width: 30vw;
+        height: 20vh;
     }
     .text-wrapper{
         padding: 5%;
-        width: 30vw;
-        display: block;
+        // width: 30vw;
+        height: 40vh;
+        // display: block;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -95,16 +104,16 @@
 }
 
 #recreative-acts{
-    background-image: url(https://d2q2l2ko2chbyo.cloudfront.net/uploads/activity_image/image/4253/snorkeling_algarve.jpg);
+    background-image: url(../../../../assets/img/acts.png);
 }
 #gastronomy{
-    background-image:url(https://conceptodefinicion.de/wp-content/uploads/2019/08/Gastronom%C3%ADa-1.jpg);
+    background-image:url(../../../../assets/img/gastronomy.png);
 }
 #culture{
-    background-image: url(https://hablemosdeculturas.com/wp-content/uploads/2017/10/Cultura-Venezolana16.jpg);
+    background-image: url(../../../../assets/img/cultura.png);
 }
 #hotels-inf-estate{
-    background-image: url(https://giraenlared.com/wp-content/uploads/2017/02/1486758008534.jpg);
+    background-image: url(../../../../assets/img/hotel.png);
 
 }
 
