@@ -1,0 +1,46 @@
+.menu-wrapper{
+    width: 33.33vw;
+    height: 5vh;
+    // background-color: black;
+    // opacity:0.3;
+    position: relative;
+}
+#navBar-desktop{
+    display: flex;
+    height: 5vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    // background-color: black;
+}
+.button{
+    height: 5vh;
+    width: 10vw;
+    font-family: 'Staatliches', cursive;
+    color: white;
+    font-size: 2vh;
+    position: absolute;
+    border: 2px solid white;
+    background-color: transparent;
+    
+}
+
+#menu-btn{
+    right: 10%;
+    top: 0;
+}
+
+#main-btn{
+    left: 10%;
+    top: 0;
+}
+#search-btn{
+    left: 30%;
+    top: 0;
+    background-color: black;
+}
+#main-icon{
+    height: auto;
+    width: 30%;
+}

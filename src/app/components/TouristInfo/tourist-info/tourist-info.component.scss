@@ -1,0 +1,110 @@
+#banner-tourist-info{
+    height: 40vh;
+    width: 100vw;
+    background-color: #ddd4c7;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#banner-title{
+    height: 20vh;
+    width: 50vw;
+    background-color: black;
+    opacity: 0.3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 8vh;
+}
+
+.wrapper{
+    height: 80vh;
+    width: 100vw;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgs-wrapper{
+    position: relative;
+    background-color: #ddd4c7;
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+}
+
+.img-wrapper{
+    height: 70vh;
+    width: 50vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Staatliches', cursive;
+}
+
+.right-wrapper{
+    height: 50vh;
+    width: 30vw;
+    
+}
+.left-wrapper{
+    height: 50vh;
+    width: 30vw;
+}
+
+.info-wrapper{
+    background-size: cover;
+        .text-wrapper{
+        display: none;
+        width: 30vw;
+        height: 35vh;
+    }
+    .title-wrapper{
+        width: 30vw;
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 3vh;
+    }
+}
+
+.info-wrapper:hover{
+    .title-wrapper{
+        width: 30vw;
+        height: 15vh;
+    }
+    .text-wrapper{
+        padding: 5%;
+        width: 30vw;
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: 'Liu Jian Mao Cao', cursive;
+    }
+}
+
+#recreative-acts{
+    background-image: url(https://d2q2l2ko2chbyo.cloudfront.net/uploads/activity_image/image/4253/snorkeling_algarve.jpg);
+}
+#gastronomy{
+    background-image:url(https://conceptodefinicion.de/wp-content/uploads/2019/08/Gastronom%C3%ADa-1.jpg);
+}
+#culture{
+    background-image: url(https://hablemosdeculturas.com/wp-content/uploads/2017/10/Cultura-Venezolana16.jpg);
+}
+#hotels-inf-estate{
+    background-image: url(https://giraenlared.com/wp-content/uploads/2017/02/1486758008534.jpg);
+
+}
+
