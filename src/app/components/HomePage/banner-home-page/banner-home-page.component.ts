@@ -19,5 +19,6 @@ export class BannerHomePageComponent implements OnInit {
   ngOnInit() {
   }
 
+  
 
 }
