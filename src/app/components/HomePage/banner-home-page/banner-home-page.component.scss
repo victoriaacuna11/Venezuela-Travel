@@ -9,36 +9,47 @@
 }
 #header-wrapper{
     width: 45vw;
-    height: 50vh;
+    height: 60vh;
 }
 
 .title-wrapper{
     width: 45vw;
-    height: 10vh;
+    height: 15vh;
     font-family: 'Staatliches', cursive;
     color: white;
-    font-size: 5vh;
-    
+    font-size: 70px;
+    position: relative;
 }
 
 #gif-wrapper{
     width: 45vw;
     height: 30vh;
+    video{
+        width: 45vw;
+        height: 30vh; 
+    }
 }
 #ven-title{
-    text-align: left;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
 }
 #travel-title{
-    text-align: right;
+    position: absolute;
+    top: 0%;
+    right: 0%;
 }
 
-
-// .separador{
-//     height: 5vh;
-//     width: 100vw;
-//     background-color: #E3DED5;
-// }
-
+.blue-div{
+    background-color: #1DA9BC;
+    width: 100vw;
+    height: 45vh;
+}
+.cream-div{
+    background-color: #E3DED5;
+    width: 100vw;
+    height: 45vh;
+}
 
 
 

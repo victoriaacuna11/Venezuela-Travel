@@ -2,13 +2,13 @@
     width: 100vw;
     height: 45vh;
     display: flex;
-
+    background-color: #E3DED5;
 }
 
 
 .imgs-wrapper{
-    height: 100%;
-    width: 50%;
+    height: 45vh;
+    width: 50vw;
     background-color: #E3DED5;
     display: flex;
     align-items: center;
@@ -77,23 +77,11 @@
     height: 85%;
     width: 85%;
 }
-// #img1{
-//     left: 7%;
-//     background-image: url(../../../../../img/img1-1-hp.jpg);
-// }
-// #img2{
-//     background-image: url(../../../../../img/img2-1-hp.jpg);
-// }
-// #img3{
-//     background-image: url(../../../../../img/img3-1-hp.jpg);
-// }
-// #img4{
-//     background-image: url(../../../../../img/img2-1-hp.jpg);
-// }
+
 
 .text-wrapper{
-    height: 100%;
-    width: 50%;
+    height: 45vh;
+    width: 50vw;
     background-color: #E3DED5;
     padding: 2%;
 }
