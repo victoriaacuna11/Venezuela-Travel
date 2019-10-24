@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.9",
     "bootstrap": "4.1.1",
     "jquery": "^3.4.1",
+    "ng2-tooltip-directive": "^2.8.17",
     "ngx-bootstrap": "^5.2.0",
     "popper": "^1.0.1",
     "rxjs": "~6.4.0",
