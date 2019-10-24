@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*body{
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #E3DED5;
+}*/
+
+.wrapper2{
+    
+    position: absolute;
+}
+
+.wrapper{   
+    width: 100vw;
+    height: 90vh;
+    position: relative;
+}
+
+.wrapper2 .bg{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(227, 222, 213, 0.9);
+        z-index: 3;
+    }
+}
+
+
+.element{
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    transform: translate(-40%, -40%);
+    z-index: 4;
+}
+
+@keyframes appear{
+    
+    from {left:0%; top:0%;}
+    to {left:40%; top:40%;}
+
+}
+
+.individual{
+    font-family: 'Roboto Condensed', cursive;
+    font-size: 30px;
+    position: relative;
+    width: 400px;
+    padding: 30px;
+    animation-name: appear;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+
+   &#one{
+        animation-delay: 0s;
+    }
+    &#two{
+        animation-delay:0.1s;
+    }
+    &#three{
+        animation-delay: 0.2s;
+    }
+    &#four{
+        animation-delay: 0.3s;
+    }
+    &#five{
+        animation-delay: 0.4s;
+    }
+    &#six{
+        animation-delay: 0.5s;
+    }
+}
+
+.individual:hover{
+    font-size: larger;
+    width: 410px;
+    height: 100px;
+    transition: .6s;
+    cursor: pointer;
+
+}
+
+.links{
+    text-decoration: none;
+    color: black;
+}

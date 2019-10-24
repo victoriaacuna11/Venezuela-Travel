@@ -1,0 +1,36 @@
+<br>
+<br>
+<br>
+
+<div class="wrapperH">
+
+    <div class="block" *ngFor="let hotel of message">
+        <div>
+            <img class="imagenes" src="{{hotel.imgPrin}}" alt="">
+        </div>
+        <div>
+            <h3>{{hotel.name}}</h3>
+            <br>
+            <h5>{{hotel.description}}</h5>
+            <br>
+            <div class="miniWrapper">
+                <div class="iconOrder">
+                    <div tooltip="{{icono.msg}}" placement="top" show-delay="500" *ngFor="let icono of hotel.amenitiesImg">
+                        <img class="icons" src="{{icono.icon}}" alt="gnfn">
+                    </div>
+                </div>
+                <div class="seeMore"> Ver más...</div> 
+            </div>                    
+        </div>
+    </div>
+
+</div>
+   
+<br>
+<br>
+<div class="space">
+    <div [class.btnOff]="!message2">
+        <div class="btnReturn" (click)="vuelve()">Regresar</div>
+    </div>
+</div>
+

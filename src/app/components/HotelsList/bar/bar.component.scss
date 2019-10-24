@@ -1,0 +1,61 @@
+/*body{
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #E3DED5;
+}*/
+
+.wrapper{
+
+    background-color: #E3DED5;
+    display: grid;
+    width: 100vw;
+    height: 10vh;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.wrapperMenu{
+
+    background-color: #1DA9BC;
+    display: grid;
+    width: 100vw;
+    height: 10vh;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.icons1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.icons2{
+    height: 30px;
+
+}
+
+
+.off{
+    display: none;
+}
+
+.on{
+    display: block;
+}
+
+.lupa{
+    cursor:pointer;
+}
+
+.menu{
+    cursor:pointer;
+}
+
