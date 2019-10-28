@@ -1,0 +1,75 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:50vh;
+    transition:0.5s;
+    
+}
+.container:hover{
+  
+    background:#1DA9BC ;
+    height:55vh;
+    transition:  0.5s;
+    transition-timing-function: ease-out;
+}
+
+.banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:40vh;
+    width: 100vw;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://www.vtv.gob.ve/wp-content/uploads/2019/02/playa-margarita-atardecer.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.banner h1{
+    color:white;
+}
+.dest{
+    height: 45vh;
+    max-height: 45vh;
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    position: relative;
+    
+   
+}
+a{
+    color:black;
+}
+.dest h1{
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+
+.container:hover h1{
+    color:white;
+    background: rgba(7, 7, 7, 0.13);
+    padding: 10px;
+}
+
+.image{
+    width: 60vw;
+    height: 45vh;
+    opacity: 0;
+    transition: opacity 0.5s;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.container:hover .image{
+    opacity: 1;
+}

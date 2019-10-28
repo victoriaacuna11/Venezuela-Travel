@@ -1,0 +1,20 @@
+<app-bar></app-bar>
+<div class="banner">
+    <h1>Destinos</h1>
+</div>
+<br>
+<br>
+
+
+<div class="container" *ngFor="let destination of destinations"  >
+    <div class="dest" (click)="onSelect(destination.name)">
+      
+        <div class="image" [ngStyle]="{'background-image': 'url('+destination.bannerImg+')'}"  >
+        
+        </div>
+        <h1> {{ destination.name }} </h1>
+    
+    </div>
+</div>
+
+<app-footer></app-footer>

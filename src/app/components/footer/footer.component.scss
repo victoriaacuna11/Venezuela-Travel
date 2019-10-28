@@ -1,0 +1,21 @@
+.footer{
+    background:#1DA9BC ;
+    height: 40vh;
+    width: 100vw;
+    display:flex;
+    justify-content: space-around;
+    align-items: space-around;
+    flex-direction: column;
+    color:white;
+}
+.linkF{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.linkF h4{
+    margin-left:5px;
+}
+img{
+    height: 3vh;
+}

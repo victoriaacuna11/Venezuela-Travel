@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BannerHomePageComponent } from './components/HomePage/banner-home-page/banner-home-page.component';
@@ -15,6 +14,15 @@ import { HeaderComponent } from './components/HotelsList/header/header.component
 import { HotelComponent } from './components/HotelsList/hotel/hotel.component';
 import { MenuComponent } from './components/HotelsList/menu/menu.component';
 import { TooltipModule } from 'ng2-tooltip-directive';
+import { FooterComponent } from './components/footer/footer.component';
+import { DestinationsComponent } from './components/destinations/destinations.component';
+import { StatesComponent } from './components/states/states.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes=[
+
+];
+
 
 @NgModule({
   declarations: [
@@ -28,13 +36,17 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     FiltroComponent,
     HeaderComponent,
     HotelComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent,
+    DestinationsComponent,
+    StatesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CarouselModule.forRoot(),
     TooltipModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
