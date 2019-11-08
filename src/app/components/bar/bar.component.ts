@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { HotelsService } from '../../../services/hotels.service';
+import { HotelsService } from '../../services/hotels.service';
 
 @Component({
   selector: 'app-bar',
@@ -21,7 +21,7 @@ export class BarComponent implements OnInit {
 
   showM(){
     this.showMenu= !this.showMenu;
-    this.showFilter= false;
+    this._hotels.changeState(this.showFilter=false);
   }
   
   showF(){
