@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HotelsService } from '../hotels.service';
-import { hotel } from '../hotel/hotel';
+import { HotelsService } from '../../../services/hotels.service';
+import { hotel } from '../../../Models/hotel';
 
 @Component({
   selector: 'app-filtro',
