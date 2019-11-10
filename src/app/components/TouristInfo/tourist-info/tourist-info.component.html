@@ -1,9 +1,9 @@
 <app-bar></app-bar>
 <div id="banner-tourist-info" 
-    style="background-image: url('assets/img/hotel-banner.jpg')">
+[ngStyle]="{'background-image': 'url('+state.bannerImg+')'}">
     <div class="mask" id="banner-mask">
         <div id="banner-title">  
-            <h1>BOLÍVAR</h1>
+            <h1>{{state.name | uppercase}}</h1>
         </div>
     </div>
 </div>
@@ -17,9 +17,7 @@
                     <h2>Gastronomía</h2> 
                 </div>
                 <div class="text-wrapper">
-                <p>En la gastronomía del estado Bolívar, destaca la Sapoara, que es un pescado de río que abunda en el Orinoco
-                     y el Caroní, puede prepararse tanto relleno, asado, frito o en sancocho. El pastel de Morrocoy es otro plato típico
-                      que consiste en la desmenuzación de la carne del morrocoy combinándolo con aliños. 
+                <p>{{state.gastronomy}} 
                 </p>
                 </div>
             </div>
@@ -31,9 +29,7 @@
                     <h2>Actividades<br>recreativas</h2> 
                 </div>
                 <div class="text-wrapper">
-                    <p>Bolívar se destaca por sus hermosos paisajes naturales que te quitarán el aliento. Entre ellos se pueden
-                         destacar el Parque La Llovizna, el Salto Ángel, el Tepuy Roraima y el Parque Nacional Canaima. Cabe destacar que el
-                          Salto Ángel es una belleza natural tan increíble que fue candidata como una de las siete maravillas modernas.
+                    <p>{{state.recreativeActs}}
                     </p>
                 </div>
             </div>
@@ -44,10 +40,12 @@
                 <div class="title-wrapper"> 
                         <h2>Hoteles</h2> 
                     </div>
-                    <div class="text-wrapper">
-                        <p>Entre los hoteles más destacados de esta zona, se encuentran "Hostería Waipá", "Waku Lodge", 
-                            "Hotel Laja Real", "AraMerú" y "Tapuy Lodge".
+                    <div class="text-wrapper" id="mainHotelsInfo">
+                        <p>{{state.mainHotels}}
                         </p>
+                    </div>
+                    <div class="goToHotels">
+                        <button>Ver hoteles</button>
                     </div>
             </div>
         </div>    
@@ -58,9 +56,7 @@
                     <h2>Cultura</h2> 
                 </div>
                 <div class="text-wrapper">
-                    <p>La cultura del estado Bolívar se caracteriza por la presencia de los carnavales de El Callao,
-                        que es un pueblo minero donde las culturas venezolana, francesa, inglesa, brasileña, española y antillana 
-                        se unieron. El carnaval comienza entre febrero y marzo y los pobladores salen a la calle danzando al ritmo del calipso.
+                    <p>{{state.culture}}
                     </p>
                 </div>
             </div>
@@ -76,27 +72,28 @@
     <div class="slider-wrapper">
         <div class="slider">
                 <carousel>
-                    <slide>
-                        <img src="http://elestimulo.com/wp-content/uploads/2014/10/salto-angel-1100x618.jpg" 
-                        style="display: block; width: 80vw; height: 60vh;">
-                    </slide>
-                    <slide>
-                        <img src="http://www.panorama.com.ve/__export/1495456921565/sites/panorama/img/pitoquito/2017/05/22/dsc04979.jpg" 
-                        style="display: block; width: 80vw; height: 60vh;">
-                    </slide>
-                    <slide>
-                        <img src="https://tvenlacalle.com/wp-content/uploads/2018/06/parque-nacional-canaima-1.jpg" 
-                        style="display: block; width: 80vw; height: 60vh;">
-                    </slide>
-                    <slide>
-                        <img src="https://viajespereira.com/wp-content/uploads/2016/01/04.jpg" 
-                        style="display: block; width: 80vw; height: 60vh;">
-                    </slide>
-                    <slide>
-                        <img src="http://elestimulo.com/wp-content/uploads/2016/01/kukenan-1-2.jpg" 
-                        style="display: block; width: 80vw; height: 60vh;">
+                    <slide *ngFor="let i of state.imgs"> 
+                        <img [src]="i" style="display: block; width: 80vw; height: 60vh;">
                     </slide>
                 </carousel>
         </div>
     </div>
 </div>
+
+<div>
+    <div class="title-imgs">
+        <h2>Destinos turísticos</h2>
+    </div>
+    <div class="slider-wrapper" id="destination-wrap">
+        <div class="destination-options">
+            <div class="mask-img" id="destinations-wrapper">
+                <div class="destinations"> 
+                    <div class="destination-link" *ngFor="let d of state.touristDestinations">
+                        <a href="">{{d.name}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -5,6 +5,7 @@ import { StatesComponent } from './components/states/states.component';
 import { BannerHomePageComponent } from './components/HomePage/banner-home-page/banner-home-page.component';
 import { TouristInfoComponent } from './components/TouristInfo/tourist-info/tourist-info.component';
 import { HotelComponent } from './components/HotelsList/hotel/hotel.component';
+import { TouristDestinationComponent } from './components/tourist-destination/tourist-destination.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path : '', component: BannerHomePageComponent},
   {path : 'infoTuristica', component: TouristInfoComponent },
   {path : 'hoteles', component: HotelComponent },
-  {path : 'infoestado', component: TouristInfoComponent}
+  {path : 'infoestado', component: TouristInfoComponent},
+  {path: 'destinationinfo', component: TouristDestinationComponent},
   
 
 ];

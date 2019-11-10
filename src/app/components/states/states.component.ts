@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StateInterface } from '../../Models/state';
 
+
 @Component({
   selector: 'app-states',
   templateUrl: './states.component.html',
@@ -20,7 +21,8 @@ export class StatesComponent implements OnInit {
     visits:2000,
     views:5000,
     display:true,
-    destinations:["Ciudad","Montaña"]
+    destinations:[{name:"Ciudad"},
+    {"name":"Montaña"}]
   },
     
     {name:"Merida",
@@ -28,7 +30,7 @@ export class StatesComponent implements OnInit {
     visits:10000,
     views:3000,
     display:true,
-    destinations:["Montaña"]
+    destinations:[{"name": "Montaña"}]
   },
 
     {name:"Vargas",
@@ -36,7 +38,7 @@ export class StatesComponent implements OnInit {
     visits:4000,
     views:1000,
     display:true,
-    destinations:["Playa"]
+    destinations:[{"name":"Playa"}]
   },
 
     {name:"Nueva Esparta",
@@ -44,7 +46,7 @@ export class StatesComponent implements OnInit {
     visits:4000,
     views:1000,
     display:true,
-    destinations:["Playa"]
+    destinations:[{"name":"Playa"}]
   },
 
     {name:"Falcon",
@@ -52,14 +54,14 @@ export class StatesComponent implements OnInit {
     visits:4000,
     views:1000,
     display:true,
-    destinations:["Ciudad","Playa"]
+    destinations:[{"name":"Playa"}]
   },
     {name:"Bolivar",
     bannerImg: 'https://i.pinimg.com/originals/19/42/04/194204cec16624c8d54d46699b72cf54.jpg',
     visits:4000,
     views:1000,
     display:true,
-    destinations:["Ciudad"]
+    destinations:[{"name": "Ciudad"}]
   },
 
 

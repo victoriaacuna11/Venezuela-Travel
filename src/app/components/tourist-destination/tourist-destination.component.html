@@ -1,0 +1,80 @@
+<app-bar></app-bar>
+<div id="banner-tourist-destination" 
+[ngStyle]="{'background-image': 'url('+destination.bannerImg+')'}">
+    <div class="mask-ti">
+        <div class="bTitles-wrapper">
+            <div class="banner-title">
+                <h1>{{destination.name | uppercase}}</h1>
+            </div>
+        </div>
+        <div class="bTitles-wrapper">
+            <div class="title-inf">
+                <h4>{{destination.destinationsCategory.name}}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="description-wrapper">
+    <div class="description-text">
+        <h3>{{destination.description}}</h3>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="imgs-wrap">
+        <div class="info-wrap" id="acts-wrap">
+            <div class="mask-wrap">
+                <div class="tit-wrap">
+                    <h3>ACTIVIDADES</h3>
+                </div>
+                <div class="text-wrap">
+                    {{destination.activities}}
+                </div>
+            </div>
+        </div>
+        <div class="info-wrap" id="services-wrap">
+            <div class="mask-wrap">
+                <div class="tit-wrap">
+                        <h3>SERVICIOS</h3>
+                    </div>
+                    <div class="text-wrap">
+                        {{destination.services}}
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="imgs-wrap">
+        <div class="location-wrap">
+            <div class="to-center">
+                <agm-map [latitude]="destination.latitude" [longitude]="destination.longitude">
+                    <agm-marker [latitude]="destination.latitude" [longitude]="destination.longitude"></agm-marker>
+                </agm-map>
+            </div>
+        </div>
+        <div class="location-wrap">
+            <div class="to-center" id="to-center-grid">
+                <div class="loc-info-wrap">
+                    <a href="">
+                        <h3>{{destination.city}}, {{destination.state.name}}</h3>
+                    </a>
+                </div>
+                <div class="loc-info-wrap">
+                    <h5>Latitud:    {{destination.latitude}}</h5>
+                </div>
+                <div class="loc-info-wrap">
+                    <h5>Longitud:     {{destination.longitude}}</h5>
+                </div>
+                <div class="loc-info-wrap" id="direction-info">
+                    <h5>{{destination.direction}}</h5>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -2,6 +2,7 @@
     width: 100vw;
     height: 90vh;
     background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,9 +43,9 @@
     width: 45vw;
     height: 15vh;
     font-family: 'Staatliches', cursive;
-    color: white;
     font-size: 70px;
     position: relative;
+    
 }
 
 #gif-wrapper{
@@ -59,6 +60,8 @@
     position: absolute;
     bottom: 0%;
     left: 0%;
+    display: inline;
+    
 }
 #travel-title{
     position: absolute;

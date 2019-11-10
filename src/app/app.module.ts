@@ -18,6 +18,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DestinationsComponent } from './components/destinations/destinations.component';
 import { StatesComponent } from './components/states/states.component';
 import { Routes, RouterModule } from '@angular/router';
+import { TouristDestinationComponent } from './components/tourist-destination/tourist-destination.component';
+import { AgmCoreModule } from '@agm/core';
 
 const appRoutes: Routes=[
 
@@ -39,14 +41,18 @@ const appRoutes: Routes=[
     MenuComponent,
     FooterComponent,
     DestinationsComponent,
-    StatesComponent
+    StatesComponent,
+    TouristDestinationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CarouselModule.forRoot(),
     TooltipModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
