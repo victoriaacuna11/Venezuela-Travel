@@ -20,6 +20,7 @@ import { StatesComponent } from './components/states/states.component';
 import { Routes, RouterModule } from '@angular/router';
 import { TouristDestinationComponent } from './components/tourist-destination/tourist-destination.component';
 import { AgmCoreModule } from '@agm/core';
+import { HotelXComponent } from './components/hotel-x/hotel-x.component';
 
 const appRoutes: Routes=[
 
@@ -42,7 +43,8 @@ const appRoutes: Routes=[
     FooterComponent,
     DestinationsComponent,
     StatesComponent,
-    TouristDestinationComponent
+    TouristDestinationComponent,
+    HotelXComponent
   ],
   imports: [
     BrowserModule,

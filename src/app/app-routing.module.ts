@@ -6,6 +6,7 @@ import { BannerHomePageComponent } from './components/HomePage/banner-home-page/
 import { TouristInfoComponent } from './components/TouristInfo/tourist-info/tourist-info.component';
 import { HotelComponent } from './components/HotelsList/hotel/hotel.component';
 import { TouristDestinationComponent } from './components/tourist-destination/tourist-destination.component';
+import { HotelXComponent } from './components/hotel-x/hotel-x.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path : 'hoteles', component: HotelComponent },
   {path : 'infoestado', component: TouristInfoComponent},
   {path: 'destinationinfo', component: TouristDestinationComponent},
+  {path: 'hotelx', component: HotelXComponent}
   
 
 ];

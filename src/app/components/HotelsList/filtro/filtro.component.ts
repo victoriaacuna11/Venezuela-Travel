@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HotelsService } from '../../../services/hotels.service';
-import { hotel } from '../../../Models/hotel';
+import { Hotel } from '../../../Models/hotel';
 
 @Component({
   selector: 'app-filtro',
@@ -9,7 +9,7 @@ import { hotel } from '../../../Models/hotel';
 })
 export class FiltroComponent implements OnInit {
 
-  message: hotel[];
+  message: Hotel[];
   message2: boolean;
   showFilter: boolean;
 

@@ -1,0 +1,125 @@
+<app-bar></app-bar>
+
+<div class="banner-hotel-destination" 
+[ngStyle]="{'background-image': 'url('+hotel.bannerImg+')'}">
+    <div class="mask-ti">
+        <div class="bTitles-wrapper">
+            <div class="banner-title">
+                <h1>{{hotel.name | uppercase}}</h1>
+            </div>
+        </div>
+        <div class="bTitles-wrapper" id="stars">
+            <div class="title-inf">
+                <h4>{{hotel.city}}, {{hotel.state.name}}</h4>
+            </div>
+            <div class="stars-box">
+                <div class="stars-wrapper">
+                    <div class="star" *ngFor="let s of stars">
+                        <img src="assets/img/star.png">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="title">
+    <h2>GALERÍA DE FOTOS</h2>
+</div>
+<div class="slider-wrapper">
+    <div class="slider">
+            <carousel>
+                <slide *ngFor="let i of hotel.imgs"> 
+                    <img [src]="i" style="display: block; width: 80vw; height: 55vh;">
+                </slide>
+            </carousel>
+    </div>
+</div>
+<div class="separator">
+
+</div>
+<div class="wrapper">
+    <div class="imgs-wrap">
+        <div class="info-wrap" id="services-wrapper">
+            <div class="mask-wrap">
+                <div class="tit-wrap">
+                    <h3>SERVICIOS</h3>
+                </div>
+                <div class="text-wrap" id="servicesList">
+                    <div *ngFor="let icon of hotel.services">
+                        <img class="icon" [src]="icon.icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info-wrap" id="rooms-wrap">
+            <div class="mask-wrap">
+                <div class="tit-wrap">
+                    <h3>HABITACIONES</h3>
+                </div>
+                <div class="text-wrap" id="roomList">
+                    <div class="roomList-wrapper">
+                        <div class="room" *ngFor="let room of hotel.rooms">
+                            <p>{{room.name}}</p>
+                        </div>
+                    </div>
+                    <div class="button-wrap">
+                        <button>Ver habitaciones</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="description-wrapper">
+    <div class="description-text">
+        <h3>{{hotel.description}}</h3>
+    </div>
+</div>
+
+
+<div>
+    <div class="fullDay" *ngIf="hotel.fullday.available">
+        <div class="bckgrd">
+            <div class="mask-bckgrd">
+                <div class="show">
+                    <h2>FULL DAY!</h2>
+                </div>
+                <div class="notShow">
+                    <h3>Disfruta del exclusivo Full Day que ofrecemos en
+                            {{hotel.name}} con desayuno, almuerzo y cena incluidos por
+                            tan solo {{hotel.fullday.price}}$
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="direction-wrapper">
+    <div class="visitUs-tit">
+        <h3>¡VISÍTANOS!</h3>
+    </div>
+    <div class="direc-tit">
+        <h6>{{hotel.direction}}</h6>
+    </div>
+</div>
+
+<div class="map-bckgd">
+    <div class="map-wrapper">
+        <agm-map [latitude]="hotel.latitude" [longitude]="hotel.longitude">
+            <agm-marker [latitude]="hotel.latitude" [longitude]="hotel.longitude"></agm-marker>
+        </agm-map>
+    </div>
+</div>
+
+<app-footer></app-footer>
+

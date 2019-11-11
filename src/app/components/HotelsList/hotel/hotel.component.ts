@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { hotel } from '../../../Models/hotel'; 
+import { Hotel } from '../../../Models/hotel'; 
 import { HotelsService } from '../../../services/hotels.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { HotelsService } from '../../../services/hotels.service';
 })
 export class HotelComponent implements OnInit {
 
-  message: hotel[];
+  message: Hotel[];
   title = "HOTELES";
   message2 : boolean;
   message3 = false;

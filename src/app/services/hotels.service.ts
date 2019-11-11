@@ -1,14 +1,281 @@
 import { Injectable } from '@angular/core';
-import { hotel } from 'src/app/Models/hotel';
+import { Hotel } from 'src/app/Models/hotel';
 import { BehaviorSubject } from 'rxjs';
+import { StatesService } from './states.service';
+import { HotelFacilitiesService } from './hotel-facilities.service';
+import { HotelFacilitie } from '../Models/hotelFacilitie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelsService {
+  
+  hotelX: Hotel={
+    "name":"Ara Merú Lodge",
+    "description": "Hotel ubicado en Canaima. Vive la experiencia de un campamento exclusivo, con cabañas, restaurante, piscina; y por supuesto, excursiones al salto Angel, a ríos y a lagos, y mucho más.",
+    "imgPrin":"",
+    "nrBusquedas":83,
+    "nrVentas":100,
+    "bannerImg":"https://www.arameru.com/wp-content/uploads/2018/05/Arameru02.jpg",
+    "id":"",
+    "stars":3,
+    "latitude":6.239770,
+    "longitude":-62.850959,
+    "direction":"Caserío Tururiwaipa, Sector Canaima Comunidad Indígena Kanaimo, 8001, Bolívar.",
+    "state": {"name":"Bolívar"},
+    "imgs":["https://q-cf.bstatic.com/images/hotel/max1280x900/125/125365291.jpg",
+    "https://r-cf.bstatic.com/images/hotel/max1280x900/162/162700063.jpg",
+    "https://q-cf.bstatic.com/images/hotel/max1280x900/151/151578893.jpg",
+    "https://r-cf.bstatic.com/images/hotel/max1280x900/151/151578257.jpg",
+    "https://q-cf.bstatic.com/images/hotel/max1280x900/148/148433857.jpg",
+    "https://r-cf.bstatic.com/images/hotel/max1280x900/145/145162949.jpg",
+    "https://q-cf.bstatic.com/images/hotel/max1280x900/144/144770494.jpg",
+    "https://r-cf.bstatic.com/images/hotel/max1280x900/144/144770197.jpg",
+    "https://q-cf.bstatic.com/images/hotel/max1280x900/145/145160379.jpg",
+    "https://r-cf.bstatic.com/images/hotel/max1280x900/145/145156957.jpg",
+    "https://q-cf.bstatic.com/images/hotel/max1280x900/125/125226266.jpg",
+    "https://r-cf.bstatic.com/images/hotel/max1280x900/145/145154939.jpg"],
+    "city":"Canaima",
+    "fullday": {"available":true,
+                "price":100},
+    "services":[
+      {
+        "name": "Wifi",
+        "available":true,
+        "icon":"assets/img/wifi.png"
+      },
+      {"name":"Gimnasio",
+      "available":true,
+      "icon": "assets/img/gym.png"},
+      {
+        "name":"Piscina",
+        "available":true,
+        "icon": "assets/img/pool.png"
+      },
+      {
+        "name":"Servicio a la habitación",
+        "available":true,
+        "icon": "assets/img/roomservice.png"
+      },
+      {
+        "name":"Restaurant",
+        "available":true,
+        "icon": "assets/img/restaurant.png"
+      },
+      {
+        "name":"Bar",
+        "available":true,
+        "icon": "assets/img/bar.png"
+      },
+      {
+        "name":"Aire acondicionado",
+        "available":true,
+        "icon": "assets/img/airconditioner.png"
+      },
+      {
+        "name":"Spa",
+        "available":true,
+        "icon": "assets/img/spa.png"
+      },
+      {
+        "name":"Mascotas",
+        "available":true,
+        "icon": "assets/img/pets.png"
+      },
+      {
+        "name":"TV",
+        "available":true,
+        "icon": "assets/img/tv.png"
+      },
+      {
+        "name":"Cocina",
+        "available":true,
+        "icon": "assets/img/kitchen.png"
+      },
+      {
+        "name":"Snack Bar",
+        "available":true,
+        "icon": "assets/img/snackbar.png"
+      },
+      {
+        "name":"Estacionamiento",
+        "available":true,
+        "icon": "assets/img/parking.png"
+      },
+      {
+        "name":"Lavandería",
+        "available":true,
+        "icon": "assets/img/laundry.png"
+      },
+      {
+        "name":"Sala de negocios",
+        "available":true,
+        "icon": "assets/img/businessroom.png"
+      },
+      {
+        "name":"Traslado",
+        "available":true,
+        "icon": "assets/img/traslado.png"
+      },
+      {
+        "name":"Canchas deportivas",
+        "available":true,
+        "icon": "assets/img/sports.png"
+      }
+    ],
+    "rooms":[{
+      "name":"Suite Presidencial",
+      "imgs":["https://r-cf.bstatic.com/xdata/images/hotel/max1024x768/142192288.jpg?k=d8709ba3403dbe0a2d3b431944ae8502e249e6565e905f0c2112202c10cd4fd7&o=",
+              "https://r-cf.bstatic.com/xdata/images/hotel/max1024x768/142188041.jpg?k=580087de8967ad32024a4ef60ebbf6f3359686b894302b28735442cce939b0fd&o=",
+              "https://q-cf.bstatic.com/xdata/images/hotel/max1024x768/142187141.jpg?k=0b0c18b38161b2e59c4f4c7fba1cca092905da4b1e15d38da1f49c50d4cab31f&o=",
+              "https://q-cf.bstatic.com/xdata/images/hotel/max1024x768/142185819.jpg?k=c4f5ac471f22ead3b57c9df3ba82c9c50215aeca85df19c2d4ec5a9a9b9d2e2d&o=",
+      ],
+      "capacity":2,
+      "services": [
+        {
+          "name":"Caja fuerte",
+          "available": true,
+          "icon": "assets/img/cajaFuerte.png"
+        },
+        {
+          "name":"Teléfono",
+          "available": true,
+          "icon": "assets/img/phone.png"
+        },
+        {
+          "name":"Sofa Cama",
+          "available": true,
+          "icon": "assets/img/sofaCama.png"
+        },
+        {
+          "name": "Wifi",
+          "available":true,
+          "icon":"assets/img/wifi.png"
+        },
+        {
+          "name":"TV",
+          "available":true,
+          "icon": "assets/tv.png"
+        },
+        {
+          "name":"Aire acondicionado",
+          "available":true,
+          "icon": "assets/airconditioner.png"
+        },
+        {
+          "name":"Cocina",
+          "available":true,
+          "icon": "assets/kitchen.png"
+        },
+        {
+          "name":"Armario",
+          "available": true,
+          "icon": "assets/img/wardrobe.png"
+        }
+    ],
+      "views": "Vista al jardín y a la montaña",
+      "price":530
+    },
+    {
+      "name":"Habitación doble grande",
+      "imgs":["https://q-cf.bstatic.com/xdata/images/hotel/max1024x768/142775503.jpg?k=4de1e833e31222ddd24a28cf6e1c4b3a674a039d432846cb2cbe1667db3c6b95&o=",
+        "https://r-cf.bstatic.com/xdata/images/hotel/max1024x768/142774792.jpg?k=e60cb79ae1eb577a2bdcd98999522e5b519083c7869609b5cd92b3ca7f9570e4&o=",
+        "https://r-cf.bstatic.com/xdata/images/hotel/max1024x768/142774610.jpg?k=db49cc5f857602927700076c90f6a0ad533efba185396b4fac707d2b4a068497&o="
+      ],
+      "capacity":4,
+      "services": [
+        {
+          "name":"Teléfono",
+          "available": true,
+          "icon": "assets/img/phone.png"
+        },
+        {
+          "name":"Sofa Cama",
+          "available": true,
+          "icon": "assets/img/sofaCama.png"
+        },
+        {
+          "name": "Wifi",
+          "available":true,
+          "icon":"assets/img/wifi.png"
+        },
+        {
+          "name":"TV",
+          "available":true,
+          "icon": "assets/tv.png"
+        },
+        {
+          "name":"Aire acondicionado",
+          "available":true,
+          "icon": "assets/airconditioner.png"
+        },
+        {
+          "name":"Armario",
+          "available": true,
+          "icon": "assets/img/wardrobe.png"
+        }
+    ],
+      "views": "Vista al jardín y a la montaña",
+      "price":880
+    },
+    {
+      "name":"Suite de dos dormitorios",
+      "imgs":["https://r-cf.bstatic.com/xdata/images/hotel/max1024x768/142201480.jpg?k=3d3fc30f3ca8d96a2eb63e36d980fbb304f40ce350682afc207619503391b258&o=",
+        "https://q-cf.bstatic.com/xdata/images/hotel/max1024x768/142199942.jpg?k=26c058ccfd5fe6c8dabf72d37696fad44581b4486c19abf5cbafa62878d0a845&o=",
+        "https://r-cf.bstatic.com/xdata/images/hotel/max1024x768/142198564.jpg?k=9908df2def21e9669485d534bce3d7b2589b8ce4eaef046adeb283c7e57d1bee&o=",
+        "https://q-cf.bstatic.com/xdata/images/hotel/max1024x768/142195753.jpg?k=a021e0eb3f918df76e6cfe9fb4c468dd048fac617a860c40544a27980c9d73d7&o="
+      ],
+      "capacity":6,
+      "services": [
+        {
+          "name":"Caja fuerte",
+          "available": true,
+          "icon": "assets/img/cajaFuerte.png"
+        },
+        {
+          "name":"Teléfono",
+          "available": true,
+          "icon": "assets/img/phone.png"
+        },
+        {
+          "name":"Sofa Cama",
+          "available": true,
+          "icon": "assets/img/sofaCama.png"
+        },
+        {
+          "name": "Wifi",
+          "available":true,
+          "icon":"assets/img/wifi.png"
+        },
+        {
+          "name":"TV",
+          "available":true,
+          "icon": "assets/tv.png"
+        },
+        {
+          "name":"Aire acondicionado",
+          "available":true,
+          "icon": "assets/airconditioner.png"
+        },
+        {
+          "name":"Cocina",
+          "available":true,
+          "icon": "assets/kitchen.png"
+        },
+        {
+          "name":"Armario",
+          "available": true,
+          "icon": "assets/img/wardrobe.png"
+        }
+    ],
+      "views": "Vista al jardín y a la montaña",
+      "price":1590
+    }
+  ]
 
+  }
   btnR = false;
-  hotels: hotel[] = [
+  hotels: Hotel[] = [
     {name:'Pestana Caracas', 
     description: 'Hotel lujoso ubicado en el centro de Caracas. Todo el confort y atencion de lujo te esperan aquí, desde la piscina infinita hasta los 20 restaurantes.'
     , imgPrin: 'assets/imageHotels/pestanaCaracas.jpg'
@@ -47,7 +314,7 @@ export class HotelsService {
     , amenitiesImg: this.gralAmenities(true, true, false, true, true, true, false, false), nrBusquedas:3, nrVentas:0},
   ]
   
-  private messageSource = new BehaviorSubject<Array<hotel>>(this.hotels);
+  private messageSource = new BehaviorSubject<Array<Hotel>>(this.hotels);
   private messageSource2 = new BehaviorSubject<boolean>(this.btnR);
   private initState = new BehaviorSubject<boolean>(false);
 
@@ -56,7 +323,7 @@ export class HotelsService {
   currentState = this.initState.asObservable();
 
 
-  changeMessage(hotel: hotel[]){
+  changeMessage(hotel: Hotel[]){
     this.messageSource.next(hotel)
   }
 
@@ -71,10 +338,10 @@ export class HotelsService {
   ImageArray = [];
   title = "HOTELES";
 
-  constructor() { }
+  constructor(private sv: HotelFacilitiesService) { }
   
 
-  rearrangeByViews(): hotel[]{
+  rearrangeByViews(): Hotel[]{
     this.hotels=this.hotels.filter(e => e.nrBusquedas>0)
     .sort(function(a,b) {
       return b.nrBusquedas-a.nrBusquedas;
@@ -83,7 +350,7 @@ export class HotelsService {
     return this.hotels;
   }
 
-  rearrangeBySells(): hotel[]{
+  rearrangeBySells(): Hotel[]{
     this.hotels=this.hotels.filter(e => e.nrVentas>0)
     .sort(function(a,b) {
       return b.nrVentas-a.nrVentas;
@@ -91,7 +358,7 @@ export class HotelsService {
     return this.hotels;
   }
 
-  initialList(): hotel[]{
+  initialList(): Hotel[]{
     this.hotels = [
       {name:'Pestana Caracas', 
       description: 'Hotel lujoso ubicado en el centro de Caracas. Todo el confort y atencion de lujo te esperan aquí, desde la piscina infinita hasta los 20 restaurantes.'
@@ -175,4 +442,10 @@ export class HotelsService {
      
      return this.ImageArray;
    }
+
+   getHotelX(){
+     return this.hotelX;
+   }
+
+
 }
