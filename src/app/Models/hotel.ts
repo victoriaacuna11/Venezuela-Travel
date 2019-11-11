@@ -14,6 +14,7 @@ export class Hotel{
     nrBusquedas: number;
     nrVentas: number;
     
+    
     bannerImg?:string;
     id?: string;
     stars?:number;

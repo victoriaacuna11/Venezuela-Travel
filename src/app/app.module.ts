@@ -21,6 +21,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { TouristDestinationComponent } from './components/tourist-destination/tourist-destination.component';
 import { AgmCoreModule } from '@agm/core';
 import { HotelXComponent } from './components/hotel-x/hotel-x.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment.prod';
 
 const appRoutes: Routes=[
 
@@ -55,6 +58,8 @@ const appRoutes: Routes=[
     AgmCoreModule.forRoot({
       apiKey: ''
     }),
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -217,6 +217,7 @@
 .icon{
     max-height: 30px;
     filter: invert(1);
+
 }
 .map-bckgd{
     width: 100vw;
@@ -363,4 +364,9 @@ agm-map {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.div-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -18,7 +18,7 @@ export class HotelsService {
     "nrVentas":100,
     "bannerImg":"https://www.arameru.com/wp-content/uploads/2018/05/Arameru02.jpg",
     "id":"",
-    "stars":3,
+    "stars":5,
     "latitude":6.239770,
     "longitude":-62.850959,
     "direction":"Caserío Tururiwaipa, Sector Canaima Comunidad Indígena Kanaimo, 8001, Bolívar.",
@@ -202,12 +202,12 @@ export class HotelsService {
         {
           "name":"TV",
           "available":true,
-          "icon": "assets/tv.png"
+          "icon": "assets/img/tv.png"
         },
         {
           "name":"Aire acondicionado",
           "available":true,
-          "icon": "assets/airconditioner.png"
+          "icon": "assets/img/airconditioner.png"
         },
         {
           "name":"Armario",
@@ -250,17 +250,17 @@ export class HotelsService {
         {
           "name":"TV",
           "available":true,
-          "icon": "assets/tv.png"
+          "icon": "assets/img/tv.png"
         },
         {
           "name":"Aire acondicionado",
           "available":true,
-          "icon": "assets/airconditioner.png"
+          "icon": "assets/img/airconditioner.png"
         },
         {
           "name":"Cocina",
           "available":true,
-          "icon": "assets/kitchen.png"
+          "icon": "assets/img/kitchen.png"
         },
         {
           "name":"Armario",
@@ -279,39 +279,317 @@ export class HotelsService {
     {name:'Pestana Caracas', 
     description: 'Hotel lujoso ubicado en el centro de Caracas. Todo el confort y atencion de lujo te esperan aquí, desde la piscina infinita hasta los 20 restaurantes.'
     , imgPrin: 'assets/imageHotels/pestanaCaracas.jpg'
-    , amenitiesImg: this.gralAmenities(true, true, true, true, true, true, false, false), nrBusquedas:80, nrVentas:100},
+    , amenitiesImg: this.gralAmenities(true, true, true, true, true, true, false, false), nrBusquedas:80, nrVentas:100,
+    services: [
+      {
+        "name":"Teléfono",
+        "available": true,
+        "icon": "assets/img/phone.png"
+      },
+      {
+        "name":"Sofa Cama",
+        "available": true,
+        "icon": "assets/img/sofaCama.png"
+      },
+      {
+        "name": "Wifi",
+        "available":true,
+        "icon":"assets/img/wifi.png"
+      },
+      {
+        "name":"TV",
+        "available":true,
+        "icon": "assets/img/tv.png"
+      },
+      {
+        "name":"Aire acondicionado",
+        "available":true,
+        "icon": "assets/img/airconditioner.png"
+      }
+  ]},
 
     {name:'Hilton Caracas', description: 'Hotel clásico ubicado en las afueras de Caracas. Todo el confort y atencion de lujo te esperan aquí, así como la tradicion que nunca falta en las paredes de esta casa.'
     , imgPrin: 'assets/imageHotels/HiltonC.jpg'
-    , amenitiesImg: this.gralAmenities(false, true, false, true, true, true, true, false), nrBusquedas:50, nrVentas:200},
+    , amenitiesImg: this.gralAmenities(false, true, false, true, true, true, true, false), nrBusquedas:50, nrVentas:200,
+    services: [
+      {
+        "name":"Teléfono",
+        "available": true,
+        "icon": "assets/img/phone.png"
+      },
+      {
+        "name":"Sofa Cama",
+        "available": true,
+        "icon": "assets/img/sofaCama.png"
+      },
+      {
+        "name": "Wifi",
+        "available":true,
+        "icon":"assets/img/wifi.png"
+      },
+      {
+        "name":"Aire acondicionado",
+        "available":true,
+        "icon": "assets/img/airconditioner.png"
+      },
+      {
+        "name":"Armario",
+        "available": true,
+        "icon": "assets/img/wardrobe.png"
+      }
+  ]},
 
     {name:'Sunsol Isla Caribe', description: 'Hotel ubicado en el corazón de Margarita. Playa privada, 4 piscinas, 3 restaurantes, 1 cancha de mini-golf y mucho más.'
     , imgPrin: 'assets/imageHotels/sunsolIC.jpg'
-    , amenitiesImg: this.gralAmenities(true, true, false, true, true, false, false, true), nrBusquedas:40, nrVentas:300},
+    , amenitiesImg: this.gralAmenities(true, true, false, true, true, false, false, true), nrBusquedas:40, nrVentas:300,
+    services: [
+      {
+        "name":"Teléfono",
+        "available": true,
+        "icon": "assets/img/phone.png"
+      },
+      {
+        "name":"Sofa Cama",
+        "available": true,
+        "icon": "assets/img/sofaCama.png"
+      },
+      {
+        "name": "Wifi",
+        "available":true,
+        "icon":"assets/img/wifi.png"
+      },
+      {
+        "name":"TV",
+        "available":true,
+        "icon": "assets/img/tv.png"
+      },
+      {
+        "name":"Aire acondicionado",
+        "available":true,
+        "icon": "assets/img/airconditioner.png"
+      },
+      {
+        "name":"Armario",
+        "available": true,
+        "icon": "assets/img/wardrobe.png"
+      }
+  ]},
 
     {name:'Sunsol Punta Blanca', description: 'Hermoso hotel ubicado en la Isla de coche. Disfruta de esta hermosa isla y todo lo que Has para ofrecer, como buceo, motocross, y mucho más.'
     , imgPrin: 'assets/imageHotels/sunsolPB.jpeg'
-    , amenitiesImg: this.gralAmenities(false, false, false, true, true, false, true, false), nrBusquedas:30, nrVentas:400},
+    , amenitiesImg: this.gralAmenities(false, false, false, true, true, false, true, false), nrBusquedas:30, nrVentas:400,
+    services: [
+      {
+        "name":"Teléfono",
+        "available": true,
+        "icon": "assets/img/phone.png"
+      },
+      {
+        "name":"Sofa Cama",
+        "available": true,
+        "icon": "assets/img/sofaCama.png"
+      },
+      {
+        "name": "Wifi",
+        "available":true,
+        "icon":"assets/img/wifi.png"
+      },
+      {
+        "name":"TV",
+        "available":true,
+        "icon": "assets/tv.png"
+      },
+      {
+        "name":"Aire acondicionado",
+        "available":true,
+        "icon": "assets/img/airconditioner.png"
+      },
+      {
+        "name":"Armario",
+        "available": true,
+        "icon": "assets/img/wardrobe.png"
+      }
+  ]},
   
     {name:'Hesperia Isla Margarita', description: 'Hotel de categoría 5 estrellas ubicado en Juan Griego, Isla de Margarita. Contamos con 3 restaurantes de lujo, una piscina, playa privada, y un campo de golf privado de 9 hoyos.'
     , imgPrin: 'assets/imageHotels/hesperiaIM.jpeg'
-    , amenitiesImg: this.gralAmenities(true, true, false, true, true, true, true, true), nrBusquedas:100, nrVentas:500},
+    , amenitiesImg: this.gralAmenities(true, true, false, true, true, true, true, true), nrBusquedas:100, nrVentas:500,
+    services: [
+      {
+        "name":"Teléfono",
+        "available": true,
+        "icon": "assets/img/phone.png"
+      },
+      {
+        "name":"Sofa Cama",
+        "available": true,
+        "icon": "assets/img/sofaCama.png"
+      },
+      {
+        "name": "Wifi",
+        "available":true,
+        "icon":"assets/img/wifi.png"
+      },
+      {
+        "name":"TV",
+        "available":true,
+        "icon": "assets/img/tv.png"
+      },
+      {
+        "name":"Aire acondicionado",
+        "available":true,
+        "icon": "assets/img/airconditioner.png"
+      },
+      {
+        "name":"Armario",
+        "available": true,
+        "icon": "assets/img/wardrobe.png"
+      }
+  ]},
   
     {name:'Ara Merú Lodge', description: 'Hotel ubicado en Canaima. Vive la experiencia de un campamento exclusivo, con cabañas, restaurante, piscina; y por supuesto, excursiones al salto Angel, a ríos y a lagos, y mucho más.'
     , imgPrin: 'assets/imageHotels/araMeru.jpg'
-    , amenitiesImg: this.gralAmenities(true, false, false, true, true, false, false, true), nrBusquedas:83, nrVentas:100},
+    , amenitiesImg: this.gralAmenities(true, false, false, true, true, false, false, true), nrBusquedas:83, nrVentas:100,
+    services: [
+      {
+        "name":"Teléfono",
+        "available": true,
+        "icon": "assets/img/phone.png"
+      },
+      {
+        "name":"Sofa Cama",
+        "available": true,
+        "icon": "assets/img/sofaCama.png"
+      },
+      {
+        "name": "Wifi",
+        "available":true,
+        "icon":"assets/img/wifi.png"
+      },
+      {
+        "name":"TV",
+        "available":true,
+        "icon": "assets/img/tv.png"
+      },
+      {
+        "name":"Aire acondicionado",
+        "available":true,
+        "icon": "assets/img/airconditioner.png"
+      },
+      {
+        "name":"Armario",
+        "available": true,
+        "icon": "assets/img/wardrobe.png"
+      }
+  ]},
   
     {name:'Islas del Sol', description: 'Lo mejor del estado Falcon en un solo hotel. En islas del Sol tendrás todo lo que necesitas; contamos con parque de agua, 8 piscinas, un mini-parque acuatico, restaurantes, habitaciones de todo tipo, incluso un mercado.'
     , imgPrin: 'assets/imageHotels/islasDelSol.jpg'
-    , amenitiesImg: this.gralAmenities(true, true, true, true, true, true, true, true), nrBusquedas:5000, nrVentas:1000},
+    , amenitiesImg: this.gralAmenities(true, true, true, true, true, true, true, true), nrBusquedas:5000, nrVentas:1000,
+    services: [
+      {
+        "name":"Teléfono",
+        "available": true,
+        "icon": "assets/img/phone.png"
+      },
+      {
+        "name":"Sofa Cama",
+        "available": true,
+        "icon": "assets/img/sofaCama.png"
+      },
+      {
+        "name": "Wifi",
+        "available":true,
+        "icon":"assets/img/wifi.png"
+      },
+      {
+        "name":"TV",
+        "available":true,
+        "icon": "assets/img/tv.png"
+      },
+      {
+        "name":"Aire acondicionado",
+        "available":true,
+        "icon": "assets/img/airconditioner.png"
+      },
+      {
+        "name":"Armario",
+        "available": true,
+        "icon": "assets/img/wardrobe.png"
+      }
+  ]},
   
     {name:'Hotel Belensate', description: 'Hermoso hotel para disfrutar los Andes venezolanos a plenitud. Contamos con habitaciones muy bien equipadas, piscina con calefacción, jacuzzis, y restaurantes con chefs de la región que resaltan los sabores de Mérida cada día.'
     , imgPrin: 'assets/imageHotels/belensate.jpg'
-    , amenitiesImg: this.gralAmenities(true, false, false, true, true, false, false, true), nrBusquedas:200, nrVentas:132},
+    , amenitiesImg: this.gralAmenities(true, false, false, true, true, false, false, true), nrBusquedas:200, nrVentas:132,
+    services: [
+      {
+        "name":"Teléfono",
+        "available": true,
+        "icon": "assets/img/phone.png"
+      },
+      {
+        "name":"Sofa Cama",
+        "available": true,
+        "icon": "assets/img/sofaCama.png"
+      },
+      {
+        "name": "Wifi",
+        "available":true,
+        "icon":"assets/img/wifi.png"
+      },
+      {
+        "name":"TV",
+        "available":true,
+        "icon": "assets/img/tv.png"
+      },
+      {
+        "name":"Aire acondicionado",
+        "available":true,
+        "icon": "assets/img/airconditioner.png"
+      },
+      {
+        "name":"Armario",
+        "available": true,
+        "icon": "assets/img/wardrobe.png"
+      }
+  ]},
   
     {name:'Selva Negra', description: 'Hotel 3 estrellas en la Colonia Tovar. Contamos con restaurante, piscina con calefacción, atención al huesped 24/7, habitaciones de lujo tipo cabaña.'
     , imgPrin: 'assets/imageHotels/selvaNegra.jpg'
-    , amenitiesImg: this.gralAmenities(true, true, false, true, true, true, false, false), nrBusquedas:3, nrVentas:0},
+    , amenitiesImg: this.gralAmenities(true, true, false, true, true, true, false, false), nrBusquedas:3, nrVentas:0,
+    services: [
+      {
+        "name":"Teléfono",
+        "available": true,
+        "icon": "assets/img/phone.png"
+      },
+      {
+        "name":"Sofa Cama",
+        "available": true,
+        "icon": "assets/img/sofaCama.png"
+      },
+      {
+        "name": "Wifi",
+        "available":true,
+        "icon":"assets/img/wifi.png"
+      },
+      {
+        "name":"TV",
+        "available":true,
+        "icon": "assets/img/tv.png"
+      },
+      {
+        "name":"Aire acondicionado",
+        "available":true,
+        "icon": "assets/img/airconditioner.png"
+      },
+      {
+        "name":"Armario",
+        "available": true,
+        "icon": "assets/img/wardrobe.png"
+      }
+  ]},
   ]
   
   private messageSource = new BehaviorSubject<Array<Hotel>>(this.hotels);

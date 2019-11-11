@@ -25,9 +25,12 @@
             <br>
             <div class="miniWrapper">
                 <div class="iconOrder">
-                    <div tooltip="{{icono.msg}}" placement="top" show-delay="500" *ngFor="let icono of hotel.amenitiesImg">
+                    <div tooltip="{{icono.name}}" placement="top" show-delay="500" *ngFor="let icono of hotel.services">
                         <img class="icons" src="{{icono.icon}}" alt="gnfn">
                     </div>
+                    <!-- <div tooltip="{{icono.msg}}" placement="top" show-delay="500" *ngFor="let icono of hotel.amenitiesImg">
+                        <img class="icons" src="{{icono.icon}}" alt="gnfn">
+                    </div> -->
                 </div>
                 <div class="seeMore"> Ver más...</div> 
             </div>                    

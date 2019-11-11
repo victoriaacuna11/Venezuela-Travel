@@ -49,9 +49,11 @@
                     <h3>SERVICIOS</h3>
                 </div>
                 <div class="text-wrap" id="servicesList">
-                    <div *ngFor="let icon of hotel.services">
+
+                    <div class="div-icon" tooltip="{{icon.name}}" placement="top" show-delay="300" *ngFor="let icon of hotel.services">
                         <img class="icon" [src]="icon.icon">
                     </div>
+
                 </div>
             </div>
         </div>
