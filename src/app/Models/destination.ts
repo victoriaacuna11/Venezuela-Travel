@@ -4,5 +4,6 @@ export interface DestinationInterface{
     bannerImg?: string;
     views?: number;
     visits?: number;
+    bannerImg2?:string;
 
 }

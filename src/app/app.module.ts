@@ -24,6 +24,8 @@ import { HotelXComponent } from './components/hotel-x/hotel-x.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment.prod';
+import { BannerImgComponent } from './components/banner-img/banner-img.component';
+import { DestsAndStatesComponent } from './components/dests-and-states/dests-and-states.component';
 
 const appRoutes: Routes=[
 
@@ -47,7 +49,9 @@ const appRoutes: Routes=[
     DestinationsComponent,
     StatesComponent,
     TouristDestinationComponent,
-    HotelXComponent
+    HotelXComponent,
+    BannerImgComponent,
+    DestsAndStatesComponent
   ],
   imports: [
     BrowserModule,
