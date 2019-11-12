@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/Venezuela-Travel",
     "ignore": [
       "firebase.json",
       "**/.*",
