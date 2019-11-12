@@ -19,9 +19,9 @@
 </div>
 <div class="max-container-room" >
     <div class="roomsList-wrapper">
-        <div class="room-wrapper" *ngFor="let room of hotel.rooms">
+        <div class="room-wrapper" *ngFor="let room of hotel.rooms; let i=index">
            
-            <div class="slider-room">
+            <div class="slider-room" *ngIf="(i%2==0)">
                 <carousel>
                     <slide *ngFor="let i of room.imgs"> 
                         <img [src]="i" style="display: block; width: 100%; height: 45vh;">
@@ -29,7 +29,7 @@
                 </carousel>
             </div>
 
-            <div class="room-info-wrapper">
+            <div class="room-info-wrapper" *ngIf="(i%2==0)">
                 <div class="room-info-wrapper-2">
                     <div class="room-description-wrapper">
                         <h1>{{room.name}}</h1>
@@ -50,6 +50,38 @@
                     </div>
                 </div>
             </div>
+
+            
+            <div class="room-info-wrapper" *ngIf="(i%2!=0)">
+                <div class="room-info-wrapper-2">
+                    <div class="room-description-wrapper">
+                        <h1>{{room.name}}</h1>
+                    </div>
+                    <div class="room-description-wrapper">
+                        <h4>{{room.price}} $ por noche</h4>
+                    </div>
+                    <div class="room-description-wrapper">
+                        <h4>Máximo {{room.capacity}} personas por habitación</h4>
+                    </div>
+                    <div class="room-description-wrapper">
+                        <h4>{{room.views}}</h4>
+                    </div>
+                </div>
+                <div class="room-services-wrapper">
+                    <div class="div-icon" tooltip="{{icon.name}}" placement="top" show-delay="300" *ngFor="let icon of room.services">
+                        <img class="icon" [src]="icon.icon">
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-room" *ngIf="(i%2!=0)">
+                <carousel>
+                    <slide *ngFor="let i of room.imgs"> 
+                        <img [src]="i" style="display: block; width: 100%; height: 45vh;">
+                    </slide>
+                </carousel>
+            </div>
+
         </div>
     </div>
 </div>

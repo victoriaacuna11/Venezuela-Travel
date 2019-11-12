@@ -24,7 +24,7 @@ export class StatesComponent implements OnInit {
     destinations:[{"name": "Ciudad"}]
   },
 
-    {name:"Caracas",
+    {name:"Distrito Capital",
     bannerImg: "https://venezuelaaldia.com/wp-content/uploads/2017/07/caracas.jpg",
     visits:2000,
     views:5000,
