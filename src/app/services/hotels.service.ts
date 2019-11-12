@@ -155,17 +155,17 @@ export class HotelsService {
         {
           "name":"TV",
           "available":true,
-          "icon": "assets/tv.png"
+          "icon": "assets/img/tv.png"
         },
         {
           "name":"Aire acondicionado",
           "available":true,
-          "icon": "assets/airconditioner.png"
+          "icon": "assets/img/airconditioner.png"
         },
         {
           "name":"Cocina",
           "available":true,
-          "icon": "assets/kitchen.png"
+          "icon": "assets/img/kitchen.png"
         },
         {
           "name":"Armario",

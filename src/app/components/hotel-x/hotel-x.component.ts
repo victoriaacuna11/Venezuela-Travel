@@ -8,6 +8,7 @@ import { HotelsService } from 'src/app/services/hotels.service';
   styleUrls: ['./hotel-x.component.scss']
 })
 export class HotelXComponent implements OnInit {
+
   hotel:Hotel;
   stars:any[];
   starNum:number;
@@ -18,7 +19,6 @@ export class HotelXComponent implements OnInit {
   ngOnInit() {
     this.hotel=this.hotelSV.getHotelX();
     this.starNum=this.hotel.stars;
-    console.log(this.starNum);
     this.stars = Array(this.starNum).fill(0);
   }
 

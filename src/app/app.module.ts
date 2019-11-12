@@ -26,6 +26,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment.prod';
 import { BannerImgComponent } from './components/banner-img/banner-img.component';
 import { DestsAndStatesComponent } from './components/dests-and-states/dests-and-states.component';
+import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
 
 const appRoutes: Routes=[
 
@@ -51,7 +52,8 @@ const appRoutes: Routes=[
     TouristDestinationComponent,
     HotelXComponent,
     BannerImgComponent,
-    DestsAndStatesComponent
+    DestsAndStatesComponent,
+    RoomsListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,64 @@
+<app-bar></app-bar>
+<div class="banner-tourist-destination" 
+[ngStyle]="{'background-image': 'url('+hotel.bannerImg+')'}">
+    <div class="mask-ti">
+        <div class="bTitles-wrapper">
+            <div class="banner-title">
+                <h1>{{hotel.name | uppercase}}</h1>
+            </div>
+        </div>
+        <div class="bTitles-wrapper">
+            <div class="title-inf">
+                <h2>HABITACIONES</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blank">
+
+</div>
+<div class="max-container-room" >
+    <div class="roomsList-wrapper">
+        <div class="room-wrapper" *ngFor="let room of hotel.rooms">
+           
+            <div class="slider-room">
+                <carousel>
+                    <slide *ngFor="let i of room.imgs"> 
+                        <img [src]="i" style="display: block; width: 100%; height: 45vh;">
+                    </slide>
+                </carousel>
+            </div>
+
+            <div class="room-info-wrapper">
+                <div class="room-info-wrapper-2">
+                    <div class="room-description-wrapper">
+                        <h1>{{room.name}}</h1>
+                    </div>
+                    <div class="room-description-wrapper">
+                        <h4>{{room.price}} $ por noche</h4>
+                    </div>
+                    <div class="room-description-wrapper">
+                        <h4>Máximo {{room.capacity}} personas por habitación</h4>
+                    </div>
+                    <div class="room-description-wrapper">
+                        <h4>{{room.views}}</h4>
+                    </div>
+                </div>
+                <div class="room-services-wrapper">
+                    <div class="div-icon" tooltip="{{icon.name}}" placement="top" show-delay="300" *ngFor="let icon of room.services">
+                        <img class="icon" [src]="icon.icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="blank">
+
+</div>
+<div class="blank">
+
+    </div>
+
+<app-footer></app-footer>

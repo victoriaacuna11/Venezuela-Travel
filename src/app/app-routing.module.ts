@@ -7,6 +7,7 @@ import { TouristInfoComponent } from './components/TouristInfo/tourist-info/tour
 import { HotelComponent } from './components/HotelsList/hotel/hotel.component';
 import { TouristDestinationComponent } from './components/tourist-destination/tourist-destination.component';
 import { HotelXComponent } from './components/hotel-x/hotel-x.component';
+import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
 
 
 const routes: Routes = [
@@ -18,9 +19,8 @@ const routes: Routes = [
   {path : 'hoteles', component: HotelComponent },
   {path : 'infoestado', component: TouristInfoComponent},
   {path: 'destinationinfo', component: TouristDestinationComponent},
-  {path: 'hotelx', component: HotelXComponent}
-  
-
+  {path: 'hotelx', component: HotelXComponent},
+  {path: 'roomList', component: RoomsListComponent},
 ];
 
 @NgModule({
