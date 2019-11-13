@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TouristDestinationsService} from '../../../services/tourist-destinations.service';
+import { TouristDestination } from 'src/app/Models/touristDestination';
 
 @Component({
   selector: 'app-list-t-destinations',
@@ -7,9 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListTDestinationsComponent implements OnInit {
 
-  constructor() { }
+  destinations: TouristDestination[];
+
+  constructor(private _td: TouristDestinationsService) { }
 
   ngOnInit() {
+    this.getTD();
+  }
+
+  getTD(){
+    this._td.getTDestinationCollection()
+    .subscribe( x => (this.destinations = x.map(item => 
+      {
+        const destination: TouristDestination = {
+          id: item.payload.doc.id,
+          name: item.payload.doc.get('name'),
+          description: item.payload.doc.get('description'),
+          destinationsCategory: item.payload.doc.get('destinationsCategory'),
+          services: item.payload.doc.get('services'),
+          activities: item.payload.doc.get('activities'),
+          latitude: item.payload.doc.get('latitude'),
+          longitude: item.payload.doc.get('longitude'),
+          state: item.payload.doc.get('state'),
+          direction: item.payload.doc.get('direction'),
+          city: item.payload.doc.get('city'),
+          bannerImg: item.payload.doc.get('bannerImg'),
+        }
+        return destination;
+      })
+
+    ));
+  }
+
+  deleteDestinations(id){
+    this._td.deleteTDestination(id);
   }
 
 }

@@ -45,7 +45,7 @@ export class TDestinationsAdminComponent implements OnInit {
     }
 
     this._td.addTDestination(d);
-    //this.route.navigate(['/stateList']);
+    this.route.navigate(['/TDList']);
   }
 
 }
