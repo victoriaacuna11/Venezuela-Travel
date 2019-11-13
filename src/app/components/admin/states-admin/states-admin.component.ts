@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import {StatesService} from '../../../services/states.service';
 import { StateInterface } from 'src/app/Models/state';
 import { Router } from '@angular/router';
+import { DestinationInterface } from 'src/app/Models/destination';
+import { DestinationsService } from 'src/app/services/destinations.service';
 
 
 
@@ -13,12 +15,13 @@ import { Router } from '@angular/router';
 })
 export class StatesAdminComponent implements OnInit {
 
-
+  destinations: DestinationInterface[];
   states: StateInterface[]
 
   createStateFrom: FormGroup;
 
-  constructor(private _builder: FormBuilder, private stateSV: StatesService, private route: Router) { 
+  constructor(private _builder: FormBuilder, private stateSV: StatesService, private route: Router,
+    private destinationSV: DestinationsService) { 
 
   }
 
@@ -34,6 +37,7 @@ export class StatesAdminComponent implements OnInit {
       recreativeActs: ['', Validators.required],
       mainHotels: ['', Validators.required],
     })
+    this.getDestinations();
   }
 
   addTouristDestinationsGroup(){
@@ -89,4 +93,21 @@ export class StatesAdminComponent implements OnInit {
     this.route.navigate(['/stateList']);
   }
 
+  getDestinations(){
+    this.destinationSV.getDestinationsCollection().subscribe(
+      res => (this.destinations = res.map(item =>
+        {
+          const destination: DestinationInterface = {
+            id: item.payload.doc.id,
+            name: item.payload.doc.get('name'),
+            bannerImg: item.payload.doc.get('bannerImg'),
+            views: item.payload.doc.get('views'),
+            visits: item.payload.doc.get('visits')
+          }
+          return destination;
+        }))
+    )
+  }
 }
+
+

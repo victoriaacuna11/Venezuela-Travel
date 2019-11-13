@@ -10,8 +10,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class TouristInfoComponent implements OnInit {
 
-  @Input() imgbanner?: string;
-  @Input() titlebanner?: string;
+  // @Input() imgbanner?: string;
+  // @Input() titlebanner?: string;
   state: StateInterface;
 
   constructor(private stateSV: StatesService, private routeSV: ActivatedRoute) { 
@@ -20,7 +20,7 @@ export class TouristInfoComponent implements OnInit {
 
   ngOnInit() {
     this.getState();
-    console.log(this.state.name);
+    // console.log(this.state.name);
     // this.state=this.stateSV.getState();
     // console.log(this.state.touristDestinations);
   }

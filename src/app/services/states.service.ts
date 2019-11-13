@@ -69,9 +69,9 @@ export class StatesService {
   // )
   }
 
-  getState(){
-    return this.bolivar;
-  }
+  // getState(){
+  //   return this.bolivar;
+  // }
 
   getStates(){
     return this.states;

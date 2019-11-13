@@ -107,7 +107,13 @@
                     DESTINO (CATEGORÍA)
                 </div>
                 <div class="wrapper">
-                    <input formControlName="destination" type="text"/>
+                    <select formControlName="destination">
+                        <!-- <option slected disabled>Elige...</option> -->
+                        <option selected *ngFor="let item of destinations" [value]="item.name">
+                            {{item.name}}
+                        </option>
+                    </select>
+                    
                 </div>
             </div>
             <div class="button">

@@ -31,6 +31,7 @@ import { StatesAdminComponent } from './components/admin/states-admin/states-adm
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { ListStatesComponent } from './components/admin/list-states/list-states.component';
 import { DestinationsAdminComponent } from './components/admin/destinations-admin/destinations-admin.component';
+import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
 
 const appRoutes: Routes=[
 
@@ -60,7 +61,8 @@ const appRoutes: Routes=[
     RoomsListComponent,
     StatesAdminComponent,
     ListStatesComponent,
-    DestinationsAdminComponent
+    DestinationsAdminComponent,
+    ListDestinationsComponent
   ],
   imports: [
     BrowserModule,

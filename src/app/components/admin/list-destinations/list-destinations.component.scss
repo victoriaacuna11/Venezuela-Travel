@@ -1,0 +1,36 @@
+.bck-clr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.element-wrapper{
+    display: grid;
+    grid-template-columns: 0.3fr 0.5fr 0.2fr;
+    height: 10vh;
+}
+
+.elementList-wrapper{
+    width: 50vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2px;
+    border-bottom: 2px black solid;
+}
+
+img{
+    max-height: 15px;
+}
+.cruds-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.elementName-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    border: none;
+    background: none;
+}
