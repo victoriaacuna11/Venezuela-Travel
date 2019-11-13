@@ -1,15 +1,15 @@
 <div class="bck-clr">
     <div class="elementList-wrapper">
-        <div class="element-wrapper" *ngFor="let state of states">
+        <div class="element-wrapper" *ngFor="let d of destinations">
             <div class="id-wrapper">
-                <h5>{{state.id}}</h5>
+                <h5>{{d.id}}</h5>
             </div>
             <div class="elementName-wrapper">
-                <h5>{{state.name}}</h5>
+                <h5>{{d.name}}</h5>
             </div>
             <div class="cruds-wrapper">
                 <div class="icon-wrapper">
-                    <button [routerLink]="['/info', state.id]">
+                    <button routerLink="/destinos">
                         <img src="assets/img/read-icon.png">
                     </button>
                 </div>
@@ -17,8 +17,7 @@
                     <img src="assets/img/edit-icon.png">
                 </div>
                 <div class="icon-wrapper">
-                    <button (click)="deleteState(state.id)"><img src="assets/img/delete-icon.png"></button>
-                    
+                    <button (click)="deleteDestination(d.id)"><img src="assets/img/delete-icon.png"></button>
                 </div>
             </div>
         </div>

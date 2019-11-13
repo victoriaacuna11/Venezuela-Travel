@@ -10,12 +10,12 @@ import { StatesService } from 'src/app/services/states.service';
 export class ListStatesComponent implements OnInit {
 
   states: StateInterface[];
+  
 
   constructor(private stateSV: StatesService) { }
 
   ngOnInit() {
     this.getStates();
-    
   }
 
   getStates(){

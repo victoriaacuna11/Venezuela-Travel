@@ -33,6 +33,7 @@ import { ListStatesComponent } from './components/admin/list-states/list-states.
 import { DestinationsAdminComponent } from './components/admin/destinations-admin/destinations-admin.component';
 import { TDestinationsAdminComponent } from './components/admin/t-destinations-admin/t-destinations-admin.component';
 import { ListTDestinationsComponent } from './components/admin/list-t-destinations/list-t-destinations.component';
+import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
 
 const appRoutes: Routes=[
 
@@ -64,7 +65,8 @@ const appRoutes: Routes=[
     ListStatesComponent,
     DestinationsAdminComponent,
     TDestinationsAdminComponent,
-    ListTDestinationsComponent
+    ListTDestinationsComponent,
+    ListDestinationsComponent
   ],
   imports: [
     BrowserModule,

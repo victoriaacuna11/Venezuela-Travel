@@ -12,6 +12,8 @@ import { StatesAdminComponent } from './components/admin/states-admin/states-adm
 import { ListStatesComponent } from './components/admin/list-states/list-states.component';
 import { TDestinationsAdminComponent } from './components/admin/t-destinations-admin/t-destinations-admin.component';
 import { ListTDestinationsComponent } from './components/admin/list-t-destinations/list-t-destinations.component';
+import { DestinationsAdminComponent } from './components/admin/destinations-admin/destinations-admin.component';
+import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
 
 
 const routes: Routes = [
@@ -30,6 +32,8 @@ const routes: Routes = [
   {path: 'info/:id', component: TouristInfoComponent},
   {path: 'adminTD', component: TDestinationsAdminComponent},
   {path: 'TDList', component: ListTDestinationsComponent},
+  {path: 'admin/destination/add', component: DestinationsAdminComponent},
+  {path: 'admin/destinations', component: ListDestinationsComponent},
 ]; 
 
 @NgModule({
