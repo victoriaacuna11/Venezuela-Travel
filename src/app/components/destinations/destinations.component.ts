@@ -14,8 +14,8 @@ export class DestinationsComponent implements OnInit {
     {name:"Selva",
     bannerImg: "assets/img/img1-dest.jpg",
     visits:2000,
-    views:5000,
-    bannerImg2: "assets/img/img8-dest.jpg"},
+    views:5000
+  },
     
     {name:"Playa",
     bannerImg: 'assets/img/img7-dest.jpg',

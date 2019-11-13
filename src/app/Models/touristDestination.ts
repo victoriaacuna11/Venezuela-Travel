@@ -5,14 +5,15 @@ export class TouristDestination{
     id?:string;
     name:string;
     description?: string;
-    destinationsCategory?:DestinationInterface;
+    destinationsCategory?:string;
     services?:string;
     activities?:string;
     latitude?:number;
     longitude?:number;
-    state?: StateInterface;
+    state?: string;
     direction?:string;
     city?:string;
     bannerImg?: string;
+    
 
 }

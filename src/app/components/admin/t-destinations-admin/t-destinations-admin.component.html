@@ -1,0 +1,98 @@
+<div class="form">
+    <form [formGroup]="createTDestinationsForm" (ngSubmit)="addPost()">
+        <div class="details">
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    NOMBRE
+                </div>
+                <div class="wrapper">
+                    <input formControlName="name" type="text" />
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    IMAGEN DEL BANNER
+                </div>
+                <div class="wrapper">
+                    <input formControlName="bannerImg" type="text" />
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    DESCRIPCION
+                </div>
+                <div class="wrapper">
+                    <input formControlName="description" type="text"/>
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    TIPO DE DESTINO:
+                </div>
+                <div class="wrapper">
+                    <input formControlName="destinationsCategory" type="text" />
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    SERVICIOS
+                </div>
+                <div class="wrapper">
+                    <input formControlName="services" type="text" />
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    ACTIVIDADES
+                </div>
+                <div class="wrapper">
+                    <input formControlName="activities" type="text"/>
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    LATITUD
+                </div>
+                <div class="wrapper">
+                    <input formControlName="latitude" type="text" />
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    LONGITUD
+                </div>
+                <div class="wrapper">
+                    <input formControlName="longitude" type="text"/>
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    ESTADO
+                </div>
+                <div class="wrapper">
+                    <input formControlName="state" type="text" />
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    DIRECCION
+                </div>
+                <div class="wrapper">
+                    <input formControlName="direction" type="text" />
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    CIUDAD
+                </div>
+                <div class="wrapper">
+                    <input formControlName="city" type="text" />
+                </div>
+            </div>
+
+            <div class="button">
+                <button [disabled]="!createStateFrom.valid" type="submit">CREAR</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -85,7 +85,6 @@ export class StatesService {
 
   deleteState(docId:string){
     return this.afs.collection('states').doc(docId).delete();
-
   }
 
   getStatesCollection(){
