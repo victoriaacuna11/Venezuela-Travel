@@ -28,7 +28,9 @@ import { BannerImgComponent } from './components/banner-img/banner-img.component
 import { DestsAndStatesComponent } from './components/dests-and-states/dests-and-states.component';
 import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
 import { StatesAdminComponent } from './components/admin/states-admin/states-admin.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { ListStatesComponent } from './components/admin/list-states/list-states.component';
+import { DestinationsAdminComponent } from './components/admin/destinations-admin/destinations-admin.component';
 
 const appRoutes: Routes=[
 
@@ -56,7 +58,9 @@ const appRoutes: Routes=[
     BannerImgComponent,
     DestsAndStatesComponent,
     RoomsListComponent,
-    StatesAdminComponent
+    StatesAdminComponent,
+    ListStatesComponent,
+    DestinationsAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,8 @@ const appRoutes: Routes=[
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     ReactiveFormsModule,
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

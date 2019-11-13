@@ -8,8 +8,10 @@ export interface StateInterface{
     name:string;
     bannerImg?: string;
     hotels?: Hotel[];
+    // ARREGLAR
     destinations?: DestinationInterface[];
-    touristDestinations?: TouristDestination[];
+
+    // touristDestinations?: TouristDestination[];
     imgs?: string[];
     gastronomy?: string;
     culture?: string;
@@ -18,6 +20,7 @@ export interface StateInterface{
     views?: number;
     visits?: number;
     display?: boolean;
-    
-
+    destination?: string;
+    touristDestinations?: string[];
 }
+

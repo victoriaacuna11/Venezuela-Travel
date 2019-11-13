@@ -9,6 +9,7 @@ import { TouristDestinationComponent } from './components/tourist-destination/to
 import { HotelXComponent } from './components/hotel-x/hotel-x.component';
 import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
 import { StatesAdminComponent } from './components/admin/states-admin/states-admin.component';
+import { ListStatesComponent } from './components/admin/list-states/list-states.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,8 @@ const routes: Routes = [
   {path: 'hotelx', component: HotelXComponent},
   {path: 'roomList', component: RoomsListComponent},
   {path: 'adminEdo', component: StatesAdminComponent},
+  {path: 'stateList', component: ListStatesComponent},
+  {path: 'info/:id', component: TouristInfoComponent},
 ]; 
 
 @NgModule({

@@ -1,0 +1,25 @@
+<div class="form">
+    <form [formGroup]="createStateFrom" (ngSubmit)="addPost()">
+        <div class="details">
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    NOMBRE
+                </div> 
+                <div class="wrapper">
+                    <input formControlName="name" type="text" />
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    IMAGEN DEL BANNER
+                </div>
+                <div class="wrapper">
+                    <input formControlName="bannerImg" type="text"/>
+                </div>
+            </div>
+            <div class="button">
+                <button [disabled]="!createStateFrom.valid" type="submit">CREAR</button>
+            </div>
+        </div>
+    </form>
+</div>

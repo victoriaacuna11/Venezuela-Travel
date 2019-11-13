@@ -6,7 +6,7 @@
                     NOMBRE
                 </div> 
                 <div class="wrapper">
-                    <input formControlName="name" type="text"/>
+                    <input formControlName="name" type="text" />
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -14,7 +14,7 @@
                     IMAGEN DEL BANNER
                 </div>
                 <div class="wrapper">
-                    <input formControlName="bannerImg" type="text" />
+                    <input formControlName="bannerImg" type="text"/>
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -93,7 +93,7 @@
                                             <img class="crud-icon" src="assets/img/add-icon.png" alt="Agregar" (click)="addTouristDestination()">
                                         </div>
                                         <div class="crud-icon-wrapper" *ngIf="i!=0">
-                                            <img class="crud-icon" src="assets/img/delete-icon.png" alt="Agregar" (click)="removeremoveTouristDestination(i)">
+                                            <img class="crud-icon" src="assets/img/delete-icon.png" alt="Agregar" (click)="removeTouristDestination(i)">
                                         </div>
                                     </div>
                                 </div>
@@ -102,15 +102,6 @@
                     </div>
                 </div>
 
-
-            <!-- <div class="detail-wrapper">
-                <div class="wrapper">
-                    DESTINOS TURÍSTICO
-                </div>
-                <div class="wrapper">
-                    <input formControlName="touristDestinations" type="text"/>
-                </div>
-            </div> -->
             <div class="detail-wrapper">
                 <div class="wrapper">
                     DESTINO (CATEGORÍA)
