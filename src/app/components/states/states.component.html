@@ -2,9 +2,9 @@
 <app-banner-img title="Estados" img="assets/img/states.jpg"></app-banner-img>
 
 <div class="blank">
-
+        <app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
 </div>
-<app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
+
 <div class="max-container">
         <div>
                 <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}"

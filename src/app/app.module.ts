@@ -36,6 +36,7 @@ import { ListTDestinationsComponent } from './components/admin/list-t-destinatio
 import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FilterPipe } from './Pipes/filter.pipe';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const appRoutes: Routes=[
 
@@ -70,7 +71,8 @@ const appRoutes: Routes=[
     ListTDestinationsComponent,
     ListDestinationsComponent,
     SearchBarComponent,
-    FilterPipe
+    FilterPipe,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,

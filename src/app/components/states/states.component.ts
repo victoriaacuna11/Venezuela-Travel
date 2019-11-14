@@ -87,17 +87,22 @@ export class StatesComponent implements OnInit {
     //let destino=this.route.snapshot.paramMap.get('destinoPrueba')
     //this.filtro=destino;
 
-    const id = this.route.snapshot.paramMap.get('id');
-    this.destination = this._dest.getDestinationById(id);
+    if(this.route.snapshot.paramMap.get('id')==undefined){
+      this.statess = this.states;
+    }else{
 
-    const nameD = this.destination.name;
+      const id = this.route.snapshot.paramMap.get('id');
+      this.destination = this._dest.getDestinationById(id);
 
-    this.statess = this.states.filter(function(x) {
-      return x.destinationName === nameD;
-    });
+      const nameD = this.destination.name;
+
+      this.statess = this.states.filter(function(x) {
+        return x.destinationName === nameD;
+      });
     //this.statess = this._states.states.find(item => {
     //  return item.id === this.id;
     //})
+  }
   }
 
   isDestiny(state:string[]){

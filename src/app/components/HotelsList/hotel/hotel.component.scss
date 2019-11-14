@@ -148,7 +148,7 @@ h3 {
 
 .off.input{
     display: block;
-    background-color: #fff;
+    background-color: #ddd4c7;
 }
 
 
@@ -159,5 +159,15 @@ h3 {
 
 .icon:hover{
     cursor: pointer;
+}
+
+.blank{
+    display: flex;
+    width: 100vw;
+    background-color: #ddd4c7;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
 }
   
