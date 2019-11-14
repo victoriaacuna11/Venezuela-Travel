@@ -1,0 +1,38 @@
+
+<div class="container">
+    
+    <div class="login">
+        
+            <div class="center">
+                <h1>LogIn</h1>
+            </div>
+            <div class="text">
+                <img src="http://cdn.onlinewebfonts.com/svg/img_299586.png" alt=""  >
+                <input type="text" placeholder="Usuario" [(ngModel)]="username" id="usernameInput" [style.border]="property ? '1px solid  #ff463c':'none' " >
+            </div>
+
+            <div class="text">
+                <img src="https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/lock-24-512.png" alt="" >
+                <input type="password" placeholder="Contraseña" [(ngModel)]="password" id="passwordInput" [style.border]="property ? '1px solid  #ff463c':'none' " >
+            </div>
+
+            <div class="center">
+                <div class="button" (click)="onLogin()">
+                    
+                    <h4>Login</h4>
+                
+                </div>
+            </div>
+
+
+
+    </div>
+    
+
+       
+
+
+
+    
+
+</div>
