@@ -1,0 +1,100 @@
+.title-add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 14vh;
+    padding: 4vh;
+    h1{
+        font-size: 4vw;
+        color: white;
+        font-family: 'Staatliches', cursive;
+        text-align: center;
+    }
+
+}
+.form{
+    background-image: url("../../../../assets/img/add-bckgrnd.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10vh;
+    background-size: cover;
+    background-position: center;
+    min-height: 85vh;
+    
+}
+form{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40vw;
+    padding: 7vh;
+}
+
+.detail-wrapper{
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+}
+
+.title-wrapper{
+    font-family: 'Staatliches', cursive;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.details{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    height: 100%;
+}
+.form{
+    width: 100%;
+    height: 100%;
+    padding: 7%;
+}
+
+.button{
+    height: 7vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    background:none;
+    padding: 5px;
+    button{
+        width: 30%;
+        height: 80%;
+        color: white;
+        background-color: #1DA9BC;
+        font-size:3vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border:none;
+        font-family: 'Staatliches', cursive;
+    }
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    // font-family: 'Staatliches', cursive;
+    font-size: 3vh;
+}
+
+input{
+    text-align: center;
+    height: 4vh;
+    font-size: 2vh;
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 30vw;
+
+}

@@ -1,0 +1,130 @@
+.banner-tourist-destination{
+    height: 40vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.bTitles-wrapper{
+    position: relative;
+
+}
+.title-inf{
+    position: absolute;
+    top: 0%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    h2{
+        font-family: 'Staatliches', cursive;
+        color: white;
+        font-size: 3vw;
+    }
+}
+.mask-ti{
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 40vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 0.65fr 0.35fr;
+}
+.banner-title{
+    // height: 20vh;
+    // width: 50vw;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: 'Staatliches', cursive;
+    position: absolute;
+    bottom: 0%;
+    h1{
+        font-size: 10vw;
+       
+    }
+}
+
+.max-container-room{
+    // padding-top: 7%;
+    // padding-bottom: 7%;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd4c7;
+}
+.roomsList-wrapper{
+    width: 80vw;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 5%;
+    // grid-template-areas: "foto info";
+    // &:nth-child(odd){
+    //     grid-template-areas: "foto info";
+    //     background-color: blue;
+    // }
+}
+.room-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5px;
+    height: 50vh;
+}
+.room-info-wrapper{
+    display: grid;
+    grid-template-rows: 0.7fr 0.3fr;
+    height: 50vh;
+}
+.room-services-wrapper{
+    padding: 7%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    row-gap: 10px;
+}
+.icon{
+    max-height: 5vh;
+    filter: invert(1);
+}
+.div-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.room-info-wrapper2{
+    display: grid;
+    grid-template-rows: 1fr 0.5fr 0.5fr 0.5fr;
+}
+.room-description-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    h1{
+        font-size: 6vh;
+        font-family: 'Staatliches', cursive;
+        color: black;
+    }
+    h4{
+        font-family: 'Roboto Condensed', sans-serif;
+        // font-family: 2vh;
+        
+    }
+}
+.blank{
+    width: 100vw;
+    height: 12vh;
+    background-color: #ddd4c7;
+}
+.slider-room{
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

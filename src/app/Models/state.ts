@@ -7,9 +7,14 @@ export interface StateInterface{
     id?: string;
     name:string;
     bannerImg?: string;
+
+    // NO VA
     hotels?: Hotel[];
+    // ARREGLAR
+    
     destinations?: DestinationInterface[];
-    touristDestinations?: TouristDestination[];
+
+    // touristDestinations?: TouristDestination[];
     imgs?: string[];
     gastronomy?: string;
     culture?: string;
@@ -17,7 +22,9 @@ export interface StateInterface{
     mainHotels?: string;
     views?: number;
     visits?: number;
+    // 
     display?: boolean;
-    
-
+    destinationName?: string;
+    touristDestinations?: string[];
 }
+

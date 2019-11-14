@@ -24,6 +24,19 @@ import { HotelXComponent } from './components/hotel-x/hotel-x.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment.prod';
+import { BannerImgComponent } from './components/banner-img/banner-img.component';
+import { DestsAndStatesComponent } from './components/dests-and-states/dests-and-states.component';
+import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
+import { StatesAdminComponent } from './components/admin/states-admin/states-admin.component';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { ListStatesComponent } from './components/admin/list-states/list-states.component';
+import { DestinationsAdminComponent } from './components/admin/destinations-admin/destinations-admin.component';
+import { TDestinationsAdminComponent } from './components/admin/t-destinations-admin/t-destinations-admin.component';
+import { ListTDestinationsComponent } from './components/admin/list-t-destinations/list-t-destinations.component';
+import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { FilterPipe } from './Pipes/filter.pipe';
+import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-admin.component';
 
 const appRoutes: Routes=[
 
@@ -47,7 +60,19 @@ const appRoutes: Routes=[
     DestinationsComponent,
     StatesComponent,
     TouristDestinationComponent,
-    HotelXComponent
+    HotelXComponent,
+    BannerImgComponent,
+    DestsAndStatesComponent,
+    RoomsListComponent,
+    StatesAdminComponent,
+    ListStatesComponent,
+    DestinationsAdminComponent,
+    TDestinationsAdminComponent,
+    ListTDestinationsComponent,
+    ListDestinationsComponent,
+    SearchBarComponent,
+    FilterPipe,
+    HotelsAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +85,9 @@ const appRoutes: Routes=[
     }),
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
+    ReactiveFormsModule,
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

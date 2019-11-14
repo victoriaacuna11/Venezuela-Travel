@@ -3,6 +3,9 @@ import { StateInterface } from '../Models/state';
 import { DestinationsComponent } from '../components/destinations/destinations.component';
 import { TouristDestination } from '../Models/touristDestination';
 import { TouristDestinationsService } from './tourist-destinations.service';
+import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
+import { Observable, of } from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +21,9 @@ export class StatesService {
     "hotels": [],
     "destinations":[],
     
-    "touristDestinations": [{"name": "Salto Ángel"},
-    {"name": "Parque Nacional Canaima"},
-    {"name": "Auyantepuy"}],
+    // "touristDestinations": [{"name": "Salto Ángel"},
+    // {"name": "Parque Nacional Canaima"},
+    // {"name": "Auyantepuy"}],
 
     "imgs": ["http://www.autana.org/DESTINOS/panama/ewExternalFiles/HeaderAutana@2x.jpg",
     "http://www.panorama.com.ve/__export/1495456921565/sites/panorama/img/pitoquito/2017/05/22/dsc04979.jpg",
@@ -41,9 +44,58 @@ export class StatesService {
     "display": true,
   }
 
-  constructor() { }
+  statesCollection: AngularFirestoreCollection<StateInterface>;
+  states: StateInterface[]=[];
 
-  getState(){
-    return this.bolivar;
+  constructor(public afs: AngularFirestore) { 
+    const order=this.afs.collection<StateInterface>('states').snapshotChanges();
+    order.subscribe( states => {
+      states.forEach(item=>{
+        const state: StateInterface = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+        this.states.push(state);
+      })
+    })
+  //   this.states = this.afs.collection('states').snapshotChanges().pipe(
+  //     map(changes => {
+  //     return changes.map(a => {
+  //       const data = a.payload.doc.data() as StateInterface;
+  //       data.id=a.payload.doc.id;
+  //       return data;
+  //     })
+  //   })
+  // )
   }
+
+  // getState(){
+  //   return this.bolivar;
+  // }
+
+  getStates(){
+    return this.states;
+  }
+
+  addState(mov){
+    this.afs.collection('states').add(mov);
+    console.log('agrego a la database')
+    console.log(mov);
+  }
+
+  deleteState(docId:string){
+    return this.afs.collection('states').doc(docId).delete();
+  }
+
+  getStatesCollection(){
+    return this.afs.collection('states').snapshotChanges();
+  
+  }
+
+  getStateById(id:string){
+    return this.states.find(states => {
+      return states.id==id;
+    })
+  }
+
 }

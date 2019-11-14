@@ -4,12 +4,13 @@ import { BehaviorSubject } from 'rxjs';
 import { StatesService } from './states.service';
 import { HotelFacilitiesService } from './hotel-facilities.service';
 import { HotelFacilitie } from '../Models/hotelFacilitie';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelsService {
-  
+  // BORRAR
   hotelX: Hotel={
     "name":"Ara Merú Lodge",
     "description": "Hotel ubicado en Canaima. Vive la experiencia de un campamento exclusivo, con cabañas, restaurante, piscina; y por supuesto, excursiones al salto Angel, a ríos y a lagos, y mucho más.",
@@ -155,17 +156,17 @@ export class HotelsService {
         {
           "name":"TV",
           "available":true,
-          "icon": "assets/tv.png"
+          "icon": "assets/img/tv.png"
         },
         {
           "name":"Aire acondicionado",
           "available":true,
-          "icon": "assets/airconditioner.png"
+          "icon": "assets/img/airconditioner.png"
         },
         {
           "name":"Cocina",
           "available":true,
-          "icon": "assets/kitchen.png"
+          "icon": "assets/img/kitchen.png"
         },
         {
           "name":"Armario",
@@ -616,9 +617,46 @@ export class HotelsService {
   ImageArray = [];
   title = "HOTELES";
 
-  constructor(private sv: HotelFacilitiesService) { }
-  
+  // BORRAR ARRIBA
 
+  constructor(private sv: HotelFacilitiesService, public afs: AngularFirestore) { 
+    const order=this.afs.collection<Hotel>('hotels').snapshotChanges();
+    order.subscribe( hotels => {
+      hotels.forEach(item=>{
+        const hotel: Hotel = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+        this.hotelsFB.push(hotel);
+      })
+    })
+
+  }
+  hotelsCollection: AngularFirestoreCollection<Hotel>;
+  hotelsFB: Hotel[]=[];
+
+  addHotel(mov){
+    this.afs.collection('hotels').add(mov);
+    console.log('agrego a la database')
+    console.log(mov);
+  }
+  deleteHotel(docId:string){
+    return this.afs.collection('hotels').doc(docId).delete();
+  }
+  getHotelsCollection(){
+    return this.afs.collection('hotels').snapshotChanges();
+  
+  }
+
+  getHotelById(id:string){
+    return this.hotels.find(hotel => {
+      return hotel.id==id;
+    })
+  }
+
+
+
+  // BORRAR
   rearrangeByViews(): Hotel[]{
     this.hotels=this.hotels.filter(e => e.nrBusquedas>0)
     .sort(function(a,b) {
@@ -724,6 +762,8 @@ export class HotelsService {
    getHotelX(){
      return this.hotelX;
    }
+
+  
 
 
 }

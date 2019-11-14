@@ -12,9 +12,24 @@
 
 <br>
 
+
+ <!--   <div [class.input]="Input" class="off">
+
+        <input type="search" [(ngModel)]="search">
+
+    </div>
+
+    <img class="icon" (click)="showInput()" src="assets/icons/iconoLupa.png" alt="">
+
+</div>-->
+<br>
+<div class="blank">
+    <app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
+</div>
+<br>
 <div class="wrapperH">
 
-    <div class="block" *ngFor="let hotel of message">
+    <div class="block" *ngFor="let hotel of message | filter:search">
         <div>
             <img class="imagenes" src="{{hotel.imgPrin}}" alt="">
         </div>

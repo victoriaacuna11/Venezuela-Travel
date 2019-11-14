@@ -10,8 +10,8 @@ export class Hotel{
     // // Estas imgs pueden ir dentro del objeto servicio.
     // amenitiesImg?: String[];
 
-    nrBusquedas: number;
-    nrVentas: number;
+    nrBusquedas?: number;
+    nrVentas?: number;
     bannerImg?:string;
     id?: string;
     stars?:number;

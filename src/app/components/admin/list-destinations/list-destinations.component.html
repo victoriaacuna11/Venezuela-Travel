@@ -1,0 +1,25 @@
+<div class="bck-clr">
+    <div class="elementList-wrapper">
+        <div class="element-wrapper" *ngFor="let d of destinations">
+            <div class="id-wrapper">
+                <h5>{{d.id}}</h5>
+            </div>
+            <div class="elementName-wrapper">
+                <h5>{{d.name}}</h5>
+            </div>
+            <div class="cruds-wrapper">
+                <div class="icon-wrapper">
+                    <button routerLink="/destinos">
+                        <img src="assets/img/read-icon.png">
+                    </button>
+                </div>
+                <div class="icon-wrapper">
+                    <img src="assets/img/edit-icon.png">
+                </div>
+                <div class="icon-wrapper">
+                    <button (click)="deleteDestination(d.id)"><img src="assets/img/delete-icon.png"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

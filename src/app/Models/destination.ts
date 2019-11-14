@@ -1,8 +1,9 @@
 export interface DestinationInterface{
     
-    name:string;
+    name: string;
     bannerImg?: string;
     views?: number;
     visits?: number;
+    id?: string;
 
 }
