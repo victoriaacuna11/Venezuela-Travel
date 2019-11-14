@@ -1,6 +1,10 @@
+
 <div class="form">
     <form [formGroup]="createStateFrom" (ngSubmit)="addPost()">
         <div class="details">
+            <div class="title-add">
+                <h1>AÑADIR ESTADO</h1>
+            </div>
             <div class="detail-wrapper">
                 <div class="wrapper">
                     NOMBRE
@@ -22,7 +26,7 @@
                     GASTRONOMÍA
                 </div>
                 <div class="wrapper">
-                    <input formControlName="gastronomy" type="text" placeholder="Nombre del estado"/>
+                    <input formControlName="gastronomy" type="text"/>
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -76,12 +80,11 @@
                 </div>
             </div>
             <div class="array-wrapper" formArrayName="touristDestinations">
-                    <div class="detail-wrapper" >
+                    <div class="detail-wrapper-array" >
                         <div class="wrapper">
                             DESTINOS TURÍSTICOS
                         </div>
                         <div class="flex-div">
-
                             <div class="center-content">
                                 <div class="array-content-wrapper" *ngFor="let group of touristDestinationsArray.controls; let i=index" [formGroupName]="i">
                                     <div>
@@ -106,14 +109,13 @@
                 <div class="wrapper">
                     DESTINO (CATEGORÍA)
                 </div>
-                <div class="wrapper">
+                <div class="select-wrapper" >
                     <select formControlName="destination">
-                        <!-- <option slected disabled>Elige...</option> -->
+                            <option selected>Elige uno...</option>
                         <option selected *ngFor="let item of destinations" [value]="item.name">
-                            {{item.name}}
+                            {{item.name | uppercase}}
                         </option>
                     </select>
-                    
                 </div>
             </div>
             <div class="button">
@@ -122,3 +124,5 @@
         </div>
     </form>
 </div>
+
+<app-footer></app-footer>
