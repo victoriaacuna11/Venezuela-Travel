@@ -1,27 +1,50 @@
-<div class="bck-clr">
-    <div class="elementList-wrapper">
-        <div class="element-wrapper" *ngFor="let destination of destinations">
-            <div class="id-wrapper">
-                <h5>{{destination.id}}</h5>
-            </div>
-            <div class="elementName-wrapper">
-                <h5>{{destination.name}}</h5>
-            </div>
-            <div class="cruds-wrapper">
-                <div class="icon-wrapper">
-                    <button [routerLink]="['/destination/info', destination.id]">
-                        <img src="assets/img/read-icon.png">
-                    </button>
+<div class="bck">
+        <div class="mask">
+            <div class="content-wrapper">
+                    <div class="welcome">
+                        <h1>DESTINOS TURÍSTICOS</h1>
+                    </div>
+                <div class="title-wrap">
+                    <div class="tit-cont-wrapper">
+                        <h5>ID</h5>
+                    </div>
+                    <div  class="tit-cont-wrapper">
+                        <h5>NOMBRE</h5>
+                    </div>
+                    <div  class="tit-cont-wrapper">
+                        <h5>CRUDS</h5>
+                    </div>
                 </div>
-                <div class="icon-wrapper">
-                    <img src="assets/img/add-icon.png">
+                <div class="elementList-wrapper">
+                    <div class="element-wrapper" *ngFor="let d of destinations; let i=index">
+                        <div class="element-cont-wrapper">
+                            <h5>{{d.id}}</h5>
+                        </div>
+                        <div class="element-cont-wrapper">
+                            <h5>{{d.name}}</h5>
+                        </div>
+                        <div class="cruds-wrapper">
+                            <div class="icon-wrapper">
+                                <button [routerLink]="['/destination/info', d.id]">
+                                    <img src="assets/img/read-icon.png">
+                                </button>
+                            </div>
+                            <div class="icon-wrapper">
+                                <button><img src="assets/img/edit-icon.png"></button>
+                            </div>
+                            <div class="icon-wrapper">
+                                <button (click)="deleteDestinations(d.id)"><img src="assets/img/delete-icon.png"></button>
+                                
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="icon-wrapper">
-                    <button (click)="deleteDestinations(destination.id)"><img src="assets/img/delete-icon.png"></button>
-                    
+                <div class="add">
+                    <button routerLink="/adminTD">AGREGAR DESTINO TURÍSTICO</button>
                 </div>
+                
             </div>
         </div>
     </div>
-</div>
+    <app-footer></app-footer>
 

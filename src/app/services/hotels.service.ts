@@ -23,7 +23,7 @@ export class HotelsService {
     "latitude":6.239770,
     "longitude":-62.850959,
     "direction":"Caserío Tururiwaipa, Sector Canaima Comunidad Indígena Kanaimo, 8001, Bolívar.",
-    "state": {"name":"Bolívar"},
+    "state": {"name":"Bolívar", "destinationName": "Montaña"},
     "imgs":["https://q-cf.bstatic.com/images/hotel/max1280x900/125/125365291.jpg",
     "https://r-cf.bstatic.com/images/hotel/max1280x900/162/162700063.jpg",
     "https://q-cf.bstatic.com/images/hotel/max1280x900/151/151578893.jpg",

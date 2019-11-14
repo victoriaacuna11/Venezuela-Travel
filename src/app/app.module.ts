@@ -38,6 +38,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { FilterPipe } from './Pipes/filter.pipe';
 import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-admin.component';
 import { LoginComponent } from './components/login/login.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 
 const appRoutes: Routes=[
 
@@ -74,7 +75,8 @@ const appRoutes: Routes=[
     SearchBarComponent,
     FilterPipe,
     HotelsAdminComponent,
-    LoginComponent
+    LoginComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,

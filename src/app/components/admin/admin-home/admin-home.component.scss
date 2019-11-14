@@ -1,0 +1,64 @@
+.bck{
+    background-position: center;
+    background-image: url("../../../../assets/img/adminhome.jpg");
+    background-size: cover;
+    min-height: 85vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mask{
+    width: 100vw;
+    min-height: 85vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-wrapper{
+    width: 60vw;
+    min-height: 60vh;
+    display: grid;
+    grid-template-rows: 0.3fr 0.7fr;
+}
+
+.welcome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    h1{
+        font-size: 6vw;
+        font-family: 'Staatliches', cursive;
+
+    }
+}
+
+.buttons-wrap{
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    column-gap: 7px;
+    .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button{
+            background-color: white;
+            border: none;
+            color: black;
+            font-size: 1.5vw;
+            font-family: 'Roboto Condensed', sans-serif;
+            width: 18vw;
+            padding: 5px;
+            &:hover{
+                background-color: #1DA9BC;
+                color:white;
+                font-size: 1.7vw;
+            }
+        }
+    }
+}

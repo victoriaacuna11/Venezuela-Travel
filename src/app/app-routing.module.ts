@@ -17,6 +17,7 @@ import { ListDestinationsComponent } from './components/admin/list-destinations/
 import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-admin.component';
 
 import { LoginComponent } from './components/login/login.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'admin/destinations', component: ListDestinationsComponent},
   {path: 'admin/hotel/add', component: HotelsAdminComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'admin/dashboard', component: AdminHomeComponent},
 ]; 
 
 @NgModule({
