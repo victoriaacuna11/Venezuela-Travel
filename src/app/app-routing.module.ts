@@ -16,6 +16,7 @@ import { DestinationsAdminComponent } from './components/admin/destinations-admi
 import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
 import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-admin.component';
 
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: 'admin/destination/add', component: DestinationsAdminComponent},
   {path: 'admin/destinations', component: ListDestinationsComponent},
   {path: 'admin/hotel/add', component: HotelsAdminComponent},
+  {path: 'login', component: LoginComponent},
 ]; 
 
 @NgModule({
