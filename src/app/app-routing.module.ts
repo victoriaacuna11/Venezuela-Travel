@@ -28,6 +28,7 @@ const routes: Routes = [
   {path : 'infoTuristica', component: TouristInfoComponent },
   {path : 'hoteles', component: HotelComponent },
   {path : 'infoestado', component: TouristInfoComponent},
+  {path : 'infoestado/:id', component: TouristInfoComponent },
   {path: 'destination/info/:id', component: TouristDestinationComponent},
   {path: 'hotelx', component: HotelXComponent},
   {path: 'roomList', component: RoomsListComponent},

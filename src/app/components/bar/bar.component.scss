@@ -10,11 +10,27 @@
     display: grid;
     width: 100vw;
     height: 10vh;
-    grid-template-columns: 0.1fr 1fr 0.1fr;
+    grid-template-columns: 0.1fr 1fr 0.2fr;
     justify-items: center;
     align-items: center;
     position: relative;
     z-index: 5;
+}
+
+.noDecor{
+    text-decoration: none;
+    color: black;
+}
+
+p{
+    text-decoration: none;
+    color: black;
+    font-family: 'Roboto Condensed', cursive;
+}
+
+p:hover{
+    text-decoration: none;
+    font-size: larger;
 }
 
 .wrapperMenu{
