@@ -1,9 +1,3 @@
-/*body{
-    width: 100%;
-    overflow-x: hidden;
-    background-color: #E3DED5;
-}*/
-
 .wrapper{
 
     background-color: #E3DED5;
@@ -27,16 +21,16 @@ img{
         height: 8vh;
     }
 }
-// p{
-//     text-decoration: none;
-//     color: black;
-//     font-family: 'Roboto Condensed', cursive;
-// }
+p{
+    text-decoration: none;
+    color: black;
+    font-family: 'Roboto Condensed', cursive;
+}
 
-// p:hover{
-//     text-decoration: none;
-//     font-size: larger;
-// }
+p:hover{
+    text-decoration: none;
+    font-size: larger;
+}
 
 .wrapperMenu{
 
@@ -75,4 +69,3 @@ img{
 .menu{
     cursor:pointer;
 }
-

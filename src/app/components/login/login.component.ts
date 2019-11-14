@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
       console.log(this.username+this.password);
 
-      this.router.navigate(['/']);
+      this.router.navigate(['/admin/dashboard']);
 
     }else{
       

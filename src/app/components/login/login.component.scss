@@ -3,15 +3,15 @@ body{
     margin: 0px;
     padding: 0px;
 }
-.container{
+.bck-container{
     display: flex;
     justify-content: center;
     align-items: center;
     background:#e3ded5 ;
-    height: 100vh;
+    height: 75vh;
     width: 100vw;
     color: #1da9bc;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.vtv.gob.ve/wp-content/uploads/2019/02/playa-margarita-atardecer.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://lh3.googleusercontent.com/proxy/xbj77JVLQP9SfOKBmTewS-yjAyPRgZKM2uooUtzl5Yd6anXK-ddW6QC5-tuE3xbzqDWvOnfa5MrS-eLmksizly5-X3HkVcYq0krus7aVJ40b_MEfuMPkHxCoV80=s0-d");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
