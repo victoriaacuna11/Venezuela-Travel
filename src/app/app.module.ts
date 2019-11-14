@@ -34,6 +34,7 @@ import { DestinationsAdminComponent } from './components/admin/destinations-admi
 import { TDestinationsAdminComponent } from './components/admin/t-destinations-admin/t-destinations-admin.component';
 import { ListTDestinationsComponent } from './components/admin/list-t-destinations/list-t-destinations.component';
 import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes=[
 
@@ -66,7 +67,8 @@ const appRoutes: Routes=[
     DestinationsAdminComponent,
     TDestinationsAdminComponent,
     ListTDestinationsComponent,
-    ListDestinationsComponent
+    ListDestinationsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

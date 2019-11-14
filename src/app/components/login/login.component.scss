@@ -1,0 +1,141 @@
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#e3ded5 ;
+    height: 100vh;
+    width: 100vw;
+    color: #1da9bc;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.vtv.gob.ve/wp-content/uploads/2019/02/playa-margarita-atardecer.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+    
+}
+.login{
+    margin-top: 35px;
+    background: #e3ded5;
+    height: 300px;
+    width: 300px;
+    padding-left: 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1); 
+
+}
+h1{
+    width: 90px;
+    padding-bottom:2px;
+    border-bottom: 2px solid #1da9bc;
+    font-size: 35px;
+}
+img{
+    height:20px;
+    padding-right:10px;
+}
+.text{
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-left: 27px;
+    align-self: center;
+    width:200px ;
+    border-bottom: 1px solid #1da9bc;
+}
+.text input{
+    border: none;
+    background: rgb(189, 186, 186);
+    outline: none;
+    color:white;
+    height: 25px;
+    border-radius:5px;
+    padding-left: 10px;
+    width:170px;
+}
+
+.fail{
+    border:1px solid darkred;
+}
+
+
+
+input[type=text]:focus{
+    background: #1da9bc;
+    transition:0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); 
+}
+input[type=password]:focus{
+    background: #1da9bc;
+    transition:0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); 
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  #1da9bc;
+    height:35px;
+    width:60px;
+    margin-top: 40px;
+    margin-left: 100px;
+    border-radius: 10px;
+    color:#e3ded5;
+}
+
+.button:hover{
+    background:   rgb(19, 35, 105);
+    transition: 0.5s;
+
+}
+h4{
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .login{
+        height: 65vh;
+        width: 80vw;
+        padding-left:0px ;
+        
+    }
+    h1{
+        width: 130px;
+        margin-top:5vh;
+        margin-bottom: 5vh;
+        font-size: 50px;
+    }
+    .text{
+        margin-left:10vw;
+        width : 56vw;
+        margin-bottom: 5vh;
+    }
+    input{
+        width:53vw;
+    }
+    .button{
+        
+        height:50px;
+        width:75px;
+        font-size: 18px;
+        margin-top:5vh;
+        margin-left:0px;
+
+    }
+    .center{
+        width: 80vw;
+        display: flex;
+        justify-content: center;
+        
+    }
+
+
+
+}
