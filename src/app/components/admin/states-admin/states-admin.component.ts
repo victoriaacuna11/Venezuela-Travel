@@ -29,7 +29,7 @@ export class StatesAdminComponent implements OnInit {
     this.createStateFrom=this._builder.group({
       name:['', Validators.required],
       bannerImg: ['', Validators.required],
-      destination: ['', Validators.required],
+      destinationName: ['', Validators.required],
       touristDestinations: this._builder.array([this.addTouristDestinationsGroup()]),
       imgs: this._builder.array([this.addImgGroup()]),
       gastronomy: ['', Validators.required],
@@ -80,7 +80,7 @@ export class StatesAdminComponent implements OnInit {
     const mov = {
       name: this.createStateFrom.value.name,
       bannerImg: this.createStateFrom.value.bannerImg,
-      destination: this.createStateFrom.value.destination,
+      destinationName: this.createStateFrom.value.destinationName,
       touristDestinations: this.createStateFrom.value.touristDestinations,
       imgs: this.createStateFrom.value.imgs,
       gastronomy: this.createStateFrom.value.gastronomy,

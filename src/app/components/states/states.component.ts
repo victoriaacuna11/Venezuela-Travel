@@ -19,9 +19,10 @@ export class StatesComponent implements OnInit {
   public statess: StateInterface [];
   destination: DestinationInterface;
   search = '';
+
   
   
-  public states: StateInterface []=[
+  /*public states: StateInterface []=[
     {name:"Bolívar",
     bannerImg: 'assets/img/img8-dest.jpg',
     visits:4000,
@@ -79,7 +80,9 @@ export class StatesComponent implements OnInit {
     destinationName: 'Playa',
   }
 
-  ]
+  ]*/
+
+  statesss: StateInterface [];
 
   constructor(private route:ActivatedRoute, private _states: StatesService, private _dest: DestinationsService) { }
 
@@ -88,7 +91,7 @@ export class StatesComponent implements OnInit {
     //this.filtro=destino;
 
     if(this.route.snapshot.paramMap.get('id')==undefined){
-      this.statess = this.states;
+      this.getStates();
     }else{
 
       const id = this.route.snapshot.paramMap.get('id');
@@ -96,7 +99,7 @@ export class StatesComponent implements OnInit {
 
       const nameD = this.destination.name;
 
-      this.statess = this.states.filter(function(x) {
+      this.statess = this.statess.filter(function(x) {
         return x.destinationName === nameD;
       });
     //this.statess = this._states.states.find(item => {
@@ -120,6 +123,29 @@ export class StatesComponent implements OnInit {
 
   receiveMessage($event){
     this.search = $event
+  }
+
+  getStates(){
+    this._states.getStatesCollection().subscribe(
+      res => (this.statess = res.map(item =>
+        {
+          const statey: StateInterface = {
+            id: item.payload.doc.id,
+            name: item.payload.doc.get('name'),
+            bannerImg: item.payload.doc.get('bannerImg'),
+            imgs: item.payload.doc.get('imgs'),
+            gastronomy: item.payload.doc.get('gastronomy'),
+            culture: item.payload.doc.get('culture'),
+            recreativeActs: item.payload.doc.get('recreativeActs'),
+            mainHotels: item.payload.doc.get('mainHotels'),
+            views: item.payload.doc.get('views'),
+            visits: item.payload.doc.get('visits'),
+            destinationName:  item.payload.doc.get('destinationName'),
+            touristDestinations: item.payload.doc.get('touristDestinations'),
+          }
+          return statey;
+        }))
+    )
   }
 
 }
