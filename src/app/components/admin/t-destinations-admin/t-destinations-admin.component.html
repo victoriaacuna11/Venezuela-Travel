@@ -30,7 +30,11 @@
                     TIPO DE DESTINO:
                 </div>
                 <div class="wrapper">
-                    <input formControlName="destinationsCategory" type="text" />
+                    <select formControlName="destinationsCategory">
+                        <option selected *ngFor="let item of destinations" [value]="item.name">
+                            {{item.name}}
+                        </option>
+                    </select>
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -70,7 +74,11 @@
                     ESTADO
                 </div>
                 <div class="wrapper">
-                    <input formControlName="state" type="text" />
+                    <select formControlName="state">
+                        <option selected *ngFor="let item of states" [value]="item.name">
+                            {{item.name}}
+                        </option>
+                    </select>
                 </div>
             </div>
             <div class="detail-wrapper">
