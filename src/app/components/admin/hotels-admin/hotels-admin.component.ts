@@ -167,7 +167,7 @@ export class HotelsAdminComponent implements OnInit {
           mainHotels: item.payload.doc.get('mainHotels'),
           views: item.payload.doc.get('views'),
           visits: item.payload.doc.get('visits'),
-          destination: item.payload.doc.get('destination'),
+          destinationName: item.payload.doc.get('destinationName'),
           touristDestinations: item.payload.doc.get('touristDestinations'),
           bannerImg: item.payload.doc.get('bannerImg'),
         }
