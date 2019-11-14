@@ -1,6 +1,9 @@
 <div class="form">
     <form [formGroup]="createTDestinationsForm" (ngSubmit)="addPost()">
         <div class="details">
+            <div class="title-add">
+                <h1>AÑADIR DESTINO TURÍSTICO</h1>
+            </div>
             <div class="detail-wrapper">
                 <div class="wrapper">
                     NOMBRE
@@ -19,7 +22,7 @@
             </div>
             <div class="detail-wrapper">
                 <div class="wrapper">
-                    DESCRIPCION
+                    DESCRIPCIÓN
                 </div>
                 <div class="wrapper">
                     <input formControlName="description" type="text"/>
@@ -27,12 +30,13 @@
             </div>
             <div class="detail-wrapper">
                 <div class="wrapper">
-                    TIPO DE DESTINO:
+                    TIPO DE DESTINO
                 </div>
                 <div class="wrapper">
                     <select formControlName="destinationsCategory">
+                        <option selected>Elige uno...</option>
                         <option selected *ngFor="let item of destinations" [value]="item.name">
-                            {{item.name}}
+                            {{item.name | uppercase}}
                         </option>
                     </select>
                 </div>
@@ -42,7 +46,7 @@
                     SERVICIOS
                 </div>
                 <div class="wrapper">
-                    <input formControlName="services" type="text" />
+                    <input formControlName="services" type="text" placeholder="Describa los servicios que ofrece..."/>
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -50,7 +54,7 @@
                     ACTIVIDADES
                 </div>
                 <div class="wrapper">
-                    <input formControlName="activities" type="text"/>
+                    <input formControlName="activities" type="text" placeholder="Describa las actividades que ofrece..."/>
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -75,15 +79,16 @@
                 </div>
                 <div class="wrapper">
                     <select formControlName="state">
+                        <option selected>Elige uno...</option>
                         <option selected *ngFor="let item of states" [value]="item.name">
-                            {{item.name}}
+                            {{item.name | uppercase}}
                         </option>
                     </select>
                 </div>
             </div>
             <div class="detail-wrapper">
                 <div class="wrapper">
-                    DIRECCION
+                    DIRECCIÓN
                 </div>
                 <div class="wrapper">
                     <input formControlName="direction" type="text" />
@@ -104,3 +109,4 @@
         </div>
     </form>
 </div>
+<app-footer></app-footer>

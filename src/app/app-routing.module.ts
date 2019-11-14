@@ -14,6 +14,8 @@ import { TDestinationsAdminComponent } from './components/admin/t-destinations-a
 import { ListTDestinationsComponent } from './components/admin/list-t-destinations/list-t-destinations.component';
 import { DestinationsAdminComponent } from './components/admin/destinations-admin/destinations-admin.component';
 import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
+import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-admin.component';
+
 
 
 const routes: Routes = [
@@ -34,6 +36,7 @@ const routes: Routes = [
   {path: 'TDList', component: ListTDestinationsComponent},
   {path: 'admin/destination/add', component: DestinationsAdminComponent},
   {path: 'admin/destinations', component: ListDestinationsComponent},
+  {path: 'admin/hotel/add', component: HotelsAdminComponent},
 ]; 
 
 @NgModule({

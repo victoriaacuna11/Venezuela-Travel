@@ -1,3 +1,11 @@
+.forms-wrapper{
+    display:grid;
+    grid-template-columns: 1fr;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40vw;
+    // padding: 7vh;
+}
+
 .title-add{
     display: flex;
     align-items: center;
@@ -55,7 +63,7 @@ form{
 }
 
 .button{
-    height: 7vh;
+    min-height: 7vh;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -172,4 +180,55 @@ select{
     // font-family: 'Staatliches', cursive;
     font-size: 3vh;
     height: 3vh;
+}
+.checkbox{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 2px;
+    color: white;
+}
+.cb-item{
+    width: 7vw;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    label{
+        max-width: 6vw;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+        font-size: 1.5vw;
+    }
+    .input-cb{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.room-wrapper-title{
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4vw;
+    padding: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.add-icons-rooms{
+    height: 12vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.crud-icon-wrapper-rooms{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.crud-icon-rooms{
+    max-height: 10vh;
 }

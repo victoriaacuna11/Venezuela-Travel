@@ -5,6 +5,7 @@ import { HotelFacilitie } from '../Models/hotelFacilitie';
   providedIn: 'root'
 })
 export class HotelFacilitiesService {
+  facilities: HotelFacilitie[];
   wifi:HotelFacilitie={
     "name": "Wifi",
     "available":true,
@@ -93,56 +94,77 @@ export class HotelFacilitiesService {
   
   constructor() { }
 
-  getWifi(){
-    return this.wifi;
+  getFacilities(){
+    return [this.wifi,
+    this.gym,
+    this.pool,
+    this.restaurant,
+    this.pets,
+    this.parking,
+    this.snackBar,
+    this.laundry,
+    this.bar,
+    this.tv,
+    this.sports,
+    this.traslado,
+    this.spa,
+    this.kitchen,
+    this.airConditioner,
+    this.roomService,
+    this.businessRoom
+  ]
   }
-  getGym(){
-    return this.gym;
-  }
-  getRestaurant(){
-    return this.restaurant;
-  }
-  getPool(){
-    return this.pool;
-  }
-  getPets(){
-    return this.pets;
-  }
-  getParking(){
-    return this.parking;
-  }
-  getSnackBar(){
-    return this.snackBar;
-  }
-  getLaundry(){
-    return this.laundry;
-  }
-  getBar(){
-    return this.bar;
-  }
-  getTV(){
-    return this.tv;
-  }
-  getSports(){
-    return this.sports;
-  }
-  getTraslado(){
-    return this.traslado;
-  }
-  getBusinessRoom(){
-    return this.businessRoom;
-  }
-  getRoomService(){
-    return this.roomService;
-  }
-  getAirConditioner(){
-    return this.airConditioner;
-  }
-  getKitchen(){
-    return this.kitchen;
-  }
-  getSpa(){
-    return this.spa;
-  }
+
+  // getWifi(){
+  //   return this.wifi;
+  // }
+  // getGym(){
+  //   return this.gym;
+  // }
+  // getRestaurant(){
+  //   return this.restaurant;
+  // }
+  // getPool(){
+  //   return this.pool;
+  // }
+  // getPets(){
+  //   return this.pets;
+  // }
+  // getParking(){
+  //   return this.parking;
+  // }
+  // getSnackBar(){
+  //   return this.snackBar;
+  // }
+  // getLaundry(){
+  //   return this.laundry;
+  // }
+  // getBar(){
+  //   return this.bar;
+  // }
+  // getTV(){
+  //   return this.tv;
+  // }
+  // getSports(){
+  //   return this.sports;
+  // }
+  // getTraslado(){
+  //   return this.traslado;
+  // }
+  // getBusinessRoom(){
+  //   return this.businessRoom;
+  // }
+  // getRoomService(){
+  //   return this.roomService;
+  // }
+  // getAirConditioner(){
+  //   return this.airConditioner;
+  // }
+  // getKitchen(){
+  //   return this.kitchen;
+  // }
+  // getSpa(){
+  //   return this.spa;
+  // }
 
 }

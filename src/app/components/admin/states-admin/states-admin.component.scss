@@ -1,13 +1,29 @@
+.title-add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 14vh;
+    padding: 4vh;
+    h1{
+        font-size: 4vw;
+        color: white;
+        font-family: 'Staatliches', cursive;
+        text-align: center;
+    }
+
+}
 .form{
-    background-color: #E3DED5;
+    background-image: url("../../../../assets/img/add-bckgrnd.jpg");
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10vh;
+    background-size: cover;
+    background-position: center;
 }
 form{
     background-color: rgba(0, 0, 0, 0.5);
-    width: 50vw;
+    width: 40vw;
     padding: 7vh;
 }
 
@@ -15,7 +31,6 @@ form{
 .detail-wrapper{
     display: grid;
     grid-template-rows: repeat(2,1fr);
-    row-gap: 8px;
 }
 
 .title-wrapper{
@@ -40,7 +55,7 @@ form{
 }
 
 .button{
-    height: 8vh;
+    height: 7vh;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -51,9 +66,8 @@ form{
         width: 30%;
         height: 80%;
         color: white;
-        // border: 1px solid white;
         background-color: #1DA9BC;
-        font-size:4vh;
+        font-size:3vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -69,15 +83,16 @@ form{
     justify-content: center;
     text-align: center;
     color: white;
-    padding: 5px;
-    font-family: 'Staatliches', cursive;
-    font-size: 5vh;
+    padding: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    // font-family: 'Staatliches', cursive;
+    font-size: 3vh;
 }
 
 input{
     text-align: center;
-    height: 6vh;
-    font-size: 4vh;
+    height: 4vh;
+    font-size: 2vh;
     font-family: 'Roboto Condensed', sans-serif;
     width: 30vw;
 
@@ -86,6 +101,7 @@ input{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+    padding: 3px;                                       
 }
 .array-content-wrapper{
     display: grid;
@@ -100,7 +116,7 @@ input{
     align-items: center;
     justify-content:flex-end;
     input{
-        font-size: 3vh;
+        font-size: 2vh;
     }
     }
 }
@@ -110,7 +126,7 @@ input{
     align-items: center;
     justify-content: center;
     .crud-icon{
-        max-height: 6vh;
+        max-height: 4vh;
     }
     width: 4.5vw;
 }
@@ -128,9 +144,32 @@ input{
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 5px;
+    padding: 3px;
 }
 .flex-div{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+select{
+    width: 30vw;
+    option{
+        height: 6vh;
+        font-size: 10vh;
+        font-family: 'Roboto Condensed', sans-serif;
+        text-align: center;
+    }
+}
+.select-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    // font-family: 'Staatliches', cursive;
+    font-size: 3vh;
+    height: 3vh;
 }
