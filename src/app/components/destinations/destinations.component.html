@@ -1,12 +1,31 @@
 <app-bar></app-bar>
 
-<app-banner-img title="Destinos"
-                img="assets/img/plane.jpg"></app-banner-img>
+<app-banner-img title="Destinos" img="assets/img/plane.jpg"></app-banner-img>
 
-<app-dests-and-states [objs]=destinations></app-dests-and-states>
+<div class="blank">
+
+</div>
+<div class="max-container">
+    <div>
+        <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}" *ngFor="let o of destinations">
+            <div class="wrap-mask">
+                <a class="link" [routerLink]="['/estados', o.id]">
+                    <h1>{{o.name}}</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blank">
+
+</div>
+
+<app-footer></app-footer>
+
+<!--<app-dests-and-states [objs]=destinations></app-dests-and-states>-->
 
 
-                <!-- VICS 1 -->
+<!-- VICS 1 -->
 <!-- 
 
 <app-dests-and-states img1="assets/img/img1-dest.jpg"
@@ -19,7 +38,7 @@
                       img8="assets/img/img8-dest.jpg"
                       [obj]=destinations></app-dests-and-states> -->
 
-                      <!-- ROMEL -->
+<!-- ROMEL -->
 
 <!-- <div class="banner">
     <h1>Destinos</h1>
@@ -39,4 +58,3 @@
     </div>
 </div> -->
 
-<app-footer></app-footer>

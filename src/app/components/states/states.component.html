@@ -1,7 +1,26 @@
 <app-bar></app-bar>
-<app-banner-img title="Estados"
-        img="assets/img/states.jpg"></app-banner-img>
-<app-dests-and-states [objs]=states></app-dests-and-states>
+<app-banner-img title="Estados" img="assets/img/states.jpg"></app-banner-img>
+
+<div class="blank">
+
+</div>
+<div class="max-container">
+        <div>
+                <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}"
+                        *ngFor="let o of statess">
+                        <div class="wrap-mask">
+                                <a class="link" [routerLink]="['/hoteles', o.id]">
+                                        <h1>{{o.name}}</h1>
+                                </a>
+                        </div>
+                </div>
+        </div>
+</div>
+<div class="blank">
+
+</div>
+<app-footer></app-footer>
+<!--<app-dests-and-states [objs]=states></app-dests-and-states>-->
 
 <!-- <div class="banner">
     <h1>Estados</h1>
@@ -21,4 +40,3 @@
            </div>
    </div>
 </div>  -->
-<app-footer></app-footer>

@@ -19,7 +19,8 @@ import { ListDestinationsComponent } from './components/admin/list-destinations/
 const routes: Routes = [
   {path : 'destinos', component: DestinationsComponent},
   {path : 'estados', component: StatesComponent},
-  {path : 'estados/:destinoPrueba', component: StatesComponent},
+  //{path : 'estados/:destinoPrueba', component: StatesComponent},
+  {path : 'estados/:id', component: StatesComponent},
   {path : '', component: BannerHomePageComponent},
   {path : 'infoTuristica', component: TouristInfoComponent },
   {path : 'hoteles', component: HotelComponent },

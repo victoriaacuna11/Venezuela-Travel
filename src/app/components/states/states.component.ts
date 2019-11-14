@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StateInterface } from '../../Models/state';
+import { StatesService } from 'src/app/services/states.service';
+import { DestinationInterface } from 'src/app/Models/destination';
+import { DestinationsService } from 'src/app/services/destinations.service';
 
 
 @Component({
@@ -9,10 +12,12 @@ import { StateInterface } from '../../Models/state';
   styleUrls: ['./states.component.scss']
 })
 export class StatesComponent implements OnInit {
-
   
   public filtro;
   public isFiltered="false";
+  //public id;
+  public statess: StateInterface [];
+  destination: DestinationInterface;
   
   
   public states: StateInterface []=[
@@ -21,7 +26,8 @@ export class StatesComponent implements OnInit {
     visits:4000,
     views:1000,
     display:true,
-    destinations:[{"name": "Ciudad"}]
+    destinations:[{"name": "Ciudad"}],
+    destinationName: 'Ciudad',
   },
 
     {name:"Distrito Capital",
@@ -30,7 +36,8 @@ export class StatesComponent implements OnInit {
     views:5000,
     display:true,
     destinations:[{name:"Ciudad"},
-    {"name":"Montaña"}]
+    {"name":"Montaña"}],
+    destinationName: 'Ciudad',
   },
 
    
@@ -40,7 +47,8 @@ export class StatesComponent implements OnInit {
     visits:4000,
     views:1000,
     display:true,
-    destinations:[{"name":"Playa"}]
+    destinations:[{"name":"Playa"}],
+    destinationName: 'Playa',
     },
     
     {name:"Mérida",
@@ -48,7 +56,8 @@ export class StatesComponent implements OnInit {
     visits:10000,
     views:3000,
     display:true,
-    destinations:[{"name": "Montaña"}]
+    destinations:[{"name": "Montaña"}],
+    destinationName: 'Montaña',
   },
 
   {name:"Nueva Esparta",
@@ -56,7 +65,8 @@ export class StatesComponent implements OnInit {
   visits:4000,
   views:1000,
   display:true,
-  destinations:[{"name":"Playa"}]
+  destinations:[{"name":"Playa"}],
+  destinationName: 'Playa',
 },
 
     {name:"Vargas",
@@ -64,16 +74,29 @@ export class StatesComponent implements OnInit {
     visits:4000,
     views:1000,
     display:true,
-    destinations:[{"name":"Playa"}]
+    destinations:[{"name":"Playa"}],
+    destinationName: 'Playa',
   }
 
   ]
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute, private _states: StatesService, private _dest: DestinationsService) { }
 
   ngOnInit() {
-    let destino=this.route.snapshot.paramMap.get('destinoPrueba')
-    this.filtro=destino;
+    //let destino=this.route.snapshot.paramMap.get('destinoPrueba')
+    //this.filtro=destino;
+
+    const id = this.route.snapshot.paramMap.get('id');
+    this.destination = this._dest.getDestinationById(id);
+
+    const nameD = this.destination.name;
+
+    this.statess = this.states.filter(function(x) {
+      return x.destinationName === nameD;
+    });
+    //this.statess = this._states.states.find(item => {
+    //  return item.id === this.id;
+    //})
   }
 
   isDestiny(state:string[]){

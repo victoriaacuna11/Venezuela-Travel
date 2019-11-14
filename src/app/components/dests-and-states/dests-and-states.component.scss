@@ -143,7 +143,9 @@
     }
     &:hover{
         a h1{
+            transition: .4;
             font-size: 7vw;
+            cursor: pointer;
         }
         
     }

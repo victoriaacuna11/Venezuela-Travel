@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dests-and-states',
@@ -18,7 +19,7 @@ export class DestsAndStatesComponent implements OnInit {
   // @Input() obj?: any[];
   @Input() objs: any[];
 
-  constructor() { }
+  constructor(private route:ActivatedRoute ) { }
 
   ngOnInit() {
   }

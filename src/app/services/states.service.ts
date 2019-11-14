@@ -93,8 +93,8 @@ export class StatesService {
   }
 
   getStateById(id:string){
-    return this.states.find(state => {
-      return state.id==id;
+    return this.states.find(states => {
+      return states.id==id;
     })
   }
 

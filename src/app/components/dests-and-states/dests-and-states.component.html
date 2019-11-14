@@ -3,10 +3,11 @@
 </div>
 <div class="max-container">
     <div>
-        <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}" 
-        *ngFor="let o of objs">
+        <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}" *ngFor="let o of objs">
             <div class="wrap-mask">
-                <a><h1>{{o.name}}</h1></a>
+                <a [routerLink]="['/estados', o.id]">
+                    <h1>{{o.name}}</h1>
+                </a>
             </div>
         </div>
     </div>
@@ -76,8 +77,8 @@
         </div>
     </div> -->
 
-    <!-- DESTINATIONS LIST -->
-    <!-- <div class="content-wrap-max">
+<!-- DESTINATIONS LIST -->
+<!-- <div class="content-wrap-max">
         <div class="destinationsList-wrap">
             <div class="name-wrapper" *ngFor="let o of obj">
                 <a><h1>{{o.name}}</h1></a>
