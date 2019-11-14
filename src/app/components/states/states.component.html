@@ -4,10 +4,11 @@
 <div class="blank">
 
 </div>
+<app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
 <div class="max-container">
         <div>
                 <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}"
-                        *ngFor="let o of statess">
+                        *ngFor="let o of statess | filter:search">
                         <div class="wrap-mask">
                                 <a class="link" [routerLink]="['/hoteles', o.id]">
                                         <h1>{{o.name}}</h1>

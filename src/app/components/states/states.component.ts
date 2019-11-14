@@ -18,6 +18,7 @@ export class StatesComponent implements OnInit {
   //public id;
   public statess: StateInterface [];
   destination: DestinationInterface;
+  search = '';
   
   
   public states: StateInterface []=[
@@ -110,6 +111,10 @@ export class StatesComponent implements OnInit {
       }  
     }
     return isThere;
+  }
+
+  receiveMessage($event){
+    this.search = $event
   }
 
 }

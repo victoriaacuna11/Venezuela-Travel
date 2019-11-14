@@ -34,8 +34,8 @@ import { DestinationsAdminComponent } from './components/admin/destinations-admi
 import { TDestinationsAdminComponent } from './components/admin/t-destinations-admin/t-destinations-admin.component';
 import { ListTDestinationsComponent } from './components/admin/list-t-destinations/list-t-destinations.component';
 import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { FilterPipe } from './filter.pipe';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 const appRoutes: Routes=[
 

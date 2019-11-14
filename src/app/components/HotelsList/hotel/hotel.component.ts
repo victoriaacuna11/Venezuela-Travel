@@ -13,6 +13,8 @@ export class HotelComponent implements OnInit {
   title = "HOTELES";
   message2 : boolean;
   message3 = false;
+  search = '';
+  Input = false;
 
   openBubble: boolean;
   showMenu = false;
@@ -41,4 +43,11 @@ export class HotelComponent implements OnInit {
     this.showMenu=false;
   }
 
+  receiveMessage($event){
+    this.search = $event
+  }
+
+  showInput(){
+    this.Input = !this.Input;
+  }
 }
