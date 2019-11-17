@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao|Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 
 body{
@@ -16,4 +15,14 @@ body{
     box-sizing: border-box;
 }
 
+.card{
+    .card__title{
+        
+    }
+}
 
+.thumbnail{
+    .thumbnail__title{
+
+    }
+}

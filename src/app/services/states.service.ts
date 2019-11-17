@@ -78,7 +78,7 @@ export class StatesService {
   }
 
   addState(mov){
-    this.afs.collection('states').add(mov);
+    return this.afs.collection('states').add(mov);
     console.log('agrego a la database')
     console.log(mov);
   }
@@ -93,9 +93,7 @@ export class StatesService {
   }
 
   getStateById(id:string){
-    return this.states.find(states => {
-      return states.id==id;
-    })
+    return this.afs.collection('states').doc(id).snapshotChanges();
   }
 
 }

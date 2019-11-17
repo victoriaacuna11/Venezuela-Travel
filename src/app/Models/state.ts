@@ -24,7 +24,7 @@ export interface StateInterface{
     visits?: number;
     // 
     display?: boolean;
-    destinationName: string;
+    destination: string;
     touristDestinations?: string[];
 }
 

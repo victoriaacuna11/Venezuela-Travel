@@ -1,4 +1,11 @@
-<app-bar></app-bar>
+<ng-container *ngIf="loading; then loader; else noLoader"></ng-container>
+
+<ng-template #loader>
+    <h1>Loading</h1>
+</ng-template>
+
+<ng-template #noLoader>
+    <app-bar></app-bar>
 <div id="banner-tourist-info" 
 [ngStyle]="{'background-image': 'url('+state.bannerImg+')'}">
     <div class="mask" id="banner-mask">
@@ -97,3 +104,4 @@
     </div>
 </div>
 <app-footer></app-footer>
+</ng-template>

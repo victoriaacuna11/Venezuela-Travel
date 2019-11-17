@@ -13,12 +13,14 @@ export class TouristInfoComponent implements OnInit {
   // @Input() imgbanner?: string;
   // @Input() titlebanner?: string;
   state: StateInterface;
+  loading:boolean=false;
 
   constructor(private stateSV: StatesService, private routeSV: ActivatedRoute) { 
     
   }
 
   ngOnInit() {
+    this.loading=true;
     this.getState();
     // console.log(this.state.name);
     // this.state=this.stateSV.getState();
@@ -27,6 +29,19 @@ export class TouristInfoComponent implements OnInit {
 
   getState():void{
     const id = this.routeSV.snapshot.paramMap.get('id');
-    this.state=this.stateSV.getStateById(id);
+    this.stateSV.getStateById(id).subscribe(arr => {
+      console.log(arr.payload.data());
+      
+      const sta:StateInterface={
+        id: arr.payload.id,
+        name: arr.payload.get('name'),
+        destination: arr.payload.get('destination'),
+      }
+
+      this.state=sta;
+
+      this.loading=false;
+    })
+    // this.loading=false;
   }
 }
