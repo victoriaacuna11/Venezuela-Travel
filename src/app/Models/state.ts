@@ -9,10 +9,10 @@ export interface StateInterface{
     bannerImg?: string;
 
     // NO VA
-    hotels?: Hotel[];
+    //hotels?: Hotel[];
     // ARREGLAR
     
-    destinations?: DestinationInterface[];
+    //destinations?: DestinationInterface[];
 
     // touristDestinations?: TouristDestination[];
     imgs?: string[];
@@ -23,7 +23,7 @@ export interface StateInterface{
     views?: number;
     visits?: number;
     // 
-    display?: boolean;
+    //display?: boolean;
     destination: string;
     touristDestinations?: string[];
 }

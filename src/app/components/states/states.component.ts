@@ -93,13 +93,13 @@ export class StatesComponent implements OnInit {
     if(this.route.snapshot.paramMap.get('id')==undefined){
       this.getStates();
     }else{
-      this.getStates();
+
       const id = this.route.snapshot.paramMap.get('id');
       this.destination = this._dest.getDestinationById(id);
 
       const nameD = this.destination.name;
 
-      this.statess = this.statess.filter(function(x) {
+      this.statess = this._states.states.filter(x => {
         return x.destination === nameD;
       });
 
@@ -140,8 +140,8 @@ export class StatesComponent implements OnInit {
             culture: item.payload.doc.get('culture'),
             recreativeActs: item.payload.doc.get('recreativeActs'),
             mainHotels: item.payload.doc.get('mainHotels'),
-            views: item.payload.doc.get('views'),
-            visits: item.payload.doc.get('visits'),
+            views: 0,
+            visits: 0,
             destination:  item.payload.doc.get('destination'),
             touristDestinations: item.payload.doc.get('touristDestinations'),
           }
