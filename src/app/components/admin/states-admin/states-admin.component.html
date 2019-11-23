@@ -111,7 +111,7 @@
                     DESTINO (CATEGORÍA)
                 </div>
                 <div class="select-wrapper" >
-                    <select formControlName="destinationName">
+                    <select formControlName="destination">
                             <option selected>Elige uno...</option>
                         <option selected *ngFor="let item of destinations" [value]="item.name">
                             {{item.name | uppercase}}

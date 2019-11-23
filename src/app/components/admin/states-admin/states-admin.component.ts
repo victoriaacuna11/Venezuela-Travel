@@ -16,7 +16,7 @@ import { DestinationsService } from 'src/app/services/destinations.service';
 export class StatesAdminComponent implements OnInit {
 
   destinations: DestinationInterface[];
-  states: StateInterface[]
+  states: StateInterface[];
 
   createStateFrom: FormGroup;
 
@@ -29,7 +29,7 @@ export class StatesAdminComponent implements OnInit {
     this.createStateFrom=this._builder.group({
       name:['', Validators.required],
       bannerImg: ['', Validators.required],
-      destinationName: ['', Validators.required],
+      destination: ['', Validators.required],
       touristDestinations: this._builder.array([this.addTouristDestinationsGroup()]),
       imgs: this._builder.array([this.addImgGroup()]),
       gastronomy: ['', Validators.required],
@@ -80,7 +80,7 @@ export class StatesAdminComponent implements OnInit {
     const mov = {
       name: this.createStateFrom.value.name,
       bannerImg: this.createStateFrom.value.bannerImg,
-      destinationName: this.createStateFrom.value.destinationName,
+      destination: this.createStateFrom.value.destination,
       touristDestinations: this.createStateFrom.value.touristDestinations,
       imgs: this.createStateFrom.value.imgs,
       gastronomy: this.createStateFrom.value.gastronomy,

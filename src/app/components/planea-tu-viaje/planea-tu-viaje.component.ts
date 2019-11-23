@@ -206,7 +206,7 @@ export class PlaneaTuViajeComponent implements OnInit {
             mainHotels: item.payload.doc.get('mainHotels'),
             views: item.payload.doc.get('views'),
             visits: item.payload.doc.get('visits'),
-            destinationName:  item.payload.doc.get('destinationName'),
+            destination:  item.payload.doc.get('destination'),
             touristDestinations: item.payload.doc.get('touristDestinations'),
           }
           return statey;
@@ -226,7 +226,7 @@ export class PlaneaTuViajeComponent implements OnInit {
 
     this.statPassed=stateSelect.name;
 
-    console.log(stateSelect.destinationName);
+    console.log(stateSelect.destination);
 
     
 

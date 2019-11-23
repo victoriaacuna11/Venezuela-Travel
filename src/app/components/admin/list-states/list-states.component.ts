@@ -33,7 +33,7 @@ export class ListStatesComponent implements OnInit {
           mainHotels: item.payload.doc.get('mainHotels'),
           views: item.payload.doc.get('views'),
           visits: item.payload.doc.get('visits'),
-          destinationName: item.payload.doc.get('destinationName'),
+          destination: item.payload.doc.get('destinationName'),
           touristDestinations: item.payload.doc.get('touristDestinations'),
           bannerImg: item.payload.doc.get('bannerImg'),
         }

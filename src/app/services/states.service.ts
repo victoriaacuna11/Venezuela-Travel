@@ -53,7 +53,18 @@ export class StatesService {
       states.forEach(item=>{
         const state: StateInterface = {
           id: item.payload.doc.id,
-          ...item.payload.doc.data()
+          //...item.payload.doc.data()
+          name: item.payload.doc.get('name'),
+          bannerImg: item.payload.doc.get('bannerImg'),
+          imgs: item.payload.doc.get('imgs'),
+          gastronomy: item.payload.doc.get('gastronomy'),
+          culture: item.payload.doc.get('culture'),
+          recreativeActs: item.payload.doc.get('recreativeActs'),
+          mainHotels: item.payload.doc.get('mainHotels'),
+          views: 0,
+          visits: 0,
+          destination:  item.payload.doc.get('destination'),
+          touristDestinations: item.payload.doc.get('touristDestinations'),
         }
         this.states.push(state);
       })
@@ -78,7 +89,7 @@ export class StatesService {
   }
 
   addState(mov){
-    this.afs.collection('states').add(mov);
+    return this.afs.collection('states').add(mov);
     console.log('agrego a la database')
     console.log(mov);
   }
@@ -93,9 +104,7 @@ export class StatesService {
   }
 
   getStateById(id:string){
-    return this.states.find(states => {
-      return states.id==id;
-    })
+    return this.afs.collection('states').doc(id).snapshotChanges();
   }
 
 }
