@@ -2,10 +2,11 @@
 
     <div class="input">
 
-        <input type="search" [(ngModel)]="search" placeholder="Escribe el nombre...">
-        <button (click)="sendMessage()">Buscar</button>
+        <input type="search" [(ngModel)]="search" autocomplete="off" class="inp" placeholder="Escribe el nombre...">
 
     </div>
+
+    <button class="btn" (click)="sendMessage()">Buscar</button>
 
     <!--<div [class.input]="Input" class="off">
 

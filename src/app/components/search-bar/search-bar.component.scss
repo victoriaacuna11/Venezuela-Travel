@@ -17,7 +17,7 @@
 
 .input{
     display: block;
-    //background-color: #fff;
+    background-color: #ddd4c7;
 }
 
 .cont{
@@ -27,4 +27,21 @@
     align-content: flex-end;
     justify-content: flex-end;
     justify-items: flex-end;
+}
+
+.btn{
+    background-color: #1DA9BC;
+    border: none;
+    margin-left: 2px;
+    height: 35px;
+}
+
+.btn:hover{
+    color: white;
+}
+
+.inp{
+    border: none;
+    border-bottom: 2px solid #1DA9BC;
+    background-color: #ddd4c7;
 }

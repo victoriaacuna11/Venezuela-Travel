@@ -15,6 +15,7 @@
     align-items: center;
     position: fixed;
     z-index: 5;
+    
 }
 
 .noDecor{
@@ -78,4 +79,65 @@ img{
 
 .space{
     height: 10vh;
+}
+
+//Responsive
+
+@media (max-width: 880px){
+    .wrapper{
+        background-color: #E3DED5;
+        display: grid;
+        width: 98.2vw;
+        height: 8vh;
+        grid-template-columns: 0.1fr 1fr 0.1fr;
+        justify-items: center;
+        align-items: center;
+        position: fixed;
+        z-index: 5;
+    }
+
+    .wrapperMenu{
+
+        background-color: #1DA9BC;
+        display: grid;
+        width: 98.2vw;
+        height: 8vh;
+        grid-template-columns: 0.1fr 1fr 0.1fr;
+        justify-items: center;
+        align-items: center;
+        position: fixed;
+        z-index: 5;
+    }
+
+    img{
+        height: 6vh;
+        &:hover{
+            height: 7vh;
+        }
+    }
+
+    .icons1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45px;
+    }
+    
+    .icons2{
+        height: 30px;
+    }
+
+    .space{
+        height: 8vh;
+    }
+}
+
+@media (max-width: 680px){
+    
+
+}
+
+@media (max-width: 400px){
+    
+
 }
