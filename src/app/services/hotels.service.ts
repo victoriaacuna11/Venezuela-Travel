@@ -398,7 +398,7 @@ export class HotelsService {
       {
         "name":"TV",
         "available":true,
-        "icon": "assets/tv.png"
+        "icon": "assets/img/tv.png"
       },
       {
         "name":"Aire acondicionado",
