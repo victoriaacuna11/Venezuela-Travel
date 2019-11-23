@@ -36,6 +36,7 @@ export class ListStatesComponent implements OnInit {
           destination: item.payload.doc.get('destinationName'),
           touristDestinations: item.payload.doc.get('touristDestinations'),
           bannerImg: item.payload.doc.get('bannerImg'),
+          available: item.payload.doc.get('available')
         }
         return state;
       })

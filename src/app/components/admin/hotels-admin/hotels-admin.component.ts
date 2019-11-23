@@ -146,7 +146,8 @@ export class HotelsAdminComponent implements OnInit {
             name: item.payload.doc.get('name'),
             bannerImg: item.payload.doc.get('bannerImg'),
             views: item.payload.doc.get('views'),
-            visits: item.payload.doc.get('visits')
+            visits: item.payload.doc.get('visits'),
+            available: item.payload.doc.get('available')
           }
           return destination;
         }))
@@ -170,6 +171,7 @@ export class HotelsAdminComponent implements OnInit {
           destination: item.payload.doc.get('destinationName'),
           touristDestinations: item.payload.doc.get('touristDestinations'),
           bannerImg: item.payload.doc.get('bannerImg'),
+          available: item.payload.doc.get('available')
         }
         return state;
       })

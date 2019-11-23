@@ -45,7 +45,7 @@ export class TouristInfoComponent implements OnInit {
         views: 0,
         visits: 0,
         touristDestinations: arr.payload.get('touristDestinations'),
-
+        available:true
       }
 
       this.state=sta;

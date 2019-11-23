@@ -5,26 +5,19 @@ import { DestinationInterface } from './destination';
 export interface StateInterface{
 
     id?: string;
+    available: boolean;
     name:string;
-    bannerImg?: string;
-
-    // NO VA
-    //hotels?: Hotel[];
-    // ARREGLAR
-    
-    //destinations?: DestinationInterface[];
-
-    // touristDestinations?: TouristDestination[];
-    imgs?: string[];
-    gastronomy?: string;
-    culture?: string;
-    recreativeActs?: string;
-    mainHotels?: string;
-    views?: number;
-    visits?: number;
-    // 
-    //display?: boolean;
+    bannerImg: string;
+    imgs: string[];
+    gastronomy: string;
+    culture: string;
+    recreativeActs: string;
+    mainHotels: string;
     destination: string;
-    touristDestinations?: string[];
+    touristDestinations: string[];
+
+    // FILTROS PREESTABLECIDOS: 
+    views: number;
+    visits: number;
 }
 

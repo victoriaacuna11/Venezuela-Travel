@@ -23,7 +23,7 @@ export class HotelsService {
     "latitude":6.239770,
     "longitude":-62.850959,
     "direction":"Caserío Tururiwaipa, Sector Canaima Comunidad Indígena Kanaimo, 8001, Bolívar.",
-    "state": {"name":"Bolívar", "destination": "Montaña"},
+    "state": "Bolívar",
     "imgs":["https://q-cf.bstatic.com/images/hotel/max1280x900/125/125365291.jpg",
     "https://r-cf.bstatic.com/images/hotel/max1280x900/162/162700063.jpg",
     "https://q-cf.bstatic.com/images/hotel/max1280x900/151/151578893.jpg",
@@ -307,7 +307,18 @@ export class HotelsService {
         "available":true,
         "icon": "assets/img/airconditioner.png"
       }
-  ]},
+  ],
+  bannerImg:'',
+  stars:5,
+  latitude:0,
+  longitude:0,
+  direction:'',
+  city:'',
+  state: 'Distrito Capital',
+  fullday: {"available":true, "price":0},
+  rooms: [],
+  imgs: [],
+},
 
     {name:'Hilton Caracas', description: 'Hotel clásico ubicado en las afueras de Caracas. Todo el confort y atencion de lujo te esperan aquí, así como la tradicion que nunca falta en las paredes de esta casa.'
     , imgPrin: 'assets/imageHotels/HiltonC.jpg'
@@ -338,7 +349,17 @@ export class HotelsService {
         "available": true,
         "icon": "assets/img/wardrobe.png"
       }
-  ]},
+  ],
+  bannerImg:'',
+  stars:5,
+  latitude:0,
+  longitude:0,
+  direction:'',
+  city:'',
+  state: 'Distrito Capital',
+  fullday: {"available":true, "price":0},
+  rooms: [],
+  imgs: [],},
 
     {name:'Sunsol Isla Caribe', description: 'Hotel ubicado en el corazón de Margarita. Playa privada, 4 piscinas, 3 restaurantes, 1 cancha de mini-golf y mucho más.'
     , imgPrin: 'assets/imageHotels/sunsolIC.jpg'
@@ -374,7 +395,17 @@ export class HotelsService {
         "available": true,
         "icon": "assets/img/wardrobe.png"
       }
-  ]},
+  ],
+  bannerImg:'',
+  stars:5,
+  latitude:0,
+  longitude:0,
+  direction:'',
+  city:'',
+  state: 'Distrito Capital',
+  fullday: {"available":true, "price":0},
+  rooms: [],
+  imgs: []},
 
     {name:'Sunsol Punta Blanca', description: 'Hermoso hotel ubicado en la Isla de coche. Disfruta de esta hermosa isla y todo lo que Has para ofrecer, como buceo, motocross, y mucho más.'
     , imgPrin: 'assets/imageHotels/sunsolPB.jpeg'
@@ -410,7 +441,17 @@ export class HotelsService {
         "available": true,
         "icon": "assets/img/wardrobe.png"
       }
-  ]},
+  ],
+  bannerImg:'',
+  stars:5,
+  latitude:0,
+  longitude:0,
+  direction:'',
+  city:'',
+  state: 'Distrito Capital',
+  fullday: {"available":true, "price":0},
+  rooms: [],
+  imgs: [],},
   
     {name:'Hesperia Isla Margarita', description: 'Hotel de categoría 5 estrellas ubicado en Juan Griego, Isla de Margarita. Contamos con 3 restaurantes de lujo, una piscina, playa privada, y un campo de golf privado de 9 hoyos.'
     , imgPrin: 'assets/imageHotels/hesperiaIM.jpeg'
@@ -446,7 +487,17 @@ export class HotelsService {
         "available": true,
         "icon": "assets/img/wardrobe.png"
       }
-  ]},
+  ],
+  bannerImg:'',
+  stars:5,
+  latitude:0,
+  longitude:0,
+  direction:'',
+  city:'',
+  state: 'Distrito Capital',
+  fullday: {"available":true, "price":0},
+  rooms: [],
+  imgs: []},
   
     {name:'Ara Merú Lodge', description: 'Hotel ubicado en Canaima. Vive la experiencia de un campamento exclusivo, con cabañas, restaurante, piscina; y por supuesto, excursiones al salto Angel, a ríos y a lagos, y mucho más.'
     , imgPrin: 'assets/imageHotels/araMeru.jpg'
@@ -482,7 +533,17 @@ export class HotelsService {
         "available": true,
         "icon": "assets/img/wardrobe.png"
       }
-  ]},
+  ],
+  bannerImg:'',
+  stars:5,
+  latitude:0,
+  longitude:0,
+  direction:'',
+  city:'',
+  state: 'Distrito Capital',
+  fullday: {"available":true, "price":0},
+  rooms: [],
+  imgs: [],},
   
     {name:'Islas del Sol', description: 'Lo mejor del estado Falcon en un solo hotel. En islas del Sol tendrás todo lo que necesitas; contamos con parque de agua, 8 piscinas, un mini-parque acuatico, restaurantes, habitaciones de todo tipo, incluso un mercado.'
     , imgPrin: 'assets/imageHotels/islasDelSol.jpg'
@@ -518,7 +579,17 @@ export class HotelsService {
         "available": true,
         "icon": "assets/img/wardrobe.png"
       }
-  ]},
+  ],
+  bannerImg:'',
+  stars:5,
+  latitude:0,
+  longitude:0,
+  direction:'',
+  city:'',
+  state: 'Distrito Capital',
+  fullday: {"available":true, "price":0},
+  rooms: [],
+  imgs: [],},
   
     {name:'Hotel Belensate', description: 'Hermoso hotel para disfrutar los Andes venezolanos a plenitud. Contamos con habitaciones muy bien equipadas, piscina con calefacción, jacuzzis, y restaurantes con chefs de la región que resaltan los sabores de Mérida cada día.'
     , imgPrin: 'assets/imageHotels/belensate.jpg'
@@ -554,7 +625,17 @@ export class HotelsService {
         "available": true,
         "icon": "assets/img/wardrobe.png"
       }
-  ]},
+  ],
+  bannerImg:'',
+  stars:5,
+  latitude:0,
+  longitude:0,
+  direction:'',
+  city:'',
+  state: 'Distrito Capital',
+  fullday: {"available":true, "price":0},
+  rooms: [],
+  imgs: []},
   
     {name:'Selva Negra', description: 'Hotel 3 estrellas en la Colonia Tovar. Contamos con restaurante, piscina con calefacción, atención al huesped 24/7, habitaciones de lujo tipo cabaña.'
     , imgPrin: 'assets/imageHotels/selvaNegra.jpg'
@@ -590,7 +671,17 @@ export class HotelsService {
         "available": true,
         "icon": "assets/img/wardrobe.png"
       }
-  ]},
+  ],
+  bannerImg:'',
+  stars:5,
+  latitude:0,
+  longitude:0,
+  direction:'',
+  city:'',
+  state: 'Distrito Capital',
+  fullday: {"available":true, "price":0},
+  rooms: [],
+  imgs: []}
   ]
   
   private messageSource = new BehaviorSubject<Array<Hotel>>(this.hotels);
@@ -679,39 +770,138 @@ export class HotelsService {
       {name:'Pestana Caracas', 
       description: 'Hotel lujoso ubicado en el centro de Caracas. Todo el confort y atencion de lujo te esperan aquí, desde la piscina infinita hasta los 20 restaurantes.'
       , imgPrin: 'assets/imageHotels/pestanaCaracas.jpg'
-      , nrBusquedas:80, nrVentas:100},
+      , nrBusquedas:80, nrVentas:100,
+      bannerImg:'',
+      stars:5,
+      latitude:0,
+      longitude:0,
+      direction:'',
+      city:'',
+      state: 'Distrito Capital',
+      fullday: {"available":true, "price":0},
+      rooms: [],
+      imgs: [],
+      services:[]},
   
       {name:'Hilton Caracas', description: 'Hotel clásico ubicado en las afueras de Caracas. Todo el confort y atencion de lujo te esperan aquí, así como la tradicion que nunca falta en las paredes de esta casa.'
       , imgPrin: 'assets/imageHotels/HiltonC.jpg'
-      , nrBusquedas:50, nrVentas:200},
+      , nrBusquedas:50, nrVentas:200,
+      bannerImg:'',
+      stars:5,
+      latitude:0,
+      longitude:0,
+      direction:'',
+      city:'',
+      state: 'Distrito Capital',
+      fullday: {"available":true, "price":0},
+      rooms: [],
+      imgs: [],
+      services:[]},
   
       {name:'Sunsol Isla Caribe', description: 'Hotel ubicado en el corazón de Margarita. Playa privada, 4 piscinas, 3 restaurantes, 1 cancha de mini-golf y mucho más.'
       , imgPrin: 'assets/imageHotels/sunsolIC.jpg'
-      , nrBusquedas:40, nrVentas:300},
+      , nrBusquedas:40, nrVentas:300,
+      bannerImg:'',
+      stars:5,
+      latitude:0,
+      longitude:0,
+      direction:'',
+      city:'',
+      state: 'Distrito Capital',
+      fullday: {"available":true, "price":0},
+      rooms: [],
+      imgs: [],
+      services:[]},
   
       {name:'Sunsol Punta Blanca', description: 'Hermoso hotel ubicado en la Isla de coche. Disfruta de esta hermosa isla y todo lo que Has para ofrecer, como buceo, motocross, y mucho más.'
       , imgPrin: 'assets/imageHotels/sunsolPB.jpeg'
-      , nrBusquedas:30, nrVentas:400},
+      , nrBusquedas:30, nrVentas:400,
+      bannerImg:'',
+      stars:5,
+      latitude:0,
+      longitude:0,
+      direction:'',
+      city:'',
+      state: 'Distrito Capital',
+      fullday: {"available":true, "price":0},
+      rooms: [],
+      imgs: [],
+      services:[]},
     
       {name:'Hesperia Isla Margarita', description: 'Hotel de categoría 5 estrellas ubicado en Juan Griego, Isla de Margarita. Contamos con 3 restaurantes de lujo, una piscina, playa privada, y un campo de golf privado de 9 hoyos.'
       , imgPrin: 'assets/imageHotels/hesperiaIM.jpeg'
-      , nrBusquedas:100, nrVentas:500},
+      , nrBusquedas:100, nrVentas:500,
+      bannerImg:'',
+      stars:5,
+      latitude:0,
+      longitude:0,
+      direction:'',
+      city:'',
+      state: 'Distrito Capital',
+      fullday: {"available":true, "price":0},
+      rooms: [],
+      imgs: [],
+      services:[]},
     
       {name:'Ara Merú Lodge', description: 'Hotel ubicado en Canaima. Vive la experiencia de un campamento exclusivo, con cabañas, restaurante, piscina; y por supuesto, excursiones al salto Angel, a ríos y a lagos, y mucho más.'
       , imgPrin: 'assets/imageHotels/araMeru.jpg'
-      , nrBusquedas:83, nrVentas:100},
+      , nrBusquedas:83, nrVentas:100,
+      bannerImg:'',
+      stars:5,
+      latitude:0,
+      longitude:0,
+      direction:'',
+      city:'',
+      state: 'Distrito Capital',
+      fullday: {"available":true, "price":0},
+      rooms: [],
+      imgs: [],
+      services:[]},
     
       {name:'Islas del Sol', description: 'Lo mejor del estado Falcon en un solo hotel. En islas del Sol tendrás todo lo que necesitas; contamos con parque de agua, 8 piscinas, un mini-parque acuatico, restaurantes, habitaciones de todo tipo, incluso un mercado.'
       , imgPrin: 'assets/imageHotels/islasDelSol.jpg'
-      , nrBusquedas:5000, nrVentas:1000},
+      , nrBusquedas:5000, nrVentas:1000,
+      bannerImg:'',
+      stars:5,
+      latitude:0,
+      longitude:0,
+      direction:'',
+      city:'',
+      state: 'Distrito Capital',
+      fullday: {"available":true, "price":0},
+      rooms: [],
+      imgs: [],
+      services:[]},
     
       {name:'Hotel Belensate', description: 'Hermoso hotel para disfrutar los Andes venezolanos a plenitud. Contamos con habitaciones muy bien equipadas, piscina con calefacción, jacuzzis, y restaurantes con chefs de la región que resaltan los sabores de Mérida cada día.'
       , imgPrin: 'assets/imageHotels/belensate.jpg'
-      , nrBusquedas:200, nrVentas:132},
+      , nrBusquedas:200, nrVentas:132,
+      bannerImg:'',
+      stars:5,
+      latitude:0,
+      longitude:0,
+      direction:'',
+      city:'',
+      state: 'Distrito Capital',
+      fullday: {"available":true, "price":0},
+      rooms: [],
+      imgs: [],
+      services:[]},
     
       {name:'Selva Negra', description: 'Hotel 3 estrellas en la Colonia Tovar. Contamos con restaurante, piscina con calefacción, atención al huesped 24/7, habitaciones de lujo tipo cabaña.'
       , imgPrin: 'assets/imageHotels/selvaNegra.jpg'
-      , nrBusquedas:3, nrVentas:0},
+      , nrBusquedas:3, nrVentas:0,
+      bannerImg:'',
+      stars:5,
+      latitude:0,
+      longitude:0,
+      direction:'',
+      city:'',
+      state: 'Distrito Capital',
+      fullday: {"available":true, "price":0},
+      rooms: [],
+      imgs: [],
+      services:[]},
     ]
 
     return this.hotels;

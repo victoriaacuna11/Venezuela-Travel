@@ -31,6 +31,7 @@ export class DestinationsAdminComponent implements OnInit {
       bannerImg: this.createStateFrom.value.bannerImg,
       views: 0,
       visits: 0,
+      available: true
     }
     
     this.destinationSV.addDestination(mov);

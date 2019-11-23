@@ -34,6 +34,7 @@ export class ListTDestinationsComponent implements OnInit {
           direction: item.payload.doc.get('direction'),
           city: item.payload.doc.get('city'),
           bannerImg: item.payload.doc.get('bannerImg'),
+          available: item.payload.doc.get('available'),
         }
         return destination;
       })

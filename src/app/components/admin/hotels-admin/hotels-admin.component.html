@@ -177,7 +177,7 @@
                 <!-- HABITACIONES -->
 
                 <div class="rooms-wrapper" formArrayName="rooms">
-                        <div class="detail-rooms-wrapper-array" *ngFor="let group of roomsArray.controls; let i=index" [formGroupName]="i">
+                        <div class="detail-rooms-wrapper-array" *ngFor="let hab of createStateFrom['controls'].rooms['controls']; let i=index" [formGroupName]="i">
                             <div class="wrapper">
                                 HABITACIÓN #{{i+1}}
                             </div>
@@ -214,16 +214,16 @@
                                 </div>
                             </div>
 
-                            <!-- IMAGENES HABS -->
+                            IMAGENES HABS
 
-                            <!-- <div class="array-wrapper" formArrayName="imgsRoom">
+                            <div class="array-wrapper" formArrayName="imgsRoom">
                                 <div class="detail-wrapper-array" >
                                     <div class="wrapper">
                                         IMÁGENES
                                     </div>
                                     <div class="flex-div">
                                         <div class="center-content">
-                                            <div class="array-content-wrapper" *ngFor="let imgRoom of getImgsRoomArray(group); let j=index" [formGroupName]="j">
+                                            <div class="array-content-wrapper" *ngFor="let imgRoom of rooms['controls'].imgsRoom['controls']; let j=index" [formGroupName]="j">
                                                 <div>
                                                     <input formControlName="imgPathR" type="text" 
                                                     placeholder="Link de la imagen" class="input-imgs"/>
@@ -251,7 +251,7 @@
                                 <div class="crud-icon-wrapper-rooms" *ngIf="i!=0">
                                     <img class="crud-icon-rooms" src="assets/img/delete-icon.png" alt="Agregar" (click)="removeRoom(i)">
                                 </div>
-                            </div> -->
+                            </div>
 
 
                             <!-- <div class="flex-div">
