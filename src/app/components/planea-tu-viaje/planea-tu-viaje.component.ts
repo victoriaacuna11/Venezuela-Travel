@@ -226,6 +226,8 @@ export class PlaneaTuViajeComponent implements OnInit {
 
     this.statPassed=stateSelect.name;
 
+    console.log(stateSelect.destinationName);
+
     
 
     //console.log(stateSelect.destinations); no se puede todavia por el error en firebase y el servicio
