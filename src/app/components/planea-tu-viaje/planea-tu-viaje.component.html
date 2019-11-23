@@ -15,7 +15,7 @@
         
             <div class="grid-r">
                 
-                    <div class="destino" (click)="goDestination()">
+                    <div class="destino" >
                         
                     <h2>Destinos</h2>
                         <div class="desc" >
@@ -31,7 +31,7 @@
                     </div>
                  
         
-                <div class="hotel" (click)="goHotel()">
+                <div class="hotel" >
                     <h2>Hoteles</h2>
         
                     <div class="desc">
@@ -212,7 +212,7 @@
                         <input [matDatepicker]="fechaSalida" 
                             formControlName="leaveDate"
                             id="fecha-cant"
-                            [min]="minDateLeave"
+                            
                         >
                         <mat-datepicker-toggle [for]="fechaSalida"></mat-datepicker-toggle>
                         <mat-datepicker #fechaSalida></mat-datepicker>
