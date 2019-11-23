@@ -1,0 +1,271 @@
+<app-bar></app-bar>
+
+<div class="container-r">
+
+    <div class="data">
+
+         <!-- PASO 1----------------------------------------------------------------------------------------- -->  
+
+        <div class="paso1" *ngIf="pasos.paso_1" > 
+            <div class="start">
+            <div class="titulo">
+                <h1>Empieza tu selección por...</h1>
+            </div>
+        
+        
+            <div class="grid-r">
+                
+                    <div class="destino" (click)="goDestination()">
+                        
+                    <h2>Destinos</h2>
+                        <div class="desc" >
+        
+                       
+                         <h5>Los destinos</h5>
+                          <h5>mas caracteristicos</h5>
+                         <h5>de Venezuela</h5>
+        
+                        </div>
+                  
+                         
+                    </div>
+                 
+        
+                <div class="hotel" (click)="goHotel()">
+                    <h2>Hoteles</h2>
+        
+                    <div class="desc">
+        
+                            
+                            <h5>Los mejores hoteles</h5>
+                            <h5>de Venezuela</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        </div>
+
+
+          <!-- PASO 2----------------------------------------------------------------------------------------- -->  
+
+        <!-- Dentro de el va el if de paso2 -->
+        <div class="paso2" *ngIf="pasos.paso_2" >
+            <h1>Paso 2: Selecciona un Destino</h1>
+
+            <div>espacio barra de busqueda</div>
+
+            <div class="for" *ngFor="let obj of destinations">
+                <div class="destin" [ngStyle]="{'background-image': 'url('+obj.bannerImg+')'}" (click)="selectDest(obj)" >
+                    <h2>{{obj.name}}</h2>
+                </div>
+            </div>
+
+
+            <div class="info-btn">
+
+                <h4>Destino seleccionado</h4>
+                <h5> {{ destinPassed }} </h5>
+
+                <div class="btn-sig">Siguiente Paso</div>
+
+                <button>Siguiente Paso</button>
+                
+
+            </div>
+        </div>
+
+
+      <!-- PASO 3----------------------------------------------------------------------------------------- -->  
+       
+
+        <!-- Dentro de el va el if de paso2 -->
+        <div class="paso3" *ngIf="pasos.paso_3" >
+            <h1>Paso 3: Selecciona un Estado</h1>
+
+            <div>espacio barra de busqueda</div>
+
+            <div class="for" *ngFor="let ob of statess">
+                
+                                        
+                    <div class="destin" [ngStyle]="{'background-image': 'url('+ob.bannerImg+')'}"  (click)="selectState(ob)">
+                        <h2>{{ob.name}}</h2>
+                    </div>
+                </div>
+
+
+                <div class="info-btn">
+
+                    <h4>Estado seleccionado</h4>
+                    
+                    <h5> {{ statPassed }} </h5> 
+                    <div class="btn-sig">Siguiente Paso</div>
+                    <button>Siguiente Paso</button>
+                    
+
+            </div>
+        </div>
+
+    <!-- PASO 4----------------------------------------------------------------------------------------- --> 
+
+        <div class="paso4" *ngIf="pasos.paso_4" >
+            <h1>Paso 4: Selecciona un Estado</h1>
+
+            <div>espacio barra de busqueda</div>
+
+            <div>
+                <!-- AQUI VA LO DE LOS HOTELES PERO TODAVIA NO TENGO EL SERVICIO -->
+
+                <div class="hotelesPrueba">
+
+                    <div class="for2" *ngFor="let hotel of hotels" >
+                        
+                        <div class="hotelInd"  (click)="selectHotel(hotel.name,hotel.state)" >
+                        
+                            <h2>{{hotel.name}}</h2>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                
+            </div>
+
+
+            <div class="info-btn">
+
+                    <h4>Haz seleccionado</h4>
+                   
+                   <!-- donde va el nombre del hotel seleccionado  <h5> {{ statPassed }} </h5> -->
+
+                   <div class="btn-sig">Siguiente Paso</div>
+                    <button>Siguiente Paso</button>
+                    
+    
+                </div>
+
+
+        </div>
+
+ <!-- PASO 5----------------------------------------------------------------------------------------- --> 
+        <div class="paso5"  *ngIf="pasos.paso_5">
+
+            <h1>Paso 5: Ingrese su información</h1>
+
+            <form action=""  [formGroup]="reactiveForm" >
+
+                <div class="formData">
+                    <div class="formInput">
+                        <label for="">Nombre y Apellido</label>
+                        <br>
+                        <input type="text" id="completeName"
+
+                            formControlName="nameReserve"
+                        >
+                    </div>
+
+                    <div class="formInput">
+                        <label for="">Direccion de correo electronico</label>
+                        <br>
+                        <input type="email" id="emailAddres"
+                            formControlName="email"
+                        >
+                    </div>
+
+                    <div class="formInput">
+                        <label for="">Cantidad de personas</label>
+                        <br>
+                        <input type="text" id="numPeople"
+                            formControlName="numReserves"
+                            id="fecha-cant"
+                        >
+                    </div>
+                        <!-- CALENDARIOS -->
+                    <div class="formInput">
+                        <label for="">Fecha de llegada</label>
+                        <br>
+                        <input [matDatepicker]="fechaLlegada" 
+                            formControlName="arriveDate"
+                            id="fecha-cant"
+                            [min]="minDateArrive"
+                        >
+                        <mat-datepicker-toggle [for]="fechaLlegada"></mat-datepicker-toggle>
+                        <mat-datepicker #fechaLlegada></mat-datepicker>
+                    </div>
+
+                    <div class="formInput">
+                        <label for="">Fecha de salida</label>
+                        <br>
+                        <input [matDatepicker]="fechaSalida" 
+                            formControlName="leaveDate"
+                            id="fecha-cant"
+                            [min]="minDateLeave"
+                        >
+                        <mat-datepicker-toggle [for]="fechaSalida"></mat-datepicker-toggle>
+                        <mat-datepicker #fechaSalida></mat-datepicker>
+                    </div>
+
+                    <div class="info-btn">
+                            <div class="btn-sig">Siguiente Paso</div>
+                    </div>
+
+                    <div class="formBtn">
+                        
+                        <button  (click)="submitHandler()"  >submit</button>
+                    </div>
+
+                    
+            </div>
+
+            </form>
+
+
+
+        </div>
+
+ <!-- PASO 6----------------------------------------------------------------------------------------- --> 
+
+        <div class="paso6"   *ngIf="pasos.paso_6" >
+
+            <h1>Paso 6: Escoja sus habitaciones</h1>
+
+
+            <!-- Lo podre hacer cuando tengamos el servicio y depensiendo de como sean  -->
+
+
+                <div class="info-btn">
+                    <div class="btn-sig">Siguiente Paso</div>
+                </div>
+        </div>
+
+         <!-- PASO 7----------------------------------------------------------------------------------------- --> 
+        <div class="paso7"  *ngIf="pasos.paso_7">
+            
+            <h1>Paso 7: </h1>
+
+
+        </div>
+
+
+
+
+
+        <!-- FIN DE DATA -->
+    </div>
+</div>
+
+
+<!-- ROMEL -->
+

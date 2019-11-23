@@ -18,6 +18,9 @@ import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-adm
 
 import { LoginComponent } from './components/login/login.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { PlaneaTuViajeComponent } from './components/planea-tu-viaje/planea-tu-viaje.component';
+import { PlaneaPaso1Component } from './components/planea-paso1/planea-paso1.component';
+import { PlaneaPaso5Component } from './components/planea-paso5/planea-paso5.component';
 
 
 const routes: Routes = [
@@ -43,6 +46,8 @@ const routes: Routes = [
   {path: 'admin/hotel/add', component: HotelsAdminComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin/dashboard', component: AdminHomeComponent},
+  {path: 'planViaje', component: PlaneaTuViajeComponent},
+  
 ]; 
 
 @NgModule({

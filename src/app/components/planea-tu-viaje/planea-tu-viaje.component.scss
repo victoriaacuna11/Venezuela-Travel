@@ -1,0 +1,248 @@
+.container-r{
+   
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+ 
+    width:100vw;
+    color:#1da9bc;
+}
+
+.data{
+
+    width:70vw;
+   
+    margin-top: 30px;
+    border-radius: 10px;
+    background: #f5f1eb;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); 
+
+}
+.destin{
+    color:white ;
+    height:25vh;
+    width: 55vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:0.5s;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); 
+}
+.for{
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+}
+h2{
+    padding: 7px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+.destin:hover{
+
+        height: 35vh;
+        transition:0.5s;
+}
+
+.info-btn{
+
+    width: 70vw;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+}
+
+h1{
+    margin-top:20px;
+    margin-left:60px;
+    margin-bottom: 20px;
+}
+.formInput{
+    margin-left: 100px;
+}
+.formInput label{
+    font-size: small;
+    color: #1da9bca6;
+}
+.formInput input{
+    width: 53vw;
+}
+#fecha-cant{
+    width: 10vw;
+}
+
+
+
+ /* Paso 1 Styles-----------------------------------------------------------------------------------------*/
+ .paso1 h1{
+    margin-top:30px;
+
+}
+.grid-r {
+    margin-top:2vh;
+    display: grid;
+    background: #1da9bc;
+    grid-template-areas: 
+    'dest hot'
+    ;
+    grid-gap: 10px;
+    padding: 10px;
+    height: 60vh;
+    width:50vw;
+    border-radius: 10px;
+    margin-bottom:30px ;
+}
+.destino{
+    grid-area: dest;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://enviajes.cl/wp-content/uploads/2014/08/Lugares-turisticos-de-Venezuela-Puerto-La-Cruz.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+   
+}
+
+.hotel{
+    grid-area: hot;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://venezuelatuya.com/hoteles/fotos/00/22/foto1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+}
+.paso1 h2{
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    
+    
+}
+.paso1 h5{
+    
+    display: none;
+    padding:0px;
+    margin: 0px;
+
+}
+.destino:hover {
+    justify-content: space-around;
+   
+    
+}
+
+.destino:hover h5{
+    display: inline;
+    
+    
+}
+
+.hotel:hover {
+    justify-content: space-around;
+    
+}
+
+.hotel:hover h5{
+    display: inline;
+    
+  
+}
+.desc{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column ;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 5px;
+    
+}
+.start{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+
+
+
+  /* -------------------------------------------------------------------------------*/
+
+
+
+  /* Clase btn paso sig --------------------------------------------------------------*/
+
+
+    .btn-sig{
+        background: #1da9bc;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        transition: 0.5s;
+    }
+    .btn-sig:hover{
+        background: #11626d;
+        transition: 0.5s;
+        
+    }
+
+
+
+
+  /* -------------------------------------------------------------------------------*/
+
+/* -----------PASO4--------------------------------------------------------------------*/
+
+.hotelesPrueba{
+    display: flex;
+    width: 70vw;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.for2{
+
+    width: 30vw;
+    display: flex;
+    height: 30vh;
+    background: #425355;
+    margin-bottom: 30px;
+    margin-top: 10px;
+   
+}
+.hotelInd{
+    width: 30vw;
+    height: 30vh;
+
+}
+.paso4 h2{
+
+    padding: 0px;
+    background: none;
+    border-radius: 0px;
+}
+
+
+/* -------------------------------------------------------------------------------*/

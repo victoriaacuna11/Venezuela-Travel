@@ -40,6 +40,14 @@ import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-adm
 import { LoginComponent } from './components/login/login.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.component';
+import { PlaneaTuViajeComponent } from './components/planea-tu-viaje/planea-tu-viaje.component';
+import { PlaneaPaso1Component } from './components/planea-paso1/planea-paso1.component';
+import { PlaneaPaso3Component } from './components/planea-paso3/planea-paso3.component';
+import { PlaneaPaso5Component } from './components/planea-paso5/planea-paso5.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+  
 
 const appRoutes: Routes=[
 
@@ -78,7 +86,11 @@ const appRoutes: Routes=[
     HotelsAdminComponent,
     LoginComponent,
     AdminHomeComponent,
-    NavAdminComponent
+    NavAdminComponent,
+    PlaneaTuViajeComponent,
+    PlaneaPaso1Component,
+    PlaneaPaso3Component,
+    PlaneaPaso5Component
   ],
   imports: [
     BrowserModule,
@@ -93,6 +105,9 @@ const appRoutes: Routes=[
     AngularFireModule.initializeApp(environment.firebase),
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule, 
+    MatMomentDateModule
     
   ],
   providers: [],
