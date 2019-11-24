@@ -42,6 +42,7 @@ const routes: Routes = [
   {path: 'adminTD', component: TDestinationsAdminComponent},
   {path: 'TDList', component: ListTDestinationsComponent},
   {path: 'admin/destination/add', component: DestinationsAdminComponent},
+  {path: 'modify/:id', component: DestinationsAdminComponent},
   {path: 'admin/destinations', component: ListDestinationsComponent},
   {path: 'admin/hotel/add', component: HotelsAdminComponent},
   {path: 'login', component: LoginComponent},
