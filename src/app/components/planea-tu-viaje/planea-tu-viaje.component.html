@@ -15,7 +15,7 @@
         
             <div class="grid-r">
                 
-                    <div class="destino" (click)="goDestination()">
+                    <div class="destino" (click)="passToStep2()" >
                         
                     <h2>Destinos</h2>
                         <div class="desc" >
@@ -31,7 +31,7 @@
                     </div>
                  
         
-                <div class="hotel" (click)="goHotel()">
+                <div class="hotel" (click)="passToStep4()">
                     <h2>Hoteles</h2>
         
                     <div class="desc">
@@ -63,21 +63,26 @@
 
             <div>espacio barra de busqueda</div>
 
-            <div class="for" *ngFor="let obj of destinations">
-                <div class="destin" [ngStyle]="{'background-image': 'url('+obj.bannerImg+')'}" (click)="selectDest(obj)" >
-                    <h2>{{obj.name}}</h2>
-                </div>
-            </div>
+             <!-- Div del if -->
+           
+                <div class="for" *ngFor="let obj of destinations">
+                   
+                        <div class="destin" [ngStyle]="{'background-image': 'url('+obj.bannerImg+')'}" (click)="selectDest(obj)" >
+                            <h2>{{obj.name}}</h2>
+                        </div>
+                   
 
+                </div>
+               
 
             <div class="info-btn">
 
                 <h4>Destino seleccionado</h4>
-                <h5> {{ destinPassed }} </h5>
+                <h5> {{ destinationFilter }} </h5>
 
-                <div class="btn-sig">Siguiente Paso</div>
+                
 
-                <button>Siguiente Paso</button>
+                <button   >Siguiente Paso</button>
                 
 
             </div>
@@ -95,10 +100,14 @@
 
             <div class="for" *ngFor="let ob of statess">
                 
-                                        
-                    <div class="destin" [ngStyle]="{'background-image': 'url('+ob.bannerImg+')'}"  (click)="selectState(ob)">
-                        <h2>{{ob.name}}</h2>
+                    <div class="if" *ngIf="filterOnDestination(ob)">
+                        
+                        <div class="destin" [ngStyle]="{'background-image': 'url('+ob.bannerImg+')'}"  (click)="selectState(ob)">
+                            <h2>{{ob.name}}</h2>
+                        </div>
+
                     </div>
+
                 </div>
 
 
@@ -106,9 +115,8 @@
 
                     <h4>Estado seleccionado</h4>
                     
-                    <h5> {{ statPassed }} </h5> 
-                    <div class="btn-sig">Siguiente Paso</div>
-                    <button>Siguiente Paso</button>
+                    <h5> {{ stateFilter }} </h5> 
+                    <button   >Siguiente Paso</button>
                     
 
             </div>
@@ -127,13 +135,15 @@
                 <div class="hotelesPrueba">
 
                     <div class="for2" *ngFor="let hotel of hotels" >
-                        
-                        <div class="hotelInd"  (click)="selectHotel(hotel.name,hotel.state)" >
-                        
-                            <h2>{{hotel.name}}</h2>
 
+                         <!-- *ngIf="filterOnState(los string por ahora)" -->
+                        <div class="if2">
+                            <div class="hotelInd"  (click)="selectHotel(hotel.name,hotel.state)" >
+                            
+                                <h2>{{hotel.name}}</h2>
+
+                            </div>
                         </div>
-
                     </div>
 
 
@@ -151,8 +161,7 @@
                    
                    <!-- donde va el nombre del hotel seleccionado  <h5> {{ statPassed }} </h5> -->
 
-                   <div class="btn-sig">Siguiente Paso</div>
-                    <button>Siguiente Paso</button>
+                   <button   >Siguiente Paso</button>
                     
     
                 </div>
@@ -163,69 +172,204 @@
  <!-- PASO 5----------------------------------------------------------------------------------------- --> 
         <div class="paso5"  *ngIf="pasos.paso_5">
 
-            <h1>Paso 5: Ingrese su información</h1>
+            <h1>Paso 5: Ingrese su información y Escoja sus habitaciones</h1>
 
             <form action=""  [formGroup]="reactiveForm" >
 
                 <div class="formData">
-                    <div class="formInput">
+                    <div class="formInput" 
+                    [ngClass]=" { 'hasError':reactiveForm.get('nameReserve').errors &&
+                    (reactiveForm.get('nameReserve').dirty ||
+                    reactiveForm.get('nameReserve').touched )} " >
+                    
+
                         <label for="">Nombre y Apellido</label>
                         <br>
                         <input type="text" id="completeName"
 
                             formControlName="nameReserve"
                         >
+                        <br>
+                        <span *ngIf="reactiveForm.get('nameReserve').errors &&
+                        (reactiveForm.get('nameReserve').dirty ||
+                        reactiveForm.get('nameReserve').touched )">
+                            <label for="" *ngIf="reactiveForm.get('nameReserve').errors.required">
+                                Debe de ingresar el nombre 
+                            </label>
+                         </span>
                     </div>
 
-                    <div class="formInput">
+                    <div class="formInput"
+                    [ngClass]=" { 'hasError':reactiveForm.get('email').errors &&
+                    (reactiveForm.get('email').dirty ||
+                    reactiveForm.get('email').touched )} " >
+
                         <label for="">Direccion de correo electronico</label>
                         <br>
                         <input type="email" id="emailAddres"
                             formControlName="email"
                         >
+                        <br>
+                        <span *ngIf="reactiveForm.get('email').errors &&
+                        (reactiveForm.get('email').dirty ||
+                        reactiveForm.get('email').touched )">
+                            <label for="" *ngIf="reactiveForm.get('email').errors.required">
+                                Debe ingresar su dirección de correo electronico
+                            </label>
+                        </span>
+                        
+                        <span *ngIf="reactiveForm.get('email').errors &&
+                        (reactiveForm.get('email').dirty ||
+                        reactiveForm.get('email').touched )">
+                            <label for="" *ngIf="reactiveForm.get('email').errors.email && !reactiveForm.get('email').errors.required">
+                                Su dirección de correo electronico debe ser valida
+                            </label>
+                        </span>
                     </div>
 
-                    <div class="formInput">
+
+
+
+                    <div class="formInput"
+                    [ngClass]=" { 'hasError':reactiveForm.get('numReserves').errors &&
+                    (reactiveForm.get('numReserves').dirty ||
+                    reactiveForm.get('numReserves').touched )} " >
                         <label for="">Cantidad de personas</label>
                         <br>
-                        <input type="text" id="numPeople"
+                        <input type="number" id="numPeople"
                             formControlName="numReserves"
-                            id="fecha-cant"
+                            id="fecha-cant"  
+                            max="30"
+                            min="1"
+                           
                         >
+                        <br>
+                        <span *ngIf="reactiveForm.get('numReserves').errors &&
+                        (reactiveForm.get('numReserves').dirty ||
+                        reactiveForm.get('numReserves').touched )">
+                            <label for="" *ngIf="reactiveForm.get('numReserves').errors.required">
+                                Debe de ingresar el numero de personas 
+                            </label>
+                         </span>
+                        
+
+
+
+
                     </div>
                         <!-- CALENDARIOS -->
-                    <div class="formInput">
+                    <div class="formInput"
+                    [ngClass]=" { 'hasError':reactiveForm.get('arriveDate').errors &&
+                    (reactiveForm.get('arriveDate').dirty ||
+                    reactiveForm.get('arriveDate').touched )} ">
+
                         <label for="">Fecha de llegada</label>
                         <br>
                         <input [matDatepicker]="fechaLlegada" 
                             formControlName="arriveDate"
                             id="fecha-cant"
                             [min]="minDateArrive"
+                            
                         >
-                        <mat-datepicker-toggle [for]="fechaLlegada"></mat-datepicker-toggle>
-                        <mat-datepicker #fechaLlegada></mat-datepicker>
+                        <mat-datepicker-toggle [for]="fechaLlegada"  ></mat-datepicker-toggle>
+                        <mat-datepicker #fechaLlegada ></mat-datepicker>
+                        <br>
+
+                        <span *ngIf="reactiveForm.get('arriveDate').errors &&
+                        (reactiveForm.get('arriveDate').dirty ||
+                        reactiveForm.get('arriveDate').touched )">
+                            <label for="" *ngIf="reactiveForm.get('arriveDate').errors.required">
+                                    Debe ingresar la fecha de llegada 
+                            </label>
+                         </span>
+
                     </div>
 
-                    <div class="formInput">
+
+                    <div class="formInput"
+                    [ngClass]=" { 'hasError':reactiveForm.get('leaveDate').errors &&
+                    (reactiveForm.get('leaveDate').dirty ||
+                    reactiveForm.get('leaveDate').touched )} ">
                         <label for="">Fecha de salida</label>
                         <br>
                         <input [matDatepicker]="fechaSalida" 
                             formControlName="leaveDate"
                             id="fecha-cant"
-                            [min]="minDateLeave"
+                            [min]="reactiveForm.value.arriveDate"
                         >
                         <mat-datepicker-toggle [for]="fechaSalida"></mat-datepicker-toggle>
                         <mat-datepicker #fechaSalida></mat-datepicker>
+                        <br>
+                        <span *ngIf="reactiveForm.get('leaveDate').errors &&
+                        (reactiveForm.get('leaveDate').dirty ||
+                        reactiveForm.get('leaveDate').touched )">
+                            <label for="" *ngIf="reactiveForm.get('leaveDate').errors.required">
+                                Debe ingresar la fecha de salida
+                            </label>
+                         </span>
+
+                         <br>
+                         <br>
+                         <div *ngIf="!reactiveForm.controls.numReserves.pristine"
+                                formArrayName="rooms"
+                         >
+                            <h5>Selecciona tus cuartos</h5> 
+
+                            <div *ngFor="let group of roomArray.controls; let i =index;" [formGroupName] ="i">
+
+                           <h5>Cuarto {{i+1}} </h5> 
+                                <div class="cuartos">
+                                    <div>
+                                    <label for="">Nombre del cuarto</label>
+                                    <br>
+
+
+                                         <!-- <input type="text" formControlName="roomName" id="nCuarto"> -->
+                                    
+
+                                    <select name="" id="" formControlName="roomName">
+                                        <option value="" selected>Elige uno..</option>
+                                        <option value="" selected  *ngFor="let r of hotels[0].rooms  "  [value]="r.roomName" >
+                                            {{r.roomName}}
+                                        </option>
+                                    </select>
+
+
+
+                                    </div>
+                                    <div>
+                                    <label for="">Cantidad de cuartos</label>
+                                    <br>
+                                    <input type="number" formControlName="roomCant" id="cantCuarto"  min=1 max=30 >
+                                    </div>
+                                    <div class="p5btns">
+                                    <div>
+                                    <button class="btnRoom" (click)="addRoom()"><img src="https://secure.webtoolhub.com/static/resources/icons/set114/28bdd2bd.png" alt=""></button>
+                                    </div>
+                                    <div>
+                                    <button class="btnRoom" (click)="removeRoom(i)"> <img src="https://image.flaticon.com/icons/png/512/458/458594.png" alt=""></button>
+                                    </div>
+                                    </div>
+                                    
+                                </div>
+                            
+                        </div>
+                     
+                        </div>
+
+
+
                     </div>
 
-                    <div class="info-btn">
-                            <div class="btn-sig">Siguiente Paso</div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="info-btn"    >
+                            <button  (click)="submitHandler()"  [disabled]="!reactiveForm.valid" >Siguiente Paso</button>
                     </div>
 
-                    <div class="formBtn">
-                        
-                        <button  (click)="submitHandler()"  >submit</button>
-                    </div>
+                  
+
 
                     
             </div>
@@ -236,27 +380,28 @@
 
         </div>
 
- <!-- PASO 6----------------------------------------------------------------------------------------- --> 
-
-        <div class="paso6"   *ngIf="pasos.paso_6" >
-
-            <h1>Paso 6: Escoja sus habitaciones</h1>
-
-
-            <!-- Lo podre hacer cuando tengamos el servicio y depensiendo de como sean  -->
-
-
-                <div class="info-btn">
-                    <div class="btn-sig">Siguiente Paso</div>
-                </div>
-        </div>
-
-         <!-- PASO 7----------------------------------------------------------------------------------------- --> 
-        <div class="paso7"  *ngIf="pasos.paso_7">
+ 
+        <div class="paso6"  *ngIf="pasos.paso_6">
             
-            <h1>Paso 7: </h1>
+            <h1>Paso 6: </h1>
+
+            <div class="reservaReady">
+                   
+                    <br>
+                <h2>Se ha completado la Reserva</h2>
+                
+                <br>
+                <h3>¿Que desea hacer?</h3>
+            </div>
+           
+            <div class="btn-p7">
+
+                <button id="reservarx" >Seguir Reservando</button>
+                <button  id="pagar" >Pagar</button>
 
 
+            </div>
+            <br>
         </div>
 
 

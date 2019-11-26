@@ -3,10 +3,16 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 30px;
+   
  
     width:100vw;
     color:#1da9bc;
+    background-image: url("https://media.allure.com/photos/5bf1b1502ab5072a91e1853a/16:9/w_3423,h_1925,c_limit/travel%20editor%20favorite%20products.jpg");
+  /* background-image:url("https://koadistance.com/wp-content/themes/storefront-child/img/trip-video-poster.jpg") ; */
+   background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 .data{
@@ -14,6 +20,7 @@
     width:70vw;
    
     margin-top: 30px;
+    margin-bottom: 10vh;
     border-radius: 10px;
     background: #f5f1eb;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); 
@@ -35,6 +42,11 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); 
 }
 .for{
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+}
+.if{
     width: 70vw;
     display: flex;
     justify-content: center;
@@ -232,6 +244,16 @@ h1{
     margin-top: 10px;
    
 }
+.if2{
+
+    width: 30vw;
+    display: flex;
+    height: 30vh;
+    background: #425355;
+    margin-bottom: 30px;
+    margin-top: 10px;
+   
+}
 .hotelInd{
     width: 30vw;
     height: 30vh;
@@ -246,3 +268,121 @@ h1{
 
 
 /* -------------------------------------------------------------------------------*/
+
+
+
+
+/* ---------------------CLASES DE ERRORES DE LOS INPUTS----------------------------------*/
+
+
+.hasError input{
+
+    border:1px solid rgba(255, 69, 69, 0.705);
+}
+.hasError label{
+    color: rgb(255, 69, 69);
+}
+
+
+.gris{
+    background: gris;
+}
+
+
+button{
+
+    background: #1da9bc;
+    border-radius: 5px;
+    border:none;
+    padding:5px;
+    color:white;
+    transition:0.5s;
+
+}
+
+button:hover{
+
+    background: #106570;
+    transition:0.5s;
+
+}
+
+
+
+
+
+/* ---------------------Paso 7----------------------------------*/
+
+.reservaReady{
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:30vh;
+    width: 70vw;
+
+}
+.reservaReady h2{
+    padding: 0px;
+    background: none;
+    border-radius: 0px;
+}
+.btn-p7{
+
+
+    height: 30vh;
+    width: 70vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+.btn-p7 button{
+
+    height: 60px;
+    width: 125px;
+}
+#reservarx{
+    margin-left: 190px;
+}
+#pagar{
+    margin-right: 190px;
+}
+
+/* ---------------------FIN----------------------------------*/
+
+
+
+
+
+/* ---------------------Paso 6----------------------------------*/
+
+
+#nCuarto{
+    width:200px;
+}
+#cantCuarto{
+    width:100px;
+}
+.cuartos{
+    display:flex;
+    justify-content: space-between;
+    width: 45vw;
+}
+.btnRoom img{
+    
+    width: 30px;
+    
+}
+.btnRoom {
+    
+    background: none;
+    margin-top: 20px;
+    
+}
+.p5btns{
+    display: flex;
+    
+}
