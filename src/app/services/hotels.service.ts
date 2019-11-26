@@ -5,6 +5,7 @@ import { StatesService } from './states.service';
 import { HotelFacilitiesService } from './hotel-facilities.service';
 import { HotelFacilitie } from '../Models/hotelFacilitie';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import {ActivatedRoute} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +73,9 @@ export class HotelsService {
   getHotelsCollection(){
     return this.afs.collection<Hotel>('hotels').snapshotChanges();
   
+  }
+  getHotelById(id:string){
+    return this.afs.collection<Hotel>('hotels').doc<Hotel>(id).snapshotChanges();
   }
 
   // getHotelById(id:string){

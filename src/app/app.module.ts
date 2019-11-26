@@ -49,6 +49,7 @@ import { MatDatepickerModule } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { RoomsAdminComponent } from './components/admin/hotels/rooms-admin/rooms-admin.component';
 import { HotelsListComponent } from './components/admin/hotels/hotels-list/hotels-list.component';
+import { RoomsListAdminComponent } from './components/admin/hotels/rooms-list-admin/rooms-list-admin.component';
   
 
 const appRoutes: Routes=[
@@ -94,7 +95,8 @@ const appRoutes: Routes=[
     PlaneaPaso3Component,
     PlaneaPaso5Component,
     RoomsAdminComponent,
-    HotelsListComponent
+    HotelsListComponent,
+    RoomsListAdminComponent
   ],
   imports: [
     BrowserModule,

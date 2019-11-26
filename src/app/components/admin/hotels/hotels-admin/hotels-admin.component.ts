@@ -166,7 +166,7 @@ export class HotelsAdminComponent implements OnInit {
     }
     // console.log(this.selectedHotelFacilities.values);
     this.hotelSV.addHotel(mov);
-    // this.route.navigate(['/stateList']);
+    this.route.navigate(['/admin/room/add']);
   }
 
   // addHotelInfo(){

@@ -77,6 +77,18 @@ export class RoomServiceService {
 
   addRoom(mov){
     this.afs.collection('rooms').add(mov);
+    console.log("addRoom")
   }
 
+  deleteRoom(docId:string){
+    return this.afs.collection('rooms').doc(docId).delete();
+  }
+  getRoomsCollection(){
+    return this.afs.collection<Room>('rooms').snapshotChanges();
+  
+  }
+
+  getRoomById(id:string){
+    return this.afs.collection<Room>('rooms').doc(id).snapshotChanges();
+  }
 }

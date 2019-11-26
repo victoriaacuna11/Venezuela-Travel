@@ -42,10 +42,10 @@ export class TouristInfoComponent implements OnInit {
         culture: arr.payload.get('culture'),
         recreativeActs: arr.payload.get('recreativeActs'),
         mainHotels: arr.payload.get('mainHotels'),
-        views: 0,
-        visits: 0,
+        views: arr.payload.get('views'),
+        visits: arr.payload.get('visits'),
         touristDestinations: arr.payload.get('touristDestinations'),
-        available:true
+        available: arr.payload.get('available'),
       }
 
       this.state=sta;
