@@ -19,9 +19,10 @@ export class Hotel{
     city: string;
     fullday:FullDay;
     services: HotelFacilitie[];
-    rooms: Room[];
-
+    available: boolean;
     //FILTROS PREESTABLECIDOS.
     nrBusquedas: number;
     nrVentas: number;
+
+
 }

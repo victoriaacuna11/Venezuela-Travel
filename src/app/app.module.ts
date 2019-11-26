@@ -36,7 +36,7 @@ import { ListTDestinationsComponent } from './components/admin/list-t-destinatio
 import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FilterPipe } from './Pipes/filter.pipe';
-import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-admin.component';
+import { HotelsAdminComponent } from './components/admin/hotels/hotels-admin/hotels-admin.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { NavAdminComponent } from './components/admin/nav-admin/nav-admin.component';
@@ -47,6 +47,8 @@ import { PlaneaPaso5Component } from './components/planea-paso5/planea-paso5.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { RoomsAdminComponent } from './components/admin/hotels/rooms-admin/rooms-admin.component';
+import { HotelsListComponent } from './components/admin/hotels/hotels-list/hotels-list.component';
   
 
 const appRoutes: Routes=[
@@ -90,7 +92,9 @@ const appRoutes: Routes=[
     PlaneaTuViajeComponent,
     PlaneaPaso1Component,
     PlaneaPaso3Component,
-    PlaneaPaso5Component
+    PlaneaPaso5Component,
+    RoomsAdminComponent,
+    HotelsListComponent
   ],
   imports: [
     BrowserModule,

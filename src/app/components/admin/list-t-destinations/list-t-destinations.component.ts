@@ -23,18 +23,7 @@ export class ListTDestinationsComponent implements OnInit {
       {
         const destination: TouristDestination = {
           id: item.payload.doc.id,
-          name: item.payload.doc.get('name'),
-          description: item.payload.doc.get('description'),
-          destinationsCategory: item.payload.doc.get('destinationsCategory'),
-          services: item.payload.doc.get('services'),
-          activities: item.payload.doc.get('activities'),
-          latitude: item.payload.doc.get('latitude'),
-          longitude: item.payload.doc.get('longitude'),
-          state: item.payload.doc.get('state'),
-          direction: item.payload.doc.get('direction'),
-          city: item.payload.doc.get('city'),
-          bannerImg: item.payload.doc.get('bannerImg'),
-          available: item.payload.doc.get('available'),
+          ...item.payload.doc.data(),
         }
         return destination;
       })

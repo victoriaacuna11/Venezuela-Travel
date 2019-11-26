@@ -81,11 +81,7 @@ export class TDestinationsAdminComponent implements OnInit {
         {
           const destination: DestinationInterface = {
             id: item.payload.doc.id,
-            name: item.payload.doc.get('name'),
-            bannerImg: item.payload.doc.get('bannerImg'),
-            views: item.payload.doc.get('views'),
-            visits: item.payload.doc.get('visits'),
-            available: item.payload.doc.get('available')
+            ...item.payload.doc.data(),
           }
           return destination;
         }))
@@ -99,74 +95,11 @@ export class TDestinationsAdminComponent implements OnInit {
       {
         const state: StateInterface = {
           id: item.payload.doc.id,
-          name: item.payload.doc.get('name'),
-          imgs: item.payload.doc.get('imgs'),
-          gastronomy: item.payload.doc.get('gastronomy'),
-          culture: item.payload.doc.get('culture'),
-          recreativeActs: item.payload.doc.get('recreativeActs'),
-          mainHotels: item.payload.doc.get('mainHotels'),
-          views: item.payload.doc.get('views'),
-          visits: item.payload.doc.get('visits'),
-          destination: item.payload.doc.get('destinationName'),
-          touristDestinations: item.payload.doc.get('touristDestinations'),
-          bannerImg: item.payload.doc.get('bannerImg'),
-          available: item.payload.doc.get('available')
+          ...item.payload.doc.data()
         }
         return state;
       })
     ));
   } 
-  // getTD(){
-  //   this._td.getTDestinationCollection()
-  //   .subscribe( x => (this.TD = x.map(item => 
-  //     {
-  //       const destination: TouristDestination = {
-  //         id: item.payload.doc.id,
-  //         name: item.payload.doc.get('name'),
-  //         description: item.payload.doc.get('description'),
-  //         destinationsCategory: item.payload.doc.get('destinationsCategory'),
-  //         services: item.payload.doc.get('services'),
-  //         activities: item.payload.doc.get('activities'),
-  //         latitude: item.payload.doc.get('latitude'),
-  //         longitude: item.payload.doc.get('longitude'),
-  //         state: item.payload.doc.get('state'),
-  //         direction: item.payload.doc.get('direction'),
-  //         city: item.payload.doc.get('city'),
-  //         bannerImg: item.payload.doc.get('bannerImg'),
-  //         available: item.payload.doc.get('available'),
-  //       }
-  //       return destination;
-  //     })
-
-  //   ));
-  // }
-
-  // getEveryTDAvailable(states: StateInterface[]){
-  //   let TDTemp: string[];
-  //   console.log("States: " + states.length);
-    // for (let i = 0; i < this.states.length; i++) {
-    //   for (let j = 0; j < this.states[i].touristDestinations.length; j++) {
-    //     TDTemp.push(this.states[i].touristDestinations[j]);
-    //   }
-    // }
-    // for (let index = 0; index < TDTemp.length; index++) {
-    //   console.log(TDTemp[index]);
-    // }
-
-    // let TDAvailable: string[];
-    // for (let i = 0; i < TDTemp.length; i++) {
-    //   let isAvailable = true;
-    //   for (let j = 0; j < this.TD.length; j++) {
-    //     if(TDTemp[i]===this.TD[j].name){
-    //       isAvailable=false;
-    //     }
-    //   }
-    //   if(isAvailable){
-    //     TDAvailable.push(TDTemp[i]);
-    //   }
-    // }
-    
-    // return TDAvailable;
-  // }
 
 }

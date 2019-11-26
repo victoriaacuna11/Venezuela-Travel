@@ -100,7 +100,7 @@ export class StatesService {
   }
 
   getStatesCollection(){
-    return this.afs.collection('states').snapshotChanges();
+    return this.afs.collection<StateInterface>('states').snapshotChanges();
   
   }
 

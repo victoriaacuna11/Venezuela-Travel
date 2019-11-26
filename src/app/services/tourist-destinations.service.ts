@@ -38,7 +38,7 @@ export class TouristDestinationsService {
   }
 
   getTDestinationCollection(){
-    return this.afs.collection('Touristic Destinations').snapshotChanges();
+    return this.afs.collection<TouristDestination>('Touristic Destinations').snapshotChanges();
   
   }
 
