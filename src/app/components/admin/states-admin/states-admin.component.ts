@@ -5,13 +5,10 @@ import { StateInterface } from 'src/app/Models/state';
 import { Router } from '@angular/router';
 import { DestinationInterface } from 'src/app/Models/destination';
 import { DestinationsService } from 'src/app/services/destinations.service';
-<<<<<<< HEAD
 import { TouristDestination } from 'src/app/Models/touristDestination';
 import { TouristDestinationsService } from 'src/app/services/tourist-destinations.service';
 
-=======
 import { ActivatedRoute } from '@angular/router';
->>>>>>> wil-routes
 
 
 @Component({
@@ -23,41 +20,19 @@ export class StatesAdminComponent implements OnInit {
 
   destinations: DestinationInterface[];
   states: StateInterface[];
-<<<<<<< HEAD
   TD: TouristDestination[];
-=======
   isModify = false;
   s: StateInterface;
->>>>>>> wil-routes
 
   createStateFrom: FormGroup;
 
   constructor(private _builder: FormBuilder, private stateSV: StatesService, private route: Router,
-<<<<<<< HEAD
-    private destinationSV: DestinationsService, private _td: TouristDestinationsService) { 
-=======
-    private destinationSV: DestinationsService, private actRoute: ActivatedRoute) {
->>>>>>> wil-routes
+    private destinationSV: DestinationsService, private _td: TouristDestinationsService, 
+     private actRoute: ActivatedRoute) {
 
   }
 
   ngOnInit() {
-<<<<<<< HEAD
-    this.createStateFrom=this._builder.group({
-      name:['', Validators.required],
-      bannerImg: ['', Validators.required],
-      destination: ['', Validators.required],
-      touristDestinations: this._builder.array([this.addTouristDestinationsGroup()]),
-      imgs: this._builder.array([this.addImgGroup()]),
-      gastronomy: ['', Validators.required],
-      culture: ['', Validators.required],
-      recreativeActs: ['', Validators.required],
-      mainHotels: ['', Validators.required],
-    })
-    this.getDestinations();
-    this.getTD();
-  }
-=======
     if (this.actRoute.snapshot.paramMap.get('id') == undefined) {
 
       this.createStateFrom = this._builder.group({
@@ -90,10 +65,10 @@ export class StatesAdminComponent implements OnInit {
           visits: a.payload.get(""),
           destination: a.payload.get(""),
           touristDestinations: a.payload.get(""),
+          available: a.payload.get(""),
         }
       });
 
->>>>>>> wil-routes
 
     }
   }
@@ -155,7 +130,6 @@ export class StatesAdminComponent implements OnInit {
 
   getDestinations() {
     this.destinationSV.getDestinationsCollection().subscribe(
-<<<<<<< HEAD
       res => (this.destinations = res.map(item =>
         {
           const destination: DestinationInterface = {
@@ -164,19 +138,6 @@ export class StatesAdminComponent implements OnInit {
           }
           return destination;
         }))
-=======
-      res => (this.destinations = res.map(item => {
-        const destination: DestinationInterface = {
-          id: item.payload.doc.id,
-          name: item.payload.doc.get('name'),
-          bannerImg: item.payload.doc.get('bannerImg'),
-          views: item.payload.doc.get('views'),
-          visits: item.payload.doc.get('visits'),
-          available: item.payload.doc.get('available')
-        }
-        return destination;
-      }))
->>>>>>> wil-routes
     )
   }
 
