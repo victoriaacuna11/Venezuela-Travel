@@ -71,7 +71,7 @@ export class PlaneaTuViajeComponent implements OnInit {
     //month=10;
     //date=25;
 
-    //minDateLeave= new Date( this.year, this.month, this.date);
+    
 
   //--------------------------------------------------------------------------
 
