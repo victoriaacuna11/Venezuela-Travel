@@ -75,7 +75,8 @@
                         </div>
                     </div>
                     <div class="button-wrap">
-                        <button routerLink="/roomList">Ver habitaciones</button>
+                            <!-- [routerLink]="['/hotel', hotel.id, '/rooms']" -->
+                        <button [routerLink]="['/hotel', hotel.id, 'rooms']">Ver habitaciones</button>
                     </div>
                 </div>
             </div>
