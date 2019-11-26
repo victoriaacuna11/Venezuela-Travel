@@ -1,4 +1,10 @@
+<ng-container *ngIf="!loadingTD && !loadingD; then NoLoader; else loader"></ng-container>
+
+<ng-template #loader>gfhgfdhgf</ng-template>
+
+<ng-template #NoLoader>
 <app-bar></app-bar>
+
 <div class="banner-tourist-destination" 
 [ngStyle]="{'background-image': 'url('+destination.bannerImg+')'}">
     <div class="mask-ti">
@@ -9,7 +15,7 @@
         </div>
         <div class="bTitles-wrapper">
             <div class="title-inf">
-                <h4>{{destination.destinationsCategory}}</h4>
+                <h4>{{dest?.name}}</h4>
             </div>
         </div>
     </div>
@@ -76,5 +82,5 @@
         </div>
     </div>
 </div>
-
+</ng-template>
 <app-footer></app-footer>

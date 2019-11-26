@@ -31,7 +31,9 @@
                                 </button>
                             </div>
                             <div class="icon-wrapper">
-                                <button><img src="assets/img/edit-icon.png"></button>
+                                <button [routerLink]="['/modifyDest', d.id]">
+                                    <img src="assets/img/edit-icon.png">
+                                </button>
                             </div>
                             <div class="icon-wrapper">
                                 <button (click)="deleteDestination(d.id)"><img src="assets/img/delete-icon.png"></button>

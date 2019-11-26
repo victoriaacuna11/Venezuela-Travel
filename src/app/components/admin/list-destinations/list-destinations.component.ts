@@ -24,7 +24,15 @@ export class ListDestinationsComponent implements OnInit {
         {
           const destination: DestinationInterface = {
             id: item.payload.doc.id,
+<<<<<<< HEAD
             ...item.payload.doc.data(),
+=======
+            name: item.payload.doc.get('name'),
+            bannerImg: item.payload.doc.get('bannerImg'),
+            views: item.payload.doc.get('views'),
+            visits: item.payload.doc.get('visits'),
+            available: item.payload.doc.get('available')
+>>>>>>> wil-routes
           }
           return destination;
         }))

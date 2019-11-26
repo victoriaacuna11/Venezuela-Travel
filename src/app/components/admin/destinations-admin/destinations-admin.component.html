@@ -1,5 +1,5 @@
 <app-nav-admin></app-nav-admin>
-<div class="form">
+<div class="form" *ngIf="!isModify; else Mod">
     <form [formGroup]="createStateFrom" (ngSubmit)="addPost()">
         <div class="details">
             <div class="title-add">
@@ -27,4 +27,35 @@
         </div>
     </form>
 </div>
+
+<ng-template #Mod>
+    <div class="form">
+        <form [formGroup]="createStateFrom" (ngSubmit)="updateD()">
+                <div class="details">
+                    <div class="title-add">
+                        <h1>MODIFICAR DESTINO</h1>
+                    </div>
+                    <div class="detail-wrapper">
+                        <div class="wrapper">
+                            NOMBRE
+                        </div> 
+                        <div class="wrapper">
+                            <input formControlName="name" type="text" />
+                        </div>
+                    </div>
+                    <div class="detail-wrapper">
+                        <div class="wrapper">
+                            IMAGEN DEL BANNER
+                        </div>
+                        <div class="wrapper">
+                            <input formControlName="bannerImg" type="text"/>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <button [disabled]="!createStateFrom.valid" type="submit">ACEPTAR</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+</ng-template>
 <app-footer></app-footer>

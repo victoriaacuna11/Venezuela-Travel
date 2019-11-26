@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { DestinationInterface } from '../Models/destination';
 import { StateInterface } from '../Models/state';
 
@@ -10,6 +10,7 @@ export class DestinationsService {
 
   destinationsCollection: AngularFirestoreCollection<DestinationInterface>;
   destinations: DestinationInterface[]=[];
+  dDoc: AngularFirestoreDocument<DestinationInterface>;
 
   constructor(public afs: AngularFirestore) { 
     const order=this.afs.collection<DestinationInterface>('destinations').snapshotChanges();
@@ -47,6 +48,14 @@ export class DestinationsService {
     return this.destinations.find(destination => {
       return destination.id==id;
     })
+
+    /*return this.afs.collection('destinations').doc(id).snapshotChanges();*/
+
+  }
+
+  updateDest(dest: DestinationInterface){
+    this.dDoc = this.afs.doc(`destinations/${dest.id}`);
+    this.dDoc.update(dest);
   }
 
 }

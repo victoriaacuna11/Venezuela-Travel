@@ -95,12 +95,9 @@ export class StatesComponent implements OnInit {
     }else{
 
       const id = this.route.snapshot.paramMap.get('id');
-      this.destination = this._dest.getDestinationById(id);
-
-      const nameD = this.destination.name;
 
       this.statess = this._states.states.filter(x => {
-        return x.destination === nameD;
+        return x.destination === id;
       });
 
       console.log(this.statess);
