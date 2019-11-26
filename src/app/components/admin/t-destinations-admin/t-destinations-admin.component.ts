@@ -70,7 +70,8 @@ export class TDestinationsAdminComponent implements OnInit {
             name: item.payload.doc.get('name'),
             bannerImg: item.payload.doc.get('bannerImg'),
             views: item.payload.doc.get('views'),
-            visits: item.payload.doc.get('visits')
+            visits: item.payload.doc.get('visits'),
+            available: item.payload.doc.get('available')
           }
           return destination;
         }))

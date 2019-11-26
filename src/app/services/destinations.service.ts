@@ -50,6 +50,9 @@ export class DestinationsService {
     return this.destinations.find(destination => {
       return destination.id==id;
     })
+
+    /*return this.afs.collection('destinations').doc(id).snapshotChanges();*/
+
   }
 
   updateDest(dest: DestinationInterface){

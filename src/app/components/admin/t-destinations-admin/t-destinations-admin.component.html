@@ -36,7 +36,7 @@
                 <div class="wrapper">
                     <select formControlName="destinationsCategory">
                         <option selected>Elige uno...</option>
-                        <option selected *ngFor="let item of destinations" [value]="item.name">
+                        <option selected *ngFor="let item of destinations" [value]="item.id">
                             {{item.name | uppercase}}
                         </option>
                     </select>
@@ -81,7 +81,7 @@
                 <div class="wrapper">
                     <select formControlName="state">
                         <option selected>Elige uno...</option>
-                        <option selected *ngFor="let item of states" [value]="item.name">
+                        <option selected *ngFor="let item of states" [value]="item.id">
                             {{item.name | uppercase}}
                         </option>
                     </select>

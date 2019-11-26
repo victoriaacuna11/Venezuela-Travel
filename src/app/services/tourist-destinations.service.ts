@@ -43,9 +43,10 @@ export class TouristDestinationsService {
   }
 
   getTDestinationById(id:string){
-    return this.tDestinations.find(tDestinations => {
+    /*return this.tDestinations.find(tDestinations => {
       return tDestinations.id==id;
-    })
+    })*/
+    return this.afs.collection('Touristic Destinations').doc(id).snapshotChanges();
   }
 
   destinations:TouristDestination[]=[
