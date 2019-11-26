@@ -1,12 +1,27 @@
 import { Injectable } from '@angular/core';
 import { RoomService } from '../Models/roomService';
+import { Room } from '../Models/room';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomServiceService {
 
-  constructor() { }
+  rooms:Room[]=[];
+
+  constructor(public afs: AngularFirestore) { 
+    const order=this.afs.collection<Room>('rooms').snapshotChanges();
+    order.subscribe( rooms => {
+      rooms.forEach(item=>{
+        const room: Room = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+        this.rooms.push(room);
+      })
+    })
+  }
 
   cajaFuerte:RoomService={
     "name":"Caja fuerte",
@@ -47,5 +62,33 @@ export class RoomServiceService {
     "name":"Armario",
     "available": true,
     "icon": "assets/img/wardrobe.png"
+  }
+
+  getFacilities(){
+    return [this.kitchen,
+    this.airConditioner,
+    this.cajaFuerte,
+    this.phone,
+    this.sofaCama,
+    this.tv,
+    this.wardrobe,
+    this.wifi]
+  }
+
+  addRoom(mov){
+    this.afs.collection('rooms').add(mov);
+    console.log("addRoom")
+  }
+
+  deleteRoom(docId:string){
+    return this.afs.collection('rooms').doc(docId).delete();
+  }
+  getRoomsCollection(){
+    return this.afs.collection<Room>('rooms').snapshotChanges();
+  
+  }
+
+  getRoomById(id:string){
+    return this.afs.collection<Room>('rooms').doc(id).snapshotChanges();
   }
 }

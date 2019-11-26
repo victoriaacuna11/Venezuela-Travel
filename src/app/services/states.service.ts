@@ -53,18 +53,19 @@ export class StatesService {
       states.forEach(item=>{
         const state: StateInterface = {
           id: item.payload.doc.id,
-          //...item.payload.doc.data()
-          name: item.payload.doc.get('name'),
-          bannerImg: item.payload.doc.get('bannerImg'),
-          imgs: item.payload.doc.get('imgs'),
-          gastronomy: item.payload.doc.get('gastronomy'),
-          culture: item.payload.doc.get('culture'),
-          recreativeActs: item.payload.doc.get('recreativeActs'),
-          mainHotels: item.payload.doc.get('mainHotels'),
-          views: 0,
-          visits: 0,
-          destination:  item.payload.doc.get('destination'),
-          touristDestinations: item.payload.doc.get('touristDestinations'),
+          ...item.payload.doc.data()
+          // name: item.payload.doc.get('name'),
+          // bannerImg: item.payload.doc.get('bannerImg'),
+          // imgs: item.payload.doc.get('imgs'),
+          // gastronomy: item.payload.doc.get('gastronomy'),
+          // culture: item.payload.doc.get('culture'),
+          // recreativeActs: item.payload.doc.get('recreativeActs'),
+          // mainHotels: item.payload.doc.get('mainHotels'),
+          // views: 0,
+          // visits: 0,
+          // destination:  item.payload.doc.get('destination'),
+          // touristDestinations: item.payload.doc.get('touristDestinations'),
+          // available: item.payload.doc.get('available')
         }
         this.states.push(state);
       })
@@ -99,12 +100,12 @@ export class StatesService {
   }
 
   getStatesCollection(){
-    return this.afs.collection('states').snapshotChanges();
+    return this.afs.collection<StateInterface>('states').snapshotChanges();
   
   }
 
   getStateById(id:string){
-    return this.afs.collection('states').doc(id).snapshotChanges();
+    return this.afs.collection<StateInterface>('states').doc<StateInterface>(id).snapshotChanges();
   }
 
 }

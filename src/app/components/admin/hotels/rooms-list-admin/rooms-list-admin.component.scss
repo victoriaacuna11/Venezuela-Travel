@@ -1,0 +1,145 @@
+.bck{
+    background-position: center;
+    background-image: url("../../../../../assets/img/adminhome.jpg");
+    background-size: cover;
+    min-height: 85vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mask{
+    width: 100vw;
+    min-height: 85vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.774);
+    padding: 7px;
+    button{
+        // height: 15px;
+        width: 20vw;
+        background-color: #1DA9BC;
+        border: none;
+        color:white;
+        font-size: 1.5vw;
+        padding: 5px;
+    font-family: 'Roboto Condensed', sans-serif;
+    }
+}
+
+.welcome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    h1{
+        font-size: 6vw;
+        font-family: 'Staatliches', cursive;
+
+    }
+}
+
+.bck-clr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.element-wrapper{
+    display: grid;
+    grid-template-columns: 0.4fr 0.4fr 0.2fr;
+    row-gap: 5px;
+    height: 8vh;
+    border-bottom: 2px white solid;
+    padding: 5px;
+    width: 70vw;
+
+}
+
+.elementList-wrapper{
+    width: 70vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2px;
+    border-bottom: 2px black solid;
+    background-color: rgba(0, 0, 0, 0.774);
+    color:white;
+}
+
+img{
+    max-height: 15px;
+}
+.cruds-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.element-cont-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vw;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+button{
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+        min-height: 6vh;
+    }
+}
+
+.tit-cont-wrapper{
+    padding: 3px;
+    color: #1DA9BC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // height: 10vh;;
+}
+
+.content-wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    width:60vw;
+    // row-gap: 4px;
+}
+.title-wrap{
+    display: grid;
+    grid-template-columns: 0.4fr 0.4fr 0.2fr;
+    row-gap: 5px;
+    height: 10vh;
+    border-bottom: 2px #1DA9BC solid;
+    padding: 5px;
+    width: 70vw;
+    background-color: rgba(0, 0, 0, 0.774);
+
+}
+.welcome{
+    background-color: rgba(0, 0, 0, 0.774);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    height: 10vh;
+    h1{
+        font-size: 3vw;
+        font-family: 'Staatliches', cursive;
+
+    }
+}

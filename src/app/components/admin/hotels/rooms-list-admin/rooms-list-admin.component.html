@@ -1,0 +1,51 @@
+<app-nav-admin></app-nav-admin>
+<div class="bck">
+    <div class="mask">
+        <div class="content-wrapper">
+                <div class="welcome">
+                    <h1>HABITACIONES</h1>
+                </div>
+            <div class="title-wrap">
+                <div class="tit-cont-wrapper">
+                    <h5>HOTEL</h5>
+                </div>
+                <div  class="tit-cont-wrapper">
+                    <h5>NOMBRE</h5>
+                </div>
+                <div  class="tit-cont-wrapper">
+                    <h5>CRUDS</h5>
+                </div>
+            </div>
+            <div class="elementList-wrapper">
+                <div class="element-wrapper" *ngFor="let r of rooms; let i=index">
+                    <div class="element-cont-wrapper">
+                        <h5>{{r.hotel}}</h5>
+                    </div>
+                    <div class="element-cont-wrapper">
+                        <h5>{{r.name}}</h5>
+                    </div>
+                    <div class="cruds-wrapper">
+                        <div class="icon-wrapper">
+                            <button>
+                                    <!-- [routerLink]="['/hotel', r.hotel, '/rooms']" -->
+                                <img src="assets/img/read-icon.png">
+                            </button>
+                        </div>
+                        <div class="icon-wrapper">
+                            <button><img src="assets/img/edit-icon.png"></button>
+                        </div>
+                        <div class="icon-wrapper">
+                            <button (click)="deleteRoom(r.id)"><img src="assets/img/delete-icon.png"></button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add">
+                <button routerLink="/admin/room/add">AGREGAR HABITACIÓN</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

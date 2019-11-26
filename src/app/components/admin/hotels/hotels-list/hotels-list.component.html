@@ -1,0 +1,50 @@
+<app-nav-admin></app-nav-admin>
+<div class="bck">
+    <div class="mask">
+        <div class="content-wrapper">
+                <div class="welcome">
+                    <h1>HOTELES</h1>
+                </div>
+            <div class="title-wrap">
+                <!-- <div class="tit-cont-wrapper">
+                    <h5>HOTEL</h5>
+                </div> -->
+                <div  class="tit-cont-wrapper">
+                    <h5>NOMBRE</h5>
+                </div>
+                <div  class="tit-cont-wrapper">
+                    <h5>CRUDS</h5>
+                </div>
+            </div>
+            <div class="elementList-wrapper">
+                <div class="element-wrapper" *ngFor="let hotel of hotels; let i=index">
+                    <!-- <div class="element-cont-wrapper">
+                        <h5>{{hotel.name}}</h5>
+                    </div> -->
+                    <div class="element-cont-wrapper">
+                        <h5>{{hotel.name}}</h5>
+                    </div>
+                    <div class="cruds-wrapper">
+                        <div class="icon-wrapper">
+                            <button [routerLink]="['/hotel', hotel.id]">
+                                <img src="assets/img/read-icon.png">
+                            </button>
+                        </div>
+                        <div class="icon-wrapper">
+                            <button><img src="assets/img/edit-icon.png"></button>
+                        </div>
+                        <div class="icon-wrapper">
+                            <button (click)="deleteHotel(hotel.id)"><img src="assets/img/delete-icon.png"></button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add">
+                <button routerLink="/admin/hotel/add">AGREGAR HOTEL</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

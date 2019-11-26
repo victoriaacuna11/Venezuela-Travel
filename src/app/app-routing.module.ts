@@ -14,13 +14,16 @@ import { TDestinationsAdminComponent } from './components/admin/t-destinations-a
 import { ListTDestinationsComponent } from './components/admin/list-t-destinations/list-t-destinations.component';
 import { DestinationsAdminComponent } from './components/admin/destinations-admin/destinations-admin.component';
 import { ListDestinationsComponent } from './components/admin/list-destinations/list-destinations.component';
-import { HotelsAdminComponent } from './components/admin/hotels-admin/hotels-admin.component';
+import { HotelsAdminComponent } from './components/admin/hotels/hotels-admin/hotels-admin.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
 import { PlaneaTuViajeComponent } from './components/planea-tu-viaje/planea-tu-viaje.component';
 import { PlaneaPaso1Component } from './components/planea-paso1/planea-paso1.component';
 import { PlaneaPaso5Component } from './components/planea-paso5/planea-paso5.component';
+import { RoomsAdminComponent } from './components/admin/hotels/rooms-admin/rooms-admin.component';
+import { HotelsListComponent } from './components/admin/hotels/hotels-list/hotels-list.component';
+import { RoomsListAdminComponent } from './components/admin/hotels/rooms-list-admin/rooms-list-admin.component';
 
 
 const routes: Routes = [
@@ -34,8 +37,8 @@ const routes: Routes = [
   {path : 'infoestado', component: TouristInfoComponent},
   {path : 'infoestado/:id', component: TouristInfoComponent },
   {path: 'destination/info/:id', component: TouristDestinationComponent},
-  {path: 'hotelx', component: HotelXComponent},
-  {path: 'roomList', component: RoomsListComponent},
+  {path: 'hotel/:id', component: HotelXComponent},
+  {path: 'hotel/:id/rooms', component: RoomsListComponent},
   {path: 'adminEdo', component: StatesAdminComponent},
   {path: 'stateList', component: ListStatesComponent},
   {path: 'info/:id', component: TouristInfoComponent},
@@ -47,6 +50,11 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'admin/dashboard', component: AdminHomeComponent},
   {path: 'planViaje', component: PlaneaTuViajeComponent},
+  {path: 'admin/room/add', component: RoomsAdminComponent},
+  {path: 'admin/hotels', component: HotelsListComponent},
+  {path: 'admin/rooms', component: RoomsListAdminComponent},
+  
+
   
 ]; 
 

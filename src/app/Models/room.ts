@@ -1,10 +1,13 @@
 import { RoomService } from "./roomService";
 
 export class Room{
-    name:string;
-    imgs:string[];
+    id?:string;
+    name: string;
+    imgs: string[];
     capacity:number;
+    hotel: string;
     services: RoomService[];
     views: string;
     price: number;
+    available: boolean;
 }

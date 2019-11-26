@@ -82,7 +82,7 @@ export class PlaneaTuViajeComponent implements OnInit {
     //month=10;
     //date=25;
 
-    //minDateLeave= new Date( this.year, this.month, this.date);
+    
 
   //--------------------------------------------------------------------------
 
@@ -221,7 +221,8 @@ export class PlaneaTuViajeComponent implements OnInit {
             name: item.payload.doc.get('name'),
             bannerImg: item.payload.doc.get('bannerImg'),
             views: item.payload.doc.get('views'),
-            visits: item.payload.doc.get('visits')
+            visits: item.payload.doc.get('visits'),
+            available: item.payload.doc.get('available')
           }
           return destination;
         }))
@@ -245,6 +246,7 @@ export class PlaneaTuViajeComponent implements OnInit {
             visits: item.payload.doc.get('visits'),
             destination:  item.payload.doc.get('destination'),
             touristDestinations: item.payload.doc.get('touristDestinations'),
+            available: item.payload.doc.get('available')
           }
           return statey;
         }))

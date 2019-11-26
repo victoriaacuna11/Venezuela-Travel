@@ -1,6 +1,8 @@
+
+
 .banner{
     height: 40vh;
-    width: 100vw;
+    width: 100%;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -22,8 +24,149 @@
 .mask-banner{
     background-color: rgba(0, 0, 0, 0.3);
     height: 40vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+//Responsive
+
+@media (max-width: 1500px){
+    .banner{
+        height: 40vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .banner-title{
+        display: flex;
+        justify-content: center;
+        width: 60vw;
+        h1{
+            font-family: 'Staatliches', cursive;
+            color: white;
+            font-size: 12vh;
+        }
+    }
+    .mask-banner{
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 40vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 1200px){
+
+
+}
+
+@media (max-width: 880px){
+    .banner{
+        height: 35vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .banner-title{
+        display: flex;
+        justify-content: center;
+        width: 60vw;
+        h1{
+            font-family: 'Staatliches', cursive;
+            color: white;
+            font-size: 12vh;
+        }
+    }
+    .mask-banner{
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 35vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width: 750px){
+
+    .banner{
+        height: 32vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .banner-title{
+        display: flex;
+        justify-content: center;
+        width: 60vw;
+        h1{
+            font-family: 'Staatliches', cursive;
+            color: white;
+            font-size: 11vh;
+        }
+    }
+    .mask-banner{
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 32vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 430px){
+    .banner{
+        height: 30vh;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .banner-title{
+        display: flex;
+        justify-content: center;
+        width: 60vw;
+        h1{
+            font-family: 'Staatliches', cursive;
+            color: white;
+            font-size: 10vh;
+        }
+    }
+    .mask-banner{
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 30vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 }

@@ -28,13 +28,13 @@ export class HotelComponent implements OnInit {
    }
 
   ngOnInit() {
-    this._hotels.currentMessage.subscribe(message => this.message = message)
+    // this._hotels.currentMessage.subscribe(message => this.message = message)
     this._hotels.currentMessage2.subscribe(message2 => this.message2 = message2)
     this._hotels.currentState.subscribe(showFilter => this.showFilter=showFilter)
   }
 
   vuelve(){
-    this._hotels.changeMessage(this._hotels.initialList());
+    // this._hotels.changeMessage(this._hotels.initialList());
     this._hotels.changeMessage2(false);
   }
 

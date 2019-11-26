@@ -24,10 +24,7 @@ export class ListDestinationsComponent implements OnInit {
         {
           const destination: DestinationInterface = {
             id: item.payload.doc.id,
-            name: item.payload.doc.get('name'),
-            bannerImg: item.payload.doc.get('bannerImg'),
-            views: item.payload.doc.get('views'),
-            visits: item.payload.doc.get('visits')
+            ...item.payload.doc.data(),
           }
           return destination;
         }))

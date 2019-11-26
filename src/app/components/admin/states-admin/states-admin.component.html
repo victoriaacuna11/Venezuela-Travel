@@ -89,8 +89,16 @@
                             <div class="center-content">
                                 <div class="array-content-wrapper" *ngFor="let group of touristDestinationsArray.controls; let i=index" [formGroupName]="i">
                                     <div>
-                                        <input formControlName="name" type="text" 
-                                        placeholder="Nombre destino turístico" class="input-imgs"/>
+
+                                        <select formControlName="name">
+                                                <option selected>Elige uno...</option>
+                                            <option selected *ngFor="let item of TD" [value]="item.name">
+                                                {{item.name | uppercase}}
+                                            </option>
+                                        </select>
+
+                                        <!-- <input formControlName="name" type="text" 
+                                        placeholder="Nombre destino turístico" class="input-imgs"/> -->
                                     </div>
                                     <div class="add-icons">
                                         <div class="crud-icon-wrapper">

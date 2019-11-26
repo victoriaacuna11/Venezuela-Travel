@@ -38,7 +38,7 @@ export class TouristDestinationsService {
   }
 
   getTDestinationCollection(){
-    return this.afs.collection('Touristic Destinations').snapshotChanges();
+    return this.afs.collection<TouristDestination>('Touristic Destinations').snapshotChanges();
   
   }
 
@@ -49,9 +49,43 @@ export class TouristDestinationsService {
   }
 
   destinations:TouristDestination[]=[
-    {"name": "Salto Ángel"},
-    {"name": "Parque Nacional Canaima"},
-    {"name": "Auyantepuy"}
+    {"name": "Salto Ángel",
+  "description":"",
+  "destinationsCategory":"",
+  "services":"",
+  "activities":"",
+  "longitude":0,
+  "latitude":0,
+  "state":"",
+  "direction":"",
+  "city":"",
+  "bannerImg":"",
+  "available":true
+  },
+    {"name": "Parque Nacional Canaima",
+    "description":"",
+    "destinationsCategory":"",
+    "services":"",
+    "activities":"",
+    "longitude":0,
+    "latitude":0,
+    "state":"",
+    "direction":"",
+    "city":"",
+    "bannerImg":"",
+    "available":true},
+    {"name": "Auyantepuy",
+    "description":"",
+    "destinationsCategory":"",
+    "services":"",
+    "activities":"",
+    "longitude":0,
+    "latitude":0,
+    "state":"",
+    "direction":"",
+    "city":"",
+    "bannerImg":"",
+    "available":true}
   ];
   destination:TouristDestination={
     "name": "Salto Ángel",
@@ -66,8 +100,8 @@ export class TouristDestinationsService {
     "state":"Bolívar",
     "direction":"Se localiza en el Parque Nacional Canaima, Bolívar, Venezuela; un espacio natural protegido.",
     "city":"Canaima",
-    "bannerImg": "assets/img/salto-angel.jpg"
-
+    "bannerImg": "assets/img/salto-angel.jpg",
+    "available":true,
   };
 
   getDestinations(){

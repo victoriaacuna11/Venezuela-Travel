@@ -6,6 +6,8 @@ import { DestinationInterface } from 'src/app/Models/destination';
 import { DestinationsService } from 'src/app/services/destinations.service';
 import { StateInterface } from 'src/app/Models/state';
 import { StatesService } from 'src/app/services/states.service';
+import { TouristDestination } from 'src/app/Models/touristDestination';
+import { SourceListMap } from 'source-list-map';
 
 @Component({
   selector: 'app-t-destinations-admin',
@@ -18,10 +20,18 @@ export class TDestinationsAdminComponent implements OnInit {
   constructor(private _builder: FormBuilder, private _td: TouristDestinationsService, 
     private _destination: DestinationsService, private route: Router, private routeSV: ActivatedRoute,
     private _states: StatesService) { }
-  destinations: DestinationInterface[];
-  states: StateInterface[];
+  destinations: DestinationInterface[]=[];
+  states: StateInterface[]=[];
+  TD: TouristDestination[]=[];
+  TDAvailable: string[]=[];
+  // loadingStates:boolean=false;
+  // loadingDestinations:boolean=false;
+  // loadingTD:boolean=false;
 
   ngOnInit() {
+    // this.loadingStates=true;
+    // this.loadingDestinations=true;
+    // this.loadingTD=true;
     this.createTDestinationsForm = this._builder.group({
       name:['', Validators.required],
       description: ['', Validators.required],
@@ -38,6 +48,9 @@ export class TDestinationsAdminComponent implements OnInit {
 
     this.getDestinations();
     this.getStates();
+    console.log(this.states.length);
+    // this.getTD();
+    // this.getEveryTDAvailable(this.states);
   }
 
   addPost(){
@@ -53,6 +66,7 @@ export class TDestinationsAdminComponent implements OnInit {
       direction: this.createTDestinationsForm.value.direction,
       city: this.createTDestinationsForm.value.city,
       bannerImg: this.createTDestinationsForm.value.bannerImg,
+      available:true,
     }
 
     this._td.addTDestination(d);
@@ -67,10 +81,7 @@ export class TDestinationsAdminComponent implements OnInit {
         {
           const destination: DestinationInterface = {
             id: item.payload.doc.id,
-            name: item.payload.doc.get('name'),
-            bannerImg: item.payload.doc.get('bannerImg'),
-            views: item.payload.doc.get('views'),
-            visits: item.payload.doc.get('visits')
+            ...item.payload.doc.data(),
           }
           return destination;
         }))
@@ -84,17 +95,7 @@ export class TDestinationsAdminComponent implements OnInit {
       {
         const state: StateInterface = {
           id: item.payload.doc.id,
-          name: item.payload.doc.get('name'),
-          imgs: item.payload.doc.get('imgs'),
-          gastronomy: item.payload.doc.get('gastronomy'),
-          culture: item.payload.doc.get('culture'),
-          recreativeActs: item.payload.doc.get('recreativeActs'),
-          mainHotels: item.payload.doc.get('mainHotels'),
-          views: item.payload.doc.get('views'),
-          visits: item.payload.doc.get('visits'),
-          destination: item.payload.doc.get('destinationName'),
-          touristDestinations: item.payload.doc.get('touristDestinations'),
-          bannerImg: item.payload.doc.get('bannerImg'),
+          ...item.payload.doc.data()
         }
         return state;
       })
