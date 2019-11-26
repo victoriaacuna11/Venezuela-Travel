@@ -5,6 +5,8 @@ import { StateInterface } from 'src/app/Models/state';
 import { Router } from '@angular/router';
 import { DestinationInterface } from 'src/app/Models/destination';
 import { DestinationsService } from 'src/app/services/destinations.service';
+import { TouristDestination } from 'src/app/Models/touristDestination';
+import { TouristDestinationsService } from 'src/app/services/tourist-destinations.service';
 
 
 
@@ -17,11 +19,12 @@ export class StatesAdminComponent implements OnInit {
 
   destinations: DestinationInterface[];
   states: StateInterface[];
+  TD: TouristDestination[];
 
   createStateFrom: FormGroup;
 
   constructor(private _builder: FormBuilder, private stateSV: StatesService, private route: Router,
-    private destinationSV: DestinationsService) { 
+    private destinationSV: DestinationsService, private _td: TouristDestinationsService) { 
 
   }
 
@@ -38,6 +41,7 @@ export class StatesAdminComponent implements OnInit {
       mainHotels: ['', Validators.required],
     })
     this.getDestinations();
+    this.getTD();
   }
 
   addTouristDestinationsGroup(){
@@ -87,6 +91,9 @@ export class StatesAdminComponent implements OnInit {
       culture: this.createStateFrom.value.culture,
       recreativeActs: this.createStateFrom.value.recreativeActs,
       mainHotels: this.createStateFrom.value.mainHotels,
+      available: true,
+      views:0,
+      visits:0,
     }
     
     this.stateSV.addState(mov);
@@ -99,14 +106,25 @@ export class StatesAdminComponent implements OnInit {
         {
           const destination: DestinationInterface = {
             id: item.payload.doc.id,
-            name: item.payload.doc.get('name'),
-            bannerImg: item.payload.doc.get('bannerImg'),
-            views: item.payload.doc.get('views'),
-            visits: item.payload.doc.get('visits')
+            ...item.payload.doc.data(),
           }
           return destination;
         }))
     )
+  }
+
+  getTD(){
+    this._td.getTDestinationCollection()
+    .subscribe( x => (this.TD = x.map(item => 
+      {
+        const destination: TouristDestination = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data(),
+        }
+        return destination;
+      })
+
+    ));
   }
 }
 

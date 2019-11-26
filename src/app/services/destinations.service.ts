@@ -33,15 +33,13 @@ export class DestinationsService {
     return this.destinations;
   }
 
-
-
   deleteDestination(docId:string){
     return this.afs.collection('destinations').doc(docId).delete();
 
   }
 
   getDestinationsCollection(){
-    return this.afs.collection('destinations').snapshotChanges();
+    return this.afs.collection<DestinationInterface>('destinations').snapshotChanges();
   
   }
 

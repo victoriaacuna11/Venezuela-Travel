@@ -65,6 +65,7 @@ export class StatesService {
           visits: 0,
           destination:  item.payload.doc.get('destination'),
           touristDestinations: item.payload.doc.get('touristDestinations'),
+          available: item.payload.doc.get('available')
         }
         this.states.push(state);
       })
@@ -99,7 +100,7 @@ export class StatesService {
   }
 
   getStatesCollection(){
-    return this.afs.collection('states').snapshotChanges();
+    return this.afs.collection<StateInterface>('states').snapshotChanges();
   
   }
 

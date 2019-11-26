@@ -9,6 +9,7 @@ import { HotelFacilitiesService } from 'src/app/services/hotel-facilities.servic
 import { HotelFacilitie } from 'src/app/Models/hotelFacilitie';
 import { HotelsService } from 'src/app/services/hotels.service';
 import { FullDay } from 'src/app/Models/fullDay';
+import { Hotel } from 'src/app/Models/hotel';
 
 @Component({
   selector: 'app-hotels-admin',
@@ -20,8 +21,8 @@ export class HotelsAdminComponent implements OnInit {
   destinations: DestinationInterface[];
   states: StateInterface[];
   createStateFrom: FormGroup;
-  // createRoomForm : FormGroup;
-
+  createRoomForm : FormGroup;
+  hotel:any;
   hotelFacilities: HotelFacilitie[];
   selectedHotelFacilities: HotelFacilitie[];
   hotelFacilitiesError: boolean = true;
@@ -55,10 +56,10 @@ export class HotelsAdminComponent implements OnInit {
       city: ['', Validators.required],
       services: this.addServicesControls(),
       fullDayPrice: [''],
-      rooms: this._builder.array([this.addRoomGroup()]),
-    })
-
+    });
   }
+
+
   addServicesControls(){
     const arr = this.hotelFacilities.map(element =>{
       return this._builder.control(false);
@@ -74,38 +75,12 @@ export class HotelsAdminComponent implements OnInit {
     })
   }
 
-  addRoomGroup(){
-    return this._builder.group({
-      name:['', Validators.required],
-      imgsRoom: this._builder.array([this.addImgRoomGroup()]),
-      capacity:['', Validators.required],
-      // services: RoomService[];
-      views: ['', Validators.required],
-      price: ['', Validators.required],
-    })
-  }
-
-  addImgRoomGroup(){
-    return this._builder.group({
-      imgPathR:['', Validators.required ],
-    })
-  }
-
-
+  
   get imgsArray(): FormArray{
     return this.createStateFrom.get('imgs') as FormArray;
   }
-
-  get roomsArray(): FormArray{
-    return this.createStateFrom.get('rooms') as FormArray;
-  }
-
   get servicesArray(): FormArray{
     return this.createStateFrom.get('services') as FormArray;
-  }
-
-  get imgsRoomArray(): FormArray{
-    return this.createStateFrom.get('rooms').get('imgs') as FormArray;
   }
 
 
@@ -114,28 +89,9 @@ export class HotelsAdminComponent implements OnInit {
     this.imgsArray.push(this.addImgGroup());
   }
 
-  addRoom(){
-    this.roomsArray.push(this.addRoomGroup());
-  }
-
-  addImgRoom(){
-    this.imgsRoomArray.push(this.addImgRoomGroup());
-  }
-
-
-
   removeImg(index){
     this.imgsArray.removeAt(index);
   }
-
-  removeRoom(index){
-    this.roomsArray.removeAt(index);
-  }
-  removeImgRoom(index){
-    this.imgsRoomArray.removeAt(index);
-  }
-
-
 
   getDestinations(){
     this.destinationSV.getDestinationsCollection().subscribe(
@@ -143,10 +99,7 @@ export class HotelsAdminComponent implements OnInit {
         {
           const destination: DestinationInterface = {
             id: item.payload.doc.id,
-            name: item.payload.doc.get('name'),
-            bannerImg: item.payload.doc.get('bannerImg'),
-            views: item.payload.doc.get('views'),
-            visits: item.payload.doc.get('visits')
+            ...item.payload.doc.data(),
           }
           return destination;
         }))
@@ -159,22 +112,13 @@ export class HotelsAdminComponent implements OnInit {
       {
         const state: StateInterface = {
           id: item.payload.doc.id,
-          name: item.payload.doc.get('name'),
-          imgs: item.payload.doc.get('imgs'),
-          gastronomy: item.payload.doc.get('gastronomy'),
-          culture: item.payload.doc.get('culture'),
-          recreativeActs: item.payload.doc.get('recreativeActs'),
-          mainHotels: item.payload.doc.get('mainHotels'),
-          views: item.payload.doc.get('views'),
-          visits: item.payload.doc.get('visits'),
-          destination: item.payload.doc.get('destinationName'),
-          touristDestinations: item.payload.doc.get('touristDestinations'),
-          bannerImg: item.payload.doc.get('bannerImg'),
+          ...item.payload.doc.data(),
         }
         return state;
       })
     ));
   } 
+  
   getHotelFacilities(){
     this.hotelFacilities=this.hotelFacilitiesSV.getFacilities();
   }
@@ -202,7 +146,7 @@ export class HotelsAdminComponent implements OnInit {
   }
 
   addPost(){
-    const mov = {
+    const mov:Hotel  = {
       name: this.createStateFrom.value.name,
       bannerImg: this.createStateFrom.value.bannerImg,
       description: this.createStateFrom.value.description,
@@ -216,19 +160,33 @@ export class HotelsAdminComponent implements OnInit {
       city: this.createStateFrom.value.city,
       services: this.selectedHotelFacilities,
       fullday: this.fullDay,
+      nrBusquedas: 0,
+      nrVentas: 0,
+      available: true,
     }
     // console.log(this.selectedHotelFacilities.values);
     this.hotelSV.addHotel(mov);
     // this.route.navigate(['/stateList']);
   }
 
-  // getFullDayValues(price:number): FullDay{
-  //   if(price!=0){
-  //     this.fullDay.price=price;
-  //     return this.fullDay;
-  //   } else {
-  //     return this.noFullDay;
+  // addHotelInfo(){
+  //   this.hotel={
+  //     name: this.createStateFrom.value.name,
+  //     bannerImg: this.createStateFrom.value.bannerImg,
+  //     description: this.createStateFrom.value.description,
+  //     imgPrin: this.createStateFrom.value.imgPrin,
+  //     imgs: this.createStateFrom.value.imgs,
+  //     stars: this.createStateFrom.value.stars,
+  //     latitude: this.createStateFrom.value.latitude,
+  //     longitude: this.createStateFrom.value.longitude,
+  //     direction: this.createStateFrom.value.direction,
+  //     state: this.createStateFrom.value.state,
+  //     city: this.createStateFrom.value.city,
+  //     services: this.selectedHotelFacilities,
+  //     fullday: this.fullDay,
+  //     rooms: [""],
   //   }
+  //   console.log(this.hotel.name);
   // }
 
   getHasFullDay(){

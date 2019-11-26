@@ -10,6 +10,12 @@
                     NOMBRE
                 </div>
                 <div class="wrapper">
+                    <!-- <select formControlName="name">
+                        <option selected>Elige uno...(Si no está, debes añadírselo a un estado)</option>
+                        <option selected *ngFor="let item of TD" [value]="item.name">
+                            {{item.name | uppercase}}
+                        </option>
+                    </select> -->
                     <input formControlName="name" type="text" />
                 </div>
             </div>
