@@ -24,17 +24,22 @@ export class StatesComponent implements OnInit {
   
 
   statesss: StateInterface [];
+  loadingDestination:boolean;
+  
 
   constructor(private route:ActivatedRoute, private _states: StatesService, private _dest: DestinationsService) { }
 
   ngOnInit() {
     //let destino=this.route.snapshot.paramMap.get('destinoPrueba')
     //this.filtro=destino;
-
+    
     if(this.route.snapshot.paramMap.get('id')==undefined){
       this.getStates();
     }else{      
       const id = this.route.snapshot.paramMap.get('id');
+      // this.destination = this._dest.getDestinationById(id);
+
+      const nameD = this.destination.name;
 
       this.statess = this._states.getStates().filter(x => {
         return x.destination === id;
@@ -79,6 +84,18 @@ export class StatesComponent implements OnInit {
         }))
     )
     this.loading = false;
+  }
+
+  getDestination(){
+    const id = this.route.snapshot.paramMap.get('id');
+    this._dest.getDestinationById(id).subscribe(res=>{
+      const dest:DestinationInterface={
+        id: res.payload.id,
+        ...res.payload.data()
+      }
+      this.destination=dest;
+      this.loadingDestination=false;
+    })
   }
 
 }

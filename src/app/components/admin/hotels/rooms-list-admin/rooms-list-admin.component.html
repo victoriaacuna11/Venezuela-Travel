@@ -3,12 +3,12 @@
     <div class="mask">
         <div class="content-wrapper">
                 <div class="welcome">
-                    <h1>HOTELES</h1>
+                    <h1>HABITACIONES</h1>
                 </div>
             <div class="title-wrap">
-                <!-- <div class="tit-cont-wrapper">
+                <div class="tit-cont-wrapper">
                     <h5>HOTEL</h5>
-                </div> -->
+                </div>
                 <div  class="tit-cont-wrapper">
                     <h5>NOMBRE</h5>
                 </div>
@@ -17,16 +17,17 @@
                 </div>
             </div>
             <div class="elementList-wrapper">
-                <div class="element-wrapper" *ngFor="let hotel of hotels; let i=index">
-                    <!-- <div class="element-cont-wrapper">
-                        <h5>{{hotel.name}}</h5>
-                    </div> -->
+                <div class="element-wrapper" *ngFor="let r of rooms; let i=index">
                     <div class="element-cont-wrapper">
-                        <h5>{{hotel.name}}</h5>
+                        <h5>{{r.hotel}}</h5>
+                    </div>
+                    <div class="element-cont-wrapper">
+                        <h5>{{r.name}}</h5>
                     </div>
                     <div class="cruds-wrapper">
                         <div class="icon-wrapper">
-                            <button [routerLink]="['/hotel', hotel.id]">
+                            <button>
+                                    <!-- [routerLink]="['/hotel', r.hotel, '/rooms']" -->
                                 <img src="assets/img/read-icon.png">
                             </button>
                         </div>
@@ -34,14 +35,14 @@
                             <button><img src="assets/img/edit-icon.png"></button>
                         </div>
                         <div class="icon-wrapper">
-                            <button (click)="deleteHotel(hotel.id)"><img src="assets/img/delete-icon.png"></button>
+                            <button (click)="deleteRoom(r.id)"><img src="assets/img/delete-icon.png"></button>
                             
                         </div>
                     </div>
                 </div>
             </div>
             <div class="add">
-                <button routerLink="/admin/hotel/add">AGREGAR HOTEL</button>
+                <button routerLink="/admin/room/add">AGREGAR HABITACIÓN</button>
             </div>
             
         </div>

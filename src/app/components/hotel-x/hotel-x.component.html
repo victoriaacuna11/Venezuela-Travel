@@ -1,5 +1,11 @@
 <app-bar></app-bar>
+<ng-container *ngIf="!loadingRooms && !loadingHotel && !loadingStateName; then load; else noLoad"></ng-container>
 
+<ng-template #noLoad>
+    Loading...
+</ng-template>
+
+<ng-template #load>
 <div class="banner-hotel-destination" 
 [ngStyle]="{'background-image': 'url('+hotel.bannerImg+')'}">
     <div class="mask-ti">
@@ -10,7 +16,7 @@
         </div>
         <div class="bTitles-wrapper" id="stars">
             <div class="title-inf">
-                <h4>{{hotel.city}}, {{hotel.state.name}}</h4>
+                <h4>{{hotel.city}}, {{stateName}}</h4>
             </div>
             <div class="stars-box">
                 <div class="stars-wrapper">
@@ -33,7 +39,7 @@
     <div class="slider">
             <carousel>
                 <slide *ngFor="let i of hotel.imgs"> 
-                    <img [src]="i" style="display: block; width: 80vw; height: 55vh;">
+                    <img [src]="i.imgPath" style="display: block; width: 80vw; height: 55vh;">
                 </slide>
             </carousel>
     </div>
@@ -64,12 +70,13 @@
                 </div>
                 <div class="text-wrap" id="roomList">
                     <div class="roomList-wrapper">
-                        <div class="room" *ngFor="let room of hotel.rooms">
-                            <p>{{room.name}}</p>
+                        <div class="room" *ngFor="let room of rooms">
+                            <p *ngIf="room.hotel==hotel.id">{{room.name}}</p>
                         </div>
                     </div>
                     <div class="button-wrap">
-                        <button routerLink="/roomList">Ver habitaciones</button>
+                            <!-- [routerLink]="['/hotel', hotel.id, '/rooms']" -->
+                        <button [routerLink]="['/hotel', hotel.id, 'rooms']">Ver habitaciones</button>
                     </div>
                 </div>
             </div>
@@ -122,6 +129,6 @@
         </agm-map>
     </div>
 </div>
-
+</ng-template>
 <app-footer></app-footer>
 

@@ -34,18 +34,7 @@ export class TouristInfoComponent implements OnInit {
       
       const sta:StateInterface={
         id: arr.payload.id,
-        name: arr.payload.get('name'),
-        destination: arr.payload.get('destination'),
-        bannerImg: arr.payload.get('bannerImg'),
-        imgs: arr.payload.get('imgs'),
-        gastronomy: arr.payload.get('gastronomy'),
-        culture: arr.payload.get('culture'),
-        recreativeActs: arr.payload.get('recreativeActs'),
-        mainHotels: arr.payload.get('mainHotels'),
-        views: 0,
-        visits: 0,
-        touristDestinations: arr.payload.get('touristDestinations'),
-        available:true
+        ...arr.payload.data()
       }
 
       this.state=sta;

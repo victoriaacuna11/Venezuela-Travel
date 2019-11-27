@@ -23,6 +23,7 @@ import { PlaneaPaso1Component } from './components/planea-paso1/planea-paso1.com
 import { PlaneaPaso5Component } from './components/planea-paso5/planea-paso5.component';
 import { RoomsAdminComponent } from './components/admin/hotels/rooms-admin/rooms-admin.component';
 import { HotelsListComponent } from './components/admin/hotels/hotels-list/hotels-list.component';
+import { RoomsListAdminComponent } from './components/admin/hotels/rooms-list-admin/rooms-list-admin.component';
 
 
 const routes: Routes = [
@@ -37,7 +38,7 @@ const routes: Routes = [
   {path : 'infoestado/:id', component: TouristInfoComponent },
   {path: 'destination/info/:id', component: TouristDestinationComponent},
   {path: 'hotel/:id', component: HotelXComponent},
-  {path: 'roomList', component: RoomsListComponent},
+  {path: 'hotel/:id/rooms', component: RoomsListComponent},
   {path: 'adminEdo', component: StatesAdminComponent},
   {path: 'modifyState/:id', component: StatesAdminComponent},
   {path: 'stateList', component: ListStatesComponent},
@@ -54,6 +55,8 @@ const routes: Routes = [
   {path: 'planViaje', component: PlaneaTuViajeComponent},
   {path: 'admin/room/add', component: RoomsAdminComponent},
   {path: 'admin/hotels', component: HotelsListComponent},
+  {path: 'admin/rooms', component: RoomsListAdminComponent},
+  
 
   
 ]; 

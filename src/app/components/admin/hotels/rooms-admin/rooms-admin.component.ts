@@ -112,6 +112,7 @@ export class RoomsAdminComponent implements OnInit {
   }
 
   addPost(){
+    console.log("addPost")
     const mov: Room  = {
       name: this.createStateFrom.value.name,
       imgs: this.createStateFrom.value.imgs,
@@ -124,7 +125,8 @@ export class RoomsAdminComponent implements OnInit {
     }
     // console.log(this.selectedHotelFacilities.values);
     this.RoomServicesSV.addRoom(mov);
-    // this.route.navigate(['/stateList']);
+    this.route.navigate(['/admin/rooms']);
   }
+
 
 }

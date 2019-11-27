@@ -26,4 +26,8 @@ export class HotelsListComponent implements OnInit {
       })
     ))
   }
+
+  deleteHotel(id){
+    this.hotelSV.deleteHotel(id);
+  }
 }
