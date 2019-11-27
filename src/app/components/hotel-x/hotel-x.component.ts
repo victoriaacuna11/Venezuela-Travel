@@ -71,10 +71,7 @@ export class HotelXComponent implements OnInit {
 
       }
     )
-    
-    //this.hotel=this.hotelSV.getHotelX();
-    this.starNum=this.hotel.stars;
-    this.stars = Array(this.starNum).fill(0);
+   
   }
 
   getRooms(){
