@@ -12,89 +12,117 @@ import { DestinationsService } from 'src/app/services/destinations.service';
   styleUrls: ['./states.component.scss']
 })
 export class StatesComponent implements OnInit {
-  
+
   public filtro;
-  public isFiltered="false";
+  public isFiltered = "false";
   //public id;
-  public statess: StateInterface [] = [];
+  public statess: StateInterface[] = [];
   destination: DestinationInterface;
   search = '';
   loading = false;
+  id = '';
+  estados: DestinationInterface[];
 
-  
 
-  statesss: StateInterface [];
-  loadingDestination:boolean;
-  
 
-  constructor(private route:ActivatedRoute, private _states: StatesService, private _dest: DestinationsService) { }
+  statesss: StateInterface[];
+  loadingDestination: boolean;
+
+
+  constructor(private route: ActivatedRoute, private _states: StatesService, private _dest: DestinationsService) { }
 
   ngOnInit() {
     //let destino=this.route.snapshot.paramMap.get('destinoPrueba')
     //this.filtro=destino;
-    
-    if(this.route.snapshot.paramMap.get('id')==undefined){
+
+    if (this.route.snapshot.paramMap.get('id') == '') {
       this.getStates();
-    }else{      
-      const id = this.route.snapshot.paramMap.get('id');
-      // this.destination = this._dest.getDestinationById(id);
+    } else {
+      this.id = this.route.snapshot.paramMap.get('id');
+      //this.destination = this._dest.getDestinationById(id);
 
-      const nameD = this.destination.name;
+      //const nameD = this.destination.name;
 
-      this.statess = this._states.getStates().filter(x => {
-        return x.destination === id;
+      this.getStates2();
+
+      /*this.statess = this._states.getStates().filter(x => {
+        return x.destination === this.id;
       });
 
-      console.log(this.statess);
-    //this.statess = this._states.states.find(item => {
-    //  return item.id === this.id;
-    //})
-  }
+      console.log(this.statess);*/
+      //this.statess = this._states.states.find(item => {
+      //  return item.id === this.id;
+      //})
+    }
   }
 
-  isDestiny(state:string[]){
+  isDestiny(state: string[]) {
 
-    var isThere=false;
+    var isThere = false;
 
     for (let i = 0; i < state.length; i++) {
 
-      if(state[i]==this.filtro){
-        isThere=true;
-      }  
+      if (state[i] == this.filtro) {
+        isThere = true;
+      }
     }
     return isThere;
   }
 
-  receiveMessage($event){
+  receiveMessage($event) {
     this.search = $event
   }
 
-  getStates(){
+  getStates() {
 
-    this.loading = true;
     this._states.getStatesCollection().subscribe(
-      res => (this.statess = res.map(item =>
-        {
-          const statey: StateInterface = {
-            id: item.payload.doc.id,
-            ...item.payload.doc.data()
-          }
-          return statey;
-          
-        }))
+      res => (this.statess = res.map(item => {
+        const statey: StateInterface = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+        return statey;
+
+      }))
     )
     this.loading = false;
   }
 
-  getDestination(){
+  getStates2() {
+
+    this._states.getStateByCategory(this.id).then(arr => {
+      arr.forEach(element => {
+        const sta: StateInterface = {
+          id: element.id,
+          available: element.get('available'),
+          name: element.get('name'),
+          bannerImg: element.get('bannerImg'),
+          imgs: element.get('imgs'),
+          gastronomy: element.get('gastronomy'),
+          culture: element.get('culture'),
+          recreativeActs: element.get('recreativeActs'),
+          mainHotels: element.get('mainHotels'),
+          destination: element.get('destination'),
+          touristDestinations: element.get('touristDestinations'),
+          views: element.get('views'),
+          visits: element.get('visits'),
+        }
+
+        this.statess.push(sta);
+
+      });
+    });
+  }
+
+  getDestination() {
     const id = this.route.snapshot.paramMap.get('id');
-    this._dest.getDestinationById(id).subscribe(res=>{
-      const dest:DestinationInterface={
+    this._dest.getDestinationById(id).subscribe(res => {
+      const dest: DestinationInterface = {
         id: res.payload.id,
         ...res.payload.data()
       }
-      this.destination=dest;
-      this.loadingDestination=false;
+      this.destination = dest;
+      this.loadingDestination = false;
     })
   }
 

@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { StatesService } from './states.service';
 import { HotelFacilitiesService } from './hotel-facilities.service';
 import { HotelFacilitie } from '../Models/hotelFacilitie';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import {ActivatedRoute} from '@angular/router';
 
 @Injectable({
@@ -13,6 +13,7 @@ import {ActivatedRoute} from '@angular/router';
 export class HotelsService {
 
   firebaseHotels: Hotel[];
+  dDoc: AngularFirestoreDocument<Hotel>;
 
   // BORRAR
   
@@ -76,6 +77,12 @@ export class HotelsService {
   }
   getHotelById(id:string){
     return this.afs.collection<Hotel>('hotels').doc<Hotel>(id).snapshotChanges();
+  }
+
+  updateH(h: Hotel){
+
+    this.dDoc = this.afs.doc(`hotels/${h.id}`);
+    this.dDoc.update(h);
   }
 
   // getHotelById(id:string){

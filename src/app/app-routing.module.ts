@@ -50,6 +50,7 @@ const routes: Routes = [
   {path: 'modifyDest/:id', component: DestinationsAdminComponent},
   {path: 'admin/destinations', component: ListDestinationsComponent},
   {path: 'admin/hotel/add', component: HotelsAdminComponent},
+  {path: 'admin/hotel/add/:id', component: HotelsAdminComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin/dashboard', component: AdminHomeComponent},
   {path: 'planViaje', component: PlaneaTuViajeComponent},

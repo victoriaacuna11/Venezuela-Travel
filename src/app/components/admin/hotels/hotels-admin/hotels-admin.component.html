@@ -1,5 +1,5 @@
 <app-nav-admin></app-nav-admin>
-<div class="form">
+<div class="form" *ngIf="!isModify; else Mod">
     <div class="hotel-form">
         <form [formGroup]="createStateFrom" (ngSubmit)="addPost()">
             <div class="details">
@@ -176,5 +176,185 @@
         </form>
     </div>
 </div>
+
+<ng-template #Mod>
+        <div class="form">
+                <div class="hotel-form">
+                    <form [formGroup]="createStateFrom" (ngSubmit)="updateH()">
+                        <div class="details">
+                            <div class="title-add">
+                                <h1>MODIFICAR HOTEL</h1>
+                            </div>
+                            <div class="hotel-info-options">
+                                <div class="detail-wrapper">
+                                    <div class="wrapper">
+                                        NOMBRE
+                                    </div> 
+                                    <div class="wrapper">
+                                        <input formControlName="name" type="text" />
+                                    </div>
+                                </div>
+                                <div class="detail-wrapper">
+                                    <div class="wrapper">
+                                        IMAGEN DEL BANNER
+                                    </div>
+                                    <div class="wrapper">
+                                        <input formControlName="bannerImg" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="detail-wrapper">
+                                    <div class="wrapper">
+                                        DESCRIPCIÓN
+                                    </div>
+                                    <div class="wrapper">
+                                        <input formControlName="description" type="text" placeholder="Ingrese una breve descripción..."/>
+                                    </div>
+                                </div>
+                                <div class="detail-wrapper">
+                                    <div class="wrapper">
+                                        IMAGEN PRINCIPAL
+                                    </div>
+                                    <div class="wrapper">
+                                        <input formControlName="imgPrin" type="text" placeholder="Link de la imagen..."/>
+                                    </div>
+                                </div>
+                                <div class="detail-wrapper">
+                                    <div class="wrapper">
+                                        ESTRELLAS
+                                    </div>
+                                    <div class="wrapper">
+                                            <input formControlName="stars" type="number" min="1" max="5"/>
+                                    </div>
+                                </div>
+                                <div class="detail-wrapper">
+                                    <div class="wrapper">
+                                        LATITUD
+                                    </div>
+                                    <div class="wrapper">
+                                        <input formControlName="latitude" type="number"/>
+                                    </div>
+                                </div>
+                                <div class="detail-wrapper">
+                                    <div class="wrapper">
+                                        LONGITUD
+                                    </div>
+                                    <div class="wrapper">
+                                        <input formControlName="longitude" type="number"/>
+                                    </div>
+                                </div>
+                                <div class="detail-wrapper">
+                                    <div class="wrapper">
+                                        DIRECCIÓN
+                                    </div>
+                                    <div class="wrapper">
+                                        <input formControlName="direction" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="detail-wrapper">
+                                    <div class="wrapper">
+                                        ESTADO
+                                    </div>
+                                    <div class="wrapper">
+                                        <select formControlName="state">
+                                            <option selected>Elige uno...</option>
+                                            <option  *ngFor="let item of states" [value]="item.id">
+                                                {{item.name | uppercase}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="detail-wrapper">
+                                    <div class="wrapper">
+                                        CIUDAD
+                                    </div>
+                                    <div class="wrapper">
+                                        <input formControlName="city" type="text"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="array-wrapper" formArrayName="imgs">
+                                <div class="detail-wrapper-array" >
+                                    <div class="wrapper">
+                                        IMÁGENES
+                                    </div>
+                                    <div class="flex-div">
+                                        <div class="center-content">
+                                            <div class="array-content-wrapper" *ngFor="let group of imgsArray.controls; let i=index" [formGroupName]="i">
+                                                <div>
+                                                    <input formControlName="imgPath" type="text" 
+                                                    placeholder="Link de la imagen" class="input-imgs"/>
+                                                </div>
+                                                <div class="add-icons">
+                                                    <div class="crud-icon-wrapper">
+                                                        <img class="crud-icon" src="assets/img/add-icon.png" alt="Agregar" (click)="addImg()">
+                                                    </div>
+                                                    <div class="crud-icon-wrapper" *ngIf="i!=0">
+                                                        <img class="crud-icon" src="assets/img/delete-icon.png" alt="Agregar" (click)="removeImg(i)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="detail-wrapper-array">
+                                <div class="wrapper">
+                                    SERVICIOS
+                                </div>
+                                <div class="checkbox">
+                                    <div class="cb-item" *ngFor="let control of servicesArray.controls; let i = index">
+                                        <div class="input-cb">
+                                            <input (change)="getSelectedHotelFacilities()"
+                                            type="checkbox" [formControl]="control" id="inlineCheckBox{{i}}">
+                                        </div>  
+                                        <label for="inlineCheckBox{{i}}">{{hotelFacilities[i].name}}</label>
+                                    </div>
+                                </div>
+                                <small class="errorMessage" *ngIf="hotelFacilitiesError && checkboxServiceTouched()">
+                                    Por lo menos selecciona uno...
+                                </small>
+                            </div>
+                            <div class="button" id="fd-wrapper">
+                                    <!-- [disabled]="!createStateFrom.valid" -->
+                                <button *ngIf="!hasFullDay" (click)="getHasFullDay()">FULL DAY</button>
+                                <div *ngIf="hasFullDay" class="array-wrapper">
+                                        <div class="detail-wrapper-array" >
+                                            <div class="wrapper">
+                                                FULL DAY PRECIO
+                                            </div>
+                                            <div class="flex-div">
+                                                <div class="center-content">
+                                                    <div class="array-content-wrapper">
+                                                        <div>
+                                                            <input formControlName="fullDayPrice" type="number" 
+                                                            min="0" class="input-imgs"/>
+                                                        </div>
+                                                        <div class="add-icons">
+                                                            <div class="crud-icon-wrapper">
+                                                                <img class="crud-icon" src="assets/img/add-icon.png" (click)="addFullDay()">
+                                                            </div>
+                                                            <div class="crud-icon-wrapper">
+                                                                <img class="crud-icon" src="assets/img/delete-icon.png" (click)="deleteFullDay()">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                        
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="button">
+                                <button [disabled]="!createStateFrom.valid" type="submit">ACEPTAR</button>
+                            </div>
+                        </div>
+            
+                    </form>
+                </div>
+            </div>
+</ng-template>
     
 <app-footer></app-footer>

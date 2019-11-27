@@ -93,6 +93,10 @@ export class StatesService {
 
   }
 
+  getStateByCategory(destId: string){
+    return this.afs.collection<StateInterface>('states').ref.where('destination', '==', destId).get();
+  }
+
   getStateById(id: string) {
     return this.afs.collection<StateInterface>('states').doc<StateInterface>(id).snapshotChanges();
     /*return this.states.find(st => {
