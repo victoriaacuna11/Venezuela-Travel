@@ -46,17 +46,17 @@ export class RoomServiceService {
   tv:RoomService={
     "name":"TV",
     "available":true,
-    "icon": "assets/tv.png"
+    "icon": "assets/img/tv.png"
   }
   airConditioner:RoomService={
     "name":"Aire acondicionado",
     "available":true,
-    "icon": "assets/airconditioner.png"
+    "icon": "assets/img/airconditioner.png"
   }
   kitchen:RoomService={
     "name":"Cocina",
     "available":true,
-    "icon": "assets/kitchen.png"
+    "icon": "assets/img/kitchen.png"
   }
   wardrobe:RoomService={
     "name":"Armario",

@@ -1,7 +1,7 @@
 <app-bar></app-bar>
 <ng-container *ngIf="!loadingHotel && !loadingRooms;then noLoad;else load"></ng-container>
 
-<ng-template #load>Algo</ng-template>
+<ng-template #load>Loading</ng-template>
 <ng-template #noLoad>
 <div class="banner-tourist-destination" 
 [ngStyle]="{'background-image': 'url('+hotel.bannerImg+')'}">
