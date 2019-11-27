@@ -32,7 +32,7 @@
                             </button>
                         </div>
                         <div class="icon-wrapper">
-                            <button><img src="assets/img/edit-icon.png"></button>
+                            <button [routerLink]="['/admin/room/modify', r.id]"><img src="assets/img/edit-icon.png"></button>
                         </div>
                         <div class="icon-wrapper">
                             <button (click)="deleteRoom(r.id)"><img src="assets/img/delete-icon.png"></button>

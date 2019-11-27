@@ -73,6 +73,7 @@ export class StatesAdminComponent implements OnInit {
           culture: this.s.culture,
           recreativeActs: this.s.recreativeActs,
           mainHotels: this.s.mainHotels,
+          // touristDestinations: this.s.touristDestinations,
         }) 
 
         this.createStateFrom.setControl('touristDestinations', this.setD(this.s.touristDestinations));

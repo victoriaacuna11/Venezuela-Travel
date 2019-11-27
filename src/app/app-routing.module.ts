@@ -56,6 +56,7 @@ const routes: Routes = [
   {path: 'admin/room/add', component: RoomsAdminComponent},
   {path: 'admin/hotels', component: HotelsListComponent},
   {path: 'admin/rooms', component: RoomsListAdminComponent},
+  {path: 'admin/room/modify/:id', component: RoomsAdminComponent},
   
 
   
