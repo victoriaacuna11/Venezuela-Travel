@@ -43,6 +43,7 @@ const routes: Routes = [
   {path: 'stateList', component: ListStatesComponent},
   {path: 'info/:id', component: TouristInfoComponent},
   {path: 'adminTD', component: TDestinationsAdminComponent},
+  {path: 'adminTD/:id', component: TDestinationsAdminComponent},
   {path: 'TDList', component: ListTDestinationsComponent},
   {path: 'admin/destination/add', component: DestinationsAdminComponent},
   {path: 'modifyDest/:id', component: DestinationsAdminComponent},

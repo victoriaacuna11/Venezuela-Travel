@@ -18,12 +18,15 @@ export class TDestinationsAdminComponent implements OnInit {
 
   createTDestinationsForm: FormGroup;
   constructor(private _builder: FormBuilder, private _td: TouristDestinationsService, 
-    private _destination: DestinationsService, private route: Router, private routeSV: ActivatedRoute,
+    private _destination: DestinationsService, private route: Router, private actRoute: ActivatedRoute,
     private _states: StatesService) { }
   destinations: DestinationInterface[]=[];
   states: StateInterface[]=[];
   TD: TouristDestination[]=[];
   TDAvailable: string[]=[];
+  isModify = false;
+  tDest: TouristDestination;
+
   // loadingStates:boolean=false;
   // loadingDestinations:boolean=false;
   // loadingTD:boolean=false;
@@ -46,9 +49,47 @@ export class TDestinationsAdminComponent implements OnInit {
       bannerImg: ['', Validators.required],
     })
 
-    this.getDestinations();
-    this.getStates();
-    console.log(this.states.length);
+
+    if (this.actRoute.snapshot.paramMap.get('id') == undefined) {
+  
+      this.getDestinations();
+      this.getStates();
+      console.log(this.states.length);
+
+    }else{
+      this.getDestinations();
+      this.getStates();
+      this.isModify = true;
+      const id = this.actRoute.snapshot.paramMap.get('id');
+      this._td.getTDestinationById(id).subscribe(a => {
+        const m: TouristDestination = {
+          id: a.payload.id,
+          ...a.payload.data(),
+        }
+
+        this.tDest = m;
+
+        this.createTDestinationsForm.patchValue({
+          name:this.tDest.name,
+          description: this.tDest.description,
+          destinationsCategory: this.tDest.destinationsCategory,
+          services: this.tDest.services,
+          activities: this.tDest.activities,
+          latitude: this.tDest.latitude,
+          longitude: this.tDest.longitude,
+          state: this.tDest.state,
+          direction: this.tDest.direction,
+          city: this.tDest.city,
+          bannerImg: this.tDest.bannerImg,
+        })
+
+        
+
+
+        })
+      
+    }
+
     // this.getTD();
     // this.getEveryTDAvailable(this.states);
   }
@@ -100,6 +141,28 @@ export class TDestinationsAdminComponent implements OnInit {
         return state;
       })
     ));
-  } 
+  }
+  
+  updateP(){
+
+    this.tDest.name=this.createTDestinationsForm.value.name;
+    this.tDest.description= this.createTDestinationsForm.value.description;
+    this.tDest.destinationsCategory= this.createTDestinationsForm.value.destinationsCategory;
+    this.tDest.services= this.createTDestinationsForm.value.services;
+    this.tDest.activities= this.createTDestinationsForm.value.activities;
+    this.tDest.latitude= this.createTDestinationsForm.value.latitude;
+    this.tDest.longitude= this.createTDestinationsForm.value.longitude;
+    this.tDest.state= this.createTDestinationsForm.value.state;
+    this.tDest.direction= this.createTDestinationsForm.value.direction;
+    this.tDest.city= this.createTDestinationsForm.value.city;
+    this.tDest.bannerImg= this.createTDestinationsForm.value.bannerImg;
+    this.tDest.available=this.tDest.available;
+
+    this._td.updateP(this.tDest);
+    this.route.navigate(['/TDList']);
+
+
+
+  }
 
 }

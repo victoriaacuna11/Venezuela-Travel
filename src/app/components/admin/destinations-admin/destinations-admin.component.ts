@@ -16,6 +16,7 @@ export class DestinationsAdminComponent implements OnInit {
   createStateFrom: FormGroup;
   isModify=false;
   d: DestinationInterface;
+  loading = false;
 
   constructor(private _builder: FormBuilder, private destinationSV: DestinationsService, private route: Router, private actRoute: ActivatedRoute) { }
 
@@ -29,13 +30,7 @@ export class DestinationsAdminComponent implements OnInit {
       })
     }else{
 
-      this.isModify=true;
-      const id = this.actRoute.snapshot.paramMap.get('id');
-      this.d = this.destinationSV.getDestinationById(id);
-      this.createStateFrom = this._builder.group({
-        name: [this.d.name, Validators.required],
-        bannerImg: [this.d.bannerImg, Validators.required]
-      })
+      this.getD();
 
     }
   }
@@ -61,6 +56,26 @@ export class DestinationsAdminComponent implements OnInit {
 
     this.destinationSV.updateDest(this.d);
     this.route.navigate(['/admin/destinations']);
+  }
+
+  getD(){
+    this.loading = true;
+    this.isModify=true;
+    const id = this.actRoute.snapshot.paramMap.get('id');
+    this.destinationSV.getDestinationById(id).subscribe(e => {
+      const m: DestinationInterface = {
+        id: e.payload.id,
+        ...e.payload.data()
+      }
+
+      this.d = m;
+      this.loading = false;
+      this.createStateFrom = this._builder.group({
+        name: [this.d.name, Validators.required],
+        bannerImg: [this.d.bannerImg, Validators.required]
+      })
+    });
+
   }
 
 }

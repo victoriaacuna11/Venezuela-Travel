@@ -1,4 +1,9 @@
+<ng-container *ngIf="!loading; then NoLoader; else loader"></ng-container>
+<ng-template #loader>gfhgfdhgf</ng-template>
+
 <app-bar></app-bar>
+<ng-template #NoLoader>
+
 <app-banner-img title="Estados" img="assets/img/states.jpg"></app-banner-img>
 
 <div class="blank">
@@ -20,7 +25,16 @@
 <div class="blank">
 
 </div>
+
+</ng-template>
 <app-footer></app-footer>
+
+
+
+
+
+
+
 <!--<app-dests-and-states [objs]=states></app-dests-and-states>-->
 
 <!-- <div class="banner">

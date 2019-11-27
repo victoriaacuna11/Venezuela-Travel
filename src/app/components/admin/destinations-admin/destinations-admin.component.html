@@ -8,7 +8,7 @@
             <div class="detail-wrapper">
                 <div class="wrapper">
                     NOMBRE
-                </div> 
+                </div>
                 <div class="wrapper">
                     <input formControlName="name" type="text" />
                 </div>
@@ -18,7 +18,7 @@
                     IMAGEN DEL BANNER
                 </div>
                 <div class="wrapper">
-                    <input formControlName="bannerImg" type="text"/>
+                    <input formControlName="bannerImg" type="text" />
                 </div>
             </div>
             <div class="button">
@@ -29,8 +29,14 @@
 </div>
 
 <ng-template #Mod>
-    <div class="form">
-        <form [formGroup]="createStateFrom" (ngSubmit)="updateD()">
+
+    <ng-container *ngIf="!loading; then NoLoader; else loader"></ng-container>
+
+    <ng-template #loader>gfhgfdhgf</ng-template>
+
+    <ng-template #NoLoader>
+        <div class="form">
+            <form [formGroup]="createStateFrom" (ngSubmit)="updateD()">
                 <div class="details">
                     <div class="title-add">
                         <h1>MODIFICAR DESTINO</h1>
@@ -38,7 +44,7 @@
                     <div class="detail-wrapper">
                         <div class="wrapper">
                             NOMBRE
-                        </div> 
+                        </div>
                         <div class="wrapper">
                             <input formControlName="name" type="text" />
                         </div>
@@ -48,7 +54,7 @@
                             IMAGEN DEL BANNER
                         </div>
                         <div class="wrapper">
-                            <input formControlName="bannerImg" type="text"/>
+                            <input formControlName="bannerImg" type="text" />
                         </div>
                     </div>
                     <div class="button">
@@ -56,6 +62,7 @@
                     </div>
                 </div>
             </form>
-    </div>
+        </div>
+    </ng-template>
 </ng-template>
 <app-footer></app-footer>

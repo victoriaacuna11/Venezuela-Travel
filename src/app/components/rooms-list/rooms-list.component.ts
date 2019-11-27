@@ -14,7 +14,7 @@ export class RoomsListComponent implements OnInit {
   constructor(private hotelSV: HotelsService) { }
 
   ngOnInit() {
-    this.hotel=this.hotelSV.getHotelX();
+    //this.hotel=this.hotelSV.getHotelX();
   }
 
 }

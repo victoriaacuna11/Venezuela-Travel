@@ -3,9 +3,9 @@ import { StateInterface } from '../Models/state';
 import { DestinationsComponent } from '../components/destinations/destinations.component';
 import { TouristDestination } from '../Models/touristDestination';
 import { TouristDestinationsService } from './tourist-destinations.service';
-import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,7 @@ import {map} from 'rxjs/operators';
 export class StatesService {
 
   destinations: TouristDestinationsService;
+  dDoc: AngularFirestoreDocument<StateInterface>;
 
   // bolivar: StateInterface={
   //   "id":"id",
@@ -20,10 +21,10 @@ export class StatesService {
   //   "bannerImg": "assets/img/hotel-banner.jpg",
   //   "hotels": [],
   //   "destinations":[],
-    
-    // "touristDestinations": [{"name": "Salto Ángel"},
-    // {"name": "Parque Nacional Canaima"},
-    // {"name": "Auyantepuy"}],
+
+  // "touristDestinations": [{"name": "Salto Ángel"},
+  // {"name": "Parque Nacional Canaima"},
+  // {"name": "Auyantepuy"}],
 
   //   "imgs": ["http://www.autana.org/DESTINOS/panama/ewExternalFiles/HeaderAutana@2x.jpg",
   //   "http://www.panorama.com.ve/__export/1495456921565/sites/panorama/img/pitoquito/2017/05/22/dsc04979.jpg",
@@ -45,67 +46,63 @@ export class StatesService {
   // }
 
   statesCollection: AngularFirestoreCollection<StateInterface>;
-  states: StateInterface[]=[];
+  states: StateInterface[] = [];
 
-  constructor(public afs: AngularFirestore) { 
-    const order=this.afs.collection<StateInterface>('states').snapshotChanges();
-    order.subscribe( states => {
-      states.forEach(item=>{
+  constructor(public afs: AngularFirestore) {
+    const order = this.afs.collection<StateInterface>('states').snapshotChanges();
+    order.subscribe(states => {
+      states.forEach(item => {
         const state: StateInterface = {
           id: item.payload.doc.id,
-          //...item.payload.doc.data()
-          name: item.payload.doc.get('name'),
-          bannerImg: item.payload.doc.get('bannerImg'),
-          imgs: item.payload.doc.get('imgs'),
-          gastronomy: item.payload.doc.get('gastronomy'),
-          culture: item.payload.doc.get('culture'),
-          recreativeActs: item.payload.doc.get('recreativeActs'),
-          mainHotels: item.payload.doc.get('mainHotels'),
-          views: 0,
-          visits: 0,
-          destination:  item.payload.doc.get('destination'),
-          touristDestinations: item.payload.doc.get('touristDestinations'),
-          available: item.payload.doc.get('available')
+          ...item.payload.doc.data()
         }
         this.states.push(state);
       })
     })
-  //   this.states = this.afs.collection('states').snapshotChanges().pipe(
-  //     map(changes => {
-  //     return changes.map(a => {
-  //       const data = a.payload.doc.data() as StateInterface;
-  //       data.id=a.payload.doc.id;
-  //       return data;
-  //     })
-  //   })
-  // )
+    //   this.states = this.afs.collection('states').snapshotChanges().pipe(
+    //     map(changes => {
+    //     return changes.map(a => {
+    //       const data = a.payload.doc.data() as StateInterface;
+    //       data.id=a.payload.doc.id;
+    //       return data;
+    //     })
+    //   })
+    // )
   }
 
   // getState(){
   //   return this.bolivar;
   // }
 
-  getStates(){
+  getStates() {
     return this.states;
   }
 
-  addState(mov){
+  addState(mov) {
     return this.afs.collection('states').add(mov);
     console.log('agrego a la database')
     console.log(mov);
   }
 
-  deleteState(docId:string){
+  deleteState(docId: string) {
     return this.afs.collection('states').doc(docId).delete();
   }
 
-  getStatesCollection(){
+  getStatesCollection() {
     return this.afs.collection<StateInterface>('states').snapshotChanges();
-  
+
   }
 
-  getStateById(id:string){
-    return this.afs.collection('states').doc(id).snapshotChanges();
+  getStateById(id: string) {
+    return this.afs.collection<StateInterface>('states').doc<StateInterface>(id).snapshotChanges();
+    /*return this.states.find(st => {
+      return st.id == id;
+    });*/
+  }
+
+  updateS(state: StateInterface) {
+    this.dDoc = this.afs.doc(`states/${state.id}`);
+    this.dDoc.update(state);
   }
 
 }

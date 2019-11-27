@@ -19,17 +19,17 @@ export class HotelsService {
   btnR = false;
 
   
-  // private messageSource = new BehaviorSubject<Array<Hotel>>(this.hotels);
+  private messageSource = new BehaviorSubject<Array<Hotel>>(this.firebaseHotels);
   private messageSource2 = new BehaviorSubject<boolean>(this.btnR);
   private initState = new BehaviorSubject<boolean>(false);
 
-  // currentMessage = this.messageSource.asObservable();
+  currentMessage = this.messageSource.asObservable();
   currentMessage2 = this.messageSource2.asObservable();
   currentState = this.initState.asObservable();
 
 
   changeMessage(hotel: Hotel[]){
-    // this.messageSource.next(hotel)
+    this.messageSource.next(hotel)
   }
 
   changeMessage2(x: boolean){
