@@ -73,6 +73,7 @@ export class StatesAdminComponent implements OnInit {
           culture: this.s.culture,
           recreativeActs: this.s.recreativeActs,
           mainHotels: this.s.mainHotels,
+          // touristDestinations: this.s.touristDestinations,
         }) 
 
         this.createStateFrom.setControl('touristDestinations', this.setD(this.s.touristDestinations));
@@ -207,7 +208,6 @@ updateS(){
   this.s.available= true;
   this.s.views= this.s.views;
   this.s.visits= this.s.visits;
-
   this.stateSV.updateS(this.s);
   this.route.navigate(['/stateList']);
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RoomService } from '../Models/roomService';
 import { Room } from '../Models/room';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class RoomServiceService {
 
   rooms:Room[]=[];
+  doc: AngularFirestoreDocument<Room>;
 
   constructor(public afs: AngularFirestore) { 
     const order=this.afs.collection<Room>('rooms').snapshotChanges();
@@ -87,8 +88,12 @@ export class RoomServiceService {
     return this.afs.collection<Room>('rooms').snapshotChanges();
   
   }
-
   getRoomById(id:string){
-    return this.afs.collection<Room>('rooms').doc(id).snapshotChanges();
+    return this.afs.collection<Room>('rooms').doc<Room>(id).snapshotChanges();
+  }
+
+  updateRoom(room:Room){
+    this.doc = this.afs.doc(`rooms/${room.id}`);
+    this.doc.update(room);
   }
 }
