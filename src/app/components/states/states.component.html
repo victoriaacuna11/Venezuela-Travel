@@ -14,7 +14,7 @@
 <div class="max-container">
         <div>
                 <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}"
-                        *ngFor="let o of statess | filter:search">
+                        *ngFor="let o of (statess | isAvailable | filter:search)as folder">
                         <div class="wrap-mask">
                                 <a class="link" [routerLink]="['/infoestado', o.id]">
                                         <h1>{{o.name}}</h1>

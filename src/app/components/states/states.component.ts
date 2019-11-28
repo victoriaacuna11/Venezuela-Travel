@@ -35,7 +35,7 @@ export class StatesComponent implements OnInit {
     //let destino=this.route.snapshot.paramMap.get('destinoPrueba')
     //this.filtro=destino;
 
-    if (this.route.snapshot.paramMap.get('id') == '') {
+    if (this.route.snapshot.paramMap.get('id') == undefined) {
       this.getStates();
     } else {
       this.id = this.route.snapshot.paramMap.get('id');
@@ -55,6 +55,8 @@ export class StatesComponent implements OnInit {
       //})
     }
   }
+
+ 
 
   isDestiny(state: string[]) {
 
