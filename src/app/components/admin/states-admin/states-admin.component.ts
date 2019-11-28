@@ -208,7 +208,6 @@ updateS(){
   this.s.available= true;
   this.s.views= this.s.views;
   this.s.visits= this.s.visits;
-
   this.stateSV.updateS(this.s);
   this.route.navigate(['/stateList']);
 
