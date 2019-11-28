@@ -34,7 +34,7 @@ export class HotelComponent implements OnInit {
   }
 
   vuelve(){
-    // this._hotels.changeMessage(this._hotels.initialList());
+    //this._hotels.changeMessage(this._hotels.initialList());
     this._hotels.changeMessage2(false);
   }
 

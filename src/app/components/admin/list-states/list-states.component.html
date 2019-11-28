@@ -31,11 +31,14 @@
                                 </button>
                             </div>
                             <div class="icon-wrapper">
-                                <button><img src="assets/img/edit-icon.png"></button>
+                                <button [routerLink]="['/modifyState', state.id]"><img src="assets/img/edit-icon.png"></button>
                             </div>
                             <div class="icon-wrapper">
-                                <button (click)="deleteState(state.id)"><img src="assets/img/delete-icon.png"></button>
-                                
+                                <!-- deleteState(state.id) -->
+                                <button (click)="setEnabled(state.id)">
+                                    <img *ngIf="!state.available" src="assets/img/habilitate.png">
+                                    <img *ngIf="state.available" src="assets/img/inhabilitate.png">
+                                </button>
                             </div>
                         </div>
                     </div>

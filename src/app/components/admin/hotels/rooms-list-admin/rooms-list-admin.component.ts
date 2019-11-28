@@ -11,6 +11,7 @@ import { RoomServiceService } from 'src/app/services/room-service.service';
 export class RoomsListAdminComponent implements OnInit {
 
   rooms: Room[];
+  room: Room;
   constructor(private roomSV: RoomServiceService) { }
 
   ngOnInit() {
@@ -33,6 +34,21 @@ export class RoomsListAdminComponent implements OnInit {
   }
   deleteRoom(id){
     this.roomSV.deleteRoom(id);
+  }
+
+  setEnabled(id){
+    let found=false;
+    let cont=0;
+    while(!found && cont<this.rooms.length){
+      if(this.rooms[cont].id===id){
+        found=true;
+        this.rooms[cont].available=!this.rooms[cont].available;
+        this.room = this.rooms[cont];
+      }
+      cont=cont+1;
+    }
+    console.log(this.room);
+    this.roomSV.updateRoom(this.room);
   }
 
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/Models/hotel';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { HotelsService } from 'src/app/services/hotels.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { RoomService } from 'src/app/Models/roomService';
 import { RoomServiceService } from 'src/app/services/room-service.service';
 import { Room } from 'src/app/Models/room';
@@ -18,16 +18,24 @@ export class RoomsAdminComponent implements OnInit {
   hotels: Hotel[];
   createStateFrom: FormGroup;
   loading: boolean;
-  roomServices: RoomService[];
+
+  roomServices: RoomService[] = [];
+  
   selectedRoomServices: RoomService[];
   roomServiceError: boolean;
+  actualRoom:Room;
+  isModify: boolean;
   
   constructor(private _builder: FormBuilder, private hotelSV: HotelsService,
-    private route: Router, private RoomServicesSV: RoomServiceService) { }
+    private route: Router, private RoomServicesSV: RoomServiceService, private ActRouter: ActivatedRoute) { }
 
   ngOnInit() {
+    
+    this.isModify = false;
     this.loading=false;
-    this.getRoomServices();
+    this.roomServices = [];
+    // this.getRoomServices();
+    // this.getHotels();
 
     this.createStateFrom=this._builder.group({
       name:['', Validators.required],
@@ -37,10 +45,55 @@ export class RoomsAdminComponent implements OnInit {
       price: ['', Validators.required],
       services: this.addServicesControls(),
       imgs: this._builder.array([this.addImgGroup()]),
-      
     })
-    
-    this.getHotels();
+
+    if(this.ActRouter.snapshot.paramMap.get('id')==undefined){
+      this.getRoomServices();
+      this.getHotels();
+    } else {
+      this.getRoomServices();
+      this.getHotels();
+      this.isModify=true;
+      const id = this.ActRouter.snapshot.paramMap.get('id');
+
+      this.RoomServicesSV.getRoomById(id).subscribe(a => {
+        const room: Room = {
+          id: a.payload.id,
+          ...a.payload.data(),
+        }
+        this.actualRoom=room;
+        this.fillCheckboxes(this.actualRoom.services, this.roomServices);
+        this.createStateFrom.patchValue({
+          name: this.actualRoom.name,
+          hotel: this.actualRoom.hotel,
+          capacity: this.actualRoom.capacity,
+          views: this.actualRoom.views,
+          price: this.actualRoom.price,
+        })
+
+        // this.createStateFrom.setControl('services', this.setServices(this.actualRoom.services));
+        this.createStateFrom.setControl('imgs', this.setImgs(this.actualRoom.imgs));
+      })
+    }
+  }
+
+  fillCheckboxes(arrayRoom: RoomService[], fullArray: RoomService[]){
+
+    for (let index1 = 0; index1 < arrayRoom.length; index1++) {
+
+      let roomServ = arrayRoom[index1];
+
+      for (let index2 = 0; index2 < fullArray.length; index2++) {
+
+        let fullServ = fullArray[index2];
+        
+        if(fullServ.name == roomServ.name){
+          fullServ.selected = true;
+          console.log("iguales: " +roomServ.name + "|" + fullServ.name);
+          break;
+        }           
+      } 
+    }
   }
 
   getHotels(){
@@ -98,6 +151,13 @@ export class RoomsAdminComponent implements OnInit {
 
   getRoomServices(){
     this.roomServices=this.RoomServicesSV.getFacilities();
+    console.log("Pasa");
+    for (let index = 0; index < this.roomServices.length; index++) {
+     
+      const element = this.roomServices[index];
+      element.selected=false;
+      
+    }
   }
 
   getSelectedRoomServices(){
@@ -111,6 +171,17 @@ export class RoomsAdminComponent implements OnInit {
     this.roomServiceError = this.selectedRoomServices.length > 0 ? false : true;
   }
 
+  getSelectedServices(){
+    let array = [];
+    for (let index = 0; index < this.roomServices.length; index++) {
+      const element = this.roomServices[index];
+      if(element.selected){
+        array.push(element);
+      }    
+    }
+    return array;
+  }
+
   addPost(){
     console.log("addPost")
     const mov: Room  = {
@@ -120,7 +191,7 @@ export class RoomsAdminComponent implements OnInit {
       views: this.createStateFrom.value.views,
       price: this.createStateFrom.value.price,
       hotel: this.createStateFrom.value.hotel,
-      services: this.selectedRoomServices,
+      services: this.getSelectedServices(),
       available: true,
     }
     // console.log(this.selectedHotelFacilities.values);
@@ -128,5 +199,43 @@ export class RoomsAdminComponent implements OnInit {
     this.route.navigate(['/admin/rooms']);
   }
 
+  updatePost(){
+    this.actualRoom.name=this.createStateFrom.value.name;
+    this.actualRoom.hotel= this.createStateFrom.value.hotel;
+    this.actualRoom.capacity= this.createStateFrom.value.capacity;
+    this.actualRoom.available= this.actualRoom.available;
+    this.actualRoom.services= this.getSelectedServices();
+    this.actualRoom.price= this.createStateFrom.value.price;
+    this.actualRoom.imgs= this.createStateFrom.value.imgs;
 
+    this.RoomServicesSV.updateRoom(this.actualRoom);
+    this.route.navigate(['/admin/rooms']);
+  }
+
+  // setServices(roomServices: any[]): FormArray{
+  //   const formArray = new FormArray([]);
+  //   roomServices.forEach(rs => {
+  //     formArray.push(
+  //       this._builder.group({
+  //         name: rs.name,
+  //       })
+  //     )
+  //   })
+  //   return formArray;
+  // }
+
+  setImgs(imgSets: any[]): FormArray{
+    const formArray = new FormArray([]);
+    imgSets.forEach(s => {
+      formArray.push(
+        this._builder.group({
+          imgPath: s.imgPath,
+        })
+      );
+    })
+  
+    return formArray;
+  }
+
+  
 }

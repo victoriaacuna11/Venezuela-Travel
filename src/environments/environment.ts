@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebase: {
+  firebase: {  
     apiKey: "AIzaSyBvg4gyS_V6uMdrlAETa-prY7gAuAAAjI8",
     authDomain: "venezuela-travel-4a94e.firebaseapp.com",
     databaseURL: "https://venezuela-travel-4a94e.firebaseio.com",

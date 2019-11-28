@@ -4,10 +4,11 @@
 </ng-container>
 
 <ng-template #noLoad>
-    HOLA
+    Loading...
 </ng-template>
 <ng-template #load>
-<div class="form">
+        <!-- *ngIf="!isModify; else mod" -->
+<div class="form" *ngIf="!isModify; else mod">
     <form [formGroup]="createStateFrom" (ngSubmit)="addPost()">
         <div class="details">
 
@@ -90,14 +91,12 @@
                     SERVICIOS
                 </div>
                 <div class="checkbox">
-                    <div class="cb-item" *ngFor="let control of servicesArray.controls; let i = index">
+                    <div class="cb-item" *ngFor="let control of roomServices; let i = index">
                         <td class="input-cb">
-                            <input (change)="getSelectedRoomServices()"
-                            type="checkbox" [formControl]="control" id="inlineCheckBox{{i}}">
-                        </td> 
-                        <!-- <div class="facility"> -->
-                            <label for="inlineCheckBox{{i}}">{{roomServices[i].name}}</label>
-                        <!-- </div>  -->
+                            <input [(ngModel)] = 'control.selected'
+                            type="checkbox" [ngModelOptions]="{standalone: true}">
+                            <label>{{control.name}}</label>
+                        </td>     
                     </div>
                 </div>
                 <small class="errorMessage" *ngIf="roomServiceError && checkboxServiceTouched()">
@@ -110,5 +109,110 @@
         </div>
     </form>
 </div>
+ <ng-template #mod>
+<div class="form">
+    <form [formGroup]="createStateFrom" (ngSubmit)="updatePost()">
+        <div class="details">
+
+            <div class="title-add">
+                <h1>MODIFICAR HABITACIÓN</h1>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    HOTEL AL QUE PERTENECE
+                </div>
+                <div class="wrapper">
+                    <select formControlName="hotel">
+                        <option selected>Elige uno...</option>
+                        <option  *ngFor="let item of hotels" [value]="item.id">
+                            {{item.name | uppercase}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    NOMBRE
+                </div> 
+                <div class="wrapper">
+                    <input formControlName="name" type="text" />
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    CAPACIDAD
+                </div>
+                <div class="wrapper">
+                    <input formControlName="capacity" type="number" min="1"/>
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    VISTAS
+                </div> 
+                <div class="wrapper">
+                    <input formControlName="views" type="text" placeholder="Describa las vistas de la habitación..."/>
+                </div>
+            </div>
+            <div class="detail-wrapper">
+                <div class="wrapper">
+                    PRECIO POR NOCHE
+                </div>
+                <div class="wrapper">
+                    <input formControlName="price" type="number" min="1"/>
+                </div>
+            </div>
+            <br>
+            <div class="array-wrapper" formArrayName="imgs">
+                <div class="detail-wrapper-array" >
+                    <div class="wrapper">
+                        IMÁGENES
+                    </div>
+                    <div class="flex-div">
+                        <div class="center-content">
+                            <div class="array-content-wrapper" *ngFor="let group of imgsArray.controls; let i=index" [formGroupName]="i">
+                                <div>
+                                    <input formControlName="imgPath" type="text" 
+                                    placeholder="Link de la imagen" class="input-imgs"/>
+                                </div>
+                                <div class="add-icons">
+                                    <div class="crud-icon-wrapper">
+                                        <img class="crud-icon" src="assets/img/add-icon.png" alt="Agregar" (click)="addImg()">
+                                    </div>
+                                    <div class="crud-icon-wrapper" *ngIf="i!=0">
+                                        <img class="crud-icon" src="assets/img/delete-icon.png" alt="Agregar" (click)="removeImg(i)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-wrapper-array">
+                <div class="wrapper">
+                    SERVICIOS
+                </div>
+                <div class="checkbox">
+                    <div class="cb-item" *ngFor="let control of roomServices; let i = index">
+                        <td class="input-cb">
+                            <input [(ngModel)] = 'control.selected'
+                            type="checkbox" [ngModelOptions]="{standalone: true}">
+                            <label>{{control.name}}</label>
+                        </td>     
+                    </div>
+                </div>
+                <small class="errorMessage" *ngIf="roomServiceError && checkboxServiceTouched()">
+                    Por lo menos selecciona uno...
+                </small>
+            </div>
+            <div class="button">
+                <button [disabled]="!createStateFrom.valid" type="submit">ACEPTAR</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+</ng-template> 
+
 </ng-template>
 <app-footer></app-footer>

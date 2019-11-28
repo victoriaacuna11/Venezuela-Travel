@@ -9,6 +9,7 @@ export class TouristDestinationsService {
 
   tdCollection: AngularFirestoreCollection<TouristDestination>;
   tDestinations: TouristDestination[]=[];
+  dDoc: AngularFirestoreDocument<TouristDestination>;
 
   constructor(public afs: AngularFirestore) { 
     const order=this.afs.collection<TouristDestination>('Touristic Destinations').snapshotChanges();
@@ -43,9 +44,15 @@ export class TouristDestinationsService {
   }
 
   getTDestinationById(id:string){
-    return this.tDestinations.find(tDestinations => {
+    /*return this.tDestinations.find(tDestinations => {
       return tDestinations.id==id;
-    })
+    })*/
+    return this.afs.collection<TouristDestination>('Touristic Destinations').doc<TouristDestination>(id).snapshotChanges();
+  }
+
+  updateP(td: TouristDestination){
+    this.dDoc = this.afs.doc(`Touristic Destinations/${td.id}`);
+    this.dDoc.update(td);
   }
 
   destinations:TouristDestination[]=[

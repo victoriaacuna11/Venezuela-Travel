@@ -71,7 +71,7 @@ export class HotelXComponent implements OnInit {
 
       }
     )
-    
+   
   }
 
   getRooms(){

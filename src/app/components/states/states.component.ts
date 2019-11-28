@@ -12,143 +12,118 @@ import { DestinationsService } from 'src/app/services/destinations.service';
   styleUrls: ['./states.component.scss']
 })
 export class StatesComponent implements OnInit {
-  
+
   public filtro;
-  public isFiltered="false";
+  public isFiltered = "false";
   //public id;
-  public statess: StateInterface [] = [];
+  public statess: StateInterface[] = [];
   destination: DestinationInterface;
   search = '';
+  loading = false;
+  id = '';
+  estados: DestinationInterface[];
 
-  
-  
-  /*public states: StateInterface []=[
-    {name:"Bolívar",
-    bannerImg: 'assets/img/img8-dest.jpg',
-    visits:4000,
-    views:1000,
-    display:true,
-    destinations:[{"name": "Ciudad"}],
-    destinationName: 'Ciudad',
-  },
 
-    {name:"Distrito Capital",
-    bannerImg: "https://venezuelaaldia.com/wp-content/uploads/2017/07/caracas.jpg",
-    visits:2000,
-    views:5000,
-    display:true,
-    destinations:[{name:"Ciudad"},
-    {"name":"Montaña"}],
-    destinationName: 'Ciudad',
-  },
 
-   
+  statesss: StateInterface[];
+  loadingDestination: boolean;
 
-  {name:"Falcón",
-    bannerImg: 'https://steemitimages.com/DQmQ4zQSxK7KPexQafv31R6kgwShzGUVqVYPxH6UtoniCJk/image.png',
-    visits:4000,
-    views:1000,
-    display:true,
-    destinations:[{"name":"Playa"}],
-    destinationName: 'Playa',
-    },
-    
-    {name:"Mérida",
-    bannerImg: 'https://www.eltelegrafo.com.ec/media/k2/items/cache/0dd63e66c3035bda0f70aa3c277a0c98_XL.jpg',
-    visits:10000,
-    views:3000,
-    display:true,
-    destinations:[{"name": "Montaña"}],
-    destinationName: 'Montaña',
-  },
 
-  {name:"Nueva Esparta",
-  bannerImg: 'https://oceandrive.com.ve/wp-content/uploads/2019/08/EM-PORTADA-2.jpg',
-  visits:4000,
-  views:1000,
-  display:true,
-  destinations:[{"name":"Playa"}],
-  destinationName: 'Playa',
-},
-
-    {name:"Vargas",
-    bannerImg: 'https://vignette.wikia.nocookie.net/venezuela/images/c/cd/La-guaira-slider3.jpg/revision/latest?cb=20190805022707&path-prefix=es',
-    visits:4000,
-    views:1000,
-    display:true,
-    destinations:[{"name":"Playa"}],
-    destinationName: 'Playa',
-  }
-
-  ]*/
-
-  statesss: StateInterface [];
-
-  constructor(private route:ActivatedRoute, private _states: StatesService, private _dest: DestinationsService) { }
+  constructor(private route: ActivatedRoute, private _states: StatesService, private _dest: DestinationsService) { }
 
   ngOnInit() {
     //let destino=this.route.snapshot.paramMap.get('destinoPrueba')
     //this.filtro=destino;
 
-    if(this.route.snapshot.paramMap.get('id')==undefined){
+    if (this.route.snapshot.paramMap.get('id') == '') {
       this.getStates();
-    }else{
+    } else {
+      this.id = this.route.snapshot.paramMap.get('id');
+      //this.destination = this._dest.getDestinationById(id);
 
-      const id = this.route.snapshot.paramMap.get('id');
-      this.destination = this._dest.getDestinationById(id);
+      //const nameD = this.destination.name;
 
-      const nameD = this.destination.name;
+      this.getStates2();
 
-      this.statess = this._states.states.filter(x => {
-        return x.destination === nameD;
+      /*this.statess = this._states.getStates().filter(x => {
+        return x.destination === this.id;
       });
 
-      console.log(this.statess);
-    //this.statess = this._states.states.find(item => {
-    //  return item.id === this.id;
-    //})
-  }
+      console.log(this.statess);*/
+      //this.statess = this._states.states.find(item => {
+      //  return item.id === this.id;
+      //})
+    }
   }
 
-  isDestiny(state:string[]){
+  isDestiny(state: string[]) {
 
-    var isThere=false;
+    var isThere = false;
 
     for (let i = 0; i < state.length; i++) {
 
-      if(state[i]==this.filtro){
-        isThere=true;
-      }  
+      if (state[i] == this.filtro) {
+        isThere = true;
+      }
     }
     return isThere;
   }
 
-  receiveMessage($event){
+  receiveMessage($event) {
     this.search = $event
   }
 
-  getStates(){
+  getStates() {
+
     this._states.getStatesCollection().subscribe(
-      res => (this.statess = res.map(item =>
-        {
-          const statey: StateInterface = {
-            id: item.payload.doc.id,
-            name: item.payload.doc.get('name'),
-            bannerImg: item.payload.doc.get('bannerImg'),
-            imgs: item.payload.doc.get('imgs'),
-            gastronomy: item.payload.doc.get('gastronomy'),
-            culture: item.payload.doc.get('culture'),
-            recreativeActs: item.payload.doc.get('recreativeActs'),
-            mainHotels: item.payload.doc.get('mainHotels'),
-            views: 0,
-            visits: 0,
-            destination:  item.payload.doc.get('destination'),
-            touristDestinations: item.payload.doc.get('touristDestinations'),
-            available: item.payload.doc.get('available')
-          }
-          return statey;
-        }))
+      res => (this.statess = res.map(item => {
+        const statey: StateInterface = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+        return statey;
+
+      }))
     )
+    this.loading = false;
+  }
+
+  getStates2() {
+
+    this._states.getStateByCategory(this.id).then(arr => {
+      arr.forEach(element => {
+        const sta: StateInterface = {
+          id: element.id,
+          available: element.get('available'),
+          name: element.get('name'),
+          bannerImg: element.get('bannerImg'),
+          imgs: element.get('imgs'),
+          gastronomy: element.get('gastronomy'),
+          culture: element.get('culture'),
+          recreativeActs: element.get('recreativeActs'),
+          mainHotels: element.get('mainHotels'),
+          destination: element.get('destination'),
+          touristDestinations: element.get('touristDestinations'),
+          views: element.get('views'),
+          visits: element.get('visits'),
+        }
+
+        this.statess.push(sta);
+
+      });
+    });
+  }
+
+  getDestination() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this._dest.getDestinationById(id).subscribe(res => {
+      const dest: DestinationInterface = {
+        id: res.payload.id,
+        ...res.payload.data()
+      }
+      this.destination = dest;
+      this.loadingDestination = false;
+    })
   }
 
 }

@@ -203,6 +203,7 @@ select{
 .cb-item{
     width: 7vw;
     display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     label{
         max-width: 6vw;

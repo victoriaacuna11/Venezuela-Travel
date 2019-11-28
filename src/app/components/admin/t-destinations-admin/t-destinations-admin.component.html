@@ -1,5 +1,5 @@
 <app-nav-admin></app-nav-admin>
-<div class="form">
+<div class="form" *ngIf="!isModify; else Mod">
     <form [formGroup]="createTDestinationsForm" (ngSubmit)="addPost()">
         <div class="details">
             <div class="title-add">
@@ -42,7 +42,7 @@
                 <div class="wrapper">
                     <select formControlName="destinationsCategory">
                         <option selected>Elige uno...</option>
-                        <option selected *ngFor="let item of destinations" [value]="item.name">
+                        <option selected *ngFor="let item of destinations" [value]="item.id">
                             {{item.name | uppercase}}
                         </option>
                     </select>
@@ -87,7 +87,7 @@
                 <div class="wrapper">
                     <select formControlName="state">
                         <option selected>Elige uno...</option>
-                        <option selected *ngFor="let item of states" [value]="item.name">
+                        <option selected *ngFor="let item of states" [value]="item.id">
                             {{item.name | uppercase}}
                         </option>
                     </select>
@@ -116,4 +116,125 @@
         </div>
     </form>
 </div>
+
+<ng-template #Mod>
+        <div class="form">
+                <form [formGroup]="createTDestinationsForm" (ngSubmit)="updateP()">
+                    <div class="details">
+                        <div class="title-add">
+                            <h1>MODIFICAR DESTINO TURÍSTICO</h1>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                NOMBRE
+                            </div>
+                            <div class="wrapper">
+                                <!-- <select formControlName="name">
+                                    <option selected>Elige uno...(Si no está, debes añadírselo a un estado)</option>
+                                    <option selected *ngFor="let item of TD" [value]="item.name">
+                                        {{item.name | uppercase}}
+                                    </option>
+                                </select> -->
+                                <input formControlName="name" type="text" />
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                IMAGEN DEL BANNER
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="bannerImg" type="text" />
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                DESCRIPCIÓN
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="description" type="text"/>
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                TIPO DE DESTINO
+                            </div>
+                            <div class="wrapper">
+                                <select formControlName="destinationsCategory">
+                                    <option selected>Elige uno...</option>
+                                    <option selected *ngFor="let item of destinations" [value]="item.id">
+                                        {{item.name | uppercase}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                SERVICIOS
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="services" type="text" placeholder="Describa los servicios que ofrece..."/>
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                ACTIVIDADES
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="activities" type="text" placeholder="Describa las actividades que ofrece..."/>
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                LATITUD
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="latitude" type="text" />
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                LONGITUD
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="longitude" type="text"/>
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                ESTADO
+                            </div>
+                            <div class="wrapper">
+                                <select formControlName="state">
+                                    <option selected>Elige uno...</option>
+                                    <option selected *ngFor="let item of states" [value]="item.id">
+                                        {{item.name | uppercase}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                DIRECCIÓN
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="direction" type="text" />
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                CIUDAD
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="city" type="text" />
+                            </div>
+                        </div>
+            
+                        <div class="button">
+                            <button [disabled]="!createTDestinationsForm.valid" type="submit">ACEPTAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+</ng-template>
+
 <app-footer></app-footer>

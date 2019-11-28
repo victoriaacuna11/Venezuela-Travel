@@ -9,87 +9,104 @@ export class HotelFacilitiesService {
   wifi:HotelFacilitie={
     "name": "Wifi",
     "available":true,
-    "icon":"assets/img/wifi.png"
+    "icon":"assets/img/wifi.png",
+    "selected": false
   }
   gym:HotelFacilitie={
     "name":"Gimnasio",
     "available":true,
-    "icon": "assets/img/gym.png"
+    "icon": "assets/img/gym.png",
+    "selected": false
   }
   pool:HotelFacilitie={
     "name":"Piscina",
     "available":true,
-    "icon": "assets/img/pool.png"
+    "icon": "assets/img/pool.png",
+    "selected": false
   }
   roomService:HotelFacilitie={
     "name":"Servicio a la habitación",
     "available":true,
-    "icon": "assets/img/roomservice.png"
+    "icon": "assets/img/roomservice.png",
+    "selected": false
   }
   restaurant:HotelFacilitie={
     "name":"Restaurant",
     "available":true,
-    "icon": "assets/img/restaurant.png"
+    "icon": "assets/img/restaurant.png",
+    "selected": false
   }
   bar:HotelFacilitie={
     "name":"Bar",
     "available":true,
-    "icon": "assets/img/bar.png"
+    "icon": "assets/img/bar.png",
+    "selected": false
   }
   airConditioner:HotelFacilitie={
     "name":"Aire acondicionado",
     "available":true,
-    "icon": "assets/img/airconditioner.png"
+    "icon": "assets/img/airconditioner.png",
+    "selected": false
   }
   spa:HotelFacilitie={
     "name":"Spa",
     "available":true,
-    "icon": "assets/img/spa.png"
+    "icon": "assets/img/spa.png",
+    "selected": false
   }
   pets:HotelFacilitie={
     "name":"Mascotas",
     "available":true,
-    "icon": "assets/img/pets.png"
+    "icon": "assets/img/pets.png",
+    "selected": false
   }
   tv:HotelFacilitie={
     "name":"TV",
     "available":true,
-    "icon": "assets/img/tv.png"
+    "icon": "assets/img/tv.png",
+    "selected": false
   }
   kitchen:HotelFacilitie={
     "name":"Cocina",
     "available":true,
-    "icon": "assets/img/kitchen.png"
+    "icon": "assets/img/kitchen.png",
+    "selected": false
   }
   snackBar:HotelFacilitie={
     "name":"Snack Bar",
     "available":true,
-    "icon": "assets/img/snackbar.png"
+    "icon": "assets/img/snackbar.png",
+    "selected": false
   }
   parking:HotelFacilitie={
     "name":"Estacionamiento",
     "available":true,
-    "icon": "assets/img/parking.png"
+    "icon": "assets/img/parking.png",
+    "selected": false
   }
   laundry:HotelFacilitie={
     "name":"Lavandería",
     "available":true,
-    "icon": "assets/limg/aundry.png"
+    "icon": "assets/limg/aundry.png",
+    "selected": false
   }
   businessRoom:HotelFacilitie={
     "name":"Sala de negocios",
     "available":true,
-    "icon": "assets/img/businessroom.png"
+    "icon": "assets/img/businessroom.png",
+    "selected": false
   }
   traslado:HotelFacilitie={
     "name":"Traslado",
     "available":true,
-    "icon": "assets/img/traslado.png"
+    "icon": "assets/img/traslado.png",
+    "selected": false
   }
   sports:HotelFacilitie={
     "name":"Canchas deportivas",
     "available":true,
-    "icon": "assets/img/sports.png"
+    "icon": "assets/img/sports.png",
+    "selected": false
   }
   
   constructor() { }

@@ -30,12 +30,15 @@
                                     <img src="assets/img/read-icon.png">
                                 </button>
                             </div>
-                            <div class="icon-wrapper">
+                            <div class="icon-wrapper" [routerLink]="['/adminTD', d.id]">
                                 <button><img src="assets/img/edit-icon.png"></button>
                             </div>
                             <div class="icon-wrapper">
-                                <button (click)="deleteDestinations(d.id)"><img src="assets/img/delete-icon.png"></button>
-                                
+                                <!-- deleteState(d.id) -->
+                                <button (click)="setEnabled(d.id)">
+                                    <img *ngIf="!d.available" src="assets/img/habilitate.png">
+                                    <img *ngIf="d.available" src="assets/img/inhabilitate.png">
+                                </button>
                             </div>
                         </div>
                     </div>

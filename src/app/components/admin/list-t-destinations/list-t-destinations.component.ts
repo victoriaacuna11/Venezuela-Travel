@@ -10,6 +10,7 @@ import { TouristDestination } from 'src/app/Models/touristDestination';
 export class ListTDestinationsComponent implements OnInit {
 
   destinations: TouristDestination[];
+  destination: TouristDestination;
 
   constructor(private _td: TouristDestinationsService) { }
 
@@ -35,4 +36,18 @@ export class ListTDestinationsComponent implements OnInit {
     this._td.deleteTDestination(id);
   }
 
+  setEnabled(id){
+    let found=false;
+    let cont=0;
+    while(!found && cont<this.destinations.length){
+      if(this.destinations[cont].id===id){
+        found=true;
+        this.destinations[cont].available=!this.destinations[cont].available;
+        this.destination = this.destinations[cont];
+      }
+      cont=cont+1;
+    }
+    console.log(this.destination);
+    this._td.updateP(this.destination);
+  }
 }

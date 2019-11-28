@@ -24,14 +24,14 @@ export class FiltroComponent implements OnInit {
   }
 
   newMessage1(){
-    // this._hotels.changeMessage(this._hotels.rearrangeBySells());
+    //this._hotels.changeMessage(this._hotels.rearrangeBySells());
     this._hotels.changeMessage2(true);
     this._hotels.changeState(!this.showFilter);
 
   }
 
   newMessage2(){
-    // this._hotels.changeMessage(this._hotels.rearrangeByViews());   
+    //this._hotels.changeMessage(this._hotels.rearrangeByViews());   
     this._hotels.changeMessage2(true);
     this._hotels.changeState(!this.showFilter);
   }
