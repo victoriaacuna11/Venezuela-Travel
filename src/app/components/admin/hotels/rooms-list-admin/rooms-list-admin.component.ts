@@ -12,9 +12,12 @@ export class RoomsListAdminComponent implements OnInit {
 
   rooms: Room[];
   room: Room;
+  loading:boolean;
+
   constructor(private roomSV: RoomServiceService) { }
 
   ngOnInit() {
+    this.loading=true;
     this.getRooms();
   }
 
@@ -26,7 +29,7 @@ export class RoomsListAdminComponent implements OnInit {
             id: item.payload.doc.id,
             ...item.payload.doc.data(),
           }
-          
+          this.loading=false;
           return room;
         })
       )

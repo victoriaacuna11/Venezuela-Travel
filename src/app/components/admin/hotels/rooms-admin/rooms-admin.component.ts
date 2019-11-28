@@ -17,10 +17,11 @@ export class RoomsAdminComponent implements OnInit {
 
   hotels: Hotel[];
   createStateFrom: FormGroup;
-  loading: boolean;
+  loadingRoomsServices: boolean;
+  loadingHotels: boolean;
+  loadingRoom:boolean;
 
   roomServices: RoomService[] = [];
-  
   selectedRoomServices: RoomService[];
   roomServiceError: boolean;
   actualRoom:Room;
@@ -32,7 +33,9 @@ export class RoomsAdminComponent implements OnInit {
   ngOnInit() {
     
     this.isModify = false;
-    this.loading=false;
+    this.loadingRoomsServices=true;
+    this.loadingHotels=true;
+    this.loadingRoom=true;
     this.roomServices = [];
     // this.getRoomServices();
     // this.getHotels();
@@ -50,6 +53,7 @@ export class RoomsAdminComponent implements OnInit {
     if(this.ActRouter.snapshot.paramMap.get('id')==undefined){
       this.getRoomServices();
       this.getHotels();
+      this.loadingRoom=false;
     } else {
       this.getRoomServices();
       this.getHotels();
@@ -61,6 +65,7 @@ export class RoomsAdminComponent implements OnInit {
           id: a.payload.id,
           ...a.payload.data(),
         }
+        this.loadingRoom=false;
         this.actualRoom=room;
         this.fillCheckboxes(this.actualRoom.services, this.roomServices);
         this.createStateFrom.patchValue({
@@ -104,6 +109,7 @@ export class RoomsAdminComponent implements OnInit {
             id: item.payload.doc.id,
             ...item.payload.doc.data()
           };
+          this.loadingHotels=false;
           return hotel;
         }))
     )
@@ -151,13 +157,12 @@ export class RoomsAdminComponent implements OnInit {
 
   getRoomServices(){
     this.roomServices=this.RoomServicesSV.getFacilities();
-    console.log("Pasa");
     for (let index = 0; index < this.roomServices.length; index++) {
      
       const element = this.roomServices[index];
       element.selected=false;
-      
     }
+    this.loadingRoomsServices=false;
   }
 
   getSelectedRoomServices(){

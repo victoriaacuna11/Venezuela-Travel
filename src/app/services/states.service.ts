@@ -80,8 +80,8 @@ export class StatesService {
 
   addState(mov) {
     return this.afs.collection('states').add(mov);
-    console.log('agrego a la database')
-    console.log(mov);
+    // console.log('agrego a la database')
+    // console.log(mov);
   }
 
   deleteState(docId: string) {

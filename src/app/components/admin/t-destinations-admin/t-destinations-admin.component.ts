@@ -17,9 +17,11 @@ import { SourceListMap } from 'source-list-map';
 export class TDestinationsAdminComponent implements OnInit {
 
   createTDestinationsForm: FormGroup;
+
   constructor(private _builder: FormBuilder, private _td: TouristDestinationsService, 
     private _destination: DestinationsService, private route: Router, private actRoute: ActivatedRoute,
     private _states: StatesService) { }
+
   destinations: DestinationInterface[]=[];
   states: StateInterface[]=[];
   TD: TouristDestination[]=[];
@@ -27,13 +29,12 @@ export class TDestinationsAdminComponent implements OnInit {
   isModify = false;
   tDest: TouristDestination;
 
-  // loadingStates:boolean=false;
-  // loadingDestinations:boolean=false;
-  // loadingTD:boolean=false;
+  loadingStates:boolean;
+  loadingDestinations:boolean;
 
   ngOnInit() {
-    // this.loadingStates=true;
-    // this.loadingDestinations=true;
+    this.loadingStates=true;
+    this.loadingDestinations=true;
     // this.loadingTD=true;
     this.createTDestinationsForm = this._builder.group({
       name:['', Validators.required],
@@ -124,6 +125,7 @@ export class TDestinationsAdminComponent implements OnInit {
             id: item.payload.doc.id,
             ...item.payload.doc.data(),
           }
+          this.loadingDestinations=false;
           return destination;
         }))
     )
@@ -138,6 +140,7 @@ export class TDestinationsAdminComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         }
+        this.loadingStates=false;
         return state;
       })
     ));

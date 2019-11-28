@@ -1,11 +1,13 @@
-<ng-container *ngIf="loading; then loader; else noLoader"></ng-container>
+<app-bar></app-bar>
 
-<ng-template #loader>
-    <h1>Loading</h1>
+<ng-container *ngIf="!loadingState && !loadingTouristDestiniations; then load; else noLoad"></ng-container>
+
+<ng-template #noLoad>
+    <app-loader></app-loader>
 </ng-template>
 
-<ng-template #noLoader>
-    <app-bar></app-bar>
+<ng-template #load>
+
 <div id="banner-tourist-info" 
 [ngStyle]="{'background-image': 'url('+state.bannerImg+')'}">
     <div class="mask" id="banner-mask">
@@ -52,7 +54,7 @@
                         </p>
                     </div>
                     <div class="goToHotels">
-                        <button>Ver hoteles</button>
+                        <button [routerLink]="['hotels', state.id]">Ver hoteles</button>
                     </div>
             </div>
         </div>    
@@ -95,8 +97,8 @@
         <div class="destination-options">
             <div class="mask-img" id="destinations-wrapper">
                 <div class="destinations"> 
-                    <div class="destination-link" *ngFor="let d of state.touristDestinations">
-                        <a href="">{{d.name}}</a>
+                    <div class="destination-link" *ngFor="let d of touristDestinations">
+                        <a *ngIf="d.state==state.id" [routerLink]="['/destination/info', d.id]">{{d.name}}</a>
                     </div>
                 </div>
             </div>

@@ -19,13 +19,17 @@ import { ActivatedRoute } from '@angular/router';
 export class StatesAdminComponent implements OnInit {
 
   destinations: DestinationInterface[];
-  states: StateInterface[];
+  // states: StateInterface[];
   TD: TouristDestination[];
   isModify = false;
   s: StateInterface;
   loading2: boolean = false;
-
   createStateFrom: FormGroup;
+
+  //Loaders...
+  loadingDestinations:boolean;
+  loadingTouristDestinations:boolean;
+  loadingState: boolean;
 
   constructor(private _builder: FormBuilder, private stateSV: StatesService, private route: Router,
     private destinationSV: DestinationsService, private _td: TouristDestinationsService,
@@ -34,6 +38,10 @@ export class StatesAdminComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.loadingDestinations=true;
+    this.loadingTouristDestinations=true;
+    this.loadingState=true;
 
     this.createStateFrom = this._builder.group({
       name: ['', Validators.required],
@@ -50,7 +58,7 @@ export class StatesAdminComponent implements OnInit {
     if (this.actRoute.snapshot.paramMap.get('id') == undefined) {
       this.getDestinations();
       this.getTD();
-      
+      this.loadingState=false;
     } else {
       this.getDestinations();
       this.getTD();
@@ -62,7 +70,7 @@ export class StatesAdminComponent implements OnInit {
           id: a.payload.id,
           ...a.payload.data(),
         }
-
+        this.loadingState=false;
         this.s = m;
 
         this.createStateFrom.patchValue({
@@ -78,14 +86,18 @@ export class StatesAdminComponent implements OnInit {
 
         this.createStateFrom.setControl('touristDestinations', this.setD(this.s.touristDestinations));
         this.createStateFrom.setControl('imgs', this.setImgs(this.s.imgs));
-        
+        // this.loadingState=false;
     });
 
 
   }
 }
 
+
+// REVISAR MI PANA.
+
 setD(destSets: any[]): FormArray{
+
   const formArray = new FormArray([]);
   destSets.forEach(s => {
     formArray.push(
@@ -97,7 +109,6 @@ setD(destSets: any[]): FormArray{
   })
 
   return formArray;
-
 }
 
 setImgs(imgSets: any[]): FormArray{
@@ -176,6 +187,7 @@ getDestinations() {
         id: item.payload.doc.id,
         ...item.payload.doc.data(),
       }
+      this.loadingDestinations=false;
       return destination;
     }))
   )
@@ -188,6 +200,7 @@ getTD(){
         id: item.payload.doc.id,
         ...item.payload.doc.data(),
       }
+      this.loadingTouristDestinations=false;
       return destination;
     })
 

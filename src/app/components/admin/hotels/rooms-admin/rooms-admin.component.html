@@ -1,11 +1,10 @@
 <app-nav-admin></app-nav-admin>
-<ng-container *ngIf="loading; then noLoad; else load">
-
-</ng-container>
+<ng-container *ngIf="!loadingRoom && !loadingHotels && !loadingRoomsServices; then load; else noLoad"></ng-container>
 
 <ng-template #noLoad>
-    Loading...
+    <app-loader></app-loader>
 </ng-template>
+
 <ng-template #load>
         <!-- *ngIf="!isModify; else mod" -->
 <div class="form" *ngIf="!isModify; else mod">

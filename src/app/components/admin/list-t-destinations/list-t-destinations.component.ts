@@ -11,10 +11,12 @@ export class ListTDestinationsComponent implements OnInit {
 
   destinations: TouristDestination[];
   destination: TouristDestination;
+  loading: boolean;
 
   constructor(private _td: TouristDestinationsService) { }
 
   ngOnInit() {
+    this.loading=true;
     this.getTD();
   }
 
@@ -26,6 +28,7 @@ export class ListTDestinationsComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data(),
         }
+        this.loading=false;
         return destination;
       })
 

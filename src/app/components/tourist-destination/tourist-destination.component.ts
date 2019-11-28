@@ -22,10 +22,6 @@ export class TouristDestinationComponent implements OnInit {
 
   ngOnInit() {
     this.getTD();
-
-
-    //this.destination=this.destinationSV.getDestination();
-
   }
 
   getTD() {

@@ -22,6 +22,12 @@ export class ListStatesComponent implements OnInit {
   hotels: Hotel[];
   rooms: Room[];
   room: Room;
+
+  //Loaders...
+  loadingStates:boolean;
+  loadingTouristDestinations:boolean;
+  loadingHotel:boolean;
+  loadingRooms:boolean;
   
 
   constructor(private stateSV: StatesService, private tDestSV: TouristDestinationsService, private hotelSV:HotelsService,
@@ -30,6 +36,11 @@ export class ListStatesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadingRooms=true;
+    this.loadingHotel=true;
+    this.loadingStates=true;
+    this.loadingTouristDestinations=true;
+
     this.getStates();
     this.getTouristDestinations();
     this.getHotels();
@@ -46,6 +57,7 @@ export class ListStatesComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data(),
         }
+        this.loadingStates=false;
         return state;
       })
     ));
@@ -60,6 +72,7 @@ export class ListStatesComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data(),
         }
+        this.loadingTouristDestinations=false;
         return td;
       })
     ));
@@ -107,6 +120,7 @@ export class ListStatesComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data(),
         }
+        this.loadingHotel=false;
         return hotel;
       })
     ))
@@ -152,6 +166,7 @@ export class ListStatesComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data(),
         }
+        this.loadingRooms=false;
         return room;
       })
     ))

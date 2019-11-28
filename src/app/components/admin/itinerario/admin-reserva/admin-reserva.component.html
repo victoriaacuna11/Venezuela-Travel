@@ -1,7 +1,9 @@
-<app-nav-admin></app-nav-admin>
+<!-- <app-nav-admin></app-nav-admin>
 <ng-container *ngIf="!loadingHotels && !loadingRooms && !loadingReserve; then load; else noLoad"></ng-container>
 
-<ng-template #noLoad>Loading...</ng-template>
+<ng-template #noLoad>
+    <app-loader></app-loader>
+</ng-template>
 
 <ng-template #load>
         <div class="form">
@@ -27,7 +29,7 @@
                             </div>
                         </div>
 
-                        <!-- FECHAS -->
+                        FECHAS
 
                         <div class="button">
                             <button (click)="changeHotel()">MODIFICAR HOTEL</button>
@@ -59,7 +61,7 @@
                             <div class="wrapper">
                                 HABITACIONES
                             </div>
-                            <!-- VECTOR DE HABS -->
+                            VECTOR DE HABS
 
                             <div class="wrapper">
                                     <select formControlName="roomName">
@@ -153,8 +155,6 @@
                                                         </option>
                                                     </select>
             
-                                                    <!-- <input formControlName="name" type="text" 
-                                                    placeholder="Nombre destino turístico" class="input-imgs"/> -->
                                                 </div>
                                                 <div class="add-icons">
                                                     <div class="crud-icon-wrapper">
@@ -189,6 +189,5 @@
                     </div>
                 </form>
             </div>
-
 </ng-template>
-<app-footer></app-footer>
+<app-footer></app-footer> -->

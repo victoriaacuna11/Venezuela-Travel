@@ -15,105 +15,105 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdminReservaComponent implements OnInit {
 
-  hotels: Hotel[];
-  hotel: string //Guarda el id del hotel seleccionado;
-  initialHotel: Hotel;
-  rooms: Room[];
-  loadingRooms:boolean;
-  loadingHotels: boolean;
-  modifyHotel:boolean;
-  modifyRoom:boolean;
-  createStateFrom: FormGroup;
-  reserve: ReserveInterface;
-  loadingReserve:boolean;
+  // hotels: Hotel[];
+  // hotel: string //Guarda el id del hotel seleccionado;
+  // initialHotel: Hotel;
+  // rooms: Room[];
+  // loadingRooms:boolean;
+  // loadingHotels: boolean;
+  // modifyHotel:boolean;
+  // modifyRoom:boolean;
+  // createStateFrom: FormGroup;
+  // reserve: ReserveInterface;
+  // loadingReserve:boolean;
 
-  constructor(private hotelSV:HotelsService, private roomSV: RoomServiceService, private _builder: FormBuilder,
-    private reserveSV: ReserveService, private routeSV: ActivatedRoute) { }
+  // constructor(private hotelSV:HotelsService, private roomSV: RoomServiceService, private _builder: FormBuilder,
+  //   private reserveSV: ReserveService, private routeSV: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadingHotels=true;
-    this.loadingRooms=true;
-    this.loadingReserve=false;
-    this.modifyHotel=false;
-    this.modifyRoom=false;
-    this.getReserve();
-    this.getHotels();
-    this.getRooms();
+    // this.loadingHotels=true;
+    // this.loadingRooms=true;
+    // this.loadingReserve=false;
+    // this.modifyHotel=false;
+    // this.modifyRoom=false;
+    // this.getReserve();
+    // this.getHotels();
+    // this.getRooms();
 
-    this.createStateFrom.patchValue({
-      cost:this.reserve.cost,
-      numberOfPeople:this.reserve.numberOfPeople,
-    })
+    // this.createStateFrom.patchValue({
+    //   cost:this.reserve.cost,
+    //   numberOfPeople:this.reserve.numberOfPeople,
+    // })
    // this.createStateFrom.setControl('hotel')
 
   }
 
-  getHotels(){
-    this.hotelSV.getHotelsCollection().subscribe(
-      res => (this.hotels = res.map(item =>
-        {
-          const hotel:Hotel = {
-            id: item.payload.doc.id,
-            ...item.payload.doc.data()
-          };
-          this.loadingHotels=false;
-          return hotel;
-        }))
-    )
-  }
+  // getHotels(){
+  //   this.hotelSV.getHotelsCollection().subscribe(
+  //     res => (this.hotels = res.map(item =>
+  //       {
+  //         const hotel:Hotel = {
+  //           id: item.payload.doc.id,
+  //           ...item.payload.doc.data()
+  //         };
+  //         this.loadingHotels=false;
+  //         return hotel;
+  //       }))
+  //   )
+  // }
 
-  getRooms(){
-    this.roomSV.getRoomsCollection().subscribe(
-      res=>(this.rooms = res.map(item=> {
-          const room: Room = {
-            id: item.payload.doc.id,
-            ...item.payload.doc.data(),
-          }
-          this.loadingRooms=false;
-          return room;
-        })
-        )
+  // getRooms(){
+  //   this.roomSV.getRoomsCollection().subscribe(
+  //     res=>(this.rooms = res.map(item=> {
+  //         const room: Room = {
+  //           id: item.payload.doc.id,
+  //           ...item.payload.doc.data(),
+  //         }
+  //         this.loadingRooms=false;
+  //         return room;
+  //       })
+  //       )
         
-        )
-      }
+  //       )
+  //     }
 
-  getReserve(){
-    const id= this.routeSV.snapshot.paramMap.get('id');
-    this.reserveSV.getReserveById(id).subscribe(arr => {
-      const reserve: ReserveInterface={
-        id:arr.payload.id,
-        ...arr.payload.data(),
-      }
-      this.reserve=reserve;
-      this.hotel=reserve.hotel;
-      this.getInitialHotel(this.hotel);
-      this.loadingReserve=false;
-    })
-  }
+  // getReserve(){
+  //   const id= this.routeSV.snapshot.paramMap.get('id');
+  //   this.reserveSV.getReserveById(id).subscribe(arr => {
+  //     const reserve: ReserveInterface={
+  //       id:arr.payload.id,
+  //       ...arr.payload.data(),
+  //     }
+  //     this.reserve=reserve;
+  //     this.hotel=reserve.hotel;
+  //     this.getInitialHotel(this.hotel);
+  //     this.loadingReserve=false;
+  //   })
+  // }
 
-  getInitialHotel(id:string){
+  // getInitialHotel(id:string){
 
-    this.hotelSV.getHotelById(id).subscribe(arr => {
-      const hotel: Hotel={
-        id:arr.payload.id,
-        ...arr.payload.data(),
-      }
-      this.initialHotel=hotel;
-    })
-  }
+  //   this.hotelSV.getHotelById(id).subscribe(arr => {
+  //     const hotel: Hotel={
+  //       id:arr.payload.id,
+  //       ...arr.payload.data(),
+  //     }
+  //     this.initialHotel=hotel;
+  //   })
+  // }
 
-  changeHotel(){
-    this.modifyHotel=true;
-    this.changeRoom();
-  }
+  // changeHotel(){
+  //   this.modifyHotel=true;
+  //   this.changeRoom();
+  // }
 
-  changeRoom(){
-    this.modifyRoom=true;
-  }
+  // changeRoom(){
+  //   this.modifyRoom=true;
+  // }
 
-  newHotel(){
-    const hotel=this.createStateFrom.value.hotel;
-    this.hotel=hotel;
-  }
+  // newHotel(){
+  //   const hotel=this.createStateFrom.value.hotel;
+  //   this.hotel=hotel;
+  // }
 
 }

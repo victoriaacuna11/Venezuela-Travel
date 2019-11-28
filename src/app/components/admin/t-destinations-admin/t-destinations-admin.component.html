@@ -1,4 +1,10 @@
 <app-nav-admin></app-nav-admin>
+<ng-container *ngIf="!loadingStates && !loadingDestinations; then load; else noLoad"></ng-container>
+<ng-template #noLoad>
+    <app-loader></app-loader>
+</ng-template>
+
+<ng-template #load>
 <div class="form" *ngIf="!isModify; else Mod">
     <form [formGroup]="createTDestinationsForm" (ngSubmit)="addPost()">
         <div class="details">
@@ -10,12 +16,6 @@
                     NOMBRE
                 </div>
                 <div class="wrapper">
-                    <!-- <select formControlName="name">
-                        <option selected>Elige uno...(Si no está, debes añadírselo a un estado)</option>
-                        <option selected *ngFor="let item of TD" [value]="item.name">
-                            {{item.name | uppercase}}
-                        </option>
-                    </select> -->
                     <input formControlName="name" type="text" />
                 </div>
             </div>
@@ -236,5 +236,5 @@
                 </form>
             </div>
 </ng-template>
-
+</ng-template>
 <app-footer></app-footer>
