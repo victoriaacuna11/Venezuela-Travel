@@ -38,6 +38,16 @@
  
 }
 
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: white;
+}
+
 .wrapperH{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -72,6 +82,7 @@
     width: 100px;
     border: none;
     text-decoration: none; 
+    color: black;
     
 }
 
@@ -79,6 +90,7 @@
     transition: 0.4s;
     cursor: pointer;
     background-color:#1DA9BC; 
+    color: white;
 }
 
 .miniWrapper{
