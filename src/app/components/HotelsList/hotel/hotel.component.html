@@ -24,15 +24,15 @@
 <div class="blank">
     <app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
 </div>
-<div class="wrapperH">
+<div class="wrapperH" *ngIf="isAll; else filteredByState">
 
-    <div class="block" *ngFor="let hotel of message | filter:search">
+    <div class="block" *ngFor="let hotel of (hotels | isAvailable | filter:search)">
         <div class="img-cont">
-            <img class="imagenes" src="{{hotel.imgPrin}}" alt="">
+            <img class="imagenes" src="{{hotel.bannerImg}}" alt="">
         </div>
-        <div>
+        <div class="center">
             <p class="title"><strong>{{hotel.name}}</strong></p>
-            <p class="text">{{hotel.description}}</p>
+            <p class="text">{{hotel.description | slice: 0:150}}...</p>
             <div class="miniWrapper">
                 <div class="iconOrder">
                     <div tooltip="{{icono.name}}" placement="top" show-delay="500" *ngFor="let icono of hotel.services">
@@ -42,12 +42,39 @@
                         <img class="icons" src="{{icono.icon}}" alt="gnfn">
                     </div> -->
                 </div>
+                <br>
                 <div class="seeMore"> Ver más...</div> 
             </div>                    
         </div>
     </div>
-
 </div>
+
+<ng-template #filteredByState>
+    <div class="wrapperH">
+
+        <div class="block" *ngFor="let hotel of hotels | filter:search">
+            <div class="img-cont">
+                <img class="imagenes" src="{{hotel.bannerImg}}" alt="">
+            </div>
+            <div class="center">
+                <p class="title"><strong>{{hotel.name}}</strong></p>
+                <p class="text">{{hotel.description | slice: 0:150}}...</p>
+                <div class="miniWrapper">
+                    <div class="iconOrder">
+                        <div tooltip="{{icono.name}}" placement="top" show-delay="500" *ngFor="let icono of hotel.services">
+                            <img class="icons" src="{{icono.icon}}" alt="gnfn">
+                        </div>
+                        <!-- <div tooltip="{{icono.msg}}" placement="top" show-delay="500" *ngFor="let icono of hotel.amenitiesImg">
+                            <img class="icons" src="{{icono.icon}}" alt="gnfn">
+                        </div> -->
+                    </div>
+                    <br>
+                    <div class="seeMore"> Ver más...</div> 
+                </div>                    
+            </div>
+        </div>
+    </div>
+</ng-template>
    
 <br>
 <br>

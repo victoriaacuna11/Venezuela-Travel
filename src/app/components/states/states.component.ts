@@ -22,6 +22,7 @@ export class StatesComponent implements OnInit {
   loading = false;
   id = '';
   estados: DestinationInterface[];
+  isAll = true;
 
 
 
@@ -35,9 +36,10 @@ export class StatesComponent implements OnInit {
     //let destino=this.route.snapshot.paramMap.get('destinoPrueba')
     //this.filtro=destino;
 
-    if (this.route.snapshot.paramMap.get('id') == '') {
+    if (this.route.snapshot.paramMap.get('id') == undefined) {
       this.getStates();
     } else {
+      this.isAll = false;
       this.id = this.route.snapshot.paramMap.get('id');
       //this.destination = this._dest.getDestinationById(id);
 
@@ -57,6 +59,8 @@ export class StatesComponent implements OnInit {
       //})
     }
   }
+
+ 
 
   isDestiny(state: string[]) {
 
@@ -110,8 +114,9 @@ export class StatesComponent implements OnInit {
           visits: element.get('visits'),
         }
 
+        if(sta.available == true){
         this.statess.push(sta);
-
+        }
       });
     });
   }
