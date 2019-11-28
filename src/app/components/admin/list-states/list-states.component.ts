@@ -38,27 +38,25 @@ export class ListStatesComponent implements OnInit {
   }
 
   setEnabled(id){
-    this.stateSV.getStateById(id).subscribe(a => {
-      const state: StateInterface = {
-        id: a.payload.id,
-        ...a.payload.data(),
+    let found=false;
+    let cont=0;
+    while(!found && cont<this.states.length){
+      if(this.states[cont].id===id){
+        found=true;
+        this.states[cont].available=!this.states[cont].available;
+        this.state = this.states[cont];
       }
-      this.state=state;
-      console.log(this.state.available);
-      this.state.available=!this.state.available;
-      console.log(this.state.available);
-      console.log(this.state);
-      // this.habilitate(this.state);
-    })
-    
-    // this.stateSV.updateS(this.state);
-  }
-
-  habilitate(state: StateInterface){
+      cont=cont+1;
+    }
     console.log(this.state);
-    this.stateSV.updateS(state);
-
+    this.stateSV.updateS(this.state);
   }
+
+  // habilitate(state: StateInterface){
+  //   console.log(this.state);
+  //   this.stateSV.updateS(state);
+
+  // }
 
 }
 
