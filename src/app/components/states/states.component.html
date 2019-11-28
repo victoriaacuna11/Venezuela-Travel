@@ -11,10 +11,10 @@
         <app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
 </div>
 
-<div class="max-container">
+<div class="max-container" *ngIf="isAll; else filteredByDestination">
         <div>
                 <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}"
-                        *ngFor="let o of (statess | isAvailable | filter:search)as folder">
+                        *ngFor="let o of (statess | isAvailable | filter:search)">
                         <div class="wrap-mask">
                                 <a class="link" [routerLink]="['/infoestado', o.id]">
                                         <h1>{{o.name}}</h1>
@@ -23,6 +23,20 @@
                 </div>
         </div>
 </div>
+<ng-template #filteredByDestination>
+        <div class="max-container">
+                <div>
+                        <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}"
+                                *ngFor="let o of (statess | filter:search)">
+                                <div class="wrap-mask">
+                                        <a class="link" [routerLink]="['/infoestado', o.id]">
+                                                <h1>{{o.name}}</h1>
+                                        </a>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</ng-template>
 <div class="blank">
 
 </div>

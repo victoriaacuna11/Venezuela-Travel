@@ -6,7 +6,7 @@ import { StateInterface } from '../Models/state';
 })
 export class IsAvailablePipe implements PipeTransform {
 
-  transform(values: StateInterface[], ...args: StateInterface[]): any {
+  transform(values: any[], ...args: any[]): any {
     return values.filter((x)=> x.available);
     
   }

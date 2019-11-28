@@ -22,6 +22,7 @@ export class StatesComponent implements OnInit {
   loading = false;
   id = '';
   estados: DestinationInterface[];
+  isAll = true;
 
 
 
@@ -38,6 +39,7 @@ export class StatesComponent implements OnInit {
     if (this.route.snapshot.paramMap.get('id') == undefined) {
       this.getStates();
     } else {
+      this.isAll = false;
       this.id = this.route.snapshot.paramMap.get('id');
       //this.destination = this._dest.getDestinationById(id);
 
@@ -110,8 +112,9 @@ export class StatesComponent implements OnInit {
           visits: element.get('visits'),
         }
 
+        if(sta.available == true){
         this.statess.push(sta);
-
+        }
       });
     });
   }
