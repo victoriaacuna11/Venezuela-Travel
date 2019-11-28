@@ -8,49 +8,54 @@
 <div class="bck">
         <div class="mask">
             <div class="content-wrapper">
-                    <div class="welcome">
-                        <h1>ESTADOS</h1>
-                    </div>
+                <div class="welcome">
+                    <h1>ESTADOS</h1>
+                </div>
                 <div class="title-wrap">
-                    <div class="tit-cont-wrapper">
-                        <h5>ID</h5>
-                    </div>
                     <div  class="tit-cont-wrapper">
                         <h5>NOMBRE</h5>
+                    </div>
+                    <div class="tit-cont-wrapper">
+                        <h5>ESTADO</h5>
                     </div>
                     <div  class="tit-cont-wrapper">
                         <h5>CRUDS</h5>
                     </div>
                 </div>
                 <div class="elementList-wrapper">
-                    <div class="element-wrapper" *ngFor="let state of states; let i=index">
+                    <div class="element-wrapper" *ngFor="let s of states; let i=index">
                         <div class="element-cont-wrapper">
-                            <h5>{{state.id}}</h5>
+                            <h5>{{s.name | uppercase}}</h5>
                         </div>
                         <div class="element-cont-wrapper">
-                            <h5>{{state.name}}</h5>
+                            <h5 *ngIf="s.available">HABILITADO</h5>
+                            <h5 *ngIf="!s.available">INHABILITADO</h5>
                         </div>
-                        <div class="cruds-wrapper">
-                            <div class="icon-wrapper">
-                                <button [routerLink]="['/info', state.id]">
-                                    <img src="assets/img/read-icon.png">
-                                </button>
-                            </div>
-                            <div class="icon-wrapper">
-                                <button [routerLink]="['/modifyState', state.id]"><img src="assets/img/edit-icon.png"></button>
-                            </div>
-                            <div class="icon-wrapper">
-                                <!-- deleteState(state.id) -->
-                                <button (click)="setEnabled(state.id)">
-                                    <img *ngIf="!state.available" src="assets/img/habilitate.png">
-                                    <img *ngIf="state.available" src="assets/img/inhabilitate.png">
-                                </button>
+                        <div class="tocentericons">
+                            <div class="cruds-wrapper">
+                                <div class="icon-wrapper">
+                                    <button class="btnright" [routerLink]="['/info', s.id]">
+                                        <img src="assets/img/read-icon.png">
+                                    </button>
+                                </div>
+                                <div class="icon-wrapper">
+                                    <button class="btncenter" [routerLink]="['/modifyState', s.id]">
+                                        <img src="assets/img/edit-icon.png">
+                                    </button>
+                                </div>
+                                <div class="icon-wrapper">
+                                    <!-- deleteState(s.id) -->
+                                    <button class="btnleft" (click)="setEnabled(s.id)">
+                                        <img *ngIf="!s.available" src="assets/img/habilitate.png">
+                                        <img *ngIf="s.available" src="assets/img/inhabilitate.png">
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="add">
-                    <button routerLink="/adminEdo">AGREGAR ESTADO</button>
+                        <button routerLink="/adminEdo">AGREGAR ESTADO</button>
                 </div>
                 
             </div>
@@ -58,30 +63,3 @@
     </div>
 </ng-template>
 <app-footer></app-footer>
-
-<!-- <div class="bck-clr">
-    <div class="elementList-wrapper">
-        <div class="element-wrapper" *ngFor="let state of states">
-            <div class="id-wrapper">
-                <h5>{{state.id}}</h5>
-            </div>
-            <div class="elementName-wrapper">
-                <h5>{{state.name}}</h5>
-            </div>
-            <div class="cruds-wrapper">
-                <div class="icon-wrapper">
-                    <button [routerLink]="['/info', state.id]">
-                        <img src="assets/img/read-icon.png">
-                    </button>
-                </div>
-                <div class="icon-wrapper">
-                    <img src="assets/img/edit-icon.png">
-                </div>
-                <div class="icon-wrapper">
-                    <button (click)="deleteState(state.id)"><img src="assets/img/delete-icon.png"></button>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->

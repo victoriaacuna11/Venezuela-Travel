@@ -98,7 +98,7 @@
             <div class="mask-img" id="destinations-wrapper">
                 <div class="destinations"> 
                     <div class="destination-link" *ngFor="let d of touristDestinations">
-                        <a *ngIf="d.state==state.id" [routerLink]="['/destination/info', d.id]">{{d.name}}</a>
+                        <a *ngIf="d.state==state.id && d.available" [routerLink]="['/destination/info', d.id]">{{d.name}}</a>
                     </div>
                 </div>
             </div>

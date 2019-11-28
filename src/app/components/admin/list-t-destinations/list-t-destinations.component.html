@@ -8,15 +8,15 @@
 <div class="bck">
         <div class="mask">
             <div class="content-wrapper">
-                    <div class="welcome">
-                        <h1>DESTINOS TURÍSTICOS</h1>
-                    </div>
+                <div class="welcome">
+                    <h1>DESTINOS TURÍSTICOS</h1>
+                </div>
                 <div class="title-wrap">
-                    <div class="tit-cont-wrapper">
-                        <h5>ID</h5>
-                    </div>
                     <div  class="tit-cont-wrapper">
                         <h5>NOMBRE</h5>
+                    </div>
+                    <div class="tit-cont-wrapper">
+                        <h5>ESTADO</h5>
                     </div>
                     <div  class="tit-cont-wrapper">
                         <h5>CRUDS</h5>
@@ -25,32 +25,37 @@
                 <div class="elementList-wrapper">
                     <div class="element-wrapper" *ngFor="let d of destinations; let i=index">
                         <div class="element-cont-wrapper">
-                            <h5>{{d.id}}</h5>
+                            <h5>{{d.name | uppercase}}</h5>
                         </div>
                         <div class="element-cont-wrapper">
-                            <h5>{{d.name}}</h5>
+                            <h5 *ngIf="d.available">HABILITADO</h5>
+                            <h5 *ngIf="!d.available">INHABILITADO</h5>
                         </div>
-                        <div class="cruds-wrapper">
-                            <div class="icon-wrapper">
-                                <button [routerLink]="['/destination/info', d.id]">
-                                    <img src="assets/img/read-icon.png">
-                                </button>
-                            </div>
-                            <div class="icon-wrapper" [routerLink]="['/adminTD', d.id]">
-                                <button><img src="assets/img/edit-icon.png"></button>
-                            </div>
-                            <div class="icon-wrapper">
-                                <!-- deleteState(d.id) -->
-                                <button (click)="setEnabled(d.id)">
-                                    <img *ngIf="!d.available" src="assets/img/habilitate.png">
-                                    <img *ngIf="d.available" src="assets/img/inhabilitate.png">
-                                </button>
+                        <div class="tocentericons">
+                            <div class="cruds-wrapper">
+                                <div class="icon-wrapper">
+                                    <button class="btnright" [routerLink]="['/destination/info', d.id]">
+                                        <img src="assets/img/read-icon.png">
+                                    </button>
+                                </div>
+                                <div class="icon-wrapper">
+                                    <button class="btncenter" [routerLink]="['/adminTD', d.id]">
+                                        <img src="assets/img/edit-icon.png">
+                                    </button>
+                                </div>
+                                <div class="icon-wrapper">
+                                    <!-- deleteState(d.id) -->
+                                    <button class="btnleft" (click)="setEnabled(d.id)">
+                                        <img *ngIf="!d.available" src="assets/img/habilitate.png">
+                                        <img *ngIf="d.available" src="assets/img/inhabilitate.png">
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="add">
-                    <button routerLink="/adminTD">AGREGAR DESTINO TURÍSTICO</button>
+                    <button routerLink="/admin/destination/add">AGREGAR DESTINO</button>
                 </div>
                 
             </div>
@@ -58,4 +63,7 @@
     </div>
 </ng-template>
 <app-footer></app-footer>
+
+
+
 

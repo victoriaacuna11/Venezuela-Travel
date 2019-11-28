@@ -1,5 +1,4 @@
 <app-nav-admin></app-nav-admin>
-
 <ng-container *ngIf="!loadingHotels && !loadingRooms; then load; else noLoad"></ng-container>
 
 <ng-template #noLoad>
@@ -8,55 +7,64 @@
 
 <ng-template #load>
 <div class="bck">
-    <div class="mask">
-        <div class="content-wrapper">
+        <div class="mask">
+            <div class="content-wrapper">
                 <div class="welcome">
                     <h1>HOTELES</h1>
                 </div>
-            <div class="title-wrap">
-                <!-- <div class="tit-cont-wrapper">
-                    <h5>HOTEL</h5>
-                </div> -->
-                <div  class="tit-cont-wrapper">
-                    <h5>NOMBRE</h5>
-                </div>
-                <div  class="tit-cont-wrapper">
-                    <h5>CRUDS</h5>
-                </div>
-            </div>
-            <div class="elementList-wrapper">
-                <div class="element-wrapper" *ngFor="let hotel of hotels; let i=index">
-                    <!-- <div class="element-cont-wrapper">
-                        <h5>{{hotel.name}}</h5>
-                    </div> -->
-                    <div class="element-cont-wrapper">
-                        <h5>{{hotel.name}}</h5>
+                <div class="title-wrap">
+                    <div  class="tit-cont-wrapper">
+                        <h5>NOMBRE</h5>
                     </div>
-                    <div class="cruds-wrapper">
-                        <div class="icon-wrapper">
-                            <button [routerLink]="['/hotel', hotel.id]">
-                                <img src="assets/img/read-icon.png">
-                            </button>
-                        </div>
-                        <div class="icon-wrapper" [routerLink]="['/admin/hotel/add', hotel.id]">
-                            <button><img src="assets/img/edit-icon.png"></button>
-                        </div>
-                        <div class="icon-wrapper">
-                            <!-- deleteState(state.id) -->
-                            <button (click)="setEnabled(hotel.id)">
-                                <img *ngIf="!hotel.available" src="assets/img/habilitate.png">
-                                <img *ngIf="hotel.available" src="assets/img/inhabilitate.png">
-                            </button>
-                        </div>
+                    <div class="tit-cont-wrapper">
+                        <h5>ESTADO</h5>
+                    </div>
+                    <div  class="tit-cont-wrapper">
+                        <h5>CRUDS</h5>
                     </div>
                 </div>
+                <div class="elementList-wrapper">
+                    <div class="element-wrapper" *ngFor="let d of hotels; let i=index">
+                        <div class="element-cont-wrapper">
+                            <h5>{{d.name | uppercase}}</h5>
+                        </div>
+                        <div class="element-cont-wrapper">
+                            <h5 *ngIf="d.available">HABILITADO</h5>
+                            <h5 *ngIf="!d.available">INHABILITADO</h5>
+                        </div>
+                        <div class="tocentericons">
+                            <div class="cruds-wrapper">
+                                <div class="icon-wrapper">
+                                    <button class="btnright" [routerLink]="['/hotel', d.id]">
+                                        <img src="assets/img/read-icon.png">
+                                    </button>
+                                </div>
+                                <div class="icon-wrapper">
+                                    <button class="btncenter" [routerLink]="['/admin/hotel/add', d.id]">
+                                        <img src="assets/img/edit-icon.png">
+                                    </button>
+                                </div>
+                                <div class="icon-wrapper">
+                                    <!-- deleteState(d.id) -->
+                                    <button class="btnleft" (click)="setEnabled(d.id)">
+                                        <img *ngIf="!d.available" src="assets/img/habilitate.png">
+                                        <img *ngIf="d.available" src="assets/img/inhabilitate.png">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add">
+                    <div class="add-read">
+                        <button routerLink="/admin/destination/add">AGREGAR HOTEL</button>
+                        <button routerLink="/admin/rooms">VER HABITACIONES</button>
+                    </div>
+                </div>
+                
             </div>
-            <div class="add">
-                <button routerLink="/admin/hotel/add">AGREGAR HOTEL</button>
-            </div>
-            
         </div>
     </div>
-</div>
 </ng-template>
 <app-footer></app-footer>
+

@@ -6,6 +6,75 @@
 
 <ng-template #load>
 <div class="bck">
+        <div class="mask">
+            <div class="content-wrapper">
+                <div class="welcome">
+                    <h1>HABITACIONES</h1>
+                </div>
+                <div class="title-wrap">
+                    <div  class="tit-cont-wrapper">
+                        <h5>NOMBRE</h5>
+                    </div>
+                    <div class="tit-cont-wrapper">
+                        <h5>ESTADO</h5>
+                    </div>
+                    <div  class="tit-cont-wrapper">
+                        <h5>CRUDS</h5>
+                    </div>
+                </div>
+                <div class="elementList-wrapper">
+                    <div class="element-wrapper" *ngFor="let d of rooms; let i=index">
+                        <div class="element-cont-wrapper">
+                            <h5>{{d.name | uppercase}}</h5>
+                        </div>
+                        <div class="element-cont-wrapper">
+                            <h5 *ngIf="d.available">HABILITADO</h5>
+                            <h5 *ngIf="!d.available">INHABILITADO</h5>
+                        </div>
+                        <div class="tocentericons">
+                            <div class="cruds-wrapper">
+                                <div class="icon-wrapper">
+                                    <button class="btnright" [routerLink]="['/hotel', d.hotel, '/rooms']">
+                                        <img src="assets/img/read-icon.png">
+                                    </button>
+                                </div>
+                                <div class="icon-wrapper">
+                                    <button class="btncenter" [routerLink]="['/admin/room/modify', d.id]">
+                                        <img src="assets/img/edit-icon.png">
+                                    </button>
+                                </div>
+                                <div class="icon-wrapper">
+                                    <!-- deleteState(d.id) setEnabled(d.id)-->
+                                    <button class="btnleft" (click)="setEnabled(d.id)">
+                                        <img *ngIf="!d.available" src="assets/img/habilitate.png">
+                                        <img *ngIf="d.available" src="assets/img/inhabilitate.png">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add">
+                    <button routerLink="/admin/room/add">AGREGAR HABITACIÓN</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</ng-template>
+<app-footer></app-footer>
+
+
+
+<!-- 
+<app-nav-admin></app-nav-admin>
+<ng-container *ngIf="!loading; then load; else noLoad"></ng-container>
+<ng-template #noLoad>
+    <app-loader></app-loader>
+</ng-template>
+
+<ng-template #load>
+<div class="bck">
     <div class="mask">
         <div class="content-wrapper">
                 <div class="welcome">
@@ -33,7 +102,7 @@
                     <div class="cruds-wrapper">
                         <div class="icon-wrapper">
                             <button>
-                                    <!-- [routerLink]="['/hotel', r.hotel, '/rooms']" -->
+                                    [routerLink]="['/hotel', r.hotel, '/rooms']"
                                 <img src="assets/img/read-icon.png">
                             </button>
                         </div>
@@ -41,7 +110,7 @@
                             <button [routerLink]="['/admin/room/modify', r.id]"><img src="assets/img/edit-icon.png"></button>
                         </div>
                         <div class="icon-wrapper">
-                            <!-- deleteState(r.id) -->
+                            deleteState(r.id)
                             <button (click)="setEnabled(r.id)">
                                 <img *ngIf="!r.available" src="assets/img/habilitate.png">
                                 <img *ngIf="r.available" src="assets/img/inhabilitate.png">
@@ -57,4 +126,4 @@
         </div>
     </div>
 </div></ng-template>
-<app-footer></app-footer>
+<app-footer></app-footer> -->

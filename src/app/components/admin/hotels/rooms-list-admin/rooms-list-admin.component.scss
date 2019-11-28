@@ -2,7 +2,7 @@
     background-position: center;
     background-image: url("../../../../../assets/img/adminhome.jpg");
     background-size: cover;
-    min-height: 85vh;
+    min-height: 75vh;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -11,7 +11,7 @@
 
 .mask{
     width: 100vw;
-    min-height: 85vh;
+    min-height: 75vh;
     background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
@@ -58,17 +58,17 @@
 
 .element-wrapper{
     display: grid;
-    grid-template-columns: 0.4fr 0.4fr 0.2fr;
+    grid-template-columns: 0.4fr 0.3fr 0.3fr;
     row-gap: 5px;
     height: 8vh;
     border-bottom: 2px white solid;
-    padding: 5px;
-    width: 70vw;
+    // padding: 5px;
+    width: 55vw;
 
 }
 
 .elementList-wrapper{
-    width: 70vw;
+    width: 55vw;
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 2px;
@@ -115,17 +115,17 @@ button{
 .content-wrapper{
     display: grid;
     grid-template-columns: 1fr;
-    width:60vw;
+    width:55vw;
     // row-gap: 4px;
 }
 .title-wrap{
     display: grid;
-    grid-template-columns: 0.4fr 0.4fr 0.2fr;
+    grid-template-columns: 0.4fr 0.3fr 0.3fr;
     row-gap: 5px;
     height: 10vh;
     border-bottom: 2px #1DA9BC solid;
     padding: 5px;
-    width: 70vw;
+    width: 55vw;
     background-color: rgba(0, 0, 0, 0.774);
 
 }
@@ -142,4 +142,11 @@ button{
         font-family: 'Staatliches', cursive;
 
     }
+}
+
+.tocentericons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // width: 14vw;
 }
