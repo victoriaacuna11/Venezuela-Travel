@@ -45,6 +45,7 @@ export class DestinationsService {
   }
 
   getDestinationById(id:string){
+<<<<<<< HEAD
    /* return this.destinations.find(destination => {
       return destination.id==id;
     })*/
@@ -56,6 +57,11 @@ export class DestinationsService {
   updateDest(dest: DestinationInterface){
     this.dDoc = this.afs.doc(`destinations/${dest.id}`);
     this.dDoc.update(dest);
+=======
+    
+return this.afs.collection<DestinationInterface>('destinations').doc<DestinationInterface>(id).snapshotChanges();
+
+>>>>>>> planeaTuViajept3
   }
 
 }
