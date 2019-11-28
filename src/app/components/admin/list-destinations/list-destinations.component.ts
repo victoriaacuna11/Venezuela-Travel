@@ -11,10 +11,12 @@ export class ListDestinationsComponent implements OnInit {
 
   destinations: DestinationInterface[];
   destination: DestinationInterface;
+  loadingDestinations: boolean;
 
   constructor(private destinationSV: DestinationsService) { }
 
   ngOnInit() {
+    this.loadingDestinations=true;
     this.getDestinations();
     
   }
@@ -27,6 +29,7 @@ export class ListDestinationsComponent implements OnInit {
             id: item.payload.doc.id,
             ...item.payload.doc.data(),
           }
+          this.loadingDestinations=false;
           return destination;
         }))
     )

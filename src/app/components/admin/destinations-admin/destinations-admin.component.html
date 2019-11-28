@@ -1,4 +1,10 @@
 <app-nav-admin></app-nav-admin>
+<ng-container *ngIf="loading; then load; else noLoad"></ng-container>
+
+<ng-template #noLoad>
+    <app-loader></app-loader>
+</ng-template>
+<ng-template #load>
 <div class="form" *ngIf="!isModify; else Mod">
     <form [formGroup]="createStateFrom" (ngSubmit)="addPost()">
         <div class="details">
@@ -64,5 +70,6 @@
             </form>
         </div>
     </ng-template>
+</ng-template>
 </ng-template>
 <app-footer></app-footer>

@@ -33,10 +33,10 @@ export class HotelsAdminComponent implements OnInit {
   }
   isModify = false;
   h: Hotel;
-  //fullArrayOfFacilities: HotelFacilitie[];
-
-
-
+  loadingStates:boolean;
+  loadingDestinations:boolean;
+  loadingHotelFacilities:boolean;
+  
   constructor(private _builder: FormBuilder, private stateSV: StatesService, private route: Router,
     private destinationSV: DestinationsService, private hotelFacilitiesSV: HotelFacilitiesService,
     private hotelSV: HotelsService, private actRoute: ActivatedRoute) {
@@ -44,11 +44,15 @@ export class HotelsAdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadingDestinations=true;
+    this.loadingHotelFacilities=true;
+    this.loadingStates=true;
 
     this.hotelFacilities = [];
     this.getDestinations();
-      this.getStates();
-      this.getHotelFacilities();
+    this.getStates();
+    this.getHotelFacilities();
+
     this.createStateFrom = this._builder.group({
       name: ['', Validators.required],
       bannerImg: ['', Validators.required],
@@ -195,6 +199,7 @@ export class HotelsAdminComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data(),
         }
+        this.loadingDestinations=false;
         return destination;
       }))
     )
@@ -208,6 +213,7 @@ export class HotelsAdminComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data(),
         }
+        this.loadingStates=false;
         return state;
       })
       ));
@@ -215,13 +221,14 @@ export class HotelsAdminComponent implements OnInit {
 
   getHotelFacilities() {
     this.hotelFacilities = this.hotelFacilitiesSV.getFacilities();
-    console.log("Pasa");
+    // console.log("Pasa");
     for (let index = 0; index < this.hotelFacilities.length; index++) {
      
       const element = this.hotelFacilities[index];
       element.selected=false;
       
     }
+    this.loadingHotelFacilities=false;
   }
 
   getSelectedHotelFacilities() {

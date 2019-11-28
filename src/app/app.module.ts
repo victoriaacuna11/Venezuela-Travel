@@ -51,6 +51,7 @@ import { RoomsAdminComponent } from './components/admin/hotels/rooms-admin/rooms
 import { HotelsListComponent } from './components/admin/hotels/hotels-list/hotels-list.component';
 import { RoomsListAdminComponent } from './components/admin/hotels/rooms-list-admin/rooms-list-admin.component';
 import { IsAvailablePipe } from './Pipes/is-available.pipe';
+import { LoaderComponent } from './components/loader/loader.component';
   
 
 const appRoutes: Routes=[
@@ -98,7 +99,8 @@ const appRoutes: Routes=[
     RoomsAdminComponent,
     HotelsListComponent,
     RoomsListAdminComponent,
-    IsAvailablePipe
+    IsAvailablePipe,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

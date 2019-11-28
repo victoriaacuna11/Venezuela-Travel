@@ -15,11 +15,16 @@ export class HotelsListComponent implements OnInit {
   hotel: Hotel;
   rooms: Room[];
   room: Room;
+  loadingHotels: boolean;
+  loadingRooms:boolean;
   constructor(private hotelSV:HotelsService, private roomSV: RoomServiceService) { }
 
   ngOnInit() {
+    this.loadingHotels=true;
+    this.loadingRooms=true;
     this.getHotels();
     this.getRooms();
+    
   }
   getHotels(){
     this.hotelSV.getHotelsCollection().subscribe(res=>(this.hotels = res.map(item=>
@@ -28,6 +33,7 @@ export class HotelsListComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data(),
         }
+        this.loadingHotels=false;
         return hotel;
       })
     ))
@@ -40,6 +46,7 @@ export class HotelsListComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data(),
         }
+        this.loadingRooms=false;
         return room;
       })
     ))
@@ -49,6 +56,7 @@ export class HotelsListComponent implements OnInit {
     this.hotelSV.deleteHotel(id);
   }
 
+  // Evalúa cuál hotel se seleccionó para deshabilitarlo.
   setEnabled(id){
     let found=false;
     let cont=0;
@@ -61,6 +69,8 @@ export class HotelsListComponent implements OnInit {
       cont=cont+1;
     }
     this.hotelSV.updateH(this.hotel);
+    //Habilita o inhabilita las habitaciones asociadas al hotel de acuerdo
+    // de si él está o no habilitado.
     this.setEnabledRooms(id);
   }
 

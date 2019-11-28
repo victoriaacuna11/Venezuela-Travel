@@ -16,18 +16,18 @@ export class DestinationsAdminComponent implements OnInit {
   createStateFrom: FormGroup;
   isModify=false;
   d: DestinationInterface;
-  loading = false;
+  loading:boolean;
 
   constructor(private _builder: FormBuilder, private destinationSV: DestinationsService, private route: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit() {
-
+    this.loading=true;
     if (this.actRoute.snapshot.paramMap.get('id') == undefined) {
-
       this.createStateFrom = this._builder.group({
         name: ['', Validators.required],
         bannerImg: ['', Validators.required]
       })
+      this.loading=false;
     }else{
 
       this.getD();
@@ -67,7 +67,6 @@ export class DestinationsAdminComponent implements OnInit {
         id: e.payload.id,
         ...e.payload.data()
       }
-
       this.d = m;
       this.loading = false;
       this.createStateFrom = this._builder.group({

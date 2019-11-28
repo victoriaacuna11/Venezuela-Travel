@@ -1,4 +1,11 @@
 <app-nav-admin></app-nav-admin>
+
+<ng-container *ngIf="!loadingDestinations; then load; else noLoad"></ng-container>
+
+<ng-template #noLoad>
+    <app-loader></app-loader>
+</ng-template>
+<ng-template #load>
 <div class="bck">
         <div class="mask">
             <div class="content-wrapper">
@@ -52,4 +59,5 @@
             </div>
         </div>
     </div>
+</ng-template>
     <app-footer></app-footer>

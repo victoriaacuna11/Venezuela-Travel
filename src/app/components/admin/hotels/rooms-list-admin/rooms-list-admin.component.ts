@@ -37,6 +37,7 @@ export class RoomsListAdminComponent implements OnInit {
   }
 
   setEnabled(id){
+
     let found=false;
     let cont=0;
     while(!found && cont<this.rooms.length){

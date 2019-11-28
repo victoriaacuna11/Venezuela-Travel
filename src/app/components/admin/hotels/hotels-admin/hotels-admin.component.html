@@ -1,4 +1,11 @@
 <app-nav-admin></app-nav-admin>
+
+<ng-container *ngIf="!loadingDestinations && !loadingStates && !loadingHotelFacilities; then load; else noLoad"></ng-container>
+
+<ng-template #noLoad>
+    <app-loader></app-loader>
+</ng-template>
+<ng-template #load>
 <div class="form" *ngIf="!isModify; else Mod">
     <div class="hotel-form">
         <form [formGroup]="createStateFrom" (ngSubmit)="addPost()">
@@ -357,5 +364,5 @@
                 </div>
             </div>
 </ng-template>
-    
+</ng-template>
 <app-footer></app-footer>
