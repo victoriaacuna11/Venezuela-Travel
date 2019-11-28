@@ -95,7 +95,7 @@ export class StatesComponent implements OnInit {
     }else{
 
       const id = this.route.snapshot.paramMap.get('id');
-      this.destination = this._dest.getDestinationById(id);
+      //this.destination = this._dest.getDestinationById(id);
 
       const nameD = this.destination.name;
 

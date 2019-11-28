@@ -50,7 +50,11 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { RoomsAdminComponent } from './components/admin/hotels/rooms-admin/rooms-admin.component';
 import { HotelsListComponent } from './components/admin/hotels/hotels-list/hotels-list.component';
 import { RoomsListAdminComponent } from './components/admin/hotels/rooms-list-admin/rooms-list-admin.component';
-  
+import { NgxPayPalModule } from 'ngx-paypal';
+import { RevisarItinerarioComponent } from './components/revisar-itinerario/revisar-itinerario.component';
+import { ItinerarioDetailsComponent } from './components/itinerario-details/itinerario-details.component';
+import { AdminReservaComponent } from './components/admin/itinerario/admin-reserva/admin-reserva.component';
+
 
 const appRoutes: Routes=[
 
@@ -96,7 +100,11 @@ const appRoutes: Routes=[
     PlaneaPaso5Component,
     RoomsAdminComponent,
     HotelsListComponent,
-    RoomsListAdminComponent
+    RoomsListAdminComponent,
+    RevisarItinerarioComponent,
+    ItinerarioDetailsComponent,
+    AdminReservaComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -113,7 +121,8 @@ const appRoutes: Routes=[
     FormsModule,
     BrowserAnimationsModule,
     MatDatepickerModule, 
-    MatMomentDateModule
+    MatMomentDateModule,
+    NgxPayPalModule
     
   ],
   providers: [],

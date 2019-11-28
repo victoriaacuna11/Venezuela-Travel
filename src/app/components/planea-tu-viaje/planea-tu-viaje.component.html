@@ -1,5 +1,12 @@
 <app-bar></app-bar>
 
+<ng-container  *ngIf="!loadingHotels && !loadingRooms  &&  !loadingDestinations && !loadingStates; then noload; else load "  ></ng-container>
+
+<ng-template #load >Loading...</ng-template>
+
+<ng-template #noload >
+
+
 <div class="container-r">
 
     <div class="data">
@@ -15,11 +22,7 @@
         
             <div class="grid-r">
                 
-<<<<<<< HEAD
                     <div class="destino" (click)="passToStep2()" >
-=======
-                    <div class="destino" >
->>>>>>> 8a28cffb43719672025eb8c9f16534e11ac7a675
                         
                     <h2>Destinos</h2>
                         <div class="desc" >
@@ -35,11 +38,7 @@
                     </div>
                  
         
-<<<<<<< HEAD
-                <div class="hotel" (click)="passToStep4()">
-=======
-                <div class="hotel" >
->>>>>>> 8a28cffb43719672025eb8c9f16534e11ac7a675
+                <div class="hotel" (click)="irHoteles()" >
                     <h2>Hoteles</h2>
         
                     <div class="desc">
@@ -72,32 +71,35 @@
             <div>espacio barra de busqueda</div>
 
              <!-- Div del if -->
-           
+                
                 <div class="for" *ngFor="let obj of destinations">
-                   
+                   <div>  <!-- nf if esta disponible -->
                         <div class="destin" [ngStyle]="{'background-image': 'url('+obj.bannerImg+')'}" (click)="selectDest(obj)" >
                             <h2>{{obj.name}}</h2>
                         </div>
                    
-
+                    </div>
                 </div>
                
 
             <div class="info-btn">
 
                 <h4>Destino seleccionado</h4>
+
+
                 <h5> {{ destinationFilter }} </h5>
 
                 
 
-                <button   >Siguiente Paso</button>
+                <button  (click)="passToStep3()" >Siguiente Paso</button>
                 
 
             </div>
         </div>
 
 
-      <!-- PASO 3----------------------------------------------------------------------------------------- -->  
+      <!-- PASO 3----------------------------------------------------------------------------------------- -->
+      <!--  -->    
        
 
         <!-- Dentro de el va el if de paso2 -->
@@ -106,15 +108,15 @@
 
             <div>espacio barra de busqueda</div>
 
-            <div class="for" *ngFor="let ob of statess">
-                
-                    <div class="if" *ngIf="filterOnDestination(ob)">
+            <div class="for" *ngFor="let ob of states">
+                     
+                 <div class="if" *ngIf="filterOnDestination(ob)">  <!-- tambien evalue si esta disponible -->
                         
                         <div class="destin" [ngStyle]="{'background-image': 'url('+ob.bannerImg+')'}"  (click)="selectState(ob)">
                             <h2>{{ob.name}}</h2>
                         </div>
 
-                    </div>
+                      </div>
 
                 </div>
 
@@ -124,7 +126,7 @@
                     <h4>Estado seleccionado</h4>
                     
                     <h5> {{ stateFilter }} </h5> 
-                    <button   >Siguiente Paso</button>
+                    <button (click)="passToStep4()" >Siguiente Paso</button>
                     
 
             </div>
@@ -133,43 +135,74 @@
     <!-- PASO 4----------------------------------------------------------------------------------------- --> 
 
         <div class="paso4" *ngIf="pasos.paso_4" >
-            <h1>Paso 4: Selecciona un Estado</h1>
+            <h1>Paso 4: Selecciona un Hotel</h1>
 
             <div>espacio barra de busqueda</div>
 
-            <div>
-                <!-- AQUI VA LO DE LOS HOTELES PERO TODAVIA NO TENGO EL SERVICIO -->
+
+
+            <div >
+                
 
                 <div class="hotelesPrueba">
 
-                    <div class="for2" *ngFor="let hotel of hotels" >
+                    <div class="for2" *ngFor="let h of hotels; let i=index" >
 
-                         <!-- *ngIf="filterOnState(los string por ahora)" -->
-                        <div class="if2">
-                            <div class="hotelInd"  (click)="selectHotel(hotel.name,hotel.state)" >
+                  
+                         
+                        <div class="if2"  *ngIf="filterOnState(h) "><!-- evalua si esta disponible -->
+                                
+                            <div class="hotelInd" (click)="selectHotel(h)" >
                             
-                                <h2>{{hotel.name}}</h2>
+                                <div class="dataHot" >
+
+                                    <div class="imagenHot" [ngStyle]="{'background-image': 'url('+h.imgPrin+')'}"></div>
+
+                                    <div class="infoHot">
+                                        <h2>{{ h.name }}</h2>
+                                        <div class="stars">
+                                            <div *ngFor="let s of stars[i] " class="starsFino">
+                                                <img src="assets/img/star.png" alt="">
+                                            </div>
+                                            
+                                        </div>
+
+                                        <div class="hservices">
+                                            <div class="hotelfino" *ngFor="let i of h.services"  tooltip="{{i.name}}" placement="top" show-delay="300">
+                                                <img [src]="i.icon" alt="">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
 
                             </div>
+                           
+                      
                         </div>
                     </div>
 
 
-                </div>
+                </div> 
 
 
-
-                
             </div>
+
+            
+
+
 
 
             <div class="info-btn">
 
                     <h4>Haz seleccionado</h4>
                    
-                   <!-- donde va el nombre del hotel seleccionado  <h5> {{ statPassed }} </h5> -->
+                     <h5> {{ hotelForShow }} </h5> 
 
-                   <button   >Siguiente Paso</button>
+                   <button  (click)="passToStep5()">Siguiente Paso</button>
                     
     
                 </div>
@@ -188,7 +221,9 @@
                     <div class="formInput" 
                     [ngClass]=" { 'hasError':reactiveForm.get('nameReserve').errors &&
                     (reactiveForm.get('nameReserve').dirty ||
-                    reactiveForm.get('nameReserve').touched )} " >
+                    reactiveForm.get('nameReserve').touched )} " 
+                    *ngIf="firstReserve"
+                    >
                     
 
                         <label for="">Nombre y Apellido</label>
@@ -196,6 +231,7 @@
                         <input type="text" id="completeName"
 
                             formControlName="nameReserve"
+                            
                         >
                         <br>
                         <span *ngIf="reactiveForm.get('nameReserve').errors &&
@@ -210,12 +246,15 @@
                     <div class="formInput"
                     [ngClass]=" { 'hasError':reactiveForm.get('email').errors &&
                     (reactiveForm.get('email').dirty ||
-                    reactiveForm.get('email').touched )} " >
+                    reactiveForm.get('email').touched )} " 
+                    *ngIf="firstReserve"
+                    >
 
                         <label for="">Direccion de correo electronico</label>
                         <br>
                         <input type="email" id="emailAddres"
                             formControlName="email"
+                            
                         >
                         <br>
                         <span *ngIf="reactiveForm.get('email').errors &&
@@ -333,14 +372,18 @@
                                     <br>
 
 
-                                         <!-- <input type="text" formControlName="roomName" id="nCuarto"> -->
+                                         <!-- <div *ngIf="isInHotel(r)" > <input type="text" formControlName="roomName" id="nCuarto"> -->
                                     
 
-                                    <select name="" id="" formControlName="roomName">
+                                    <select name="" id="" formControlName="roomName" id="nCuarto" >
                                         <option value="" selected>Elige uno..</option>
-                                        <option value="" selected  *ngFor="let r of hotels[0].rooms  "  [value]="r.roomName" >
-                                            {{r.roomName}}
+                                        
+                                        <option value="" selected  *ngFor="let r of hotelRooms  "  [value]="r.name" >
+                                            
+                                            {{r.name}}
+                                            
                                         </option>
+                                       
                                     </select>
 
 
@@ -374,8 +417,8 @@
                     <br>
                     <br>
                     <div class="info-btn"    >
-                            <button  (click)="submitHandler()"  [disabled]="!reactiveForm.valid" >Siguiente Paso</button>
-                    </div>
+                            <button  (click)="submitHandler()"   >Siguiente Paso</button>
+                    </div>          <!-- [disabled]="!reactiveForm.valid" se lo estoy quitando para que no tenga que poner el nimbre siemre -->
 
                   
 
@@ -392,7 +435,7 @@
  
         <div class="paso6"  *ngIf="pasos.paso_6">
             
-            <h1>Paso 6: </h1>
+            <h1>Paso 6: Seguir Reservando o Pagar</h1>
 
             <div class="reservaReady">
                    
@@ -405,22 +448,54 @@
            
             <div class="btn-p7">
 
-                <button id="reservarx" >Seguir Reservando</button>
-                <button  id="pagar" >Pagar</button>
+                <button id="reservarx" (click)="reserveAgain()" >Seguir Reservando</button>
+                <button  id="pagar" (click)="calcularMonto()" >Pagar</button>
 
-
+                
             </div>
+
+          
             <br>
+
+
+            
+
         </div>
+
+        <div class="paso7" *ngIf="pasos.paso_7">
+
+                <h1>Paso 7: Realice su Pago</h1>
+
+                <div class="contain-pago">
+                    <ngx-paypal [config]="payPalConfig" *ngIf="!modalShow" ></ngx-paypal>
+                </div>
+
+                
+
+        </div>
+
+        
 
 
 
 
 
         <!-- FIN DE DATA -->
-    </div>
+</div>
 </div>
 
+<div class="bg-modal" *ngIf="modalShow">
+        <div class="modal-content">
+            <div class="modal-text">
+                <h3>¡Gracias por reservar con nosotros!</h3>
+                <h4>Su codigo de itinerario de le</h4>
+                <h4>sera enviado a su e-mail.</h4>
+            </div>
 
+            <button routerLink="/">Continuar</button><!-- Te envia al home de una -->
+
+        </div>
+    </div>
 <!-- ROMEL -->
 
+</ng-template>

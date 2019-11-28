@@ -14,10 +14,7 @@ body{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://lh3.googleusercontent.com/proxy/xbj77JVLQP9SfOKBmTewS-yjAyPRgZKM2uooUtzl5Yd6anXK-ddW6QC5-tuE3xbzqDWvOnfa5MrS-eLmksizly5-X3HkVcYq0krus7aVJ40b_MEfuMPkHxCoV80=s0-d");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    
-    
-    
+    background-size: cover;   
 }
 .login{
     margin-top: 35px;
@@ -32,8 +29,9 @@ body{
 h1{
     width: 90px;
     padding-bottom:2px;
-    border-bottom: 2px solid #1da9bc;
     font-size: 35px;
+    border-bottom: 2px solid #1da9bc;
+    
 }
 img{
     height:20px;

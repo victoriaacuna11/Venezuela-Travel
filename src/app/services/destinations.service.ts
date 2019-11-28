@@ -44,9 +44,9 @@ export class DestinationsService {
   }
 
   getDestinationById(id:string){
-    return this.destinations.find(destination => {
-      return destination.id==id;
-    })
+    
+return this.afs.collection<DestinationInterface>('destinations').doc<DestinationInterface>(id).snapshotChanges();
+
   }
 
 }

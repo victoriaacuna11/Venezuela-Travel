@@ -230,34 +230,69 @@ h1{
 .hotelesPrueba{
     display: flex;
     width: 70vw;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    
+    align-items: center;
+    flex-direction: column;
 }
 
-.for2{
 
-    width: 30vw;
-    display: flex;
-    height: 30vh;
-    background: #425355;
-    margin-bottom: 30px;
-    margin-top: 10px;
-   
-}
 .if2{
 
-    width: 30vw;
+    width: 60vw;
     display: flex;
-    height: 30vh;
-    background: #425355;
-    margin-bottom: 30px;
-    margin-top: 10px;
+    justify-content: center;
+    
    
 }
 .hotelInd{
-    width: 30vw;
-    height: 30vh;
+    width: 55vw;
+    height: 50vh;
+    background: #18789e;
+    margin-bottom: 20px;
+    color: white;
+    border-radius: 5px;
+    transition:0.5s;
 
+}
+.hotelInd:hover{
+
+    transition:0.5s;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.5); 
+
+}
+.imagenHot{
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    height: 40vh;
+    width: 20vw;
+    margin-top: 5vh;
+}
+.infoHot{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.paso4 img{
+    height: 25px;
+}
+.stars{
+    display: flex;
+}
+.hservices{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap:5px ;
+    row-gap: 5px;
+}
+ 
+.dataHot{
+    display: flex;
+    justify-content: space-around;
 }
 .paso4 h2{
 
@@ -369,7 +404,7 @@ button:hover{
 .cuartos{
     display:flex;
     justify-content: space-between;
-    width: 45vw;
+    width: 40vw;
 }
 .btnRoom img{
     
@@ -382,7 +417,63 @@ button:hover{
     margin-top: 20px;
     
 }
+
 .p5btns{
     display: flex;
     
 }
+
+
+
+/* ---------------------Paso 7----PAGAR------------------------------*/
+
+.contain-pago{
+    height: 60vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:70vw;
+}
+
+
+/* ---------------------MODAL------------------------------*/
+
+
+.bg-modal{
+
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+
+    position: absolute;
+    top:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-content{
+
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: #f5f1eb;
+}
+.modal-text{
+
+display: flex;
+align-items: center;
+flex-direction: column;
+color:#1da9bc
+
+}
+
+
+
+
+
