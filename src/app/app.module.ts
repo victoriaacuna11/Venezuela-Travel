@@ -106,14 +106,11 @@ const appRoutes: Routes=[
     RoomsAdminComponent,
     HotelsListComponent,
     RoomsListAdminComponent,
-<<<<<<< HEAD
-    IsAvailablePipe
-=======
+    IsAvailablePipe,
     RevisarItinerarioComponent,
     ItinerarioDetailsComponent,
     AdminReservaComponent,
     
->>>>>>> planeaTuViajept3
   ],
   imports: [
     BrowserModule,
