@@ -42,6 +42,8 @@ export class StatesComponent implements OnInit {
       //this.destination = this._dest.getDestinationById(id);
 
       //const nameD = this.destination.name;
+      const id = this.route.snapshot.paramMap.get('id');
+      //this.destination = this._dest.getDestinationById(id);
 
       this.getStates2();
 

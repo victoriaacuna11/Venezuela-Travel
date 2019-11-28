@@ -53,6 +53,11 @@ import { RoomsListAdminComponent } from './components/admin/hotels/rooms-list-ad
 import { IsAvailablePipe } from './Pipes/is-available.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
   
+import { NgxPayPalModule } from 'ngx-paypal';
+import { RevisarItinerarioComponent } from './components/revisar-itinerario/revisar-itinerario.component';
+import { ItinerarioDetailsComponent } from './components/itinerario-details/itinerario-details.component';
+import { AdminReservaComponent } from './components/admin/itinerario/admin-reserva/admin-reserva.component';
+
 
 const appRoutes: Routes=[
 
@@ -100,7 +105,11 @@ const appRoutes: Routes=[
     HotelsListComponent,
     RoomsListAdminComponent,
     IsAvailablePipe,
-    LoaderComponent
+    LoaderComponent,
+    RevisarItinerarioComponent,
+    ItinerarioDetailsComponent,
+    AdminReservaComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -117,7 +126,8 @@ const appRoutes: Routes=[
     FormsModule,
     BrowserAnimationsModule,
     MatDatepickerModule, 
-    MatMomentDateModule
+    MatMomentDateModule,
+    NgxPayPalModule
     
   ],
   providers: [],

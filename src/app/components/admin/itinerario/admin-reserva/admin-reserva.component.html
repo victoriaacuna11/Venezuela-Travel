@@ -1,0 +1,194 @@
+<app-nav-admin></app-nav-admin>
+<ng-container *ngIf="!loadingHotels && !loadingRooms && !loadingReserve; then load; else noLoad"></ng-container>
+
+<ng-template #noLoad>Loading...</ng-template>
+
+<ng-template #load>
+        <div class="form">
+                <form [formGroup]="createStateFrom" (ngSubmit)="addPost()">
+                    <div class="details">
+                        <div class="title-add">
+                            <h1>MODIFICAR RESERVA</h1>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                NÚMERO DE PERSONAS
+                            </div> 
+                            <div class="wrapper">
+                                <input formControlName="numberOfPeople" type="number" min="1" max="30"/>
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                COSTO
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="cost" type="number" min="0"/>
+                            </div>
+                        </div>
+
+                        <!-- FECHAS -->
+
+                        <div class="button">
+                            <button (click)="changeHotel()">MODIFICAR HOTEL</button>
+                        </div>
+                        
+                        <div *ngIf="modifyHotel" class="detail-wrapper">
+                            <div class="wrapper">
+                                HOTEL
+                            </div>
+                            <div class="wrapper">
+                                    <select formControlName="hotel">
+                                            <option selected>Elige uno...</option>
+                                        <option selected *ngFor="let hotel of hotels" [value]="hotel.id">
+                                            {{hotel.name | uppercase}}
+                                        </option>
+                                    </select>
+                            </div>
+                        </div>
+                        <div *ngIf="modifyHotel" class="button">
+                            <button (click)="newHotel()">GUARDAR HOTEL</button>
+                        </div>
+
+
+                        <div *ngIf="!modifyHotel" class="button">
+                            <button (click)="changeRoom()">MODIFICAR HABITACIÓN</button>
+                        </div>
+
+                        <div *ngIf="modifyHotel || modifyRoom" class="detail-wrapper">
+                            <div class="wrapper">
+                                HABITACIONES
+                            </div>
+                            <!-- VECTOR DE HABS -->
+
+                            <div class="wrapper">
+                                    <select formControlName="roomName">
+                                            <option selected>Elige una...</option>
+                                        <option selected *ngFor="let room of hotelRooms" [value]="room.id">
+                                            {{room.name | uppercase}}
+                                        </option>
+                                    </select>
+                            </div>
+                            <div class="detail-wrapper">
+                                <div class="wrapper">
+                                    CANTIDAD DE PERSONAS
+                                </div>
+                                <div class="wrapper">
+                                    <input formControlName="roomCant" type="number" min="0" max="10"/>
+                                </div>
+                            </div>
+
+
+                            <div class="button">
+                                <button (click)="changeHotel()">MODIFICAR HOTEL</button>
+                            </div>
+                        </div>
+
+
+
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                CULTURA
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="culture" type="text" />
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                ACTIVIDADES RECREATIVAS
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="recreativeActs" type="text" />
+                            </div>
+                        </div>
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                HOTELES PRINCIPALES
+                            </div>
+                            <div class="wrapper">
+                                <input formControlName="mainHotels" type="text" placeholder="Mencione hoteles principales"/>
+                            </div>
+                        </div>
+                        <div class="array-wrapper" formArrayName="imgs">
+                            <div class="detail-wrapper-array" >
+                                <div class="wrapper">
+                                    IMÁGENES
+                                </div>
+                                <div class="flex-div">
+                                    <div class="center-content">
+                                        <div class="array-content-wrapper" *ngFor="let group of imgsArray.controls; let i=index" [formGroupName]="i">
+                                            <div>
+                                                <input formControlName="imgPath" type="text" 
+                                                placeholder="Link de la imagen" class="input-imgs"/>
+                                            </div>
+                                            <div class="add-icons">
+                                                <div class="crud-icon-wrapper">
+                                                    <img class="crud-icon" src="assets/img/add-icon.png" alt="Agregar" (click)="addImg()">
+                                                </div>
+                                                <div class="crud-icon-wrapper" *ngIf="i!=0">
+                                                    <img class="crud-icon" src="assets/img/delete-icon.png" alt="Agregar" (click)="removeImg(i)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                </div>
+                            </div>
+                        </div>
+                        <div class="array-wrapper" formArrayName="touristDestinations">
+                                <div class="detail-wrapper-array" >
+                                    <div class="wrapper">
+                                        DESTINOS TURÍSTICOS
+                                    </div>
+                                    <div class="flex-div">
+                                        <div class="center-content">
+                                            <div class="array-content-wrapper" *ngFor="let group of touristDestinationsArray.controls; let i=index" [formGroupName]="i">
+                                                <div>
+            
+                                                    <select formControlName="name">
+                                                            <option selected>Elige uno...</option>
+                                                        <option selected *ngFor="let item of TD" [value]="item.name">
+                                                            {{item.name | uppercase}}
+                                                        </option>
+                                                    </select>
+            
+                                                    <!-- <input formControlName="name" type="text" 
+                                                    placeholder="Nombre destino turístico" class="input-imgs"/> -->
+                                                </div>
+                                                <div class="add-icons">
+                                                    <div class="crud-icon-wrapper">
+                                                        <img class="crud-icon" src="assets/img/add-icon.png" alt="Agregar" (click)="addTouristDestination()">
+                                                    </div>
+                                                    <div class="crud-icon-wrapper" *ngIf="i!=0">
+                                                        <img class="crud-icon" src="assets/img/delete-icon.png" alt="Agregar" (click)="removeTouristDestination(i)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        <div class="detail-wrapper">
+                            <div class="wrapper">
+                                DESTINO (CATEGORÍA)
+                            </div>
+                            <div class="select-wrapper" >
+                                <select formControlName="destination">
+                                        <option selected>Elige uno...</option>
+                                    <option selected *ngFor="let item of destinations" [value]="item.name">
+                                        {{item.name | uppercase}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <button [disabled]="!createStateFrom.valid" type="submit">CREAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+</ng-template>
+<app-footer></app-footer>
