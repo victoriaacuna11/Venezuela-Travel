@@ -33,6 +33,7 @@ export class RoomsAdminComponent implements OnInit {
     
     this.isModify = false;
     this.loading=false;
+    this.roomServices = [];
     // this.getRoomServices();
     // this.getHotels();
 
@@ -54,12 +55,14 @@ export class RoomsAdminComponent implements OnInit {
       this.getHotels();
       this.isModify=true;
       const id = this.ActRouter.snapshot.paramMap.get('id');
+
       this.RoomServicesSV.getRoomById(id).subscribe(a => {
         const room: Room = {
           id: a.payload.id,
           ...a.payload.data(),
         }
         this.actualRoom=room;
+        this.fillCheckboxes(this.actualRoom.services, this.roomServices);
         this.createStateFrom.patchValue({
           name: this.actualRoom.name,
           hotel: this.actualRoom.hotel,
@@ -72,9 +75,25 @@ export class RoomsAdminComponent implements OnInit {
         this.createStateFrom.setControl('imgs', this.setImgs(this.actualRoom.imgs));
       })
     }
-    
-    
+  }
 
+  fillCheckboxes(arrayRoom: RoomService[], fullArray: RoomService[]){
+
+    for (let index1 = 0; index1 < arrayRoom.length; index1++) {
+
+      let roomServ = arrayRoom[index1];
+
+      for (let index2 = 0; index2 < fullArray.length; index2++) {
+
+        let fullServ = fullArray[index2];
+        
+        if(fullServ.name == roomServ.name){
+          fullServ.selected = true;
+          console.log("iguales: " +roomServ.name + "|" + fullServ.name);
+          break;
+        }           
+      } 
+    }
   }
 
   getHotels(){
@@ -132,6 +151,13 @@ export class RoomsAdminComponent implements OnInit {
 
   getRoomServices(){
     this.roomServices=this.RoomServicesSV.getFacilities();
+    console.log("Pasa");
+    for (let index = 0; index < this.roomServices.length; index++) {
+     
+      const element = this.roomServices[index];
+      element.selected=false;
+      
+    }
   }
 
   getSelectedRoomServices(){
@@ -145,6 +171,17 @@ export class RoomsAdminComponent implements OnInit {
     this.roomServiceError = this.selectedRoomServices.length > 0 ? false : true;
   }
 
+  getSelectedServices(){
+    let array = [];
+    for (let index = 0; index < this.roomServices.length; index++) {
+      const element = this.roomServices[index];
+      if(element.selected){
+        array.push(element);
+      }    
+    }
+    return array;
+  }
+
   addPost(){
     console.log("addPost")
     const mov: Room  = {
@@ -154,7 +191,7 @@ export class RoomsAdminComponent implements OnInit {
       views: this.createStateFrom.value.views,
       price: this.createStateFrom.value.price,
       hotel: this.createStateFrom.value.hotel,
-      services: this.selectedRoomServices,
+      services: this.getSelectedServices(),
       available: true,
     }
     // console.log(this.selectedHotelFacilities.values);
@@ -167,9 +204,9 @@ export class RoomsAdminComponent implements OnInit {
     this.actualRoom.hotel= this.createStateFrom.value.hotel;
     this.actualRoom.capacity= this.createStateFrom.value.capacity;
     this.actualRoom.available= this.actualRoom.available;
-    // this.actualRoom.services= this.createStateFrom.value.activities;
-    this.actualRoom.price= this.createStateFrom.value.latitude;
-    // this.actualRoom.imgs= this.createStateFrom.value.longitude;
+    this.actualRoom.services= this.getSelectedServices();
+    this.actualRoom.price= this.createStateFrom.value.price;
+    this.actualRoom.imgs= this.createStateFrom.value.imgs;
 
     this.RoomServicesSV.updateRoom(this.actualRoom);
     this.route.navigate(['/admin/rooms']);

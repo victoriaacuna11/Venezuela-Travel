@@ -8,7 +8,7 @@
 </ng-template>
 <ng-template #load>
         <!-- *ngIf="!isModify; else mod" -->
-<div class="form">
+<div class="form" *ngIf="!isModify; else mod">
     <form [formGroup]="createStateFrom" (ngSubmit)="addPost()">
         <div class="details">
 
@@ -91,14 +91,12 @@
                     SERVICIOS
                 </div>
                 <div class="checkbox">
-                    <div class="cb-item" *ngFor="let control of servicesArray.controls; let i = index">
+                    <div class="cb-item" *ngFor="let control of roomServices; let i = index">
                         <td class="input-cb">
-                            <input (change)="getSelectedRoomServices()"
-                            type="checkbox" [formControl]="control" id="inlineCheckBox{{i}}">
-                        </td> 
-                        <!-- <div class="facility"> -->
-                            <label for="inlineCheckBox{{i}}">{{roomServices[i].name}}</label>
-                        <!-- </div>  -->
+                            <input [(ngModel)] = 'control.selected'
+                            type="checkbox" [ngModelOptions]="{standalone: true}">
+                            <label>{{control.name}}</label>
+                        </td>     
                     </div>
                 </div>
                 <small class="errorMessage" *ngIf="roomServiceError && checkboxServiceTouched()">
@@ -111,7 +109,7 @@
         </div>
     </form>
 </div>
-<!-- <ng-template #mod>
+ <ng-template #mod>
 <div class="form">
     <form [formGroup]="createStateFrom" (ngSubmit)="updatePost()">
         <div class="details">
@@ -195,14 +193,12 @@
                     SERVICIOS
                 </div>
                 <div class="checkbox">
-                    <div class="cb-item" *ngFor="let control of servicesArray.controls; let i = index">
+                    <div class="cb-item" *ngFor="let control of roomServices; let i = index">
                         <td class="input-cb">
-                            <input (change)="getSelectedRoomServices()"
-                            type="checkbox" [formControl]="control" id="inlineCheckBox{{i}}">
-                        </td> 
-                        
-                            <label for="inlineCheckBox{{i}}">{{roomServices[i].name}}</label>
-                        
+                            <input [(ngModel)] = 'control.selected'
+                            type="checkbox" [ngModelOptions]="{standalone: true}">
+                            <label>{{control.name}}</label>
+                        </td>     
                     </div>
                 </div>
                 <small class="errorMessage" *ngIf="roomServiceError && checkboxServiceTouched()">
@@ -216,7 +212,7 @@
     </form>
 
 </div>
-</ng-template> -->
+</ng-template> 
 
 </ng-template>
 <app-footer></app-footer>

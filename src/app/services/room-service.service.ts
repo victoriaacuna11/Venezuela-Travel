@@ -27,42 +27,50 @@ export class RoomServiceService {
   cajaFuerte:RoomService={
     "name":"Caja fuerte",
     "available": true,
-    "icon": "assets/img/cajaFuerte.png"
+    "icon": "assets/img/cajaFuerte.png",
+    "selected": false
   }
   phone:RoomService={
     "name":"Teléfono",
     "available": true,
-    "icon": "assets/img/phone.png"
+    "icon": "assets/img/phone.png",
+    "selected": false
   }
   sofaCama:RoomService={
     "name":"Sofa Cama",
     "available": true,
-    "icon": "assets/img/sofaCama.png"
+    "icon": "assets/img/sofaCama.png",
+    "selected": false
   }
   wifi:RoomService={
     "name": "Wifi",
     "available":true,
-    "icon":"assets/img/wifi.png"
+    "icon":"assets/img/wifi.png",
+    "selected": false
   }
   tv:RoomService={
     "name":"TV",
     "available":true,
-    "icon": "assets/img/tv.png"
+    "icon": "assets/img/tv.png",
+    "selected": false
   }
   airConditioner:RoomService={
     "name":"Aire acondicionado",
     "available":true,
-    "icon": "assets/img/airconditioner.png"
+    "icon": "assets/img/airconditioner.png",
+    "selected": false
   }
   kitchen:RoomService={
     "name":"Cocina",
     "available":true,
-    "icon": "assets/img/kitchen.png"
+    "icon": "assets/img/kitchen.png",
+    "selected": false
   }
   wardrobe:RoomService={
     "name":"Armario",
     "available": true,
-    "icon": "assets/img/wardrobe.png"
+    "icon": "assets/img/wardrobe.png",
+    "selected": false
   }
 
   getFacilities(){

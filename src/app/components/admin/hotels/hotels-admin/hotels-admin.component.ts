@@ -33,7 +33,7 @@ export class HotelsAdminComponent implements OnInit {
   }
   isModify = false;
   h: Hotel;
-  fullArrayOfFacilities: HotelFacilitie[];
+  //fullArrayOfFacilities: HotelFacilitie[];
 
 
 
@@ -73,7 +73,7 @@ export class HotelsAdminComponent implements OnInit {
       this.isModify = true;
       this.getDestinations();
       this.getStates();
-      this.fullArrayOfFacilities = this.hotelFacilitiesSV.getFacilities();
+      //this.fullArrayOfFacilities = this.hotelFacilitiesSV.getFacilities();
       
       const id = this.actRoute.snapshot.paramMap.get('id');
 
@@ -156,20 +156,6 @@ export class HotelsAdminComponent implements OnInit {
     return formArray;
   }
 
-  setCB(checkBox: any[]): FormArray{
-    const formArray = new FormArray([]);
-    checkBox.forEach(e => {
-      formArray.push(
-        this._builder.group({
-          imgPath: e.imgPath,
-        })
-      );
-    })
-    return formArray;
-
-  }
-
-
   addServicesControls() {
     const arr = this.hotelFacilities.map(element => {
 
@@ -194,8 +180,6 @@ export class HotelsAdminComponent implements OnInit {
     return this.createStateFrom.get('services') as FormArray;
   }
 
-
-
   addImg() {
     this.imgsArray.push(this.addImgGroup());
   }
@@ -215,6 +199,7 @@ export class HotelsAdminComponent implements OnInit {
       }))
     )
   }
+
   getStates() {
     this.stateSV
       .getStatesCollection()
@@ -250,10 +235,6 @@ export class HotelsAdminComponent implements OnInit {
     this.hotelFacilitiesError = this.selectedHotelFacilities.length > 0 ? false : true;
   }
 
-  getSelectedHotelFacilities2(){
-    
-  }
-
   checkboxServiceTouched() {
     let flg = false;
     this.servicesArray.controls.forEach(control => {
@@ -270,7 +251,7 @@ export class HotelsAdminComponent implements OnInit {
     this.h.bannerImg= this.createStateFrom.value.bannerImg;
     this.h.description= this.createStateFrom.value.description;
     this.h.imgPrin= this.createStateFrom.value.imgPrin;
-    //this.h.imgs= this.createStateFrom.value.imgs;
+    this.h.imgs= this.createStateFrom.value.imgs;
     this.h.stars= this.createStateFrom.value.stars;
     this.h.latitude= this.createStateFrom.value.latitude;
     this.h.longitude= this.createStateFrom.value.longitude;
