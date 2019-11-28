@@ -33,6 +33,9 @@ export class HotelsAdminComponent implements OnInit {
   }
   isModify = false;
   h: Hotel;
+  fullArrayOfFacilities: HotelFacilitie[];
+
+
 
   constructor(private _builder: FormBuilder, private stateSV: StatesService, private route: Router,
     private destinationSV: DestinationsService, private hotelFacilitiesSV: HotelFacilitiesService,
@@ -42,6 +45,7 @@ export class HotelsAdminComponent implements OnInit {
 
   ngOnInit() {
 
+    this.hotelFacilities = [];
     this.getDestinations();
       this.getStates();
       this.getHotelFacilities();
@@ -69,6 +73,7 @@ export class HotelsAdminComponent implements OnInit {
       this.isModify = true;
       this.getDestinations();
       this.getStates();
+      this.fullArrayOfFacilities = this.hotelFacilitiesSV.getFacilities();
       
       const id = this.actRoute.snapshot.paramMap.get('id');
 
@@ -79,6 +84,8 @@ export class HotelsAdminComponent implements OnInit {
         }
 
         this.h = m;
+        console.log(this.h);
+        this.fillCheckboxes(this.h.services, this.hotelFacilities);
 
         this.createStateFrom.patchValue({
           name: this.h.name,
@@ -92,7 +99,7 @@ export class HotelsAdminComponent implements OnInit {
           state: this.h.state,
           city: this.h.city,
           fullDayPrice: this.h.fullday.price,
-          //services: this.addServicesControls(),
+          //services: this.addServicesControls2(this.h.services),
         })
 
         this.createStateFrom.setControl('imgs', this.setImgs(this.h.imgs));
@@ -104,6 +111,39 @@ export class HotelsAdminComponent implements OnInit {
 
   }
 
+  fillCheckboxes(arrayHotel: HotelFacilitie[], fullArray: HotelFacilitie[]){
+
+    for (let index1 = 0; index1 < arrayHotel.length; index1++) {
+
+      let hotelServ = arrayHotel[index1];
+
+      for (let index2 = 0; index2 < fullArray.length; index2++) {
+
+        let fullServ = fullArray[index2];
+        
+        if(fullServ.name == hotelServ.name){
+          fullServ.selected = true;
+          console.log("iguales: " +hotelServ.name + "|" + fullServ.name);
+          break;
+        }
+                
+      }
+      
+      
+    }
+    
+  }
+
+  /*addServicesControls2(faci: HotelFacilitie[]) {
+
+    const arr = this.hotelFacilities.map(element => {
+      
+      return this._builder.control(false);
+    }
+    )
+    return this._builder.array(arr);
+  }*/
+
   setImgs(imgSet: any[]): FormArray{
     const formArray = new FormArray([]);
     imgSet.forEach(e => {
@@ -113,7 +153,18 @@ export class HotelsAdminComponent implements OnInit {
         })
       );
     })
+    return formArray;
+  }
 
+  setCB(checkBox: any[]): FormArray{
+    const formArray = new FormArray([]);
+    checkBox.forEach(e => {
+      formArray.push(
+        this._builder.group({
+          imgPath: e.imgPath,
+        })
+      );
+    })
     return formArray;
 
   }
@@ -121,6 +172,7 @@ export class HotelsAdminComponent implements OnInit {
 
   addServicesControls() {
     const arr = this.hotelFacilities.map(element => {
+
       return this._builder.control(false);
     }
     )
@@ -178,6 +230,13 @@ export class HotelsAdminComponent implements OnInit {
 
   getHotelFacilities() {
     this.hotelFacilities = this.hotelFacilitiesSV.getFacilities();
+    console.log("Pasa");
+    for (let index = 0; index < this.hotelFacilities.length; index++) {
+     
+      const element = this.hotelFacilities[index];
+      element.selected=false;
+      
+    }
   }
 
   getSelectedHotelFacilities() {
@@ -218,7 +277,7 @@ export class HotelsAdminComponent implements OnInit {
     this.h.direction= this.createStateFrom.value.direction;
     this.h.state= this.createStateFrom.value.state;
     this.h.city= this.createStateFrom.value.city;
-    //this.h.services= this.selectedHotelFacilities;
+    this.h.services= this.getSelectedServices();
     this.h.fullday= this.fullDay;
     this.h.nrBusquedas= this.h.nrBusquedas;
     this.h.nrVentas= this.h.nrVentas;
@@ -227,6 +286,19 @@ export class HotelsAdminComponent implements OnInit {
     this.hotelSV.updateH(this.h);
     this.route.navigate(['admin/rooms']);
 
+  }
+
+  getSelectedServices(){
+    let array = [];
+    for (let index = 0; index < this.hotelFacilities.length; index++) {
+      const element = this.hotelFacilities[index];
+      if(element.selected){
+        array.push(element);
+      }
+      
+    }
+
+    return array;
   }
 
   addPost() {
@@ -242,7 +314,7 @@ export class HotelsAdminComponent implements OnInit {
       direction: this.createStateFrom.value.direction,
       state: this.createStateFrom.value.state,
       city: this.createStateFrom.value.city,
-      services: this.selectedHotelFacilities,
+      services: this.getSelectedServices(),
       fullday: this.fullDay,
       nrBusquedas: 0,
       nrVentas: 0,
@@ -250,6 +322,7 @@ export class HotelsAdminComponent implements OnInit {
     }
     // console.log(this.selectedHotelFacilities.values);
     this.hotelSV.addHotel(mov);
+
     this.route.navigate(['/admin/room/add']);
   }
 
