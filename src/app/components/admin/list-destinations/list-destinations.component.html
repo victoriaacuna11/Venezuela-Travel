@@ -36,8 +36,11 @@
                                 </button>
                             </div>
                             <div class="icon-wrapper">
-                                <button (click)="deleteDestination(d.id)"><img src="assets/img/delete-icon.png"></button>
-    
+                                <!-- deleteState(d.id) -->
+                                <button (click)="setEnabled(d.id)">
+                                    <img *ngIf="!d.available" src="assets/img/habilitate.png">
+                                    <img *ngIf="d.available" src="assets/img/inhabilitate.png">
+                                </button>
                             </div>
                         </div>
                     </div>

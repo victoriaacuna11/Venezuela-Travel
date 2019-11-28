@@ -10,6 +10,7 @@ import { DestinationsService } from 'src/app/services/destinations.service';
 export class ListDestinationsComponent implements OnInit {
 
   destinations: DestinationInterface[];
+  destination: DestinationInterface;
 
   constructor(private destinationSV: DestinationsService) { }
 
@@ -34,4 +35,20 @@ export class ListDestinationsComponent implements OnInit {
   deleteDestination(id){
     this.destinationSV.deleteDestination(id);
   }
+
+  setEnabled(id){
+    let found=false;
+    let cont=0;
+    while(!found && cont<this.destinations.length){
+      if(this.destinations[cont].id===id){
+        found=true;
+        this.destinations[cont].available=!this.destinations[cont].available;
+        this.destination = this.destinations[cont];
+      }
+      cont=cont+1;
+    }
+    console.log(this.destination);
+    this.destinationSV.updateDest(this.destination);
+  }
+
 }
