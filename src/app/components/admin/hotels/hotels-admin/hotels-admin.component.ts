@@ -88,6 +88,15 @@ export class HotelsAdminComponent implements OnInit {
         }
 
         this.h = m;
+
+        if(this.h.fullday.available){
+          this.hasFullDay = true;
+        }else{
+          this.hasFullDay = false;
+        }
+
+        console.log(this.hasFullDay);
+        
         console.log(this.h);
         this.fillCheckboxes(this.h.services, this.hotelFacilities);
 
@@ -290,6 +299,9 @@ export class HotelsAdminComponent implements OnInit {
   }
 
   addPost() {
+    if(this.fullDay.price===0){
+      this.fullDay.available=false;
+    }
     const mov: Hotel = {
       name: this.createStateFrom.value.name,
       bannerImg: this.createStateFrom.value.bannerImg,
@@ -303,6 +315,7 @@ export class HotelsAdminComponent implements OnInit {
       state: this.createStateFrom.value.state,
       city: this.createStateFrom.value.city,
       services: this.getSelectedServices(),
+
       fullday: this.fullDay,
       nrBusquedas: 0,
       nrVentas: 0,

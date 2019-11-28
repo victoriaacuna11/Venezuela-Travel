@@ -79,6 +79,10 @@ export class HotelsService {
     return this.afs.collection<Hotel>('hotels').doc<Hotel>(id).snapshotChanges();
   }
 
+  getHotelsByState(stateId: string){
+    return this.afs.collection<Hotel>('hotels').ref.where('state', '==', stateId).get();
+  }
+
   updateH(h: Hotel){
 
     this.dDoc = this.afs.doc(`hotels/${h.id}`);

@@ -27,14 +27,25 @@
 }
 
 .iconOrder{   
+    margin: auto;
     display: grid;
     position: relative;
-    grid-template-columns: 12% 12% 12% 12%;
+    grid-template-columns: 12% 12% 12% 12% 12% 12%;
     grid-template-rows: 1fr 1fr;
     column-gap: 10px;
     row-gap: 5px;
     justify-items: center;
  
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: white;
 }
 
 .wrapperH{
@@ -71,6 +82,7 @@
     width: 100px;
     border: none;
     text-decoration: none; 
+    color: black;
     
 }
 
@@ -78,11 +90,20 @@
     transition: 0.4s;
     cursor: pointer;
     background-color:#1DA9BC; 
+    color: white;
 }
 
 .miniWrapper{
     display: grid;
-    grid-template-columns: 1fr 0.7fr;
+    grid-template-columns: 1fr;
+
+}
+
+.center{
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
 
 }
 
