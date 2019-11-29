@@ -1,3 +1,4 @@
+@import '../../../../styles.scss';
 .container{
     width: 100vw;
     height: 45vh;
@@ -78,19 +79,6 @@
     height: 85%;
     width: 85%;
 }
-// #img1{
-//     left: 7%;
-//     background-image: url(../../../../../img/img1-1-hp.jpg);
-// }
-// #img2{
-//     background-image: url(../../../../../img/img2-1-hp.jpg);
-// }
-// #img3{
-//     background-image: url(../../../../../img/img3-1-hp.jpg);
-// }
-// #img4{
-//     background-image: url(../../../../../img/img2-1-hp.jpg);
-// }
 
 .text-wrapper{
     height: 100%;
@@ -108,7 +96,7 @@
     height: 40%;
     width: 100%;
     color: #E3DED5;
-    font-family: Impact;
+    font-family: var(--main-title-font);
     font-size: 30px;
     
 }
@@ -120,7 +108,7 @@
     height: 60%;
     width: 100%;
     font-size: 22px;
-    font-family: Helvetica;
+    font-family: var(--secondary-font-family);
     color: #E3DED5;
     div{
         height: 100%;

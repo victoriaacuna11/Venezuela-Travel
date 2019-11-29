@@ -1,9 +1,11 @@
 <app-bar></app-bar>
 
-<!--<ng-container *ngIf="!loading; then NoLoader; else loader"></ng-container>-->
-<!--<ng-template #loader>gfhgfdhgf</ng-template>-->
+<ng-container *ngIf="!loading; then load; else noLoad"></ng-container>
+<ng-template #noLoad>
+        <app-loader></app-loader>
+</ng-template>
 
-<!--<ng-template #NoLoader>-->
+<ng-template #load> 
 
 <app-banner-img title="Estados" img="assets/img/states.jpg"></app-banner-img>
 <br>
@@ -55,6 +57,23 @@
 
 </div>
 <br>
-
+</ng-template>
 <!--</ng-template>-->
 <app-footer></app-footer>
+<!-- <div class="blank">
+
+</div>
+
+</ng-template>
+<app-footer></app-footer>
+
+
+<div *ngFor="let state of states">           
+   <div class="container"  *ngIf="isDestiny(state.destinations) || filtro==null" >
+           <div class="sta"  >
+                   <div class="image" [ngStyle]="{'background-image': 'url('+state.bannerImg+')'}" >
+                   </div>
+                   <h1> {{ state.name }} </h1>
+           </div>
+   </div>
+</div>  -->

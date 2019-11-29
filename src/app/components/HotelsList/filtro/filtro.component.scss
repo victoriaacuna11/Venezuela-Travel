@@ -1,3 +1,4 @@
+@import '../../../../styles.scss';
 body{
     width: 100%;
     overflow-x: hidden;
@@ -35,7 +36,7 @@ body{
 }
 
 .individualx{
-    font-family: 'Roboto Condensed', cursive;
+    font-family: var(--secondary-font-family);
     position: relative;
     z-index: 100;
     width: 300px;

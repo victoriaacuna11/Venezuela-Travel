@@ -11,11 +11,13 @@ import { DestinationsService } from 'src/app/services/destinations.service';
 export class DestinationsComponent implements OnInit {
 
   destinations: DestinationInterface[];
+  loadingDestinations:boolean;
 
   constructor(private router: Router, private destinationSV: DestinationsService,
     private routeSV: ActivatedRoute) { }
 
   ngOnInit() {
+    this.loadingDestinations=true;
     this.getDestinations();
   }
 
@@ -31,21 +33,11 @@ export class DestinationsComponent implements OnInit {
             visits: item.payload.doc.get('visits'),
             available: item.payload.doc.get('available')
           }
+          this.loadingDestinations=false;
           return destination;
         }))
     )
   }
 
-  // ngOnInit() {
-  //   this.destinationSV.getDestinations()
-  //    .subscribe(result => {
-  //      this.items = result;
-  //    })
-  //  }
-
-    // onSelect(destinoPrueba:string){
-    //   console.log(destinoPrueba);
-    //   this.router.navigate(['/estados', destinoPrueba])
-    // }
 
 }

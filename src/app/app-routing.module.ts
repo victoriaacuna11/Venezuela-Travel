@@ -27,6 +27,8 @@ import { RoomsListAdminComponent } from './components/admin/hotels/rooms-list-ad
 import { RevisarItinerarioComponent } from './components/revisar-itinerario/revisar-itinerario.component';
 import { ItinerarioDetailsComponent } from './components/itinerario-details/itinerario-details.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AdminReservaComponent } from './components/admin/itinerario/admin-reserva/admin-reserva.component';
+import { ReserveListComponent } from './components/admin/itinerario/reserve-list/reserve-list.component';
 
 
 const routes: Routes = [
@@ -64,6 +66,8 @@ const routes: Routes = [
   {path: 'admin/room/modify/:id', component: RoomsAdminComponent},
   {path: 'revisarItinerario', component: RevisarItinerarioComponent},
   {path: 'revisarItinerario/:id', component: ItinerarioDetailsComponent},
+  {path: 'admin/reserve/modify/:id', component: AdminReservaComponent},
+  {path: 'admin/reserves', component: ReserveListComponent},
 
   
 

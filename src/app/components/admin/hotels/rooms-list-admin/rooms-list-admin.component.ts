@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Room } from 'src/app/Models/room';
 import { RoomService } from 'src/app/Models/roomService';
 import { RoomServiceService } from 'src/app/services/room-service.service';
+import { Hotel } from 'src/app/Models/hotel';
+import { HotelsService } from 'src/app/services/hotels.service';
 
 @Component({
   selector: 'app-rooms-list-admin',
@@ -13,12 +15,16 @@ export class RoomsListAdminComponent implements OnInit {
   rooms: Room[];
   room: Room;
   loading:boolean;
+  loadingHotels:boolean;
+  hotels:Hotel[];
 
-  constructor(private roomSV: RoomServiceService) { }
+  constructor(private roomSV: RoomServiceService, private hotelSV: HotelsService) { }
 
   ngOnInit() {
+    this.loadingHotels=true;
     this.loading=true;
     this.getRooms();
+    this.getHotels();
   }
 
   getRooms(){
@@ -35,6 +41,20 @@ export class RoomsListAdminComponent implements OnInit {
       )
     )
   }
+
+  getHotels(){
+    this.hotelSV.getHotelsCollection().subscribe(res=>(this.hotels = res.map(item=>
+      {
+        const hotel: Hotel = {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data(),
+        }
+        this.loadingHotels=false;
+        return hotel;
+      })
+    ))
+  }
+
   deleteRoom(id){
     this.roomSV.deleteRoom(id);
   }
