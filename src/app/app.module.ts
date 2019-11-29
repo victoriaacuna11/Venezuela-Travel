@@ -57,6 +57,10 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import { RevisarItinerarioComponent } from './components/revisar-itinerario/revisar-itinerario.component';
 import { ItinerarioDetailsComponent } from './components/itinerario-details/itinerario-details.component';
 import { AdminReservaComponent } from './components/admin/itinerario/admin-reserva/admin-reserva.component';
+  
+
+import { AuthService } from "./services/auth.service";
+
 
 
 const appRoutes: Routes=[
@@ -130,7 +134,7 @@ const appRoutes: Routes=[
     NgxPayPalModule
     
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

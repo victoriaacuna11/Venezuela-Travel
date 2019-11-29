@@ -1,5 +1,9 @@
 <app-bar></app-bar>
 
+<ng-container *ngIf=" !loadingTp && !loadingHotels && !loadingRooms && !loadingReserves;then load; else noload" ></ng-container>
+
+<ng-template #noload> loading...</ng-template>
+    <ng-template #load>
 
 <div class="container-ri">
 
@@ -9,13 +13,57 @@
         </div>
 
         <div class="code">
-            <input type="text" [(ngModel)]="id">
+            <input type="text" [(ngModel)]="idItinerario">
+        
+            <button (click)="getInfo()" >Revisar</button>
         </div>
-        <div class="btn-rev">
-            <button (click)="goToRevItine()" >Revisar</button>
+
+        <div class="trip-container" *ngIf="showItinerario" >
+
+            <div class="tp">
+                <h5>Nombre: {{ tripPlanRev.name }}</h5>
+                <h5>E-mail: {{ tripPlanRev.email }}</h5>
+            </div>
+            <br>
+
+            <div class="for-i" *ngFor="let r of reservesRev; let i = index">
+                <div class="if" *ngIf="r.available">
+                <div class="r-n">
+                    <h6>Reserva {{i+1}} </h6>
+                </div>
+
+                <div class="r-data">
+                <div class="img-hot" [ngStyle]="{'background-image': 'url('+imgHotel[i]+')'}" >
+                   
+                </div>
+                <div class="datar">
+
+                    <h6>Fecha de Llegada: {{r.arriveDate}}</h6>
+                    <h6>Fecha de Salida: {{r.leaveDate}}</h6>
+                    <h6>Hotel: {{r.hotel}}</h6>
+                    <h6>Cantidad de personas: {{r.numberOfPeople}}</h6>
+                    <h6>Costo: {{r.cost}}$</h6>
+                    
+                    <div *ngFor="let c of reservesRev[i].rooms">
+
+                    <h6>Cuarto: {{c.roomName}} ({{c.roomCant}}) </h6>
+
+                    </div>
+                    
+
+                 </div>
+                </div>
+            </div>
+            
+            </div>
         </div>
+
+
+
 
     </div>
 
 </div>
+
+</ng-template>
 <app-footer></app-footer>

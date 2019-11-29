@@ -1,0 +1,24 @@
+.container-itinerarios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#e3ded5 ;
+    
+    width: 100vw;
+    color: #1da9bc;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.blueswandaily.com//2018/11/Travel000-2000x1200.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:60vh;
+}
+.inineData{
+
+    width:55vw;
+    background: #e3ded5;
+    border-radius: 10px;
+    margin-top:5vh;
+    margin-bottom:5vh;
+    height:50vh;
+
+}
