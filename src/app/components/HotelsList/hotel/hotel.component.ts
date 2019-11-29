@@ -21,14 +21,14 @@ export class HotelComponent implements OnInit {
   hotels: Hotel[] = [];
   idState='';
   isAll = true;
+  showReturn = false;
+  hotel: Hotel;
+
 
   openBubble: boolean;
   showMenu = false;
   showFilter : boolean;
 
-  
-  loadingStateName: boolean = false;
-  loadingRooms: boolean=false;
   loadingHotel: boolean=false;
 
 
@@ -42,8 +42,6 @@ export class HotelComponent implements OnInit {
   ngOnInit() {
 
     this.loadingHotel=true;
-    this.loadingRooms=true;
-    this.loadingStateName=true;
 
     if (this.routeSV.snapshot.paramMap.get('id') == undefined){
       this.getHotels();
@@ -79,19 +77,22 @@ export class HotelComponent implements OnInit {
 
   getHotels(){
 
+    this.showReturn=false;
     this.hotelSV.getHotelsCollection().subscribe(
       res => (this.hotels = res.map(item => {
         const hotel: Hotel = {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         }
+        this.loadingHotel = false;
         return hotel;
 
       }))
-    )
+    ); 
   }
 
   getHotels2(){
+    this.showReturn = false;
     this.hotelSV.getHotelsByState(this.idState).then(arr => {
       arr.forEach(element => {
         const hotel: Hotel = {
@@ -114,11 +115,50 @@ export class HotelComponent implements OnInit {
           imgs: element.get('imgs'),
         }
 
+        this.loadingHotel = false;
         if(hotel.available == true){
+          
         this.hotels.push(hotel);
         }
       });
     });
+  }
+
+  showMostViewed(){
+    
+    this.showReturn = true;
+    console.log("in method: "+this.showReturn);
+    this.hotels = this.hotels.filter(e => e.nrBusquedas>0)
+    .sort(function(a,b) {
+      return b.nrBusquedas-a.nrBusquedas;
+    });  
+    console.log(this.hotels);  
+    return this.hotels;;
+  }
+
+  showMostVisited(){
+    
+    this.showReturn = true;
+    this.hotels=this.hotels.filter(e => e.nrVentas>0)
+       .sort(function(a,b) {
+         return b.nrVentas-a.nrVentas;
+       });
+       return this.hotels;
+     }
+
+  addView(id){
+    let found=false;
+    let cont=0;
+    while(!found && cont<this.hotels.length){
+      if(this.hotels[cont].id===id){
+        found=true;
+        this.hotels[cont].nrBusquedas=this.hotels[cont].nrBusquedas+=1;
+        this.hotel = this.hotels[cont];
+      }
+      cont=cont+1;
+    }
+    console.log(this.hotel);
+    this.hotelSV.updateH(this.hotel);
   }
 
 }

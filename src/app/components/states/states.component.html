@@ -8,11 +8,15 @@
 <app-banner-img title="Estados" img="assets/img/states.jpg"></app-banner-img>
 <br>
 <div class="blank">
-        <div class="bordersz" id="byViews" (click)="showMostViewed()"><p id="t">Los más visitados</p></div>
+        <div class="bordersz" id="byViews" (click)="showMostViewed()">
+                <p id="t">Los más vistos</p>
+        </div>
 
         <app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
 
-        <div class="bordersz" id="byViews"><p id="t">Arreglate mi pana</p></div>
+        <div class="bordersz" id="bySells" (click)="showMostVisited()">
+                <p id="t">Los más visitados</p>
+        </div>
 </div>
 
 <div class="max-container" *ngIf="isAll; else filteredByDestination">
@@ -41,36 +45,16 @@
                 </div>
         </div>
 </ng-template>
-<div class="blank">
+<br>
+
+<div [class.notShow]="!showReturn">
+        
+        <div class="bordersz" id="returnBtn" (click)="getStates()">
+                <div><p id="t">Volver</p></div>
+        </div>
 
 </div>
+<br>
 
 <!--</ng-template>-->
 <app-footer></app-footer>
-
-
-
-
-
-
-
-<!--<app-dests-and-states [objs]=states></app-dests-and-states>-->
-
-<!-- <div class="banner">
-    <h1>Estados</h1>
-</div>
-<br>
-<br>
-
-
-
-
-<div *ngFor="let state of states">           
-   <div class="container"  *ngIf="isDestiny(state.destinations) || filtro==null" >
-           <div class="sta"  >
-                   <div class="image" [ngStyle]="{'background-image': 'url('+state.bannerImg+')'}" >
-                   </div>
-                   <h1> {{ state.name }} </h1>
-           </div>
-   </div>
-</div>  -->

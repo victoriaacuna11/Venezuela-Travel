@@ -1,18 +1,28 @@
 <app-bar></app-bar>
 
-<app-banner-img title="Hoteles" img="assets/imageHotels/banner.jpg"></app-banner-img>
+<ng-container *ngIf="!loadingHotel; then load; else noLoad"></ng-container>
 
-<div class="end">
+<ng-template #noLoad>
+    <app-loader></app-loader>
+</ng-template>
+
+<ng-template #load>
+
+    <app-banner-img title="Hoteles" img="assets/imageHotels/banner.jpg"></app-banner-img>
+    <br>
+    <br>
+
+    <!--<div class="end">
     <div (click)="showF()" class="lupa"><img class="icons2" src="assets/icons/iconoLupa.png" alt=""></div>
 
     <div [class.on]="showFilter" class="off">
         <app-filtro></app-filtro>
     </div>
-</div>
+</div>-->
 
 
 
- <!--   <div [class.input]="Input" class="off">
+    <!--   <div [class.input]="Input" class="off">
 
         <input type="search" [(ngModel)]="search">
 
@@ -21,38 +31,20 @@
     <img class="icon" (click)="showInput()" src="assets/icons/iconoLupa.png" alt="">
 
 </div>-->
-<div class="blank">
-    <app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
-</div>
-<div class="wrapperH" *ngIf="isAll; else filteredByState">
-
-    <div class="block" *ngFor="let hotel of (hotels | isAvailable | filter:search)">
-        <div class="img-cont">
-            <img class="imagenes" src="{{hotel.bannerImg}}" alt="">
+    <div class="blank">
+        <div class="bordersz" id="byViews" (click)="showMostViewed()">
+            <p id="t">Los más vistos</p>
         </div>
-        <div class="center">
-            <p class="title"><strong>{{hotel.name}}</strong></p>
-            <p class="text">{{hotel.description | slice: 0:150}}...</p>
-            <div class="miniWrapper">
-                <div class="iconOrder">
-                    <div tooltip="{{icono.name}}" placement="top" show-delay="500" *ngFor="let icono of hotel.services">
-                        <img class="icons" src="{{icono.icon}}" alt="gnfn">
-                    </div>
-                    <!-- <div tooltip="{{icono.msg}}" placement="top" show-delay="500" *ngFor="let icono of hotel.amenitiesImg">
-                        <img class="icons" src="{{icono.icon}}" alt="gnfn">
-                    </div> -->
-                </div>
-                <br>
-                <div class="seeMore"> <a class="link" [routerLink]="['/hotel', hotel.id]">Ver más...</a> </div> 
-            </div>                    
+
+        <app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
+
+        <div class="bordersz" id="bySells" (click)="showMostVisited()">
+            <p id="t">Los más visitados</p>
         </div>
     </div>
-</div>
+    <div class="wrapperH" *ngIf="isAll; else filteredByState">
 
-<ng-template #filteredByState>
-    <div class="wrapperH">
-
-        <div class="block" *ngFor="let hotel of hotels | filter:search">
+        <div class="block" *ngFor="let hotel of (hotels | isAvailable | filter:search)">
             <div class="img-cont">
                 <img class="imagenes" src="{{hotel.bannerImg}}" alt="">
             </div>
@@ -61,27 +53,60 @@
                 <p class="text">{{hotel.description | slice: 0:150}}...</p>
                 <div class="miniWrapper">
                     <div class="iconOrder">
-                        <div tooltip="{{icono.name}}" placement="top" show-delay="500" *ngFor="let icono of hotel.services">
+                        <div tooltip="{{icono.name}}" placement="top" show-delay="500"
+                            *ngFor="let icono of hotel.services">
                             <img class="icons" src="{{icono.icon}}" alt="gnfn">
                         </div>
                         <!-- <div tooltip="{{icono.msg}}" placement="top" show-delay="500" *ngFor="let icono of hotel.amenitiesImg">
-                            <img class="icons" src="{{icono.icon}}" alt="gnfn">
-                        </div> -->
+                        <img class="icons" src="{{icono.icon}}" alt="gnfn">
+                    </div> -->
                     </div>
                     <br>
-                    <div class="seeMore"> <a class="link" [routerLink]="['/hotel', hotel.id]">Ver más...</a> </div> 
-                </div>                    
+                    <div class="seeMore"> <a class="link" [routerLink]="['/hotel', hotel.id]">Ver más...</a> </div>
+                </div>
             </div>
         </div>
     </div>
-</ng-template>
-   
-<br>
-<br>
-<div class="space">
-    <div [class.btnOff]="!message2">
-        <div class="btnReturn" (click)="vuelve()">Regresar</div>
-    </div>
-</div>
-<app-footer></app-footer>
 
+    <ng-template #filteredByState>
+        <div class="wrapperH">
+
+            <div class="block" *ngFor="let hotel of hotels | filter:search">
+                <div class="img-cont">
+                    <img class="imagenes" src="{{hotel.bannerImg}}" alt="">
+                </div>
+                <div class="center">
+                    <p class="title"><strong>{{hotel.name}}</strong></p>
+                    <p class="text">{{hotel.description | slice: 0:150}}...</p>
+                    <div class="miniWrapper">
+                        <div class="iconOrder">
+                            <div tooltip="{{icono.name}}" placement="top" show-delay="500"
+                                *ngFor="let icono of hotel.services">
+                                <img class="icons" src="{{icono.icon}}" alt="gnfn">
+                            </div>
+                            <!-- <div tooltip="{{icono.msg}}" placement="top" show-delay="500" *ngFor="let icono of hotel.amenitiesImg">
+                            <img class="icons" src="{{icono.icon}}" alt="gnfn">
+                        </div> -->
+                        </div>
+                        <br>
+                        <div class="seeMore"> <a class="link" [routerLink]="['/hotel', hotel.id]">Ver más...</a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</ng-template>
+<br>
+<div [class.notShow]="!showReturn">
+
+    <div class="bordersz" id="returnBtn" (click)="getStates()">
+        <div>
+            <p id="t">Volver</p>
+        </div>
+    </div>
+
+</div>
+<br>
+
+
+<app-footer></app-footer>

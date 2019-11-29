@@ -25,6 +25,7 @@ export class StatesComponent implements OnInit {
   isAll = true;
   contViews;
   state: StateInterface;
+  showReturn = false;
 
 
 
@@ -50,15 +51,6 @@ export class StatesComponent implements OnInit {
       //this.destination = this._dest.getDestinationById(id);
 
       this.getStates2();
-
-      /*this.statess = this._states.getStates().filter(x => {
-        return x.destination === this.id;
-      });
-
-      console.log(this.statess);*/
-      //this.statess = this._states.states.find(item => {
-      //  return item.id === this.id;
-      //})
     }
   }
 
@@ -82,7 +74,8 @@ export class StatesComponent implements OnInit {
   }
 
   getStates() {
-
+    this.showReturn = false;
+    console.log("in states: " +this.showReturn);
     this._states.getStatesCollection().subscribe(
       res => (this.statess = res.map(item => {
         const statey: StateInterface = {
@@ -97,7 +90,7 @@ export class StatesComponent implements OnInit {
   }
 
   getStates2() {
-
+    this.showReturn = false;
     this._states.getStateByCategory(this.id).then(arr => {
       arr.forEach(element => {
         const sta: StateInterface = {
@@ -136,8 +129,26 @@ export class StatesComponent implements OnInit {
   }
 
   showMostViewed(){
-    this._states.rearrangeByViews(this.statess);
+    
+    this.showReturn = true;
+    console.log("in method: "+this.showReturn);
+    this.statess = this.statess.filter(e => e.views>0)
+    .sort(function(a,b) {
+      return b.views-a.views;
+    });  
+    console.log(this.statess);  
+    return this.statess;;
   }
+
+  showMostVisited(){
+    
+    this.showReturn = true;
+    this.statess=this.statess.filter(e => e.visits>0)
+       .sort(function(a,b) {
+         return b.visits-a.visits;
+       });
+       return this.statess;
+     }
 
   addView(id){
     let found=false;
