@@ -1,5 +1,5 @@
 <app-nav-admin></app-nav-admin>
-<ng-container *ngIf="!loadingHotels && !loadingRooms; then load; else noLoad"></ng-container>
+<ng-container *ngIf="!loadingReserves; then load; else noLoad"></ng-container>
 
 <ng-template #noLoad>
     <app-loader></app-loader>
@@ -35,7 +35,8 @@
                         <div class="tocentericons">
                             <div class="cruds-wrapper">
                                 <div class="icon-wrapper">
-                                    <button class="btnright" [routerLink]="['/hotel', d.id]">
+                                        <!-- [routerLink]="['/hotel', d.id]" -->
+                                    <button class="btnright" [routerLink]="['/revisarItinerario', d.tripPlan]">
                                         <img src="assets/img/read-icon.png">
                                     </button>
                                 </div>

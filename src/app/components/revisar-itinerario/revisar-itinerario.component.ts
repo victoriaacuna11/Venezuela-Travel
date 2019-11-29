@@ -18,7 +18,7 @@ import { PlanViajeInterface } from 'src/app/Models/planViaje';
 export class RevisarItinerarioComponent implements OnInit {
 
 
-  idItinerario:any;
+  idItinerario="";
   showItinerario=false;
 
 
@@ -67,12 +67,17 @@ export class RevisarItinerarioComponent implements OnInit {
     this.loadingRooms=true;
     this.loadingTp=true;
 
+    if(this.routeA.snapshot.paramMap.get('id') != undefined){
+      this.idItinerario=this.routeA.snapshot.paramMap.get('id');
+  }
+
+
     this.getHotels();
     this.getReserves();
     this.getTp();
     this.getRooms();
 
-
+    
   }
 
   getHotels(){
@@ -175,7 +180,7 @@ export class RevisarItinerarioComponent implements OnInit {
     //ahora tenemos tripPlanRev y sacamos el resto de la info con eso
 
 
-
+      console.log(this.tripPlanRev.id);
       this.reservesRev=[];
 
 

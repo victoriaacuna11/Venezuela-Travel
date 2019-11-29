@@ -36,7 +36,4 @@ export class ReserveService {
     this.dDoc.update(reserve);
   }
 
-
-
-
 }

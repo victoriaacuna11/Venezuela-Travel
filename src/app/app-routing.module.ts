@@ -65,7 +65,8 @@ const routes: Routes = [
   {path: 'admin/rooms', component: RoomsListAdminComponent},
   {path: 'admin/room/modify/:id', component: RoomsAdminComponent},
   {path: 'revisarItinerario', component: RevisarItinerarioComponent},
-  {path: 'revisarItinerario/:id', component: ItinerarioDetailsComponent},
+  {path: 'revisarItinerario/:id', component: RevisarItinerarioComponent},
+  // {path: 'revisarItinerario/:id', component: ItinerarioDetailsComponent},
   {path: 'admin/reserve/modify/:id', component: AdminReservaComponent},
   {path: 'admin/reserves', component: ReserveListComponent},
 

@@ -33,13 +33,16 @@ export class AdminReservaComponent implements OnInit {
   ngOnInit() {
     // this.loadingHotels=true;
     // this.loadingRooms=true;
-    this.loadingReserve=false;
+    
     // this.modifyHotel=false;
     // this.modifyRoom=false;
+
+    this.loadingReserve=true;
     this.createStateFrom = this._builder.group({
       cost: ['', Validators.required],
       numberOfPeople: ['', Validators.required],
     })
+
     const id= this.routeSV.snapshot.paramMap.get('id');
     this.reserveSV.getReserveById(id).subscribe(arr => {
       const reserve: ReserveInterface={
@@ -55,11 +58,18 @@ export class AdminReservaComponent implements OnInit {
       })
       this.loadingReserve=false;
     })
+
     // this.getHotels();
     // this.getRooms();
 
-    
-   
+  }
+
+  updatePost(){
+
+    this.reserve.cost=this.createStateFrom.value.cost;
+    this.reserve.numberOfPeople=this.createStateFrom.value.numberOfPeople;
+    this.reserveSV.updateReserve(this.reserve);
+    this.route.navigate(['/admin/reserves']);
 
   }
 
@@ -92,23 +102,23 @@ export class AdminReservaComponent implements OnInit {
   //       )
   //     }
 
-  getReserve(){
-    const id= this.routeSV.snapshot.paramMap.get('id');
-    this.reserveSV.getReserveById(id).subscribe(arr => {
-      const reserve: ReserveInterface={
-        id:arr.payload.id,
-        ...arr.payload.data(),
-      }
-      this.reserve=reserve;
-      this.hotel=reserve.hotel;
+  // getReserve(){
+  //   const id= this.routeSV.snapshot.paramMap.get('id');
+  //   this.reserveSV.getReserveById(id).subscribe(arr => {
+  //     const reserve: ReserveInterface={
+  //       id:arr.payload.id,
+  //       ...arr.payload.data(),
+  //     }
+  //     this.reserve=reserve;
+  //     this.hotel=reserve.hotel;
       
-      this.createStateFrom.patchValue({
-        cost:this.reserve.cost,
-        numberOfPeople:this.reserve.numberOfPeople,
-      })
-      this.loadingReserve=false;
-    })
-  }
+  //     this.createStateFrom.patchValue({
+  //       cost:this.reserve.cost,
+  //       numberOfPeople:this.reserve.numberOfPeople,
+  //     })
+  //     this.loadingReserve=false;
+  //   })
+  // }
 
   // getInitialHotel(id:string){
 
@@ -148,14 +158,4 @@ export class AdminReservaComponent implements OnInit {
   //   return formArray;
   // }
 
-  updatePost(){
-
-    this.reserve.cost=this.createStateFrom.value.cost;
-    this.reserve.numberOfPeople=this.createStateFrom.value.numberOfPeople;
-    this.reserveSV.updateReserve(this.reserve);
-    this.route.navigate(['/admin/reserves']);
-
-
-
-  }
 }
