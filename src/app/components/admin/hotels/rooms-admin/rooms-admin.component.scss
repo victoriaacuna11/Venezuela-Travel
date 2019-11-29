@@ -122,14 +122,14 @@ select{
         display: flex;
         align-items: center;
         justify-content:flex-end;
-    
         .input-imgs{
             width:21vw;
+            // font-size: 3vh;
         }
-
-        input{
-            font-size: 2vh;
-        }
+        font-size: 2vh;
+        // input{
+        //     font-size: 2vh;
+        // }
     }
 }
 

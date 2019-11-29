@@ -251,6 +251,32 @@ button{
         background-color: green;
     }
 }
+.checkbox-1{
+    padding: 2vw;
+    display:grid;
+    grid-template-columns: repeat(6,1fr);
+    column-gap: 2px;
+    .cb-item-1{
+        width: 10vw;
+        display: grid;
+        grid-template-rows: 0.4fr 0.6fr;
+        .input-cb{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            label{
+                height: 4vh;
+                font-size: 2vh;
+                font-family: 'Roboto Condensed', sans-serif;
+                color: white;
+            }
+        }
+    }
+}
+
+.input-cb{
+    width:2vw;
+}
 
 
 
