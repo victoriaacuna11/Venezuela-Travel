@@ -61,6 +61,11 @@ export class PlaneaTuViajeComponent implements OnInit  {
   hotelRooms:any[];
   
 
+
+//solucion
+
+hotelesSelected:Hotel[];
+
   //-----------loaders
 
   loadingHotels:boolean;
@@ -284,6 +289,8 @@ export class PlaneaTuViajeComponent implements OnInit  {
 
     
     this.initConfig();
+
+    this.hotelesSelected=[];
 
 
   }
@@ -786,6 +793,7 @@ for ( let r of this.roomArray.controls) {
   passToStep5(){
     this.pasos.paso_4=!this.pasos.paso_4;
     this.pasos.paso_5=!this.pasos.paso_5;
+    this.hotelesSelected.push(this.hotelSelected);
   }
   passToStep6(){
     this.pasos.paso_5=!this.pasos.paso_5;
@@ -844,11 +852,11 @@ for ( let r of this.roomArray.controls) {
         {
           amount: {
             currency_code: 'USD',
-            value: '1', //this.totalCost,
+            value: this.totalCost,
             breakdown: {
               item_total: {
                 currency_code: 'USD',
-                value: '1', //this.totalCost,
+                value: this.totalCost,
               }
             }
           },
@@ -859,7 +867,7 @@ for ( let r of this.roomArray.controls) {
               category: 'DIGITAL_GOODS',
               unit_amount: {
                 currency_code: 'USD',
-                value: '1', //this.totalCost,
+                value: this.totalCost,
               },
             }
           ]
@@ -938,7 +946,8 @@ for ( let r of this.roomArray.controls) {
 
         reserveCrud.arriveDate=this.tripPlan.reserves[i].arriveDate;
         reserveCrud.leaveDate=this.tripPlan.reserves[i].leaveDate;
-        reserveCrud.hotel=this.hotelSelected.id;
+        //problema aqui
+        reserveCrud.hotel=this.hotelesSelected[i].id;
         reserveCrud.cost=this.tripPlan.reserves[i].cost;
         reserveCrud.numberOfPeople=this.tripPlan.reserves[i].numberOfPeople;
         reserveCrud.available=true;
@@ -962,6 +971,8 @@ for ( let r of this.roomArray.controls) {
           
   
             reserveCrud.rooms.push(roomCrud);
+
+            console.log(reserveCrud);
             
           }
 
