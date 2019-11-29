@@ -1,5 +1,5 @@
 <app-nav-admin></app-nav-admin>
-<ng-container *ngIf="loading; then load; else noLoad"></ng-container>
+<ng-container *ngIf="!loading; then load; else noLoad"></ng-container>
 
 <ng-template #noLoad>
     <app-loader></app-loader>

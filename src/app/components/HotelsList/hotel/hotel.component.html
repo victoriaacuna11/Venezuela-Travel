@@ -1,7 +1,11 @@
 <app-bar></app-bar>
+<ng-template *ngIf="!loadingHotels; then load; else noLoad"></ng-template> 
 
+<ng-template #noLoad>
+    <app-loader></app-loader>
+</ng-template>
+<ng-template #load>
 <app-banner-img title="Hoteles" img="assets/imageHotels/banner.jpg"></app-banner-img>
-
 <div class="end">
     <div (click)="showF()" class="lupa"><img class="icons2" src="assets/icons/iconoLupa.png" alt=""></div>
 
@@ -83,5 +87,6 @@
         <div class="btnReturn" (click)="vuelve()">Regresar</div>
     </div>
 </div>
+</ng-template>
 <app-footer></app-footer>
 

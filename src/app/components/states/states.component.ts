@@ -15,14 +15,14 @@ export class StatesComponent implements OnInit {
 
   public filtro;
   public isFiltered = "false";
-  //public id;
+  
   public statess: StateInterface[] = [];
   destination: DestinationInterface;
   search = '';
-  loading = false;
   id = '';
   estados: DestinationInterface[];
   isAll = true;
+  loading:boolean;
 
 
 
@@ -35,7 +35,7 @@ export class StatesComponent implements OnInit {
   ngOnInit() {
     //let destino=this.route.snapshot.paramMap.get('destinoPrueba')
     //this.filtro=destino;
-
+    this.loading=true;
     if (this.route.snapshot.paramMap.get('id') == undefined) {
       this.getStates();
     } else {
@@ -48,15 +48,6 @@ export class StatesComponent implements OnInit {
       //this.destination = this._dest.getDestinationById(id);
 
       this.getStates2();
-
-      /*this.statess = this._states.getStates().filter(x => {
-        return x.destination === this.id;
-      });
-
-      console.log(this.statess);*/
-      //this.statess = this._states.states.find(item => {
-      //  return item.id === this.id;
-      //})
     }
   }
 
@@ -87,11 +78,11 @@ export class StatesComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         }
+        this.loading=false;
         return statey;
-
+        
       }))
     )
-    this.loading = false;
   }
 
   getStates2() {
@@ -113,24 +104,24 @@ export class StatesComponent implements OnInit {
           views: element.get('views'),
           visits: element.get('visits'),
         }
-
         if(sta.available == true){
         this.statess.push(sta);
-        }
+        } 
+        this.loading=false;
       });
     });
   }
 
-  getDestination() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this._dest.getDestinationById(id).subscribe(res => {
-      const dest: DestinationInterface = {
-        id: res.payload.id,
-        ...res.payload.data()
-      }
-      this.destination = dest;
-      this.loadingDestination = false;
-    })
-  }
+  // getDestination() {
+  //   const id = this.route.snapshot.paramMap.get('id');
+  //   this._dest.getDestinationById(id).subscribe(res => {
+  //     const dest: DestinationInterface = {
+  //       id: res.payload.id,
+  //       ...res.payload.data()
+  //     }
+  //     this.destination = dest;
+  //     this.loadingDestination = false;
+  //   })
+  // }
 
 }

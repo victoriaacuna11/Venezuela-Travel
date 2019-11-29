@@ -91,12 +91,12 @@
                 </div>
                 <div class="checkbox-1">
                     <div class="cb-item-1" *ngFor="let control of roomServices; let i = index">
-                        <div class="input-cb">>
+                        <div class="input-cb">
                             <input id="input-cb" [(ngModel)] = 'control.selected'
                             type="checkbox" [ngModelOptions]="{standalone: true}">
                         </div>  
                         <div class="input-cb">
-                            <label>{{control.name}}</label>
+                            <label class="lbl-txt">{{control.name}}</label>
                         </div>     
                     </div>
                 </div>

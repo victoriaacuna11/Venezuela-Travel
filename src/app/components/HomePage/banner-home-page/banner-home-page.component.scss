@@ -1,3 +1,6 @@
+@import '../../../../styles.scss';
+
+
 #main-banner{
     width: 100vw;
     height: 90vh;
@@ -42,7 +45,8 @@
 .title-wrapper{
     width: 45vw;
     height: 15vh;
-    font-family: 'Staatliches', cursive;
+    font-family: var(--main-title-font);
+    // font-family: 'Staatliches', cursive;
     font-size: 70px;
     position: relative;
     
@@ -70,12 +74,12 @@
 }
 
 .blue-div{
-    background-color: #1DA9BC;
+    background-color: var(--second-color);
     width: 100vw;
     height: 45vh;
 }
 .cream-div{
-    background-color: #E3DED5;
+    background-color: var(--first-color);
     width: 100vw;
     height: 45vh;
 }

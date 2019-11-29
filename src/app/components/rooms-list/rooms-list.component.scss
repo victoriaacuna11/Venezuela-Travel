@@ -1,3 +1,4 @@
+@import '../../../styles.scss';
 .banner-tourist-destination{
     height: 40vh;
     width: 100vw;
@@ -19,7 +20,7 @@
     justify-content: center;
     width: 100%;
     h2{
-        font-family: 'Staatliches', cursive;
+        font-family: var(--main-title-font);
         color: white;
         font-size: 3vw;
     }
@@ -40,7 +41,7 @@
     display: flex;
     justify-content: center;
     color: white;
-    font-family: 'Staatliches', cursive;
+    font-family: var(--main-title-font);
     position: absolute;
     bottom: 0%;
     h1{
@@ -108,11 +109,11 @@
     text-align: center;
     h1{
         font-size: 6vh;
-        font-family: 'Staatliches', cursive;
+        font-family: var(--main-title-font);
         color: black;
     }
     h4{
-        font-family: 'Roboto Condensed', sans-serif;
+        font-family: var(--secondary-font-family);
         // font-family: 2vh;
         
     }

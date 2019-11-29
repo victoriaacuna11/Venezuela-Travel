@@ -27,9 +27,8 @@ export class HotelComponent implements OnInit {
   showFilter : boolean;
 
   
-  loadingStateName: boolean = false;
-  loadingRooms: boolean=false;
-  loadingHotel: boolean=false;
+  
+  loadingHotels: boolean=false;
 
 
   constructor(
@@ -41,16 +40,13 @@ export class HotelComponent implements OnInit {
 
   ngOnInit() {
 
-    this.loadingHotel=true;
-    this.loadingRooms=true;
-    this.loadingStateName=true;
+    this.loadingHotels=true;
 
     if (this.routeSV.snapshot.paramMap.get('id') == undefined){
       this.getHotels();
     } else{
       this.isAll = false;
       this.idState = this.routeSV.snapshot.paramMap.get('id');
-
       this.getHotels2();
     }
 
@@ -85,8 +81,8 @@ export class HotelComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data()
         }
+        this.loadingHotels=false;
         return hotel;
-
       }))
     )
   }
@@ -116,6 +112,7 @@ export class HotelComponent implements OnInit {
 
         if(hotel.available == true){
         this.hotels.push(hotel);
+        this.loadingHotels=false;
         }
       });
     });

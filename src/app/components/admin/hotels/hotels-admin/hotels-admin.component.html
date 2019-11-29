@@ -133,10 +133,12 @@
                         SERVICIOS
                     </div>
                     <div class="checkbox-1">
-                        <div class="cb-item" *ngFor="let control of hotelFacilities; let i = index">
+                        <div class="cb-item-1" *ngFor="let control of hotelFacilities; let i = index">
                             <div class="input-cb">
                                 <input [(ngModel)] = 'control.selected'
                                 type="checkbox" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div>
                                 <label>{{control.name}}</label>
                             </div>    
                         </div>
@@ -314,7 +316,7 @@
                                 <div class="checkbox">
                                     <div class="cb-item" *ngFor="let control of hotelFacilities; let i = index">
                                         <div class="input-cb">
-                                            <input [(ngModel)] = 'control.selected'
+                                            <input id="input-cb" [(ngModel)] = 'control.selected'
                                             type="checkbox" [ngModelOptions]="{standalone: true}">
                                             <label >{{control.name}}</label>
                                         </div>  

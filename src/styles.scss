@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao|Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
 body{
     margin: 0;
@@ -10,7 +11,12 @@ body{
     width: 100%;
 }
 
-
+:root{
+   --main-title-font: 'Bebas Neue', cursive;
+   --second-color: #1DA9BC;
+   --first-color: #E3DED5;
+   --secondary-font-family: 'Roboto Condensed', sans-serif;
+}
 
 *{
     margin: 0;

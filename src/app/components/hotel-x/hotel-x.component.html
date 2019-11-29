@@ -2,7 +2,7 @@
 <ng-container *ngIf="!loadingRooms && !loadingHotel && !loadingStateName; then load; else noLoad"></ng-container>
 
 <ng-template #noLoad>
-    Loading...
+    <app-loader></app-loader>
 </ng-template>
 
 <ng-template #load>

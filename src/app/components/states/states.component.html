@@ -1,9 +1,11 @@
 <app-bar></app-bar>
 
-<!--<ng-container *ngIf="!loading; then NoLoader; else loader"></ng-container>-->
-<!--<ng-template #loader>gfhgfdhgf</ng-template>-->
+<ng-container *ngIf="!loading; then load; else noLoad"></ng-container>
+<ng-template #noLoad>
+        <app-loader></app-loader>
+</ng-template>
 
-<!--<ng-template #NoLoader>-->
+<ng-template #load> 
 
 <app-banner-img title="Estados" img="assets/img/states.jpg"></app-banner-img>
 
@@ -46,24 +48,8 @@
 
 </div>
 
-<!--</ng-template>-->
+</ng-template>
 <app-footer></app-footer>
-
-
-
-
-
-
-
-<!--<app-dests-and-states [objs]=states></app-dests-and-states>-->
-
-<!-- <div class="banner">
-    <h1>Estados</h1>
-</div>
-<br>
-<br>
-
-
 
 
 <div *ngFor="let state of states">           
@@ -74,4 +60,4 @@
                    <h1> {{ state.name }} </h1>
            </div>
    </div>
-</div>  -->
+</div> 

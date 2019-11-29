@@ -1,3 +1,4 @@
+@import '../../../../styles.scss';
 .container{
     width: 100vw;
     height: 45vh;
@@ -95,7 +96,7 @@
     width: 100%;
     margin-bottom: 15px solid #1DA9BC;
     color: #1DA9BC;
-    font-family: Impact;
+    font-family: var(--main-title-font);
     font-size: 30px;
     
 }
@@ -107,7 +108,7 @@
     height: 60%;
     width: 100%;
     font-size: 22px;
-    font-family: Helvetica;
+    font-family: var(--secondary-font-family);
     color: #1DA9BC;
     div{
         height: 100%;
