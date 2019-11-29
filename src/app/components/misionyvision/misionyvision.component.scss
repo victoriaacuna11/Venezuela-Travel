@@ -1,0 +1,107 @@
+.container-mv{
+
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+
+}
+.mv{
+    width:50vw;
+    
+    
+
+}
+
+.mision{
+
+    width:50vw;
+    height: 70vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+    background-image: url("https://enviajes.cl/wp-content/uploads/2014/08/Lugares-turisticos-de-Venezuela-Puerto-La-Cruz.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    transition:0.5s;
+}
+.textm{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display:none;
+    transition:0.5s;
+    
+    
+
+}
+.vision{
+
+    width:50vw;
+    height: 70vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: cyan;
+    background-image: url("https://2380ie25r0n01w5tt7mvyi81-wpengine.netdna-ssl.com/wp-content/uploads/2017/04/destinos_turisticos_imperdibles_en_Venezuela_joya_life_7.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    transition:0.5s;
+}
+.textv{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display:none;
+    transition:0.5s;
+  
+    
+}
+.mision:hover{
+    transition:0.5s;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); 
+}
+.vision:hover{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); 
+    transition:0.5s;
+}
+
+.mision:hover .textm{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); 
+    padding: 10px;
+    display: flex;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    transition:0.5s;
+}
+.vision:hover .textv{
+    display: flex;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); 
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    transition:0.5s;
+}
+h1{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.5);
+    padding :5px;
+    border-radius: 10px;
+    transition:0.5s;
+}

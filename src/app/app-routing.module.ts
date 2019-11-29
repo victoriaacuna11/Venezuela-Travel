@@ -29,6 +29,7 @@ import { ItinerarioDetailsComponent } from './components/itinerario-details/itin
 import { AuthGuard } from './guards/auth.guard';
 import { AdminReservaComponent } from './components/admin/itinerario/admin-reserva/admin-reserva.component';
 import { ReserveListComponent } from './components/admin/itinerario/reserve-list/reserve-list.component';
+import { MisionyvisionComponent } from './components/misionyvision/misionyvision.component';
 
 
 const routes: Routes = [
@@ -69,6 +70,7 @@ const routes: Routes = [
   // {path: 'revisarItinerario/:id', component: ItinerarioDetailsComponent},
   {path: 'admin/reserve/modify/:id', component: AdminReservaComponent},
   {path: 'admin/reserves', component: ReserveListComponent},
+  {path: 'acerca', component: MisionyvisionComponent},
 
   
 
