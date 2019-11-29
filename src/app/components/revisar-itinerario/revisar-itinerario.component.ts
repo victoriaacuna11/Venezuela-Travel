@@ -197,7 +197,7 @@ export class RevisarItinerarioComponent implements OnInit {
     //console.log(this.reservesRev);
 
 
-    //this.hotelRev=[];
+    this.hotelRev=[];
 
     //si da chance por validacion cuartos una sola vez
     for (let i = 0; i < this.reservesRev.length; i++) {
@@ -207,7 +207,7 @@ export class RevisarItinerarioComponent implements OnInit {
 
         if(this.reservesRev[i].hotel==this.hotels[j].id){
 
-          this.reservesRev[i].hotel=this.hotels[j].name
+          this.reservesRev[i].hotel=this.hotels[j].name;
 
           this.imgHotel.push(this.hotels[j].imgPrin);
 
@@ -216,7 +216,9 @@ export class RevisarItinerarioComponent implements OnInit {
       }
     }
 
-    //console.log(this.reservesRev);
+   
+
+    console.log(this.reservesRev);
 
     for (let i = 0; i < this.reservesRev.length; i++) {//for de las reservas
 
@@ -243,8 +245,8 @@ export class RevisarItinerarioComponent implements OnInit {
 
       
     }
-    console.log(this.reservesRev);
-    console.log(this.imgHotel);
+    //console.log(this.reservesRev);
+    //console.log(this.imgHotel);
 
 
     //tal vez cambia esto
