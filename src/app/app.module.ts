@@ -122,7 +122,7 @@ const appRoutes: Routes=[
     TooltipModule,
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyANIQhqTM9wbPj1EzaF-UPzjnWXJjggkso'
     }),
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
