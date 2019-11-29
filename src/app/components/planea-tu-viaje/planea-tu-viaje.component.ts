@@ -844,11 +844,11 @@ for ( let r of this.roomArray.controls) {
         {
           amount: {
             currency_code: 'USD',
-            value: '1', //this.totalCost,
+            value: this.totalCost,
             breakdown: {
               item_total: {
                 currency_code: 'USD',
-                value: '1', //this.totalCost,
+                value: this.totalCost,
               }
             }
           },
@@ -859,7 +859,7 @@ for ( let r of this.roomArray.controls) {
               category: 'DIGITAL_GOODS',
               unit_amount: {
                 currency_code: 'USD',
-                value: '1', //this.totalCost,
+                value: this.totalCost,
               },
             }
           ]

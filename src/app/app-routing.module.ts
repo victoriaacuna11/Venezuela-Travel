@@ -71,6 +71,7 @@ const routes: Routes = [
   {path: 'admin/reserve/modify/:id', component: AdminReservaComponent},
   {path: 'admin/reserves', component: ReserveListComponent},
   {path: 'acerca', component: MisionyvisionComponent},
+  {path:'**', component: BannerHomePageComponent },
 
   
 

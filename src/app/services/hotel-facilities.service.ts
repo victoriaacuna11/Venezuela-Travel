@@ -87,7 +87,7 @@ export class HotelFacilitiesService {
   laundry:HotelFacilitie={
     "name":"Lavandería",
     "available":true,
-    "icon": "assets/limg/aundry.png",
+    "icon": "assets/img/laundry.png",
     "selected": false
   }
   businessRoom:HotelFacilitie={
