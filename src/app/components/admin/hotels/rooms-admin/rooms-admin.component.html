@@ -70,7 +70,7 @@
                             <div class="array-content-wrapper" *ngFor="let group of imgsArray.controls; let i=index" [formGroupName]="i">
                                 <div>
                                     <input formControlName="imgPath" type="text" 
-                                    placeholder="Link de la imagen" class="input-imgs"/>
+                                    placeholder="Link de la imagen" id="input-imgs"/>
                                 </div>
                                 <div class="add-icons">
                                     <div class="crud-icon-wrapper">
@@ -89,7 +89,27 @@
                 <div class="wrapper">
                     SERVICIOS
                 </div>
-                <div class="checkbox">
+                <div class="checkbox-1">
+                    <div class="cb-item-1" *ngFor="let control of roomServices; let i = index">
+                        <div class="input-cb">>
+                            <input id="input-cb" [(ngModel)] = 'control.selected'
+                            type="checkbox" [ngModelOptions]="{standalone: true}">
+                        </div>  
+                        <div class="input-cb">
+                            <label>{{control.name}}</label>
+                        </div>     
+                    </div>
+                </div>
+                <small class="errorMessage" *ngIf="roomServiceError && checkboxServiceTouched()">
+                    Por lo menos selecciona uno...
+                </small>
+            </div>
+
+
+
+
+
+                <!-- <div class="checkbox">
                     <div class="cb-item" *ngFor="let control of roomServices; let i = index">
                         <td class="input-cb">
                             <input [(ngModel)] = 'control.selected'
@@ -101,7 +121,7 @@
                 <small class="errorMessage" *ngIf="roomServiceError && checkboxServiceTouched()">
                     Por lo menos selecciona uno...
                 </small>
-            </div>
+                </div> -->
             <div class="button">
                 <button [disabled]="!createStateFrom.valid" type="submit">CREAR HABITACIÓN</button>
             </div>
