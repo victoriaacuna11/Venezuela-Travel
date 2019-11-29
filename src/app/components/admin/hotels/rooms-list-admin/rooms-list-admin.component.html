@@ -1,5 +1,5 @@
 <app-nav-admin></app-nav-admin>
-<ng-container *ngIf="!loading; then load; else noLoad"></ng-container>
+<ng-container *ngIf="!loading && !loadingHotels; then load; else noLoad"></ng-container>
 <ng-template #noLoad>
     <app-loader></app-loader>
 </ng-template>
@@ -16,7 +16,7 @@
                         <h5>NOMBRE</h5>
                     </div>
                     <div class="tit-cont-wrapper">
-                        <h5>ESTADO</h5>
+                        <h5>HOTEL</h5>
                     </div>
                     <div  class="tit-cont-wrapper">
                         <h5>CRUDS</h5>
@@ -27,9 +27,8 @@
                         <div class="element-cont-wrapper">
                             <h5>{{d.name | uppercase}}</h5>
                         </div>
-                        <div class="element-cont-wrapper">
-                            <h5 *ngIf="d.available">HABILITADO</h5>
-                            <h5 *ngIf="!d.available">INHABILITADO</h5>
+                        <div class="element-cont-wrapper" *ngFor="let h of hotels">
+                            <h5 *ngIf="h.id===d.hotel">{{h.name}}</h5>
                         </div>
                         <div class="tocentericons">
                             <div class="cruds-wrapper">

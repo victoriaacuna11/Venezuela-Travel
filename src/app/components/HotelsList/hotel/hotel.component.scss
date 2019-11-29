@@ -1,4 +1,4 @@
-
+@import '../../../../styles.scss';
 .imagenes{
     height: 100%;
     width: 100%;
@@ -53,7 +53,7 @@
     grid-template-columns: 50% 50%;
     column-gap: 4em;
     row-gap: 5em;
-    font-family: 'Roboto Condensed', cursive;
+    font-family: var(--secondary-font-family);
 }
 
 .block{
@@ -133,7 +133,7 @@
 }
 
 .space{
-    font-family: 'Roboto Condensed', cursive;
+    font-family: var(--secondary-font-family);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,7 +262,7 @@
         row-gap: 5em;
         margin-left: 5%;
         margin-right: 5%;
-        font-family: 'Roboto Condensed', cursive;
+        font-family: var(--secondary-font-family);
     }
 
     .img-cont{
@@ -289,7 +289,7 @@
         row-gap: 5em;
         margin-left: 3%;
         margin-right: 5%;
-        font-family: 'Roboto Condensed', cursive;
+        font-family: var(--secondary-font-family);
         font-size: smaller;
     }
 
@@ -318,7 +318,7 @@
         row-gap: 5em;
         margin-left: 5%;
         margin-right: 5%;
-        font-family: 'Roboto Condensed', cursive;
+        font-family: var(--secondary-font-family);
         font-size: larger;
         align-content: center;
         align-items: center;
@@ -348,7 +348,7 @@
         row-gap: 5em;
         margin-left: 5%;
         margin-right: 5%;
-        font-family: 'Roboto Condensed', cursive;
+        font-family: var(--secondary-font-family);
         font-size: larger;
         align-content: center;
         align-items: center;

@@ -61,6 +61,7 @@ import { AdminReservaComponent } from './components/admin/itinerario/admin-reser
 
 import { AuthService } from "./services/auth.service";
 
+import { ReserveListComponent } from './components/admin/itinerario/reserve-list/reserve-list.component';
 
 
 const appRoutes: Routes=[
@@ -113,6 +114,7 @@ const appRoutes: Routes=[
     RevisarItinerarioComponent,
     ItinerarioDetailsComponent,
     AdminReservaComponent,
+    ReserveListComponent,
     
   ],
   imports: [

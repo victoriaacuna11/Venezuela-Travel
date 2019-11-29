@@ -1,5 +1,10 @@
 <app-bar></app-bar>
+<ng-container *ngIf="!loadingDestinations; then load; else noLoad"></ng-container>
+<ng-template #noLoad>
+    <app-loader></app-loader>
+</ng-template>
 
+<ng-template #load>
 <app-banner-img title="Destinos" img="assets/img/plane.jpg"></app-banner-img>
 
 <div class="blank">
@@ -19,7 +24,7 @@
 <div class="blank">
 
 </div>
-
+</ng-template>
 <app-footer></app-footer>
 
 <!--<app-dests-and-states [objs]=destinations></app-dests-and-states>-->

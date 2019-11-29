@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 *{
     margin: 0;
     padding: 0;
@@ -59,7 +61,7 @@
 }
 
 .individual{
-    font-family: 'Roboto Condensed', cursive;
+    font-family: var(--secondary-font-family);
     font-size: 20px;
     position: relative;
     width: 400px;

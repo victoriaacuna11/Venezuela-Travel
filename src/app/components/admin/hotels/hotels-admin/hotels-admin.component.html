@@ -19,7 +19,7 @@
                             NOMBRE
                         </div> 
                         <div class="wrapper">
-                            <input formControlName="name" type="text" />
+                            <input class="inp" formControlName="name" type="text" />
                         </div>
                     </div>
                     <div class="detail-wrapper">
@@ -27,7 +27,7 @@
                             IMAGEN DEL BANNER
                         </div>
                         <div class="wrapper">
-                            <input formControlName="bannerImg" type="text"/>
+                            <input class="inp"  formControlName="bannerImg" type="text"/>
                         </div>
                     </div>
                     <div class="detail-wrapper">
@@ -35,7 +35,7 @@
                             DESCRIPCIÓN
                         </div>
                         <div class="wrapper">
-                            <input formControlName="description" type="text" placeholder="Ingrese una breve descripción..."/>
+                            <input class="inp" formControlName="description" type="text" placeholder="Ingrese una breve descripción..."/>
                         </div>
                     </div>
                     <div class="detail-wrapper">
@@ -43,7 +43,7 @@
                             IMAGEN PRINCIPAL
                         </div>
                         <div class="wrapper">
-                            <input formControlName="imgPrin" type="text" placeholder="Link de la imagen..."/>
+                            <input class="inp" formControlName="imgPrin" type="text" placeholder="Link de la imagen..."/>
                         </div>
                     </div>
                     <div class="detail-wrapper">
@@ -51,7 +51,7 @@
                             ESTRELLAS
                         </div>
                         <div class="wrapper">
-                                <input formControlName="stars" type="number" min="1" max="5"/>
+                                <input class="inp" formControlName="stars" type="number" min="1" max="5"/>
                         </div>
                     </div>
                     <div class="detail-wrapper">
@@ -59,7 +59,7 @@
                             LATITUD
                         </div>
                         <div class="wrapper">
-                            <input formControlName="latitude" type="number"/>
+                            <input class="inp" formControlName="latitude" type="number"/>
                         </div>
                     </div>
                     <div class="detail-wrapper">
@@ -67,7 +67,7 @@
                             LONGITUD
                         </div>
                         <div class="wrapper">
-                            <input formControlName="longitude" type="number"/>
+                            <input class="inp" formControlName="longitude" type="number"/>
                         </div>
                     </div>
                     <div class="detail-wrapper">
@@ -75,7 +75,7 @@
                             DIRECCIÓN
                         </div>
                         <div class="wrapper">
-                            <input formControlName="direction" type="text"/>
+                            <input class="inp" formControlName="direction" type="text"/>
                         </div>
                     </div>
                     <div class="detail-wrapper">
@@ -96,7 +96,7 @@
                             CIUDAD
                         </div>
                         <div class="wrapper">
-                            <input formControlName="city" type="text"/>
+                            <input class="inp" formControlName="city" type="text"/>
                         </div>
                     </div>
                 </div>
@@ -132,11 +132,13 @@
                     <div class="wrapper">
                         SERVICIOS
                     </div>
-                    <div class="checkbox">
-                        <div class="cb-item" *ngFor="let control of hotelFacilities; let i = index">
+                    <div class="checkbox-1">
+                        <div class="cb-item-1" *ngFor="let control of hotelFacilities; let i = index">
                             <div class="input-cb">
                                 <input [(ngModel)] = 'control.selected'
                                 type="checkbox" [ngModelOptions]="{standalone: true}">
+                            </div>
+                            <div>
                                 <label>{{control.name}}</label>
                             </div>    
                         </div>
@@ -198,7 +200,7 @@
                                         NOMBRE
                                     </div> 
                                     <div class="wrapper">
-                                        <input formControlName="name" type="text" />
+                                        <input class="inp" formControlName="name" type="text" />
                                     </div>
                                 </div>
                                 <div class="detail-wrapper">
@@ -206,7 +208,7 @@
                                         IMAGEN DEL BANNER
                                     </div>
                                     <div class="wrapper">
-                                        <input formControlName="bannerImg" type="text"/>
+                                        <input class="inp" formControlName="bannerImg" type="text"/>
                                     </div>
                                 </div>
                                 <div class="detail-wrapper">
@@ -214,7 +216,7 @@
                                         DESCRIPCIÓN
                                     </div>
                                     <div class="wrapper">
-                                        <input formControlName="description" type="text" placeholder="Ingrese una breve descripción..."/>
+                                        <input class="inp" formControlName="description" type="text" placeholder="Ingrese una breve descripción..."/>
                                     </div>
                                 </div>
                                 <div class="detail-wrapper">
@@ -222,7 +224,7 @@
                                         IMAGEN PRINCIPAL
                                     </div>
                                     <div class="wrapper">
-                                        <input formControlName="imgPrin" type="text" placeholder="Link de la imagen..."/>
+                                        <input class="inp"  formControlName="imgPrin" type="text" placeholder="Link de la imagen..."/>
                                     </div>
                                 </div>
                                 <div class="detail-wrapper">
@@ -230,7 +232,7 @@
                                         ESTRELLAS
                                     </div>
                                     <div class="wrapper">
-                                            <input formControlName="stars" type="number" min="1" max="5"/>
+                                            <input class="inp"  formControlName="stars" type="number" min="1" max="5"/>
                                     </div>
                                 </div>
                                 <div class="detail-wrapper">
@@ -238,7 +240,7 @@
                                         LATITUD
                                     </div>
                                     <div class="wrapper">
-                                        <input formControlName="latitude" type="number"/>
+                                        <input class="inp" formControlName="latitude" type="number"/>
                                     </div>
                                 </div>
                                 <div class="detail-wrapper">
@@ -246,7 +248,7 @@
                                         LONGITUD
                                     </div>
                                     <div class="wrapper">
-                                        <input formControlName="longitude" type="number"/>
+                                        <input class="inp"  formControlName="longitude" type="number"/>
                                     </div>
                                 </div>
                                 <div class="detail-wrapper">
@@ -254,7 +256,7 @@
                                         DIRECCIÓN
                                     </div>
                                     <div class="wrapper">
-                                        <input formControlName="direction" type="text"/>
+                                        <input class="inp" formControlName="direction" type="text"/>
                                     </div>
                                 </div>
                                 <div class="detail-wrapper">
@@ -275,7 +277,7 @@
                                         CIUDAD
                                     </div>
                                     <div class="wrapper">
-                                        <input formControlName="city" type="text"/>
+                                        <input class="inp" formControlName="city" type="text"/>
                                     </div>
                                 </div>
                             </div>
@@ -314,7 +316,7 @@
                                 <div class="checkbox">
                                     <div class="cb-item" *ngFor="let control of hotelFacilities; let i = index">
                                         <div class="input-cb">
-                                            <input [(ngModel)] = 'control.selected'
+                                            <input id="input-cb" [(ngModel)] = 'control.selected'
                                             type="checkbox" [ngModelOptions]="{standalone: true}">
                                             <label >{{control.name}}</label>
                                         </div>  

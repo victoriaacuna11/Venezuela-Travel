@@ -59,7 +59,7 @@ export class DestinationsAdminComponent implements OnInit {
   }
 
   getD(){
-    this.loading = true;
+    
     this.isModify=true;
     const id = this.actRoute.snapshot.paramMap.get('id');
     this.destinationSV.getDestinationById(id).subscribe(e => {
