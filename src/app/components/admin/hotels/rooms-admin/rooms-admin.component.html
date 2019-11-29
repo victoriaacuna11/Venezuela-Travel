@@ -32,7 +32,7 @@
                     NOMBRE
                 </div> 
                 <div class="wrapper">
-                    <input formControlName="name" type="text" />
+                    <input class="inp" formControlName="name" type="text" />
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -40,7 +40,7 @@
                     CAPACIDAD
                 </div>
                 <div class="wrapper">
-                    <input formControlName="capacity" type="number" min="1"/>
+                    <input class="inp" formControlName="capacity" type="number" min="1"/>
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -48,7 +48,7 @@
                     VISTAS
                 </div> 
                 <div class="wrapper">
-                    <input formControlName="views" type="text" placeholder="Describa las vistas de la habitación..."/>
+                    <input class="inp" formControlName="views" type="text" placeholder="Describa las vistas de la habitación..."/>
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -56,7 +56,7 @@
                     PRECIO POR NOCHE
                 </div>
                 <div class="wrapper">
-                    <input formControlName="price" type="number" min="1"/>
+                    <input class="inp" formControlName="price" type="number" min="1"/>
                 </div>
             </div>
             <br>
@@ -154,7 +154,7 @@
                     NOMBRE
                 </div> 
                 <div class="wrapper">
-                    <input formControlName="name" type="text" />
+                    <input class="inp" formControlName="name" type="text" />
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -162,7 +162,7 @@
                     CAPACIDAD
                 </div>
                 <div class="wrapper">
-                    <input formControlName="capacity" type="number" min="1"/>
+                    <input class="inp" formControlName="capacity" type="number" min="1"/>
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -170,7 +170,7 @@
                     VISTAS
                 </div> 
                 <div class="wrapper">
-                    <input formControlName="views" type="text" placeholder="Describa las vistas de la habitación..."/>
+                    <input class="inp" formControlName="views" type="text" placeholder="Describa las vistas de la habitación..."/>
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -178,7 +178,7 @@
                     PRECIO POR NOCHE
                 </div>
                 <div class="wrapper">
-                    <input formControlName="price" type="number" min="1"/>
+                    <input  class="inp" formControlName="price" type="number" min="1"/>
                 </div>
             </div>
             <br>
@@ -216,7 +216,7 @@
                         <td class="input-cb">
                             <input [(ngModel)] = 'control.selected'
                             type="checkbox" [ngModelOptions]="{standalone: true}">
-                            <label>{{control.name}}</label>
+                            <label >{{control.name}}</label>
                         </td>     
                     </div>
                 </div>

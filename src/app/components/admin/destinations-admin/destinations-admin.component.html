@@ -16,7 +16,7 @@
                     NOMBRE
                 </div>
                 <div class="wrapper">
-                    <input formControlName="name" type="text" />
+                    <input class="inp" formControlName="name" type="text" />
                 </div>
             </div>
             <div class="detail-wrapper">
@@ -24,7 +24,7 @@
                     IMAGEN DEL BANNER
                 </div>
                 <div class="wrapper">
-                    <input formControlName="bannerImg" type="text" />
+                    <input class="inp"  formControlName="bannerImg" type="text" />
                 </div>
             </div>
             <div class="button">
@@ -38,7 +38,7 @@
 
     <ng-container *ngIf="!loading; then NoLoader; else loader"></ng-container>
 
-    <ng-template #loader>gfhgfdhgf</ng-template>
+    <ng-template #loader><app-loader></app-loader></ng-template>
 
     <ng-template #NoLoader>
         <div class="form">
@@ -52,7 +52,7 @@
                             NOMBRE
                         </div>
                         <div class="wrapper">
-                            <input formControlName="name" type="text" />
+                            <input class="inp"  formControlName="name" type="text" />
                         </div>
                     </div>
                     <div class="detail-wrapper">
@@ -60,7 +60,7 @@
                             IMAGEN DEL BANNER
                         </div>
                         <div class="wrapper">
-                            <input formControlName="bannerImg" type="text" />
+                            <input class="inp"  formControlName="bannerImg" type="text" />
                         </div>
                     </div>
                     <div class="button">
