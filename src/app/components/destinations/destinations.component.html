@@ -7,7 +7,7 @@
 </div>
 <div class="max-container">
     <div>
-        <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}" *ngFor="let o of destinations">
+        <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}" *ngFor="let o of destinations | isAvailable">
             <div class="wrap-mask">
                 <a class="link" [routerLink]="['/estados', o.id]">
                     <h1>{{o.name}}</h1>

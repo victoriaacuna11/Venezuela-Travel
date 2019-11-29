@@ -109,4 +109,20 @@ export class StatesService {
     this.dDoc.update(state);
   }
 
+  rearrangeByViews(statesToFilter: StateInterface[]): StateInterface[]{
+    statesToFilter=statesToFilter.filter(e => e.views>0)
+       .sort(function(a,b) {
+         return b.views-a.views;
+       });    
+       return statesToFilter;
+  }
+  
+  rearrangeBySells(statesToFilter: StateInterface[]): StateInterface[]{
+    statesToFilter=statesToFilter.filter(e => e.visits>0)
+       .sort(function(a,b) {
+         return b.visits-a.visits;
+       });
+       return statesToFilter;
+  }
+
 }
