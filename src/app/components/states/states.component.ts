@@ -23,6 +23,8 @@ export class StatesComponent implements OnInit {
   id = '';
   estados: DestinationInterface[];
   isAll = true;
+  contViews;
+  state: StateInterface;
 
 
 
@@ -133,4 +135,22 @@ export class StatesComponent implements OnInit {
     })
   }
 
+  showMostViewed(){
+    this._states.rearrangeByViews(this.statess);
+  }
+
+  addView(id){
+    let found=false;
+    let cont=0;
+    while(!found && cont<this.statess.length){
+      if(this.statess[cont].id===id){
+        found=true;
+        this.statess[cont].views=this.statess[cont].views+=1;
+        this.state = this.statess[cont];
+      }
+      cont=cont+1;
+    }
+    console.log(this.state);
+    this._states.updateS(this.state);
+  }
 }

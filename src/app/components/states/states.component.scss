@@ -10,9 +10,26 @@ a{
 }
 
 .bordersz{
+    background-color: #1DA9BC;
+    height: 40%;
+    width: 40%;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
 
-    background-color: blue;
+        &:hover{
+            transition: .4s;
+            color: white;
+            cursor: pointer;
+        }
+}
 
+#t{
+    margin: auto;
+    height: 100%;
+    margin-top: 3%;
 }
 
 .banner{
@@ -72,6 +89,9 @@ a{
 .container:hover .image{
     opacity: 1;
 }
+
+
+
 .container:hover{
     background:#1DA9BC ;
     height: 55vh;
@@ -80,22 +100,15 @@ a{
 }
 
 .blank{
-    display: flex;
+    display: grid;
     width: 100vw;
     height: 12vh;
     background-color: #ddd4c7;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center;
-    align-content: center;
-    justify-content: center;
 }
 
-
-.blank{
-    width: 100vw;
-    height: 12vh;
-    background-color: #ddd4c7;
-}
 
 
 .obj-wrapper{

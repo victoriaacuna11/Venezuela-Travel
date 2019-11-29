@@ -6,14 +6,13 @@
 <!--<ng-template #NoLoader>-->
 
 <app-banner-img title="Estados" img="assets/img/states.jpg"></app-banner-img>
-
+<br>
 <div class="blank">
-
-        <div class="bordersz">Arreglate mi pana</div>
+        <div class="bordersz" id="byViews" (click)="showMostViewed()"><p id="t">Los más visitados</p></div>
 
         <app-search-bar (messageEvent)="receiveMessage($event)"></app-search-bar>
 
-        <div class="bordersz" >Arreglate mi pana</div>
+        <div class="bordersz" id="byViews"><p id="t">Arreglate mi pana</p></div>
 </div>
 
 <div class="max-container" *ngIf="isAll; else filteredByDestination">
@@ -21,7 +20,7 @@
                 <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}"
                         *ngFor="let o of (statess | isAvailable | filter:search)">
                         <div class="wrap-mask">
-                                <a class="link" [routerLink]="['/infoestado', o.id]">
+                                <a class="link" (click)="addView(o.id)" [routerLink]="['/infoestado', o.id]">
                                         <h1>{{o.name}}</h1>
                                 </a>
                         </div>
@@ -34,7 +33,7 @@
                         <div class="obj-wrapper" [ngStyle]="{'background-image': 'url('+o.bannerImg+')'}"
                                 *ngFor="let o of (statess | filter:search)">
                                 <div class="wrap-mask">
-                                        <a class="link" [routerLink]="['/infoestado', o.id]">
+                                        <a class="link" (click)="addView(o.id)" [routerLink]="['/infoestado', o.id]">
                                                 <h1>{{o.name}}</h1>
                                         </a>
                                 </div>

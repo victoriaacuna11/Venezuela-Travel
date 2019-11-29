@@ -16,8 +16,6 @@ export class HotelsService {
   dDoc: AngularFirestoreDocument<Hotel>;
 
   // BORRAR
-  
-
   btnR = false;
 
   
