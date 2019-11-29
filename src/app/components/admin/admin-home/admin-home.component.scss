@@ -41,7 +41,7 @@
 
 .buttons-wrap{
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     column-gap: 7px;
     .button{
         display: flex;

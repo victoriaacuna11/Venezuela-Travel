@@ -183,8 +183,10 @@ a{
     
 }
 .destinations{
-    height: 30vh;
-    width: 50vw;
+    // height: 30vh;
+    // width: 50vw;
+    display: grid;
+    grid-template-rows: 1fr;
     // background-color: pink;
     text-align: center;
     align-items: center;

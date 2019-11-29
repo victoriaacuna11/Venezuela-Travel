@@ -1,9 +1,11 @@
+@import '../../../styles.scss';
 .container-r{
    
     display: flex;
     align-items: center;
     flex-direction: column;
-   
+//    font-family: var(--secondary-color);
+   font-family: var(--main-title-font);
  
     width:100vw;
     color:#1da9bc;

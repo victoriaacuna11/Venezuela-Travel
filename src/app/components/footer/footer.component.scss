@@ -1,13 +1,44 @@
+// .footer{
+//     background:#1DA9BC ;
+//     height: 15vh;
+//     width: 100vw;
+//     display: grid;
+//     grid-template-columns: 0.84fr 0.15fr 0.01fr;
+// }
+// .icons-wrapper{
+//     display: grid;
+//     grid-template-columns: repeat(4,1fr);
+//     column-gap: 2px;
+//     align-items: center;
+// }
+// .icon-imgs img{
+//     max-height: 50px;
+//     display: block;
+//     margin: auto;
+// }
+// .separator{
+//     display: grid;
+//     grid-template-rows: 0.85fr 0.15fr;
+// }
+// .twitter{
+//     height: 44px;
+// }
+// .gmail{
+//     height: 54px;
+// }
+
+
 .footer{
     background:#1DA9BC ;
     height: 15vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: 0.84fr 0.15fr 0.01fr;
+    grid-template-rows: repeat(2,1fr);
 }
 .icons-wrapper{
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    column-gap: 2px;
     align-items: center;
 }
 .icon-imgs img{
@@ -17,11 +48,11 @@
 }
 .separator{
     display: grid;
-    grid-template-rows: 0.85fr 0.15fr;
+    grid-template-columns: 0.9fr 0.1fr;
 }
 .twitter{
     height: 44px;
 }
 .gmail{
-    height: 54px;
+    height: 56px;
 }
