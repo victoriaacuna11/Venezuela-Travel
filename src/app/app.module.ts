@@ -50,16 +50,15 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { RoomsAdminComponent } from './components/admin/hotels/rooms-admin/rooms-admin.component';
 import { HotelsListComponent } from './components/admin/hotels/hotels-list/hotels-list.component';
 import { RoomsListAdminComponent } from './components/admin/hotels/rooms-list-admin/rooms-list-admin.component';
-<<<<<<< HEAD
 import { IsAvailablePipe } from './Pipes/is-available.pipe';
-  
-=======
-import { NgxPayPalModule } from 'ngx-paypal';
 import { RevisarItinerarioComponent } from './components/revisar-itinerario/revisar-itinerario.component';
 import { ItinerarioDetailsComponent } from './components/itinerario-details/itinerario-details.component';
 import { AdminReservaComponent } from './components/admin/itinerario/admin-reserva/admin-reserva.component';
+  
+import { NgxPayPalModule } from 'ngx-paypal';
+import { AuthService } from "./services/auth.service";
 
->>>>>>> planeaTuViajept3
+
 
 const appRoutes: Routes=[
 
@@ -131,7 +130,7 @@ const appRoutes: Routes=[
     NgxPayPalModule
     
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

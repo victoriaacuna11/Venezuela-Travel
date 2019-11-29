@@ -1,10 +1,6 @@
 {
   "projects": {
-    "default": "venezuela-travel-4a94e",
-    "vt": "venezuela-travel-4a94e",
-    "ventra": "venezuela-travel-4a94e",
-    "alias": "venezuela-travel-4a94e"
-    "VT": "venezuela-travel-4a94e",
-    "VEN": "venezuela-travel-4a94e"
+    "elquees": "venezuela-travel-4a94e",
+    "default": "venezuela-travel-4a94e"
   }
 }

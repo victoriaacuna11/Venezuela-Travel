@@ -17,6 +17,7 @@ import { PlanTripServiceService } from 'src/app/services/plan-trip-service.servi
 import { ReserveService } from 'src/app/services/reserve.service';
 import { ReserveInterface } from 'src/app/Models/reserve';
 import {  ReserveRoomInterface } from 'src/app/Models/reserveRoom';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 
 
@@ -245,6 +246,7 @@ export class PlaneaTuViajeComponent implements OnInit  {
               private roomSV:RoomServiceService,
               private planTripSV:PlanTripServiceService,
               private reserveSV:ReserveService,
+              private userSV:UsuarioService,
 
               
      ) { }
@@ -418,7 +420,7 @@ getHot(){
         let isIn=false;
 
             //aca tambien coloca la propiedad del objeto de si esta activo o no
-            if(this.destinationSelected!=undefined){
+            if((this.destinationSelected!=undefined)&&stateSelect.available){
 
                   // && state esta disponible
               if(this.destinationSelected.id==stateSelect.destination || this.destinationSelected==undefined){
@@ -446,7 +448,7 @@ getHot(){
 
      
               //&& hotel esta disponible
-          if(  this.stateSelected==undefined || this.stateSelected.id==hotel.state){
+          if(  (this.stateSelected==undefined || this.stateSelected.id==hotel.state) && hotel.available ){
 
             isIn=true;
             
@@ -462,7 +464,7 @@ getHot(){
 
       let isIn=false;
 
-        if(this.hotelSelected!=undefined){
+        if((this.hotelSelected!=undefined) &&room.available){
 
           if(this.hotelSelected.id==room.hotel){
 
@@ -842,11 +844,11 @@ for ( let r of this.roomArray.controls) {
         {
           amount: {
             currency_code: 'USD',
-            value: this.totalCost,
+            value: '1', //this.totalCost,
             breakdown: {
               item_total: {
                 currency_code: 'USD',
-                value: this.totalCost
+                value: '1', //this.totalCost,
               }
             }
           },
@@ -857,7 +859,7 @@ for ( let r of this.roomArray.controls) {
               category: 'DIGITAL_GOODS',
               unit_amount: {
                 currency_code: 'USD',
-                value: this.totalCost,
+                value: '1', //this.totalCost,
               },
             }
           ]
@@ -873,52 +875,8 @@ for ( let r of this.roomArray.controls) {
     },
     onApprove: (data, actions) => {
       //console.log('onApprove - transaction was approved, but not authorized');
-      this.modalShow=true;
-      actions.order.get().then(details => {
-        //console.log('onApprove - you can get full order details inside onApprove: ');
-      });
-    },
-    onClientAuthorization: (data) => {
-      //console.log('onClientAuthorization');
-      this.showSuccess = true;
 
-
-
-      //aqui se pone que pase algo cuando el usuario haya pagado
-      
-
-      //console.log("hola gordo");
-    },
-    onCancel: (data, actions) => {
-     // console.log('OnCancel');
-    },
-    onError: err => {
-      //console.log('OnError');
-    },
-    onClick: (data, actions) => {
-      //console.log('onClick');
-    },
-  };
-  }
-
-
-  //calcula al monto y pasa al paso 
-  calcularMonto(){
-
-    let allCost=0;
-
-    for (let index = 0; index < this.tripPlan.reserves.length; index++) {
-     
-        allCost=allCost+this.tripPlan.reserves[index].cost;
-
-    }
-
-    this.totalCost=allCost.toString();
-
-
-
-
-    //esto tal vez se mueva para despues dependiendo 
+      //esto tal vez se mueva para despues dependiendo 
     
 
     let planCrud:PlanViajeInterface={
@@ -1023,15 +981,93 @@ for ( let r of this.roomArray.controls) {
 
 
       }
+
+
+
+      this.addPost();
+
+    
   
-  
-      this.passToStep7();
+      
 
 
     });
 
+      this.modalShow=true;
+
+      //se pone el correo
+
+      actions.order.get().then(details => {
+        //console.log('onApprove - you can get full order details inside onApprove: ');
+      });
+    },
+    onClientAuthorization: (data) => {
+      //console.log('onClientAuthorization');
+      this.showSuccess = true;
+
+
+
+      //aqui se pone que pase algo cuando el usuario haya pagado
+      
+
+      //console.log("hola gordo");
+    },
+    onCancel: (data, actions) => {
+     // console.log('OnCancel');
+    },
+    onError: err => {
+      //console.log('OnError');
+    },
+    onClick: (data, actions) => {
+      //console.log('onClick');
+    },
+  };
   }
+
+
+  //calcula al monto y pasa al paso 
+  calcularMonto(){
+
+    let allCost=0;
+
+    for (let index = 0; index < this.tripPlan.reserves.length; index++) {
+     
+        allCost=allCost+this.tripPlan.reserves[index].cost;
+
+    }
+
+    this.totalCost=allCost.toString();
+
+
+
+
+    
+    //recuerda si no funciona lo pones adentro de la mmierda asincrona
+    this.passToStep7();
+
+  }
+
+
+
+  addPost(){
+
+    const mov={
+
+      name:this.tripPlan.name,
+      email:this.tripPlan.email,
+      itinerario:this.idOfTP,
+    }
+    
+
+    this.userSV.addUser(mov);
+
+  }
+
+
+
 }
+
+
 
 
 

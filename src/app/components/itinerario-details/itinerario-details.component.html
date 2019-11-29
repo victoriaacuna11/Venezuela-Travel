@@ -1,1 +1,35 @@
-el id es {{idItinerario}}
+<app-bar></app-bar>
+
+<ng-container *ngIf=" !loadingTp && !loadingHotels && !loadingRooms && !loadingReserves;then load; else noload" ></ng-container>
+
+    <ng-template #noload> loading...</ng-template>
+    <ng-template #load>
+
+        <div class="container-itinerarios">
+
+            <div class="inineData" *ngIf="!showInfo">
+
+                <button (click)="getInfo()" >aparezca info</button>
+            </div>
+
+
+            <div class="inineData" *ngIf="showInfo">
+
+                <div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </ng-template>
+
+
+
+
+
+
+

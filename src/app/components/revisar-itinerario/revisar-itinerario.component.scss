@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     background:#e3ded5 ;
-    height: 75vh;
+    min-height: 80vh;
     width: 100vw;
     color: #1da9bc;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.blueswandaily.com//2018/11/Travel000-2000x1200.jpg");
@@ -15,23 +15,23 @@
 
     margin-top: 35px;
     background: #e3ded5;
-    height: 300px;
-    width: 300px;
+    
+    width: 60vw;
     
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1); 
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin-bottom: 9vh;
 
 }
 .codigoItine h1{
-    margin-top: 10px;
+    margin-top: 30px;
     padding-bottom:2px;
-    font-size: 25px;
+    font-size: 30px;
    
     
 }
@@ -53,7 +53,8 @@ input{
     height: 25px;
     border-radius:5px;
     padding-left: 10px;
-    width:170px;
+    width: 30vw;;
+    margin-right: 10px;
 }
 
 button{
@@ -72,4 +73,55 @@ button:hover{
     background: #106570;
     transition:0.5s;
 
+}
+
+.code{
+
+    margin-top:30px;
+    margin-bottom:30px;
+     
+}
+.trip-container{
+
+    
+    width: 50vw ;
+    min-height: 50vh;
+    margin-bottom: 50px;
+    background: #18789e;
+    color:white;
+    border-radius: 5px;
+}
+
+.r-data{
+
+   
+    width: 50vw ;
+    height: 45vh;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.img-hot{
+    height: 200px;
+    width: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    
+}
+.tp{
+    margin-left:70px;
+    margin-top:20px;
+}
+.r-n{
+    margin-left:70px;
+}
+
+.datar{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }

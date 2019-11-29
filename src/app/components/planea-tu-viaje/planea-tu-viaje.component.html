@@ -68,12 +68,12 @@
         <div class="paso2" *ngIf="pasos.paso_2" >
             <h1>Paso 2: Selecciona un Destino</h1>
 
-            <div>espacio barra de busqueda</div>
+            
 
              <!-- Div del if -->
                 
                 <div class="for" *ngFor="let obj of destinations">
-                   <div>  <!-- nf if esta disponible -->
+                   <div *ngIf="obj.available">  <!-- nf if esta disponible -->
                         <div class="destin" [ngStyle]="{'background-image': 'url('+obj.bannerImg+')'}" (click)="selectDest(obj)" >
                             <h2>{{obj.name}}</h2>
                         </div>
@@ -106,7 +106,7 @@
         <div class="paso3" *ngIf="pasos.paso_3" >
             <h1>Paso 3: Selecciona un Estado</h1>
 
-            <div>espacio barra de busqueda</div>
+            
 
             <div class="for" *ngFor="let ob of states">
                      
@@ -137,7 +137,7 @@
         <div class="paso4" *ngIf="pasos.paso_4" >
             <h1>Paso 4: Selecciona un Hotel</h1>
 
-            <div>espacio barra de busqueda</div>
+            
 
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,28 +17,38 @@ export class LoginComponent implements OnInit {
 
   public property=false;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+               
+    ) { }
 
   ngOnInit() {
   }
 
   
-  onLogin(){
+   onLogin(){
 
-    if(this.lgUser==this.username && this.lgPassword==this.password){
 
-      console.log(this.username+this.password);
-
-      this.router.navigate(['/admin/dashboard']);
-
-    }else{
       
-      this.property=true;
+
+
+
+
+
+     if(this.lgUser==this.username && this.lgPassword==this.password){
+
+       console.log(this.username+this.password);
+
+       this.router.navigate(['/admin/dashboard']);
+
+     }else{
+      
+       this.property=true;
       
     }
 
     
+    
 
-}
+ }
 
 }

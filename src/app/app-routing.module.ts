@@ -26,6 +26,7 @@ import { HotelsListComponent } from './components/admin/hotels/hotels-list/hotel
 import { RoomsListAdminComponent } from './components/admin/hotels/rooms-list-admin/rooms-list-admin.component';
 import { RevisarItinerarioComponent } from './components/revisar-itinerario/revisar-itinerario.component';
 import { ItinerarioDetailsComponent } from './components/itinerario-details/itinerario-details.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -41,17 +42,17 @@ const routes: Routes = [
   {path: 'destination/info/:id', component: TouristDestinationComponent},
   {path: 'hotel/:id', component: HotelXComponent},
   {path: 'hotel/:id/rooms', component: RoomsListComponent},
-  {path: 'adminEdo', component: StatesAdminComponent},
+  {path: 'adminEdo', component: StatesAdminComponent },
   {path: 'modifyState/:id', component: StatesAdminComponent},
   {path: 'stateList', component: ListStatesComponent},
   {path: 'info/:id', component: TouristInfoComponent},
-  {path: 'adminTD', component: TDestinationsAdminComponent},
-  {path: 'adminTD/:id', component: TDestinationsAdminComponent},
+  {path: 'adminTD', component: TDestinationsAdminComponent },
+  {path: 'adminTD/:id', component: TDestinationsAdminComponent },
   {path: 'TDList', component: ListTDestinationsComponent},
-  {path: 'admin/destination/add', component: DestinationsAdminComponent},
-  {path: 'modifyDest/:id', component: DestinationsAdminComponent},
-  {path: 'admin/destinations', component: ListDestinationsComponent},
-  {path: 'admin/hotel/add', component: HotelsAdminComponent},
+  {path: 'admin/destination/add', component: DestinationsAdminComponent },
+  {path: 'modifyDest/:id', component: DestinationsAdminComponent },
+  {path: 'admin/destinations', component: ListDestinationsComponent },
+  {path: 'admin/hotel/add', component: HotelsAdminComponent },
   {path: 'admin/hotel/add/:id', component: HotelsAdminComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin/dashboard', component: AdminHomeComponent},
