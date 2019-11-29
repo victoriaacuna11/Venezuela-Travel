@@ -57,6 +57,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import { RevisarItinerarioComponent } from './components/revisar-itinerario/revisar-itinerario.component';
 import { ItinerarioDetailsComponent } from './components/itinerario-details/itinerario-details.component';
 import { AdminReservaComponent } from './components/admin/itinerario/admin-reserva/admin-reserva.component';
+import { ReserveListComponent } from './components/admin/itinerario/reserve-list/reserve-list.component';
 
 
 const appRoutes: Routes=[
@@ -109,6 +110,7 @@ const appRoutes: Routes=[
     RevisarItinerarioComponent,
     ItinerarioDetailsComponent,
     AdminReservaComponent,
+    ReserveListComponent,
     
   ],
   imports: [

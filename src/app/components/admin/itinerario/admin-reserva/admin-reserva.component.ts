@@ -3,10 +3,10 @@ import { Hotel } from 'src/app/Models/hotel';
 import { Room } from 'src/app/Models/room';
 import { HotelsService } from 'src/app/services/hotels.service';
 import { RoomServiceService } from 'src/app/services/room-service.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { ReserveService } from 'src/app/services/reserve.service';
 import { ReserveInterface } from 'src/app/Models/reserve';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-reserva',
@@ -15,36 +15,51 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdminReservaComponent implements OnInit {
 
-  // hotels: Hotel[];
-  // hotel: string //Guarda el id del hotel seleccionado;
-  // initialHotel: Hotel;
-  // rooms: Room[];
-  // loadingRooms:boolean;
-  // loadingHotels: boolean;
-  // modifyHotel:boolean;
-  // modifyRoom:boolean;
-  // createStateFrom: FormGroup;
-  // reserve: ReserveInterface;
-  // loadingReserve:boolean;
+  hotels: Hotel[];
+  hotel: string //Guarda el id del hotel seleccionado;
+  initialHotel: Hotel;
+  rooms: Room[];
+  loadingRooms:boolean;
+  loadingHotels: boolean;
+  modifyHotel:boolean;
+  modifyRoom:boolean;
+  createStateFrom: FormGroup;
+  reserve: ReserveInterface;
+  loadingReserve:boolean;
 
-  // constructor(private hotelSV:HotelsService, private roomSV: RoomServiceService, private _builder: FormBuilder,
-  //   private reserveSV: ReserveService, private routeSV: ActivatedRoute) { }
+  constructor(private hotelSV:HotelsService, private roomSV: RoomServiceService, private _builder: FormBuilder,
+    private reserveSV: ReserveService, private routeSV: ActivatedRoute,private route: Router) { }
 
   ngOnInit() {
     // this.loadingHotels=true;
     // this.loadingRooms=true;
-    // this.loadingReserve=false;
+    this.loadingReserve=false;
     // this.modifyHotel=false;
     // this.modifyRoom=false;
-    // this.getReserve();
+    this.createStateFrom = this._builder.group({
+      cost: ['', Validators.required],
+      numberOfPeople: ['', Validators.required],
+    })
+    const id= this.routeSV.snapshot.paramMap.get('id');
+    this.reserveSV.getReserveById(id).subscribe(arr => {
+      const reserve: ReserveInterface={
+        id:arr.payload.id,
+        ...arr.payload.data(),
+      }
+      this.reserve=reserve;
+      this.hotel=reserve.hotel;
+      
+      this.createStateFrom.patchValue({
+        cost:this.reserve.cost,
+        numberOfPeople:this.reserve.numberOfPeople,
+      })
+      this.loadingReserve=false;
+    })
     // this.getHotels();
     // this.getRooms();
 
-    // this.createStateFrom.patchValue({
-    //   cost:this.reserve.cost,
-    //   numberOfPeople:this.reserve.numberOfPeople,
-    // })
-   // this.createStateFrom.setControl('hotel')
+    
+   
 
   }
 
@@ -77,19 +92,23 @@ export class AdminReservaComponent implements OnInit {
   //       )
   //     }
 
-  // getReserve(){
-  //   const id= this.routeSV.snapshot.paramMap.get('id');
-  //   this.reserveSV.getReserveById(id).subscribe(arr => {
-  //     const reserve: ReserveInterface={
-  //       id:arr.payload.id,
-  //       ...arr.payload.data(),
-  //     }
-  //     this.reserve=reserve;
-  //     this.hotel=reserve.hotel;
-  //     this.getInitialHotel(this.hotel);
-  //     this.loadingReserve=false;
-  //   })
-  // }
+  getReserve(){
+    const id= this.routeSV.snapshot.paramMap.get('id');
+    this.reserveSV.getReserveById(id).subscribe(arr => {
+      const reserve: ReserveInterface={
+        id:arr.payload.id,
+        ...arr.payload.data(),
+      }
+      this.reserve=reserve;
+      this.hotel=reserve.hotel;
+      
+      this.createStateFrom.patchValue({
+        cost:this.reserve.cost,
+        numberOfPeople:this.reserve.numberOfPeople,
+      })
+      this.loadingReserve=false;
+    })
+  }
 
   // getInitialHotel(id:string){
 
@@ -116,4 +135,27 @@ export class AdminReservaComponent implements OnInit {
   //   this.hotel=hotel;
   // }
 
+  // setRooms(imgSet: any[]): FormArray{
+  //   const formArray = new FormArray([]);
+  //   imgSet.forEach(e => {
+  //     formArray.push(
+  //       this._builder.group({
+  //         roomName: e.roomName,
+  //         roomCant: e.roomCant,
+  //       })
+  //     );
+  //   })
+  //   return formArray;
+  // }
+
+  updatePost(){
+
+    this.reserve.cost=this.createStateFrom.value.cost;
+    this.reserve.numberOfPeople=this.createStateFrom.value.numberOfPeople;
+    this.reserveSV.updateReserve(this.reserve);
+    this.route.navigate(['/admin/reserves']);
+
+
+
+  }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { ReserveInterface } from '../Models/reserve';
 
 @Injectable({
@@ -7,6 +7,7 @@ import { ReserveInterface } from '../Models/reserve';
 })
 export class ReserveService {
 
+  dDoc: AngularFirestoreDocument<ReserveInterface>;
   constructor(public afs: AngularFirestore) { 
     const order=this.afs.collection<ReserveInterface>('reserves').snapshotChanges();
   }
@@ -30,6 +31,10 @@ export class ReserveService {
     return this.afs.collection<ReserveInterface>('reserves').doc<ReserveInterface>(id).snapshotChanges();
   }
 
+  updateReserve(reserve: ReserveInterface) {
+    this.dDoc = this.afs.doc(`reserves/${reserve.id}`);
+    this.dDoc.update(reserve);
+  }
 
 
 
